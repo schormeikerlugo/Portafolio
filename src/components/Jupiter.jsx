@@ -113,7 +113,7 @@ function JupiterWithTexture() {
     const meshRef = useRef();
     const atmosRef = useRef();
     const { viewport } = useThree();
-    const scale = Math.min(1, viewport.width / 5);
+    const scale = Math.min(1.5, viewport.width / 4.5);
 
     const colorMap = useTexture('/textures/jupiter.jpg');
 
@@ -147,7 +147,7 @@ function JupiterFallback() {
     const meshRef = useRef();
     const atmosRef = useRef();
     const { viewport } = useThree();
-    const scale = Math.min(1, viewport.width / 5);
+    const scale = Math.min(1.5, viewport.width / 4.5);
     const texture = useMemo(() => createJupiterTexture(), []);
 
     useFrame((_, delta) => {
@@ -158,7 +158,7 @@ function JupiterFallback() {
     return (
         <group scale={scale}>
             <mesh ref={meshRef} rotation={[0.1, 0, 0.05]}>
-                <sphereGeometry args={[2.4, 128, 128]} />
+                <sphereGeometry args={[2.1, 128, 128]} />
                 <meshPhysicalMaterial
                     map={texture}
                     roughness={0.7}
@@ -168,7 +168,7 @@ function JupiterFallback() {
                 />
             </mesh>
             <mesh ref={atmosRef} scale={[1.05, 1.05, 1.05]} rotation={[0.1, 0, 0.05]}>
-                <sphereGeometry args={[2.4, 64, 64]} />
+                <sphereGeometry args={[2.1, 64, 64]} />
                 <atmosphereMaterial />
             </mesh>
         </group>
@@ -209,7 +209,7 @@ function Lights() {
 
 export default function JupiterScene() {
     return (
-        <div className="w-full h-[500px] lg:h-[750px]" style={{ height: '750px' }}>
+        <div className="w-full h-full">
             <Canvas
                 camera={{ position: [0, 0, 8], fov: 40 }}
                 dpr={[1, 2]}

@@ -8,7 +8,7 @@ import HeroTabs from '../components/HeroTabs';
 
 export default function Hero() {
     return (
-        <section className="relative min-h-screen flex items-center px-6 z-10">
+        <section className="relative min-h-screen flex items-start pt-10 lg:items-center lg:pt-0 px-6 z-10">
             <div className="max-w-[1600px] mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
                 {/* Left: Content */}
                 <div className="order-2 lg:order-1 lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left">
@@ -91,7 +91,9 @@ export default function Hero() {
                             </div>
                         }
                     >
-                        <JupiterScene />
+                        <div className="w-full h-[550px] lg:h-[750px]">
+                            <JupiterScene />
+                        </div>
                     </Suspense>
 
 
