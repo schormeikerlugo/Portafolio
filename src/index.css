@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;700&family=Jura:wght@300;400;500;600;700&display=swap');
+@import 'tailwindcss';
+
+/* ── Theme Tokens ── */
+@theme {
+  --color-void: #000000;
+  --color-void-soft: #030303;
+  --color-panel: #080808;
+  --color-surface: #0d0d0d;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-active: rgba(0, 255, 255, 0.35);
+  --color-border-magenta: rgba(255, 0, 255, 0.35);
+  --color-text-primary: #e8e8e8;
+  --color-text-secondary: #6b6b6b;
+  --color-text-dim: #3a3a3a;
+  --color-cyan: #00e5ff;
+  --color-magenta: #e040fb;
+  --color-mono-bg: rgba(255, 255, 255, 0.03);
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --font-jura: 'Jura', sans-serif;
+}
+
+/* ── Base ── */
+@layer base {
+
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background: var(--color-void);
+    color: var(--color-text-primary);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    cursor: none;
+    line-height: 1.6;
+  }
+
+  ::selection {
+    background: rgba(0, 229, 255, 0.2);
+    color: #fff;
+  }
+}
+
+/* ── Panel: technical glass ── */
+@layer components {
+  .panel {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid var(--color-border);
+  }
+
+  .panel-active {
+    border-color: var(--color-border-active);
+  }
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 229, 255, 0.3);
+}
+
+/* ── Mono label utility ── */
+.mono {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* ── HUD line decoration ── */
+.hud-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.2), transparent);
+}
+
+/* ── Cursor fix for touch ── */
+@media (pointer: coarse) {
+  body {
+    cursor: auto;
+  }
+}
+
+/* ── Subtle glow on hover ── */
+.glow-hover {
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.glow-hover:hover {
+  border-color: rgba(0, 229, 255, 0.25);
+  box-shadow: 0 0 40px rgba(0, 229, 255, 0.05), inset 0 0 20px rgba(0, 229, 255, 0.01);
+}
+
+/* ── Soft Radial Glow (Button/Interactive) ── */
+.hover-glow-soft {
+  transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.hover-glow-soft:hover {
+  background: radial-gradient(circle at center, rgba(0, 229, 255, 0.08) 0%, rgba(0, 229, 255, 0) 80%);
+  border-color: rgba(0, 229, 255, 0.35);
+  box-shadow: 0 0 30px rgba(0, 229, 255, 0.1);
+}
+
+/* ── Carousel ── */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-left {
+  animation: scroll-left 40s linear infinite;
+}
+
+/* ── Comet Animation ── */
+.sky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  /* Behind content */
+  pointer-events: none;
+}
+
+.shooting-star {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  width: 2px;
+  height: 100px;
+  background: linear-gradient(-45deg, white, rgba(255, 255, 255, 0));
+  animation: shoot 5s linear infinite;
+  opacity: 0;
+}
+
+@keyframes shoot {
+  0% {
+    transform: translateX(0) translateY(0) rotate(45deg);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(-1000px) translateY(1000px) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+.shooting-star:nth-child(1) {
+  top: 0;
+  left: 50%;
+  animation-delay: 0s;
+}
+
+.shooting-star:nth-child(2) {
+  top: 0;
+  left: 70%;
+  animation-delay: 1.5s;
+}
+
+.shooting-star:nth-child(3) {
+  top: 0;
+  left: 20%;
+  animation-delay: 3s;
+}
+
+.shooting-star:nth-child(4) {
+  top: 0;
+  left: 90%;
+  animation-delay: 4.5s;
+}
+
+.shooting-star:nth-child(5) {
+  top: 0;
+  left: 40%;
+  animation-delay: 2.2s;
+}
