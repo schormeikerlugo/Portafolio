@@ -6,9 +6,9 @@ import JupiterScene from '../components/Jupiter';
 import CipherText from '../components/CipherText';
 import HeroTabs from '../components/HeroTabs';
 
-export default function Hero() {
+export default function Hero({ onOpenContact }) {
     return (
-        <section className="relative min-h-screen flex items-start pt-10 lg:items-center lg:pt-0 px-6 z-10">
+        <section id="hero" className="relative min-h-screen flex items-start pt-10 lg:items-center lg:pt-0 px-6 z-10 overflow-hidden">
             <div className="max-w-[1600px] mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
                 {/* Left: Content */}
                 <div className="order-2 lg:order-1 lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left">
@@ -66,11 +66,18 @@ export default function Hero() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.5, delay: 3.5 }}
+                        className="flex flex-wrap items-center gap-3"
                     >
                         <Button
                             onClick={() => document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' })}
                         >
                             EXPLORAR SISTEMAS
+                        </Button>
+                        <Button
+                            onClick={onOpenContact}
+                            className="!border-cyan/40 !text-cyan"
+                        >
+                            INICIAR CONTACTO
                         </Button>
                     </motion.div>
                 </div>
@@ -78,9 +85,18 @@ export default function Hero() {
                 {/* Right: Jupiter */}
                 <motion.div
                     className="order-1 lg:order-2 lg:col-span-5 relative flex justify-center lg:justify-end lg:translate-x-12"
-                    initial={{ opacity: 0, scale: 1, filter: 'blur(10px)' }}
-                    animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
-                    transition={{ duration: 2.0, delay: 1.5, ease: 'circOut' }}
+                    initial={{ opacity: 0, x: 250, rotate: 30, scale: 0.7, filter: 'blur(8px)' }}
+                    animate={{ opacity: 1, x: 0, rotate: 0, scale: 1, filter: 'blur(0px)' }}
+                    transition={{
+                        duration: 2.8,
+                        delay: 1.2,
+                        ease: [0.16, 1, 0.3, 1],
+                        x: { duration: 2.8, ease: [0.16, 1, 0.3, 1] },
+                        rotate: { duration: 3.2, ease: [0.16, 1, 0.3, 1] },
+                        scale: { duration: 2.5, delay: 1.4, ease: 'circOut' },
+                        opacity: { duration: 1.5, delay: 1.2 },
+                        filter: { duration: 2.0, delay: 1.8 },
+                    }}
                 >
                     <Suspense
                         fallback={

@@ -1,9 +1,12 @@
 import { useState, useCallback } from 'react';
 import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion';
+import ContactModal from './components/ContactModal';
 
 import StarField from './components/StarField';
 import CustomCursor from './components/CustomCursor';
 import ShootingStars from './components/ShootingStars';
+import Navbar from './components/Navbar';
+import SocialCTA, { FooterSocials } from './components/SocialCTA';
 
 import Hero from './sections/Hero';
 import Bio from './sections/Bio';
@@ -13,6 +16,9 @@ import ProjectDetail from './sections/ProjectDetail';
 
 export default function App() {
   const [selectedProject, setSelectedProject] = useState(null);
+  const [contactOpen, setContactOpen] = useState(false);
+  const openContact = useCallback(() => setContactOpen(true), []);
+  const closeContact = useCallback(() => setContactOpen(false), []);
 
   const { scrollYProgress } = useScroll();
   const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '10%']);
@@ -40,6 +46,9 @@ export default function App() {
       {/* Crosshair cursor */}
       <CustomCursor />
 
+      {/* Navbar */}
+      <Navbar hidden={!!selectedProject} onOpenContact={openContact} />
+
       {/* Content */}
       <AnimatePresence mode="wait">
         {selectedProject ? (
@@ -64,9 +73,23 @@ export default function App() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
           >
-            <Hero />
+            <Hero onOpenContact={openContact} />
             <Skills />
+
+            <SocialCTA
+              title="TRANSMISIÓN ABIERTA"
+              message="El universo no fue diseñado para explorarlo solo. Conecta con la estación y sigamos construyendo juntos."
+              author="Comandante SL"
+              networks={['instagram', 'tiktok', 'dribbble']}
+            />
+
             <Portfolio onSelectProject={handleSelectProject} />
+
+            <SocialCTA
+              title="SEÑAL DETECTADA"
+              message="Cada proyecto es una nueva órbita. Si buscas a alguien que diseñe con la precisión de un ingeniero y la visión de un artista... ya me encontraste."
+              networks={['github', 'behance', 'linkedin', 'dribbble', 'instagram', 'tiktok']}
+            />
             <Bio />
 
             {/* Footer */}
@@ -74,10 +97,14 @@ export default function App() {
               <p className="mono text-[10px] text-text-dim tracking-wider">
                 © {new Date().getFullYear()} SCHORMEIKER LUGO // ALL SYSTEMS OPERATIONAL
               </p>
+              <FooterSocials />
             </footer>
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Contact Modal */}
+      <ContactModal isOpen={contactOpen} onClose={closeContact} />
     </div>
   );
 }
