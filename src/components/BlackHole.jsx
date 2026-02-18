@@ -249,11 +249,20 @@ void main() {
   float r = length(vUv - 0.5);
   vec3 noisePos = vec3(vUv.x * 2.0, vUv.y * 0.5, uTime * 0.3);
   float n = snoise(noisePos * 5.0);
-  float dist = abs(r - 0.35); 
-  float alpha = smoothstep(0.12, 0.0, dist);
-  vec3 color = mix(uColorStart, uColorEnd, r * 2.5);
-  color += vec3(n * 0.3);
-  gl_FragColor = vec4(color, alpha * 0.8 * (0.6 + n * 0.4));
+  
+  // "Pegado al circulo" (Stuck to circle)
+  // Sphere Radius = 1.4. Plane size = 9.
+  // Target Radius ~= 1.55 (Just above sphere) => 1.55/9 ~= 0.172
+  float dist = abs(r - 0.172); 
+  
+  // "Mas pequeño" (Smaller/Thinner)
+  // Thinner ring: smoothstep 0.06 instead of 0.12
+  float alpha = smoothstep(0.06, 0.0, dist);
+  
+  vec3 color = mix(uColorStart, uColorEnd, r * 3.0);
+  color += vec3(n * 0.5); // More defined noise
+  
+  gl_FragColor = vec4(color, alpha * 0.9 * (0.6 + n * 0.4));
 }
 `;
 
