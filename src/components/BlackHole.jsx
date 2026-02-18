@@ -3,14 +3,14 @@ import { Canvas, useFrame, extend, useThree } from '@react-three/fiber';
 import { useTexture } from '@react-three/drei';
 import * as THREE from 'three';
 
-/* ── Atmosphere Fresnel Shader (Same as Jupiter) ── */
+/* ── Atmosphere Fresnel Shader ── */
 class AtmosphereMaterial extends THREE.ShaderMaterial {
   constructor() {
     super({
       uniforms: {
-        glowColor: { value: new THREE.Color('#d000ff') }, // Magenta glow
-        coeficient: { value: 0.1 }, // Sharper edge
-        power: { value: 4.0 }, // Tighter glow
+        glowColor: { value: new THREE.Color('#ffaa00') }, // Golden/Orange glow for realism
+        coeficient: { value: 0.2 },
+        power: { value: 3.0 },
       },
       vertexShader: `
         varying vec3 vNormal;
@@ -29,12 +29,12 @@ class AtmosphereMaterial extends THREE.ShaderMaterial {
         varying vec3 vPositionNormal;
         void main() {
           float intensity = pow(coeficient + dot(vNormal, vPositionNormal), power);
-          gl_FragColor = vec4(glowColor, intensity);
+          gl_FragColor = vec4(glowColor, intensity * 0.8);
         }
       `,
       transparent: true,
       blending: THREE.AdditiveBlending,
-      side: THREE.BackSide, // Glow on back to simulate photon ring
+      side: THREE.BackSide,
       depthWrite: false,
     });
   }
@@ -48,18 +48,18 @@ function BlackHoleModel() {
   const atmosRef = useRef();
   const { viewport } = useThree();
 
-  // Responsive scaling
+  // Reduced scale by ~25% from previous version to prevent clipping
   const scale = useMemo(() => {
-    return Math.min(viewport.width * 0.25, 2.5);
+    return Math.min(viewport.width * 0.18, 1.8);
   }, [viewport.width]);
 
-  const diskTexture = useTexture('/textures/blackhole_disk.png');
+  const diskTexture = useTexture('/textures/blackhole_disk_8k.png');
 
   useFrame((_, delta) => {
     // Rotate the accretion disk
-    if (diskRef.current) diskRef.current.rotation.z -= delta * 0.2;
+    if (diskRef.current) diskRef.current.rotation.z -= delta * 0.1;
 
-    // Subtle ambient wobble
+    // Wobble
     if (meshRef.current) {
       meshRef.current.rotation.y += delta * 0.05;
     }
@@ -67,27 +67,27 @@ function BlackHoleModel() {
 
   return (
     <group scale={scale}>
-      {/* Event Horizon (Black Sphere) */}
+      {/* Event Horizon */}
       <mesh ref={meshRef}>
-        <sphereGeometry args={[1.5, 64, 64]} />
+        <sphereGeometry args={[1.4, 64, 64]} />
         <meshBasicMaterial color="#000000" />
       </mesh>
 
-      {/* Photon Ring (Fresnel Atmosphere) */}
+      {/* Photon Ring (Atmosphere) */}
       <mesh ref={atmosRef} scale={[1.05, 1.05, 1.05]}>
-        <sphereGeometry args={[1.5, 64, 64]} />
+        <sphereGeometry args={[1.4, 64, 64]} />
         <atmosphereMaterial />
       </mesh>
 
-      {/* Accretion Disk (Textured Plane) */}
+      {/* Accretion Disk */}
       <mesh ref={diskRef} rotation={[-Math.PI / 2.5, 0, 0]}>
-        <planeGeometry args={[6, 6]} />
+        <planeGeometry args={[7, 7]} />
         <meshBasicMaterial
           map={diskTexture}
           transparent
-          opacity={0.9}
+          opacity={0.95}
           side={THREE.DoubleSide}
-          blending={THREE.AdditiveBlending}
+          blending={THREE.NormalBlending} // Changed to Normal for more solid look
           depthWrite={false}
         />
       </mesh>
@@ -103,7 +103,7 @@ function BlackHoleFallback() {
       <meshBasicMaterial color="black" />
       <mesh scale={[1.2, 1.2, 1.2]}>
         <ringGeometry args={[1.2, 2.5, 32]} />
-        <meshBasicMaterial color="magenta" wireframe />
+        <meshBasicMaterial color="orange" wireframe />
       </mesh>
     </mesh>
   );
