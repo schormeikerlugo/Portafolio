@@ -322,7 +322,8 @@ function BlackHoleModel() {
   });
 
   const scale = useMemo(() => {
-    return Math.min(viewport.width * 0.15, 1.44);
+    // Responsive scaling - Reduced significantly to 0.7 max to prevent vertical clipping
+    return Math.min(viewport.width * 0.08, 0.7);
   }, [viewport.width]);
 
   return (
