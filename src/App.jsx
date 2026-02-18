@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, lazy, Suspense } from 'react';
 import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion';
 import ContactModal from './components/ContactModal';
 
@@ -11,8 +11,18 @@ import SocialCTA, { FooterSocials } from './components/SocialCTA';
 import Hero from './sections/Hero';
 import Bio from './sections/Bio';
 import Skills from './sections/Skills';
+import Experience from './sections/Experience';
+import Metrics from './sections/Metrics';
 import Portfolio from './sections/Portfolio';
+import Testimonials from './sections/Testimonials';
+import Certifications from './sections/Certifications';
 import ProjectDetail from './sections/ProjectDetail';
+
+/* Cosmic elements — lazy loaded for performance */
+const Saturn = lazy(() => import('./components/Saturn'));
+const BlackHole = lazy(() => import('./components/BlackHole'));
+const Galaxy = lazy(() => import('./components/Galaxy'));
+const Nebula = lazy(() => import('./components/Nebula'));
 
 export default function App() {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -74,7 +84,21 @@ export default function App() {
             transition={{ duration: 0.25 }}
           >
             <Hero onOpenContact={openContact} />
-            <Skills />
+
+            {/* Skills with Nebula background */}
+            <div className="relative">
+              <Suspense fallback={null}><Nebula /></Suspense>
+              <Skills />
+            </div>
+
+            {/* 🪐 Saturn transition: Skills → Experience */}
+            <Suspense fallback={null}><Saturn /></Suspense>
+
+            <Experience />
+            <Metrics />
+
+            {/* 🕳️ Black Hole transition: Metrics → SocialCTA */}
+            <Suspense fallback={null}><BlackHole /></Suspense>
 
             <SocialCTA
               title="TRANSMISIÓN ABIERTA"
@@ -84,12 +108,17 @@ export default function App() {
             />
 
             <Portfolio onSelectProject={handleSelectProject} />
+            <Testimonials />
+
+            {/* 🌌 Galaxy transition: Testimonials → SocialCTA */}
+            <Suspense fallback={null}><Galaxy /></Suspense>
 
             <SocialCTA
               title="SEÑAL DETECTADA"
               message="Cada proyecto es una nueva órbita. Si buscas a alguien que diseñe con la precisión de un ingeniero y la visión de un artista... ya me encontraste."
               networks={['github', 'behance', 'linkedin', 'dribbble', 'instagram', 'tiktok']}
             />
+            <Certifications />
             <Bio />
 
             {/* Footer */}
