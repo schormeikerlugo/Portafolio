@@ -42,11 +42,10 @@ class PlasmaAtmosphereMaterial extends THREE.ShaderMaterial {
 }
 extend({ PlasmaAtmosphereMaterial });
 
-/* ── Particle System (Restored per user request) ── */
+/* ── Particle System ── */
 function ParticleSystem({ count = 3000 }) {
   const pointsRef = useRef();
 
-  // Generate random points in a disk shape
   const particles = useMemo(() => {
     const positions = new Float32Array(count * 3);
     const sizes = new Float32Array(count);
@@ -57,14 +56,11 @@ function ParticleSystem({ count = 3000 }) {
     const colorOutside = new THREE.Color('#ff4500'); // OrangeRed
 
     for (let i = 0; i < count; i++) {
-      // Radius: concentrated in the accretion disk zone (1.6 to 4.5)
       const r = 1.6 + Math.random() * 2.9;
       const theta = Math.random() * Math.PI * 2;
-
-      // Thin disk
       const x = r * Math.cos(theta);
       const z = r * Math.sin(theta);
-      const y = (Math.random() - 0.5) * 0.1 * (1 / r); // Very thin at edges
+      const y = (Math.random() - 0.5) * 0.1 * (1 / r);
 
       positions[i * 3] = x;
       positions[i * 3 + 1] = y;
@@ -72,7 +68,6 @@ function ParticleSystem({ count = 3000 }) {
 
       sizes[i] = Math.random() * 1.5;
 
-      // Color gradient
       const normalizedR = (r - 1.6) / 2.9;
       const tempColor = new THREE.Color();
       if (normalizedR < 0.2) tempColor.copy(colorInside);
@@ -87,9 +82,7 @@ function ParticleSystem({ count = 3000 }) {
   }, [count]);
 
   useFrame((state, delta) => {
-    if (pointsRef.current) {
-      pointsRef.current.rotation.y -= delta * 0.2; // Faster spark orbit
-    }
+    if (pointsRef.current) pointsRef.current.rotation.y -= delta * 0.2;
   });
 
   return (
@@ -104,7 +97,7 @@ function ParticleSystem({ count = 3000 }) {
   );
 }
 
-/* ── Animated Plasma Disk Shader (Solid Mass) ── */
+/* ── Animated Plasma Disk Shader ── */
 const plasmaVertexShader = `
 varying vec2 vUv;
 varying vec3 vNormal;
@@ -175,35 +168,25 @@ float snoise(vec3 v) {
 
 void main() {
   float r = length(vPosition.xy);
-  // Dense plasma rotation
   float angle = atan(vPosition.y, vPosition.x) + uTime * 0.15 + 4.0 / (r + 0.1); 
   vec3 noisePos = vec3(cos(angle) * r, sin(angle) * r, uTime * 0.4);
 
-  // Multi-layered noise for "Texture"
-  float n1 = snoise(noisePos * 3.5); // Base shape
-  float n2 = snoise(noisePos * 12.0 + vec3(2.0)); // Fine grit
-  float n3 = snoise(noisePos * 24.0 - vec3(uTime)); // Micro texture
+  float n1 = snoise(noisePos * 3.5); 
+  float n2 = snoise(noisePos * 12.0 + vec3(2.0)); 
+  float n3 = snoise(noisePos * 24.0 - vec3(uTime)); 
   
-  // Combine for solid mass look
   float finalNoise = n1 * 0.6 + n2 * 0.3 + n3 * 0.1;
   
-  // Ring shape mask
+  // Revised Alpha Mask for Fusion: Starts closer (0.13) to sphere (0.14)
   float dist = length(vUv - 0.5);
-  // Tighter inner edge, wider outer edge
-  float alphaMask = smoothstep(0.08, 0.15, dist) * (1.0 - smoothstep(0.42, 0.5, dist));
+  float alphaMask = smoothstep(0.13, 0.20, dist) * (1.0 - smoothstep(0.42, 0.5, dist));
   
-  // Intensity cut-off for "Solidity"
-  // If noise is low, we clamp it up to make it look like a connected mass, not wisps
   float solidity = smoothstep(0.1, 0.6, finalNoise + 0.5); 
   
-  // Color
-  vec3 color = mix(uColorStart, uColorEnd, (dist - 0.1) * 2.5);
-  
-  // Highlights
+  vec3 color = mix(uColorStart, uColorEnd, (dist - 0.14) * 3.0);
   color += vec3(solidity * 0.3);
   
-  // High opacity for "Mass" feel
-  gl_FragColor = vec4(color, alphaMask * (0.6 + solidity * 0.4)); // Min opacity 0.6
+  gl_FragColor = vec4(color, alphaMask * (0.8 + solidity * 0.2)); 
 }
 `;
 
@@ -214,11 +197,7 @@ uniform vec3 uColorEnd;
 varying vec2 vUv;
 varying vec3 vPosition;
 
-// Simplex Noise (reuse snoise function or duplicate if scope issue)
-// ... (Assuming snoise is available or re-declared. To be safe, re-declare snoise here or make it shared)
-// For brevity in this tool call, I will assume snoise is defined above or I will inject it. 
-// Actually, shader chunks are separate strings. I MUST re-include snoise helper.
-
+// Resupply snoise due to shader scope
 vec3 mod289(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
 vec4 mod289(vec4 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
 vec4 permute(vec4 x) { return mod289(((x*34.0)+1.0)*x); }
@@ -267,25 +246,13 @@ float snoise(vec3 v) {
 }
 
 void main() {
-  // Lensed ring: Vertical distortion
   float r = length(vUv - 0.5);
-  // Animate flow upwards/downwards?
-  
-  // Arch noise
   vec3 noisePos = vec3(vUv.x * 2.0, vUv.y * 0.5, uTime * 0.3);
   float n = snoise(noisePos * 5.0);
-  
-  // Mask: A ring shape but warped?
-  // Simply a ring for now, facing camera
-  float dist = abs(r - 0.35); // Radius matches the "hump"
+  float dist = abs(r - 0.35); 
   float alpha = smoothstep(0.12, 0.0, dist);
-  
-  // Cut bottom part? No, visible on top and bottom.
-  
-  // Color
-  vec3 color = mix(uColorStart, uColorEnd, r * 2.0);
+  vec3 color = mix(uColorStart, uColorEnd, r * 2.5);
   color += vec3(n * 0.3);
-
   gl_FragColor = vec4(color, alpha * 0.8 * (0.6 + n * 0.4));
 }
 `;
@@ -300,22 +267,18 @@ function PlasmaDisk() {
     const time = state.clock.elapsedTime;
     if (materialRef.current) materialRef.current.uniforms.uTime.value = time;
     if (lensedMatRef.current) lensedMatRef.current.uniforms.uTime.value = time;
-
     if (meshRef.current) meshRef.current.rotation.z -= 0.003;
-    // Lensed ring doesn't rotate Z, it stays vertical relative to camera usually, or follows disk? 
-    // For simple Interstellar effect, it's fixed relative to the viewer's angle of the disk.
   });
 
   const uniforms = useMemo(() => ({
     uTime: { value: 0 },
-    // Interstellar Palette: White/Cyan Core -> Orange/Red Edge
-    uColorStart: { value: new THREE.Color('#e0f7fa') }, // Hot cyan/white
-    uColorEnd: { value: new THREE.Color('#ff3d00') },   // Deep plasma red
+    // Updated colors: White Core -> Red Edge
+    uColorStart: { value: new THREE.Color('#ffffff') },
+    uColorEnd: { value: new THREE.Color('#ff3d00') },
   }), []);
 
   return (
     <group>
-      {/* Main Horizontal Disk */}
       <mesh ref={meshRef} rotation={[-Math.PI / 2.5, 0, 0]}>
         <planeGeometry args={[10, 10, 128, 128]} />
         <shaderMaterial
@@ -329,21 +292,16 @@ function PlasmaDisk() {
           side={THREE.DoubleSide}
         />
       </mesh>
-
-      {/* Vertical "Lensed" Ring (The bump over the top/bottom) */}
       <mesh ref={lensedRef} rotation={[0, 0, 0]}>
-        {/* Facing camera roughly, or perpendicular to disk? */}
-        {/* Disk is tilted -45deg X. Vertical ring should be 90deg to that? */}
-        {/* Visual cheat: Just a billboard Plane facing Z? */}
         <planeGeometry args={[9, 9, 64, 64]} />
         <shaderMaterial
           ref={lensedMatRef}
-          vertexShader={plasmaVertexShader} // Use same vertex shader
-          fragmentShader={plasmaLensedFragmentShader} // New fragment shader for vertical ring
-          uniforms={uniforms} // Share colors
+          vertexShader={plasmaVertexShader}
+          fragmentShader={plasmaLensedFragmentShader}
+          uniforms={uniforms}
           transparent={true}
           depthWrite={false}
-          blending={THREE.AdditiveBlending} // Additive for light bending
+          blending={THREE.AdditiveBlending}
           side={THREE.DoubleSide}
         />
       </mesh>
@@ -351,7 +309,6 @@ function PlasmaDisk() {
   );
 }
 
-/* ── Black Hole Model ── */
 function BlackHoleModel() {
   const meshRef = useRef();
   const atmosRef = useRef();
@@ -364,29 +321,21 @@ function BlackHoleModel() {
     }
   });
 
-  // 1.44 Scale
   const scale = useMemo(() => {
     return Math.min(viewport.width * 0.15, 1.44);
   }, [viewport.width]);
 
   return (
     <group scale={scale}>
-      {/* Event Horizon */}
       <mesh ref={meshRef}>
         <sphereGeometry args={[1.4, 64, 64]} />
         <meshBasicMaterial color="#000000" />
       </mesh>
-
-      {/* Photon Ring (Plasma Atmosphere) */}
       <mesh ref={atmosRef} scale={[1.05, 1.05, 1.05]}>
         <sphereGeometry args={[1.4, 64, 64]} />
         <plasmaAtmosphereMaterial />
       </mesh>
-
-      {/* Plasma Disks (Horizontal + Lensed) */}
       <PlasmaDisk />
-
-      {/* Particles (Plasma Sparks) */}
       <group rotation={[Math.PI / 2, 0, 0]}>
         <group rotation={[-Math.PI / 2.5, 0, 0]}>
           <ParticleSystem count={3000} />
@@ -396,7 +345,6 @@ function BlackHoleModel() {
   );
 }
 
-/* ── Fallback & Error ── */
 function BlackHoleFallback() {
   return (
     <mesh>
@@ -423,7 +371,8 @@ export default function BlackHole() {
         <ambientLight intensity={0.5} />
         <ErrorBoundary fallback={<BlackHoleFallback />}>
           <Suspense fallback={<BlackHoleFallback />}>
-            <BlackHoleModel />
+            {/* Key update to force remount */}
+            <BlackHoleModel key="gargantua-v3-final" />
           </Suspense>
         </ErrorBoundary>
       </Canvas>
