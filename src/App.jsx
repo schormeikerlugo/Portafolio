@@ -102,7 +102,11 @@ export default function App() {
             <Metrics />
 
             {/* 🕳️ Black Hole transition: Metrics → SocialCTA */}
-            <Suspense fallback={null}><BlackHole /></Suspense>
+            <Suspense fallback={null}>
+              <div className="w-full h-[400px] sm:h-[500px] lg:h-[600px]">
+                <BlackHole />
+              </div>
+            </Suspense>
 
             <SocialCTA
               title="TRANSMISIÓN ABIERTA"
