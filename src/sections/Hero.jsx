@@ -83,37 +83,23 @@ export default function Hero({ onOpenContact }) {
                 </div>
 
                 {/* Right: Jupiter */}
-                <motion.div
-                    className="order-1 lg:order-2 lg:col-span-5 relative flex justify-center lg:justify-end lg:translate-x-12"
-                    initial={{ opacity: 0, x: 250, rotate: 30, scale: 0.7, filter: 'blur(8px)' }}
-                    animate={{ opacity: 1, x: 0, rotate: 0, scale: 1, filter: 'blur(0px)' }}
-                    transition={{
-                        duration: 2.8,
-                        delay: 1.2,
-                        ease: [0.16, 1, 0.3, 1],
-                        x: { duration: 2.8, ease: [0.16, 1, 0.3, 1] },
-                        rotate: { duration: 3.2, ease: [0.16, 1, 0.3, 1] },
-                        scale: { duration: 2.5, delay: 1.4, ease: 'circOut' },
-                        opacity: { duration: 1.5, delay: 1.2 },
-                        filter: { duration: 2.0, delay: 1.8 },
-                    }}
-                >
-                    <Suspense
-                        fallback={
-                            <div className="w-full min-h-[350px] sm:min-h-[450px] flex items-center justify-center">
-                                <span className="mono text-[10px] text-text-dim animate-pulse">
-                                    CARGANDO TELEMETRÍA...
-                                </span>
+                <div className="order-1 lg:order-2 lg:col-span-5 relative">
+                    <div className="jupiter-entrance w-full">
+                        <Suspense
+                            fallback={
+                                <div className="w-full min-h-[350px] sm:min-h-[400px] flex items-center justify-center">
+                                    <span className="mono text-[10px] text-text-dim animate-pulse">
+                                        CARGANDO TELEMETRÍA...
+                                    </span>
+                                </div>
+                            }
+                        >
+                            <div className="w-full h-[400px] sm:h-[500px] lg:h-[700px]">
+                                <JupiterScene />
                             </div>
-                        }
-                    >
-                        <div className="w-full h-[550px] lg:h-[750px]">
-                            <JupiterScene />
-                        </div>
-                    </Suspense>
-
-
-                </motion.div>
+                        </Suspense>
+                    </div>
+                </div>
             </div>
 
             {/* Scroll indicator */}

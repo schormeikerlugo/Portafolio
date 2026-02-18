@@ -112,8 +112,16 @@ function createJupiterTexture() {
 function JupiterWithTexture() {
     const meshRef = useRef();
     const atmosRef = useRef();
+    const lockedScale = useRef(null);
     const { viewport } = useThree();
-    const scale = Math.min(1.5, viewport.width / 4.5);
+
+    // Lock scale on first meaningful render — prevents scroll-triggered recalculations
+    if (lockedScale.current === null && viewport.width > 0.1) {
+        const byHeight = (viewport.height * 0.78) / 4.2;
+        const byWidth = (viewport.width * 0.90) / 4.2;
+        lockedScale.current = Math.min(byHeight, byWidth, 1.44);
+    }
+    const scale = lockedScale.current ?? 0.8;
 
     const colorMap = useTexture('/textures/jupiter.jpg');
 
@@ -146,8 +154,16 @@ function JupiterWithTexture() {
 function JupiterFallback() {
     const meshRef = useRef();
     const atmosRef = useRef();
+    const lockedScale = useRef(null);
     const { viewport } = useThree();
-    const scale = Math.min(1.5, viewport.width / 4.5);
+
+    // Lock scale on first meaningful render — prevents scroll-triggered recalculations
+    if (lockedScale.current === null && viewport.width > 0.1) {
+        const byHeight = (viewport.height * 0.78) / 4.2;
+        const byWidth = (viewport.width * 0.90) / 4.2;
+        lockedScale.current = Math.min(byHeight, byWidth, 1.44);
+    }
+    const scale = lockedScale.current ?? 0.8;
     const texture = useMemo(() => createJupiterTexture(), []);
 
     useFrame((_, delta) => {
