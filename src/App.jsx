@@ -20,6 +20,7 @@ import ProjectDetail from './sections/ProjectDetail';
 
 /* Cosmic elements — lazy loaded for performance */
 const Saturn = lazy(() => import('./components/Saturn'));
+const BlackHole = lazy(() => import('./components/BlackHole'));
 const Galaxy = lazy(() => import('./components/Galaxy'));
 
 export default function App() {
@@ -96,7 +97,12 @@ export default function App() {
             <Experience />
             <Metrics />
 
-            {/* Transition: Metrics → SocialCTA (Black hole removed) */}
+            {/* 🕳️ Black Hole transition: Metrics → SocialCTA */}
+            <Suspense fallback={null}>
+              <div className="w-full h-[400px] sm:h-[500px] lg:h-[600px]">
+                <BlackHole />
+              </div>
+            </Suspense>
 
             <SocialCTA
               title="TRANSMISIÓN ABIERTA"
