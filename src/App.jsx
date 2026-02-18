@@ -20,9 +20,7 @@ import ProjectDetail from './sections/ProjectDetail';
 
 /* Cosmic elements — lazy loaded for performance */
 const Saturn = lazy(() => import('./components/Saturn'));
-const BlackHole = lazy(() => import('./components/BlackHole'));
 const Galaxy = lazy(() => import('./components/Galaxy'));
-const Nebula = lazy(() => import('./components/Nebula'));
 
 export default function App() {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -85,11 +83,8 @@ export default function App() {
           >
             <Hero onOpenContact={openContact} />
 
-            {/* Skills with Nebula background */}
-            <div className="relative">
-              <Suspense fallback={null}><Nebula /></Suspense>
-              <Skills />
-            </div>
+            {/* Skills */}
+            <Skills />
 
             {/* 🪐 Saturn transition: Skills → Experience */}
             <Suspense fallback={null}>
@@ -101,12 +96,7 @@ export default function App() {
             <Experience />
             <Metrics />
 
-            {/* 🕳️ Black Hole transition: Metrics → SocialCTA */}
-            <Suspense fallback={null}>
-              <div className="w-full h-[400px] sm:h-[500px] lg:h-[600px]">
-                <BlackHole />
-              </div>
-            </Suspense>
+            {/* Transition: Metrics → SocialCTA (Black hole removed) */}
 
             <SocialCTA
               title="TRANSMISIÓN ABIERTA"
