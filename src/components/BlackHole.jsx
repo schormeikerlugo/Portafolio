@@ -48,18 +48,18 @@ function BlackHoleModel() {
   const atmosRef = useRef();
   const { viewport } = useThree();
 
-  // Reduced scale by ~25% from previous version to prevent clipping
+  // Responsive scaling - Reduced by 20% (approx 1.4 max) per user request
   const scale = useMemo(() => {
-    return Math.min(viewport.width * 0.18, 1.8);
+    return Math.min(viewport.width * 0.15, 1.44);
   }, [viewport.width]);
 
   const diskTexture = useTexture('/textures/blackhole_disk_8k.png');
 
   useFrame((_, delta) => {
-    // Rotate the accretion disk
-    if (diskRef.current) diskRef.current.rotation.z -= delta * 0.1;
+    // Slower, majestic rotation for realism
+    if (diskRef.current) diskRef.current.rotation.z -= delta * 0.08;
 
-    // Wobble
+    // Subtle ambient wobble
     if (meshRef.current) {
       meshRef.current.rotation.y += delta * 0.05;
     }
@@ -87,7 +87,7 @@ function BlackHoleModel() {
           transparent
           opacity={0.95}
           side={THREE.DoubleSide}
-          blending={THREE.NormalBlending} // Changed to Normal for more solid look
+          blending={THREE.NormalBlending}
           depthWrite={false}
         />
       </mesh>
