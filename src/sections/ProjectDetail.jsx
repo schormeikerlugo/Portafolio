@@ -116,10 +116,16 @@ function ProjectCarousel({ onSelectProject, currentId }) {
                         className="flex-shrink-0 w-44 h-28 rounded-lg overflow-hidden cursor-pointer group panel glow-hover"
                         whileHover={{ y: -3 }}
                         transition={{ duration: 0.15 }}
-                        onClick={() => onSelectProject(project)}
+                        onClick={() => {
+                            if (project.link) {
+                                window.open(project.link, '_blank', 'noopener');
+                            } else {
+                                onSelectProject(project);
+                            }
+                        }}
                     >
                         <div className="relative w-full h-full">
-                            <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+                            <img src={project.image} alt={project.title} loading="lazy" className="w-full h-full object-cover" />
                             <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors duration-200" />
                             <div className="absolute bottom-2 left-2.5 right-2.5">
                                 <p className="mono text-[9px] text-text-secondary truncate">{project.title}</p>
@@ -170,88 +176,119 @@ export default function ProjectDetail({ project, onBack, onSelectProject }) {
                     </div>
                 </motion.div>
 
+                {/* External Link Button */}
+                {project.link && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 15 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.15, duration: 0.3 }}
+                        className="mb-8"
+                    >
+                        <a
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 px-5 py-2.5 border border-cyan/30 rounded text-cyan mono text-xs tracking-wider hover:bg-cyan/10 transition-all"
+                        >
+                            <ExternalLink size={14} strokeWidth={1.5} />
+                            VER PROYECTO EN {project.source?.toUpperCase() || 'EXTERNO'}
+                        </a>
+                    </motion.div>
+                )}
+
                 {/* MISSION */}
-                <motion.div
-                    initial={{ opacity: 0, y: 15 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.2, duration: 0.3 }}
-                    className="mb-8"
-                >
-                    <GlassContainer className="p-5 sm:p-6 rounded-lg">
-                        <div className="flex items-center gap-2 mb-3">
-                            <Target size={14} strokeWidth={1.5} className="text-cyan" />
-                            <h2 className="mono text-xs text-cyan tracking-[0.15em]">MISIÓN</h2>
-                        </div>
-                        <p className="text-text-secondary text-sm leading-relaxed">{project.mission}</p>
-                    </GlassContainer>
-                </motion.div>
+                {project.mission && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 15 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2, duration: 0.3 }}
+                        className="mb-8"
+                    >
+                        <GlassContainer className="p-5 sm:p-6 rounded-lg">
+                            <div className="flex items-center gap-2 mb-3">
+                                <Target size={14} strokeWidth={1.5} className="text-cyan" />
+                                <h2 className="mono text-xs text-cyan tracking-[0.15em]">MISIÓN</h2>
+                            </div>
+                            <p className="text-text-secondary text-sm leading-relaxed">{project.mission}</p>
+                        </GlassContainer>
+                    </motion.div>
+                )}
 
                 {/* PROBLEM — Terminal */}
-                <motion.div
-                    initial={{ opacity: 0, y: 15 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.3, duration: 0.3 }}
-                    className="mb-8"
-                >
-                    <div className="flex items-center gap-2 mb-3">
-                        <Terminal size={14} strokeWidth={1.5} className="text-magenta" />
-                        <h2 className="mono text-xs text-magenta tracking-[0.15em]">DIAGNÓSTICO</h2>
-                    </div>
-                    <div className="bg-black/60 border border-cyan/10 rounded-lg overflow-hidden">
-                        <div className="flex items-center gap-1.5 px-4 py-2.5 border-b border-white/[0.04]">
-                            <div className="w-2 h-2 rounded-full bg-red-500/70" />
-                            <div className="w-2 h-2 rounded-full bg-yellow-500/70" />
-                            <div className="w-2 h-2 rounded-full bg-green-500/70" />
-                            <span className="ml-2 mono text-[10px] text-text-dim">diagnostics.sh</span>
+                {project.problem && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 15 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.3, duration: 0.3 }}
+                        className="mb-8"
+                    >
+                        <div className="flex items-center gap-2 mb-3">
+                            <Terminal size={14} strokeWidth={1.5} className="text-magenta" />
+                            <h2 className="mono text-xs text-magenta tracking-[0.15em]">DIAGNÓSTICO</h2>
                         </div>
-                        <pre className="p-4 sm:p-5 font-mono text-xs text-cyan/80 leading-relaxed whitespace-pre-wrap">
-                            {project.problem}
-                        </pre>
-                    </div>
-                </motion.div>
+                        <div className="bg-black/60 border border-cyan/10 rounded-lg overflow-hidden">
+                            <div className="flex items-center gap-1.5 px-4 py-2.5 border-b border-white/[0.04]">
+                                <div className="w-2 h-2 rounded-full bg-red-500/70" />
+                                <div className="w-2 h-2 rounded-full bg-yellow-500/70" />
+                                <div className="w-2 h-2 rounded-full bg-green-500/70" />
+                                <span className="ml-2 mono text-[10px] text-text-dim">diagnostics.sh</span>
+                            </div>
+                            <pre className="p-4 sm:p-5 font-mono text-xs text-cyan/80 leading-relaxed whitespace-pre-wrap">
+                                {project.problem}
+                            </pre>
+                        </div>
+                    </motion.div>
+                )}
 
                 {/* SOLUTION */}
-                <motion.div
-                    initial={{ opacity: 0, y: 15 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.4, duration: 0.3 }}
-                    className="mb-10"
-                >
-                    <GlassContainer className="p-5 sm:p-6 rounded-lg">
-                        <div className="flex items-center gap-2 mb-3">
-                            <Rocket size={14} strokeWidth={1.5} className="text-cyan" />
-                            <h2 className="mono text-xs text-cyan tracking-[0.15em]">SOLUCIÓN IMPLEMENTADA</h2>
-                        </div>
-                        <p className="text-text-secondary text-sm leading-relaxed">{project.solution}</p>
-                    </GlassContainer>
-                </motion.div>
+                {project.solution && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 15 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.4, duration: 0.3 }}
+                        className="mb-10"
+                    >
+                        <GlassContainer className="p-5 sm:p-6 rounded-lg">
+                            <div className="flex items-center gap-2 mb-3">
+                                <Rocket size={14} strokeWidth={1.5} className="text-cyan" />
+                                <h2 className="mono text-xs text-cyan tracking-[0.15em]">SOLUCIÓN IMPLEMENTADA</h2>
+                            </div>
+                            <p className="text-text-secondary text-sm leading-relaxed">{project.solution}</p>
+                        </GlassContainer>
+                    </motion.div>
+                )}
 
                 {/* GALLERY */}
-                <motion.div
-                    initial={{ opacity: 0, y: 15 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.5, duration: 0.3 }}
-                    className="mb-10"
-                >
-                    <h2 className="mono text-xs text-text-dim tracking-[0.15em] mb-4">GALERÍA TÉCNICA</h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                        {project.gallery?.map((img, i) => (
-                            <motion.div
-                                key={i}
-                                className="relative rounded-lg overflow-hidden cursor-pointer group panel"
-                                whileHover={{ scale: 1.02 }}
-                                transition={{ duration: 0.15 }}
-                                onClick={() => setLightboxImage(img)}
-                            >
-                                <img src={img} alt="" className="w-full h-32 sm:h-36 object-cover" />
-                                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-200" />
-                                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                                    <ExternalLink className="text-white/70" size={16} strokeWidth={1.5} />
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
-                </motion.div>
+                {project.gallery && project.gallery.length > 0 && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 15 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.5, duration: 0.3 }}
+                        className="mb-10"
+                    >
+                        <h2 className="mono text-xs text-text-dim tracking-[0.15em] mb-4">GALERÍA TÉCNICA</h2>
+                        <div className="flex flex-col gap-8">
+                            {project.gallery.map((img, i) => (
+                                <motion.div
+                                    key={i}
+                                    className="relative rounded-lg overflow-hidden cursor-pointer group panel border border-white/[0.03]"
+                                    whileHover={{ scale: 1.01 }}
+                                    transition={{ duration: 0.2 }}
+                                    onClick={() => setLightboxImage(img)}
+                                >
+                                    <img src={img} alt="" className="w-full h-auto" />
+                                    <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300" />
+                                    <div className="absolute inset-0 flex items-center justify-center translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                                        <div className="px-4 py-2 bg-black/60 backdrop-blur-md rounded border border-white/20 text-white mono text-[10px] tracking-widest flex items-center gap-2">
+                                            <ExternalLink size={12} strokeWidth={1.5} />
+                                            EXPANDIR VISUAL
+                                        </div>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </motion.div>
+                )}
 
                 {/* STACK */}
                 <motion.div
