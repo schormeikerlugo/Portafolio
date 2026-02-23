@@ -85,8 +85,9 @@ export function FooterSocials() {
 /* ── CTA Section ── */
 import { useRef } from 'react';
 import CipherText from './CipherText';
+import Button from './Button';
 
-export default function SocialCTA({ title, message, author, networks = [] }) {
+export default function SocialCTA({ title, message, author, networks = [], onOpenContact }) {
     const sectionRef = useRef(null);
 
     return (
@@ -133,7 +134,13 @@ export default function SocialCTA({ title, message, author, networks = [] }) {
                 </div>
 
                 {/* Bottom line */}
-                <div className="h-px w-full max-w-[200px] mx-auto mt-8 bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+                <div className="h-px w-full max-w-[200px] mx-auto mt-8 mb-8 bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+
+                <div className="flex justify-center">
+                    <Button onClick={onOpenContact} className="!border-cyan/40 !text-cyan">
+                        INICIAR CONTACTO
+                    </Button>
+                </div>
             </motion.div>
         </section>
     );

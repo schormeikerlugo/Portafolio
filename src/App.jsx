@@ -101,6 +101,7 @@ export default function App() {
               message="El universo no fue diseñado para explorarlo solo. Conecta con la estación y sigamos construyendo juntos."
               author="Comandante SL"
               networks={['instagram', 'tiktok', 'dribbble']}
+              onOpenContact={openContact}
             />
 
             <Portfolio onSelectProject={handleSelectProject} />
@@ -117,6 +118,7 @@ export default function App() {
               title="SEÑAL DETECTADA"
               message="Cada proyecto es una nueva órbita. Si buscas a alguien que diseñe con la precisión de un ingeniero y la visión de un artista... ya me encontraste."
               networks={['github', 'behance', 'linkedin', 'dribbble', 'instagram', 'tiktok']}
+              onOpenContact={openContact}
             />
             <Certifications />
             <Bio />

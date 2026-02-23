@@ -66,13 +66,8 @@ export default function Hero({ onOpenContact }) {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.5, delay: 3.5 }}
-                        className="flex flex-wrap items-center gap-3"
+                        className="flex flex-wrap items-center justify-center lg:justify-start gap-3"
                     >
-                        <Button
-                            onClick={() => document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' })}
-                        >
-                            EXPLORAR SISTEMAS
-                        </Button>
                         <Button
                             onClick={onOpenContact}
                             className="!border-cyan/40 !text-cyan"
