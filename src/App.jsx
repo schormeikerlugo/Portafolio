@@ -22,6 +22,8 @@ import ProjectDetail from './sections/ProjectDetail';
 const Saturn = lazy(() => import('./components/Saturn'));
 const BlackHole = lazy(() => import('./components/BlackHole'));
 const Galaxy = lazy(() => import('./components/Galaxy'));
+const RedStar = lazy(() => import('./components/RedStar'));
+const Quasar = lazy(() => import('./components/Quasar'));
 
 export default function App() {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -95,6 +97,14 @@ export default function App() {
             </Suspense>
 
             <Experience />
+
+            {/* ☀️ Red Star transition: Experience → Metrics */}
+            <Suspense fallback={null}>
+              <div className="w-full h-[400px] sm:h-[500px] lg:h-[600px]">
+                <RedStar />
+              </div>
+            </Suspense>
+
             <Metrics />
 
             {/* 🕳️ Black Hole transition: Metrics → SocialCTA */}
@@ -123,6 +133,14 @@ export default function App() {
               networks={['github', 'behance', 'linkedin', 'dribbble', 'instagram', 'tiktok']}
             />
             <Certifications />
+
+            {/* 💫 Quasar transition: Certifications → Bio */}
+            <Suspense fallback={null}>
+              <div className="w-full h-[500px] sm:h-[600px] lg:h-[700px]">
+                <Quasar />
+              </div>
+            </Suspense>
+
             <Bio />
 
             {/* Footer */}
