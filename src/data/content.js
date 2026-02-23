@@ -647,9 +647,9 @@ export const skills = {
         title: 'PRIMARY WEAPON // FRONTEND ARCH',
         category: 'Development',
         items: [
-            { name: 'React Ecosystem', level: 'EXPERT', progress: 95, details: 'React 19, Next.js, Zustand' },
+            { name: 'React Ecosystem', level: 'EXPERT', progress: 95, details: 'React 19, Next.js, Typescript, Zustand' },
             { name: 'Visual Engineering', level: 'EXPERT', progress: 90, details: 'Tailwind CSS, Framer Motion, GSAP' },
-            { name: 'TypeScript', level: 'ADVANCED', progress: 85, details: 'Strict typing, Design Patterns' },
+            { name: 'WordPress & CMS', level: 'ADVANCED', progress: 85, details: 'Custom Themes, Headless, Elementor' },
         ]
     },
     secondary: {
@@ -666,7 +666,6 @@ export const skills = {
         category: 'Workflow',
         items: [
             { name: 'Design Ops', level: 'EXPERT', progress: 92, details: 'Figma, Adobe Suite, Prototyping' },
-            { name: 'WordPress & CMS', level: 'ADVANCED', progress: 80, details: 'Custom Themes, Headless, Elementor' },
             { name: 'Dev Ops', level: 'INTERMEDIATE', progress: 50, details: 'Git, Docker, Vercel CI/CD' },
             { name: 'Environment', level: 'ADVANCED', progress: 88, details: 'Linux, Hyprland, Neovim' },
         ]
