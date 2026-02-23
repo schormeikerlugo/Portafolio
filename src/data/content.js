@@ -656,9 +656,9 @@ export const skills = {
         title: 'SECONDARY WEAPON // BACKEND & DATA',
         category: 'Infrastructure',
         items: [
-            { name: 'Node.js Core', level: 'ADVANCED', progress: 80, details: 'Express, REST APIs, Automation' },
-            { name: 'Database / BaaS', level: 'INTERMEDIATE', progress: 75, details: 'Supabase, PostgreSQL, RLS' },
-            { name: 'Python', level: 'INTERMEDIATE', progress: 70, details: 'Scripting, Data Analysis' },
+            { name: 'Node.js Core', level: 'INTERMEDIATE', progress: 50, details: 'Express, REST APIs, Automation' },
+            { name: 'Database / BaaS', level: 'INTERMEDIATE', progress: 60, details: 'Supabase, PostgreSQL, RLS' },
+            { name: 'Python', level: 'INTERMEDIATE', progress: 50, details: 'Scripting, Data Analysis' },
         ]
     },
     tactical: {
@@ -666,7 +666,8 @@ export const skills = {
         category: 'Workflow',
         items: [
             { name: 'Design Ops', level: 'EXPERT', progress: 92, details: 'Figma, Adobe Suite, Prototyping' },
-            { name: 'Dev Ops', level: 'ADVANCED', progress: 85, details: 'Git, Docker, Vercel CI/CD' },
+            { name: 'WordPress & CMS', level: 'ADVANCED', progress: 80, details: 'Custom Themes, Headless, Elementor' },
+            { name: 'Dev Ops', level: 'INTERMEDIATE', progress: 50, details: 'Git, Docker, Vercel CI/CD' },
             { name: 'Environment', level: 'ADVANCED', progress: 88, details: 'Linux, Hyprland, Neovim' },
         ]
     },
