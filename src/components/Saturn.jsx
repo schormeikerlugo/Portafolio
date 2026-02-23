@@ -97,7 +97,7 @@ function SaturnRings({ planetRadius }) {
     });
 
     return (
-        <mesh ref={ringRef} rotation={[Math.PI * 0.42, 0, 0.15]}>
+        <mesh ref={ringRef} rotation={[Math.PI * 0.5, 0, 0]}>
             <ringGeometry args={[planetRadius * 1.3, planetRadius * 2.5, 128]} />
             <meshBasicMaterial
                 map={ringTexture}
@@ -110,22 +110,24 @@ function SaturnRings({ planetRadius }) {
     );
 }
 
-/* ── Saturn with real NASA texture (same pattern as JupiterWithTexture) ── */
+/* ── Saturn with real NASA texture ── */
 function SaturnWithTexture() {
     const meshRef = useRef();
     const atmosRef = useRef();
     const lockedScale = useRef(null);
     const { viewport } = useThree();
 
-    // Lock scale — SAME formula as Jupiter
+    // Lock scale — Adjusted for rings (10.5 total diameter) + 20% increase
     if (lockedScale.current === null && viewport.width > 0.1) {
-        const byHeight = (viewport.height * 0.78) / 4.2;
-        const byWidth = (viewport.width * 0.90) / 4.2;
-        lockedScale.current = Math.min(byHeight, byWidth, 1.44);
+        const ringDiameter = 10.5;
+        const baseScaleHeight = (viewport.height * 0.75) / ringDiameter;
+        const baseScaleWidth = (viewport.width * 0.85) / ringDiameter;
+        // Increase base scale by 20% (multiplied by 1.2), keeping a cap to avoid massive overflow
+        lockedScale.current = Math.min(baseScaleHeight, baseScaleWidth, 1.3) * 1.25;
     }
-    const scale = lockedScale.current ?? 0.8;
+    const scale = lockedScale.current ?? 1.0;
 
-    const colorMap = useTexture('/textures/saturn.jpg');
+    const colorMap = useTexture('/textures/saturn_realistic.jpg');
 
     useFrame((_, delta) => {
         if (meshRef.current) meshRef.current.rotation.y += delta * 0.06;
@@ -135,9 +137,9 @@ function SaturnWithTexture() {
     const planetRadius = 2.1;
 
     return (
-        <group scale={scale}>
+        <group scale={scale} rotation={[Math.PI * 0.15, 0, Math.PI * 0.04]}>
             {/* Planet body — slightly oblate like real Saturn */}
-            <mesh ref={meshRef} rotation={[0.1, 0, 0.05]} scale={[1, 0.91, 1]}>
+            <mesh ref={meshRef} rotation={[0, 0, 0]} scale={[1, 0.91, 1]}>
                 <sphereGeometry args={[planetRadius, 128, 128]} />
                 <meshPhysicalMaterial
                     map={colorMap}
@@ -147,8 +149,8 @@ function SaturnWithTexture() {
                     clearcoatRoughness={0.8}
                 />
             </mesh>
-            {/* Atmosphere glow — same scale ratio as Jupiter */}
-            <mesh ref={atmosRef} scale={[1.05, 0.97, 1.05]} rotation={[0.1, 0, 0.05]}>
+            {/* Atmosphere glow */}
+            <mesh ref={atmosRef} scale={[1.05, 0.97, 1.05]} rotation={[0, 0, 0]}>
                 <sphereGeometry args={[2, 64, 64]} />
                 <saturnAtmosphereMaterial />
             </mesh>
