@@ -89,7 +89,7 @@ export default function App() {
 
             {/* 🪐 Saturn transition: Skills → Experience */}
             <Suspense fallback={null}>
-              <div className="w-full h-[400px] sm:h-[500px] lg:h-[600px]">
+              <div className="w-full h-[600px] sm:h-[800px] lg:h-[1000px]">
                 <Saturn />
               </div>
             </Suspense>

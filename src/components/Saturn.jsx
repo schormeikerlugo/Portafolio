@@ -117,13 +117,11 @@ function SaturnWithTexture() {
     const lockedScale = useRef(null);
     const { viewport } = useThree();
 
-    // Lock scale — Adjusted for rings (10.5 total diameter) + 20% increase
+    // Lock scale — Matched with Jupiter (using 4.2 diameter for the sphere)
     if (lockedScale.current === null && viewport.width > 0.1) {
-        const ringDiameter = 10.5;
-        const baseScaleHeight = (viewport.height * 0.75) / ringDiameter;
-        const baseScaleWidth = (viewport.width * 0.85) / ringDiameter;
-        // Increase base scale by 20% (multiplied by 1.2), keeping a cap to avoid massive overflow
-        lockedScale.current = Math.min(baseScaleHeight, baseScaleWidth, 1.3) * 1.25;
+        const byHeight = (viewport.height * 0.78) / 4.2;
+        const byWidth = (viewport.width * 0.90) / 4.2;
+        lockedScale.current = Math.min(byHeight, byWidth, 1.44);
     }
     const scale = lockedScale.current ?? 1.0;
 
@@ -137,7 +135,7 @@ function SaturnWithTexture() {
     const planetRadius = 2.1;
 
     return (
-        <group scale={scale} rotation={[Math.PI * 0.15, 0, Math.PI * 0.04]}>
+        <group scale={scale} rotation={[Math.PI * 0.15, 0, Math.PI * 0.04]} position={[0, 1.2, 0]}>
             {/* Planet body — slightly oblate like real Saturn */}
             <mesh ref={meshRef} rotation={[0, 0, 0]} scale={[1, 0.91, 1]}>
                 <sphereGeometry args={[planetRadius, 128, 128]} />
