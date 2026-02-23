@@ -218,7 +218,7 @@ function Lights() {
             <directionalLight position={[6, 4, 6]} intensity={2.2} color="#fff8f0" />
             <directionalLight position={[-4, -2, 3]} intensity={0.5} color="#8ab4f0" />
             <pointLight position={[-6, 2, -6]} intensity={1.5} color="#5588cc" distance={30} />
-            <pointLight position={[0, -5, 2]} intensity={0.3} color="#000000ff" distance={20} />
+            <pointLight position={[0, -5, 2]} intensity={0.3} color="#000000" distance={20} />
         </>
     );
 }
@@ -234,10 +234,10 @@ export default function JupiterScene() {
             >
                 <Lights />
                 <PlanetErrorBoundary
-                    fallback={<JupiterFallback />}
+                    fallback={<JupiterFallback key="jupiter-error-fallback" />}
                 >
-                    <Suspense fallback={<JupiterFallback />}>
-                        <JupiterWithTexture />
+                    <Suspense fallback={<JupiterFallback key="jupiter-suspense-fallback" />}>
+                        <JupiterWithTexture key="jupiter-real" />
                     </Suspense>
                 </PlanetErrorBoundary>
             </Canvas>

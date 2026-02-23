@@ -21,7 +21,6 @@ import ProjectDetail from './sections/ProjectDetail';
 /* Cosmic elements — lazy loaded for performance */
 const Saturn = lazy(() => import('./components/Saturn'));
 const BlackHole = lazy(() => import('./components/BlackHole'));
-const Galaxy = lazy(() => import('./components/Galaxy'));
 
 export default function App() {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -87,13 +86,6 @@ export default function App() {
             {/* Skills */}
             <Skills />
 
-            {/* 🪐 Saturn transition: Skills → Experience */}
-            <Suspense fallback={null}>
-              <div className="w-full h-[600px] sm:h-[800px] lg:h-[1000px]">
-                <Saturn />
-              </div>
-            </Suspense>
-
             <Experience />
             <Metrics />
 
@@ -114,8 +106,12 @@ export default function App() {
             <Portfolio onSelectProject={handleSelectProject} />
             <Testimonials />
 
-            {/* 🌌 Galaxy transition: Testimonials → SocialCTA */}
-            <Suspense fallback={null}><Galaxy /></Suspense>
+            {/* 🪐 Saturn transition: Testimonials → SocialCTA */}
+            <Suspense fallback={null}>
+              <div className="w-full h-[300px] sm:h-[400px] lg:h-[500px]">
+                <Saturn />
+              </div>
+            </Suspense>
 
             <SocialCTA
               title="SEÑAL DETECTADA"
