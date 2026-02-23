@@ -658,7 +658,7 @@ export const skills = {
         items: [
             { name: 'Node.js Core', level: 'INTERMEDIATE', progress: 50, details: 'Express, REST APIs, Automation' },
             { name: 'Database / BaaS', level: 'INTERMEDIATE', progress: 60, details: 'Supabase, PostgreSQL, RLS' },
-            { name: 'Python', level: 'INTERMEDIATE', progress: 50, details: 'Scripting, Data Analysis' },
+            { name: 'Python', level: 'BASIC', progress: 30, details: 'Scripting, Data Analysis' },
         ]
     },
     tactical: {
