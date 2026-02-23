@@ -117,11 +117,12 @@ function SaturnWithTexture() {
     const lockedScale = useRef(null);
     const { viewport } = useThree();
 
-    // Lock scale — Matched with Jupiter (using 4.2 diameter for the sphere)
+    // Lock scale — Robust ring-aware scaling (Ring diameter is approx 10.5 units)
     if (lockedScale.current === null && viewport.width > 0.1) {
-        const byHeight = (viewport.height * 0.78) / 4.2;
-        const byWidth = (viewport.width * 0.90) / 4.2;
-        lockedScale.current = Math.min(byHeight, byWidth, 1.44);
+        const targetDiameter = 12.0; // Use 12.0 to provide a safe margin for 10.5 rings
+        const byHeight = (viewport.height * 0.85) / targetDiameter;
+        const byWidth = (viewport.width * 0.85) / targetDiameter;
+        lockedScale.current = Math.min(byHeight, byWidth, 1.25);
     }
     const scale = lockedScale.current ?? 1.0;
 
@@ -135,7 +136,7 @@ function SaturnWithTexture() {
     const planetRadius = 2.1;
 
     return (
-        <group scale={scale} rotation={[Math.PI * 0.15, 0, Math.PI * 0.04]} position={[0, 1.2, 0]}>
+        <group scale={scale} rotation={[Math.PI * 0.15, 0, Math.PI * 0.04]}>
             {/* Planet body — slightly oblate like real Saturn */}
             <mesh ref={meshRef} rotation={[0, 0, 0]} scale={[1, 0.91, 1]}>
                 <sphereGeometry args={[planetRadius, 128, 128]} />
@@ -216,9 +217,10 @@ function SaturnFallback() {
     const { viewport } = useThree();
 
     if (lockedScale.current === null && viewport.width > 0.1) {
-        const byHeight = (viewport.height * 0.78) / 4.2;
-        const byWidth = (viewport.width * 0.90) / 4.2;
-        lockedScale.current = Math.min(byHeight, byWidth, 1.44);
+        const targetDiameter = 12.0;
+        const byHeight = (viewport.height * 0.85) / targetDiameter;
+        const byWidth = (viewport.width * 0.85) / targetDiameter;
+        lockedScale.current = Math.min(byHeight, byWidth, 1.25);
     }
     const scale = lockedScale.current ?? 0.8;
     const texture = useMemo(() => createSaturnFallbackTexture(), []);
