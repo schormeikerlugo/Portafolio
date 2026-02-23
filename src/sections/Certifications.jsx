@@ -168,9 +168,13 @@ export default function Certifications() {
                     transition={{ duration: 0.6 }}
                     className="text-center mb-16"
                 >
-                    <span className="mono text-[10px] text-text-dim tracking-widest">
-                        MAPA ESTELAR DE CONOCIMIENTO
-                    </span>
+                    <div className="flex items-center gap-3 mb-4 justify-center">
+                        <div className="hud-line flex-1 lg:max-w-12 lg:flex-none" />
+                        <span className="mono text-[10px] text-text-dim tracking-widest shrink-0">
+                            MAPA ESTELAR DE CONOCIMIENTO
+                        </span>
+                        <div className="hud-line flex-1 lg:hidden" />
+                    </div>
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-jura text-white mt-3 tracking-tight">
                         FORMACIÓN
                     </h2>

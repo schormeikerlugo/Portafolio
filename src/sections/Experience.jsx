@@ -109,7 +109,7 @@ function MissionCard({ mission, index, isLeft }) {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className={`relative flex ${isLeft ? 'lg:justify-end lg:pr-12' : 'lg:justify-start lg:pl-12'} w-full lg:w-1/2 ${isLeft ? 'lg:self-start' : 'lg:self-start lg:ml-auto'}`}
+            className={`relative flex justify-center ${isLeft ? 'lg:justify-end lg:pr-12' : 'lg:justify-start lg:pl-12'} w-full lg:w-1/2 ${isLeft ? 'lg:self-start' : 'lg:self-start lg:ml-auto'}`}
         >
             {/* Connection dot on timeline */}
             <div

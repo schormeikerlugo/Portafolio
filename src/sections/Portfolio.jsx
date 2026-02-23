@@ -37,19 +37,19 @@ export default function Portfolio({ onSelectProject }) {
             <div className="max-w-[1600px] mx-auto">
                 {/* Section label */}
                 <motion.div
-                    className="flex items-center gap-3 mb-10"
+                    className="flex items-center gap-3 mb-10 justify-center lg:justify-start"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
                 >
-                    <div className="hud-line flex-1 max-w-12" />
-                    <span className="mono text-text-dim tracking-[0.3em]">MÓDULO 02</span>
+                    <div className="hud-line flex-1 lg:max-w-12" />
+                    <span className="mono text-text-dim tracking-[0.3em] shrink-0">MÓDULO 02</span>
                     <div className="hud-line flex-1" />
                 </motion.div>
 
                 <motion.h2
-                    className="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-3"
+                    className="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-3 text-center lg:text-left"
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -58,7 +58,7 @@ export default function Portfolio({ onSelectProject }) {
                     PROYECTOS DESTACADOS
                 </motion.h2>
                 <motion.p
-                    className="text-text-secondary text-sm mb-10 max-w-lg"
+                    className="text-text-secondary text-sm mb-10 max-w-lg text-center lg:text-left mx-auto lg:mx-0"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
@@ -68,7 +68,7 @@ export default function Portfolio({ onSelectProject }) {
                 </motion.p>
 
                 {/* Main Filters */}
-                <div className="flex gap-2 mb-4 flex-wrap">
+                <div className="flex gap-2 mb-4 flex-wrap justify-center lg:justify-start">
                     {mainFilters.map((filter) => (
                         <motion.button
                             key={filter}
@@ -99,7 +99,7 @@ export default function Portfolio({ onSelectProject }) {
                     {currentSubs && (
                         <motion.div
                             key={activeFilter}
-                            className="flex gap-1.5 mb-10 flex-wrap pl-2 border-l border-cyan/20"
+                            className="flex gap-1.5 mb-10 flex-wrap pl-2 border-l border-cyan/20 justify-center lg:justify-start"
                             initial={{ opacity: 0, x: -10 }}
                             animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: -10 }}
