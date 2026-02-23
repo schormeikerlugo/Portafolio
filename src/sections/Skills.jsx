@@ -89,7 +89,9 @@ export default function Skills() {
                                                 </span>
                                                 <span className={`mono text-[9px] px-1.5 py-0.5 rounded border ${skill.level === 'EXPERT' ? 'border-cyan/30 text-cyan bg-cyan/5' :
                                                     skill.level === 'SPECIALIST' ? 'border-purple-500/30 text-purple-400 bg-purple-500/5' :
-                                                        'border-white/10 text-text-dim'
+                                                        skill.level === 'ADVANCED' ? 'border-blue-500/30 text-blue-400 bg-blue-500/5' :
+                                                            skill.level === 'INTERMEDIATE' ? 'border-emerald-500/30 text-emerald-400 bg-emerald-500/5' :
+                                                                'border-white/10 text-text-dim'
                                                     }`}>
                                                     {skill.level}
                                                 </span>
@@ -104,7 +106,9 @@ export default function Skills() {
                                                     transition={{ duration: 1, delay: 0.2 + (i * 0.1), ease: "easeOut" }}
                                                     className={`h-full absolute left-0 top-0 ${skill.level === 'EXPERT' ? 'bg-cyan' :
                                                         skill.level === 'SPECIALIST' ? 'bg-purple-500' :
-                                                            'bg-white/40'
+                                                            skill.level === 'ADVANCED' ? 'bg-blue-500' :
+                                                                skill.level === 'INTERMEDIATE' ? 'bg-emerald-500' :
+                                                                    'bg-white/40'
                                                         }`}
                                                 />
                                             </div>
