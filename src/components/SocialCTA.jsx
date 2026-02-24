@@ -109,13 +109,13 @@ export default function SocialCTA({ title, message, author, networks = [], onOpe
                 </div>
 
                 {/* Message */}
-                <p className="text-text-primary/80 text-base sm:text-lg leading-relaxed font-light italic max-w-[600px] mx-auto">
+                <p className="text-white/90 text-base sm:text-lg leading-relaxed font-light italic max-w-[600px] mx-auto">
                     "<CipherText text={message} delay={0.6} duration={2.5} triggerRef={sectionRef} multiline />"
                 </p>
 
                 {/* Author */}
                 {author && (
-                    <p className="mono text-[11px] text-text-dim mt-4 tracking-wider">
+                    <p className="mono text-[11px] text-white/80 mt-4 tracking-wider">
                         — <CipherText text={author} delay={1.8} duration={0.8} triggerRef={sectionRef} />
                     </p>
                 )}
@@ -128,7 +128,7 @@ export default function SocialCTA({ title, message, author, networks = [], onOpe
                             whileHover={{ scale: 1.15, y: -2 }}
                             transition={{ type: 'spring', stiffness: 400, damping: 15 }}
                         >
-                            <SocialIcon name={name} className="!text-text-dim hover:!text-cyan" />
+                            <SocialIcon name={name} className="!text-white/70 hover:!text-cyan" />
                         </motion.div>
                     ))}
                 </div>

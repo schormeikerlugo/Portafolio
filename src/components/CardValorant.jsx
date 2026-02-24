@@ -82,7 +82,7 @@ export default function CardValorant({ title, subtitle, image, tags = [], onClic
                 </p>
                 <div className="flex flex-wrap gap-1.5 opacity-60 group-hover:opacity-100 transition-opacity duration-300">
                     {tags.map((tag) => (
-                        <span key={tag} className="text-[8px] sm:text-[9px] font-mono text-text-dim px-1.5 py-0.5 border border-white/10 bg-white/5 uppercase transition-colors duration-300 group-hover:text-cyan group-hover:border-cyan/40">
+                        <span key={tag} className="text-[8px] sm:text-[9px] font-mono text-white/80 px-1.5 py-0.5 border border-white/15 bg-white/5 uppercase transition-colors duration-300 group-hover:text-cyan group-hover:border-cyan/40">
                             {tag}
                         </span>
                     ))}

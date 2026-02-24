@@ -153,7 +153,7 @@ function MissionCard({ mission, index, isLeft }) {
                     {mission.tech.map((t) => (
                         <span
                             key={t}
-                            className="mono text-[9px] px-2 py-0.5 border border-white/[0.06] bg-white/[0.02] text-text-dim rounded-sm transition-colors duration-300 group-hover:text-cyan group-hover:border-cyan/40"
+                            className="mono text-[9px] px-2 py-0.5 border border-white/[0.08] bg-white/[0.02] text-white/80 rounded-sm transition-colors duration-300 group-hover:text-cyan group-hover:border-cyan/40"
                         >
                             {t}
                         </span>

@@ -84,7 +84,7 @@ function TestimonialCard({ testimonial }) {
                     <p className="text-sm font-semibold text-white font-jura">
                         {testimonial.name}
                     </p>
-                    <p className="mono text-[10px] text-text-dim tracking-wider">
+                    <p className="mono text-[10px] text-white/70 tracking-wider">
                         {testimonial.role} · {testimonial.company}
                     </p>
                 </div>
@@ -106,8 +106,8 @@ function DotIndicator({ total, current, onSelect }) {
                     key={i}
                     onClick={() => onSelect(i)}
                     className={`w-2 h-2 rounded-full transition-all duration-300 cursor-pointer ${i === current
-                            ? 'bg-cyan shadow-[0_0_8px_rgba(0,229,255,0.5)] w-6'
-                            : 'bg-white/10 hover:bg-white/20'
+                        ? 'bg-cyan shadow-[0_0_8px_rgba(0,229,255,0.5)] w-6'
+                        : 'bg-white/10 hover:bg-white/20'
                         }`}
                     aria-label={`Testimonio ${i + 1}`}
                 />
@@ -180,13 +180,13 @@ export default function Testimonials() {
                         onClick={() =>
                             setCurrent((p) => (p - 1 + TESTIMONIALS.length) % TESTIMONIALS.length)
                         }
-                        className="mono text-xs text-text-dim hover:text-cyan transition-colors border border-white/[0.06] px-4 py-2 hover:border-cyan/30 cursor-pointer"
+                        className="mono text-xs text-white/70 hover:text-cyan transition-colors border border-white/[0.08] px-4 py-2 hover:border-cyan/30 cursor-pointer"
                     >
                         ← PREV
                     </button>
                     <button
                         onClick={next}
-                        className="mono text-xs text-text-dim hover:text-cyan transition-colors border border-white/[0.06] px-4 py-2 hover:border-cyan/30 cursor-pointer"
+                        className="mono text-xs text-white/70 hover:text-cyan transition-colors border border-white/[0.08] px-4 py-2 hover:border-cyan/30 cursor-pointer"
                     >
                         NEXT →
                     </button>

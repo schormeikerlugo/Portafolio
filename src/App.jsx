@@ -125,7 +125,7 @@ export default function App() {
 
             {/* Footer */}
             <footer className="relative z-10 text-center py-12 px-6 border-t border-white/[0.04]">
-              <p className="mono text-[10px] text-text-dim tracking-wider">
+              <p className="mono text-[10px] text-white/70 tracking-wider">
                 © {new Date().getFullYear()} SCHORMEIKER LUGO // ALL SYSTEMS OPERATIONAL
               </p>
               <FooterSocials />

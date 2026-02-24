@@ -5,58 +5,65 @@ const CERTIFICATIONS = [
     {
         id: 'cert-1',
         title: 'Figma: Técnicas Avanzadas de Diseño',
-        institution: 'Domestika / Platzi',
+        institution: 'Platzi',
         date: 'Nov 2024',
         category: 'design',
         icon: '◆',
+        link: 'https://platzi.com/p/schormeikerlugo/curso/7998-figma-tecnicas-avanzadas/diploma/detalle/',
     },
     {
         id: 'cert-2',
         title: 'Figma: Prototyping e Interfaz',
-        institution: 'Domestika / Platzi',
+        institution: 'Platzi',
         date: 'Nov 2024',
         category: 'design',
         icon: '◆',
+        link: 'https://platzi.com/p/schormeikerlugo/curso-4038-figma-basico/diploma/detalle/',
     },
     {
         id: 'cert-3',
         title: 'Adobe XD',
-        institution: 'Domestika / Platzi',
+        institution: 'Platzi',
         date: 'Nov 2024',
         category: 'design',
         icon: '◇',
+        link: 'https://platzi.com/p/schormeikerlugo/curso/2420-course/diploma/detalle/',
     },
     {
         id: 'cert-4',
         title: 'Fundamentos de Diseño de Interfaces',
-        institution: 'Domestika / Platzi',
+        institution: 'Platzi',
         date: 'May 2024',
         category: 'ux',
         icon: '▣',
+        link: 'https://platzi.com/p/schormeikerlugo/curso/1754-course/diploma/detalle/',
     },
     {
         id: 'cert-5',
         title: 'Arquitectura de Información y Usabilidad',
-        institution: 'Domestika / Platzi',
+        institution: 'Platzi',
         date: 'Nov 2024',
         category: 'ux',
         icon: '▣',
+        link: 'https://platzi.com/p/schormeikerlugo/curso/1354-course/diploma/detalle/',
     },
     {
         id: 'cert-6',
         title: 'Curso Introductorio de Diseño',
-        institution: 'Domestika / Platzi',
+        institution: 'Platzi',
         date: 'Dic 2024',
         category: 'design',
         icon: '◇',
+        link: 'https://platzi.com/p/schormeikerlugo/curso/1228-course/diploma/detalle/',
     },
     {
         id: 'cert-7',
         title: 'Matte Painting: Técnica Completa',
-        institution: 'Domestika',
+        institution: 'Udemy',
         date: 'Nov 2019',
         category: 'art',
         icon: '✦',
+        link: 'https://www.udemy.com/certificate/UC-JSLCGQQ9/',
     },
 ];
 
@@ -115,15 +122,31 @@ function CertCard({ cert, index }) {
             </h3>
 
             {/* Institution & date */}
-            <p className="mono text-[9px] text-text-dim tracking-wider">
+            <p className="mono text-[9px] text-white/60 tracking-wider">
                 {cert.institution}
             </p>
-            <p className="mono text-[9px] text-text-dim tracking-wider mt-0.5">
+            <p className="mono text-[9px] text-white/60 tracking-wider mt-0.5">
                 ⏱ {cert.date}
             </p>
 
             {/* Star connection line (decorative) */}
             <div className="absolute -bottom-4 left-1/2 w-px h-4 bg-gradient-to-b from-cyan/10 to-transparent hidden lg:block" />
+
+            {/* Verification link */}
+            {cert.link && (
+                <a
+                    href={cert.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-3 inline-flex items-center gap-1.5 mono text-[8px] tracking-wider text-white/50 hover:text-cyan border border-white/[0.06] hover:border-cyan/30 px-2 py-1 rounded-sm transition-colors duration-200 cursor-pointer"
+                    onClick={(e) => e.stopPropagation()}
+                >
+                    <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                    VERIFICAR CERTIFICADO
+                </a>
+            )}
         </motion.div>
     );
 }
@@ -150,7 +173,7 @@ function SkillBar({ skill, index }) {
                     className="h-full bg-gradient-to-r from-cyan/60 to-cyan rounded-full"
                 />
             </div>
-            <span className="mono text-[9px] text-text-dim w-8 shrink-0">{skill.level}%</span>
+            <span className="mono text-[9px] text-white/60 w-8 shrink-0">{skill.level}%</span>
         </motion.div>
     );
 }
@@ -225,7 +248,7 @@ export default function Certifications() {
                                 <div className="w-full h-px bg-white/[0.04]" />
                                 <div className="flex items-center justify-between">
                                     <span className="text-sm text-text-secondary">English</span>
-                                    <span className="mono text-[10px] text-text-dim border border-white/[0.08] px-2 py-0.5 rounded-sm">
+                                    <span className="mono text-[10px] text-white/60 border border-white/[0.10] px-2 py-0.5 rounded-sm">
                                         BÁSICO / TÉCNICO
                                     </span>
                                 </div>

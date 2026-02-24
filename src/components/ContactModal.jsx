@@ -121,7 +121,7 @@ export default function ContactModal({ isOpen, onClose }) {
                         <form ref={formRef} onSubmit={handleSubmit} className="p-6 space-y-5">
                             {/* Name */}
                             <div>
-                                <label className="mono text-[10px] text-text-dim tracking-[0.2em] block mb-2">
+                                <label className="mono text-[10px] text-text-secondary tracking-[0.2em] block mb-2">
                                     {'>'} IDENTIFICACIÓN
                                 </label>
                                 <input
@@ -131,13 +131,13 @@ export default function ContactModal({ isOpen, onClose }) {
                                     value={formData.name}
                                     onChange={handleChange}
                                     placeholder="Tu nombre"
-                                    className="w-full bg-white/[0.03] border border-white/[0.08] px-4 py-3 text-sm text-text-primary placeholder:text-text-dim/40 font-light focus:border-cyan/40 focus:outline-none focus:bg-white/[0.05] transition-all duration-300"
+                                    className="w-full bg-white/[0.03] border border-white/[0.08] px-4 py-3 text-sm text-text-primary placeholder:text-text-dim/70 font-light focus:border-cyan/40 focus:outline-none focus:bg-white/[0.05] transition-all duration-300"
                                 />
                             </div>
 
                             {/* Email */}
                             <div>
-                                <label className="mono text-[10px] text-text-dim tracking-[0.2em] block mb-2">
+                                <label className="mono text-[10px] text-text-secondary tracking-[0.2em] block mb-2">
                                     {'>'} FRECUENCIA DE RETORNO
                                 </label>
                                 <input
@@ -147,13 +147,13 @@ export default function ContactModal({ isOpen, onClose }) {
                                     value={formData.email}
                                     onChange={handleChange}
                                     placeholder="tu@email.com"
-                                    className="w-full bg-white/[0.03] border border-white/[0.08] px-4 py-3 text-sm text-text-primary placeholder:text-text-dim/40 font-light focus:border-cyan/40 focus:outline-none focus:bg-white/[0.05] transition-all duration-300"
+                                    className="w-full bg-white/[0.03] border border-white/[0.08] px-4 py-3 text-sm text-text-primary placeholder:text-text-dim/70 font-light focus:border-cyan/40 focus:outline-none focus:bg-white/[0.05] transition-all duration-300"
                                 />
                             </div>
 
                             {/* Message */}
                             <div>
-                                <label className="mono text-[10px] text-text-dim tracking-[0.2em] block mb-2">
+                                <label className="mono text-[10px] text-text-secondary tracking-[0.2em] block mb-2">
                                     {'>'} TRANSMISIÓN
                                 </label>
                                 <textarea
@@ -163,7 +163,7 @@ export default function ContactModal({ isOpen, onClose }) {
                                     value={formData.message}
                                     onChange={handleChange}
                                     placeholder="Escribe tu mensaje..."
-                                    className="w-full bg-white/[0.03] border border-white/[0.08] px-4 py-3 text-sm text-text-primary placeholder:text-text-dim/40 font-light resize-none focus:border-cyan/40 focus:outline-none focus:bg-white/[0.05] transition-all duration-300"
+                                    className="w-full bg-white/[0.03] border border-white/[0.08] px-4 py-3 text-sm text-text-primary placeholder:text-text-dim/70 font-light resize-none focus:border-cyan/40 focus:outline-none focus:bg-white/[0.05] transition-all duration-300"
                                 />
                             </div>
 
@@ -173,7 +173,7 @@ export default function ContactModal({ isOpen, onClose }) {
                                     {status === STATUS.SENDING && '⟳ TRANSMITIENDO...'}
                                     {status === STATUS.SUCCESS && '✓ TRANSMISIÓN EXITOSA'}
                                     {status === STATUS.ERROR && '✗ ERROR DE TRANSMISIÓN'}
-                                    {status === STATUS.IDLE && 'CANAL SEGURO // ENCRIPTADO'}
+                                    {status === STATUS.IDLE && <><span className="text-cyan">CANAL SEGURO</span> // <span className="text-white">ENCRIPTADO</span></>}
                                 </span>
 
                                 <motion.button

@@ -78,7 +78,7 @@ export default function Portfolio({ onSelectProject }) {
                 border transition-all duration-200
                 ${activeFilter === filter
                                     ? 'border-cyan/40 text-cyan bg-cyan/5'
-                                    : 'border-white/[0.06] text-text-dim hover:border-white/15 hover:text-text-secondary'
+                                    : 'border-white/[0.08] text-white/70 hover:border-white/20 hover:text-white'
                                 }
               `}
                             whileTap={{ scale: 0.97 }}
@@ -118,7 +118,7 @@ export default function Portfolio({ onSelectProject }) {
                           border transition-all duration-200
                           ${activeSub === sub
                                                 ? 'border-cyan/30 text-cyan bg-cyan/5'
-                                                : 'border-white/[0.04] text-text-dim/70 hover:border-white/10 hover:text-text-dim'
+                                                : 'border-white/[0.06] text-white/60 hover:border-white/15 hover:text-white/80'
                                             }
                         `}
                                         whileTap={{ scale: 0.97 }}

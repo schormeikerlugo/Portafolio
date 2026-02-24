@@ -8,7 +8,7 @@ const STATS = [
         suffix: '+',
         label: 'AÑOS DE VUELO',
         description: 'Navegando el ecosistema digital',
-        icon: '⏱',
+        icon: '🕐',
     },
     {
         value: 25,
@@ -22,7 +22,7 @@ const STATS = [
         suffix: '+',
         label: 'TECNOLOGÍAS',
         description: 'Herramientas en el arsenal',
-        icon: '⚙',
+        icon: '🛠️',
     },
     {
         value: 6,
@@ -93,7 +93,7 @@ function StatCard({ stat, index }) {
             </div>
 
             {/* Description */}
-            <p className="text-xs text-text-dim leading-relaxed">{stat.description}</p>
+            <p className="text-xs text-white/70 leading-relaxed">{stat.description}</p>
 
             {/* Decorative corner */}
             <div className="absolute top-0 right-0 w-6 h-6 border-t border-r border-cyan/10 rounded-tr-sm opacity-0 group-hover:opacity-100 transition-opacity" />
