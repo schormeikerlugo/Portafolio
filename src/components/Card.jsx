@@ -49,7 +49,7 @@ export default function Card({ title, subtitle, image, tags = [], onClick, index
                         {tags.map((tag) => (
                             <span
                                 key={tag}
-                                className="mono text-[10px] text-text-dim px-2 py-0.5 rounded border border-white/5 bg-white/[0.02]"
+                                className="mono text-[10px] text-text-dim px-2 py-0.5 rounded border border-white/5 bg-white/[0.02] transition-colors duration-300 group-hover:text-cyan group-hover:border-cyan/40"
                             >
                                 [{tag}]
                             </span>
