@@ -684,6 +684,6 @@ export const skills = {
 export const telemetry = [
     { label: 'OS', value: 'ARCH LINUX // HYPRLAND WM' },
     { label: 'CPU', value: 'AMD RYZEN 7 5700X' },
-    { label: 'GPU', value: 'NVIDIA RTX 3060' },
+    { label: 'GPU', value: '12GB NVIDIA RTX 3060' },
     { label: 'RAM', value: '64GB DDR4' },
 ];
