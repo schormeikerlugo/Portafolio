@@ -685,5 +685,5 @@ export const telemetry = [
     { label: 'OS', value: 'ARCH LINUX // HYPRLAND WM' },
     { label: 'CPU', value: 'AMD RYZEN 7 5700X' },
     { label: 'GPU', value: 'NVIDIA RTX 3060' },
-    { label: 'RAM', value: '32GB DDR4' },
+    { label: 'RAM', value: '64GB DDR4' },
 ];
