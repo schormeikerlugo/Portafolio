@@ -93,7 +93,7 @@ export default function SocialCTA({ title, message, author, networks = [], onOpe
     return (
         <section ref={sectionRef} className="relative z-10 py-16 sm:py-20 px-6">
             <motion.div
-                className="max-w-[800px] mx-auto text-center"
+                className="max-w-[1400px] mx-auto text-center"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-80px' }}

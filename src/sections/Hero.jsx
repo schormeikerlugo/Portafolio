@@ -9,7 +9,7 @@ import HeroTabs from '../components/HeroTabs';
 export default function Hero({ onOpenContact }) {
     return (
         <section id="hero" className="relative min-h-screen flex items-start pt-10 lg:items-center lg:pt-0 px-6 z-10 overflow-hidden">
-            <div className="max-w-[1600px] mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+            <div className="max-w-[1400px] mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
                 {/* Left: Content */}
                 <div className="order-2 lg:order-1 lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left">
                     {/* Status bar */}

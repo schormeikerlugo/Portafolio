@@ -129,11 +129,13 @@ export default function App() {
             <Certifications />
 
             {/* Footer */}
-            <footer className="relative z-10 text-center py-12 px-6 border-t border-white/[0.04]">
-              <p className="mono text-[10px] text-white/70 tracking-wider">
-                © {new Date().getFullYear()} SCHORMEIKER LUGO // ALL SYSTEMS OPERATIONAL
-              </p>
-              <FooterSocials />
+            <footer className="relative z-10 py-12 px-6 border-t border-white/[0.04]">
+              <div className="max-w-[1400px] mx-auto text-center">
+                <p className="mono text-[10px] text-white/70 tracking-wider">
+                  © {new Date().getFullYear()} SCHORMEIKER LUGO // ALL SYSTEMS OPERATIONAL
+                </p>
+                <FooterSocials />
+              </div>
             </footer>
           </motion.div>
         )}

@@ -13,7 +13,7 @@ const icons = {
 export default function Bio() {
     return (
         <section id="bio" className="relative z-10 py-24 sm:py-32 px-6">
-            <div className="max-w-[1600px] mx-auto">
+            <div className="max-w-[1400px] mx-auto">
                 {/* Section label */}
                 <motion.div
                     className="flex items-center gap-3 mb-10"

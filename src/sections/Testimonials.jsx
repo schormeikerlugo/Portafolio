@@ -134,7 +134,7 @@ export default function Testimonials() {
 
     return (
         <section id="testimonials" className="relative py-24 lg:py-32 px-6 z-10 overflow-hidden">
-            <div className="max-w-[900px] mx-auto">
+            <div className="max-w-[1400px] mx-auto">
                 {/* Section header */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
