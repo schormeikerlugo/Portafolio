@@ -44,18 +44,19 @@ export default function Portfolio({ onSelectProject }) {
                     transition={{ duration: 0.5 }}
                 >
                     <div className="hud-line flex-1 lg:max-w-12" />
-                    <span className="mono text-text-dim tracking-[0.3em] shrink-0">MÓDULO 02</span>
+                    <span className="mono text-text-dim tracking-[0.3em] shrink-0">MÓDULO 02 // OPERACIONES</span>
                     <div className="hud-line flex-1" />
                 </motion.div>
 
                 <motion.h2
-                    className="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-3 text-center lg:text-left"
+                    className="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-3 text-center lg:text-left font-jura"
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
                 >
-                    PROYECTOS DESTACADOS
+                    CASOS DE ESTUDIO <br />
+                    <span className="text-text-secondary select-none opacity-50 font-light italic">DIAGNÓSTICO Y EJECUCIÓN</span>
                 </motion.h2>
                 <motion.p
                     className="text-text-secondary text-sm mb-10 max-w-lg text-center lg:text-left mx-auto lg:mx-0"
@@ -64,7 +65,7 @@ export default function Portfolio({ onSelectProject }) {
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.1 }}
                 >
-                    Panel de misiones completadas y sistemas activos.
+                    Bitácora de misiones desplegadas. Cada entrada detalla un problema estructural y la ingeniería aplicada para su resolución.
                 </motion.p>
 
                 {/* Main Filters */}

@@ -40,7 +40,7 @@ export default function Hero({ onOpenContact }) {
                         transition={{ duration: 0.5, delay: 2.5 }}
                         className="mono text-cyan text-sm tracking-[0.2em] mb-8"
                     >
-                        ARQUITECTURA VISUAL E INGENIERÍA DE INTERACCIÓN
+                        ELIMINANDO FRICCIÓN DIGITAL // INGENIERÍA DE SISTEMAS DE ALTO RENDIMIENTO
                     </motion.h2>
 
                     {/* HUD divider */}

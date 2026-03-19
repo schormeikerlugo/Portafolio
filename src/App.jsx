@@ -17,6 +17,8 @@ import Portfolio from './sections/Portfolio';
 import Testimonials from './sections/Testimonials';
 import Certifications from './sections/Certifications';
 import ProjectDetail from './sections/ProjectDetail';
+import Anomalies from './sections/Anomalies';
+import Protocols from './sections/Protocols';
 
 /* Cosmic elements — lazy loaded for performance */
 const Saturn = lazy(() => import('./components/Saturn'));
@@ -36,10 +38,10 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
-  const handleBack = useCallback(() => {
+    const handleBack = useCallback(() => {
     setSelectedProject(null);
     setTimeout(() => {
-      document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+      document.getElementById('operaciones')?.scrollIntoView({ behavior: 'smooth' });
     }, 100);
   }, []);
 
@@ -82,8 +84,8 @@ export default function App() {
             transition={{ duration: 0.25 }}
           >
             <Hero onOpenContact={openContact} />
-
-            {/* Skills */}
+            <Anomalies />
+            <Bio />
             <Skills />
 
             <Experience />
@@ -104,7 +106,11 @@ export default function App() {
               onOpenContact={openContact}
             />
 
-            <Portfolio onSelectProject={handleSelectProject} />
+            <div id="operaciones">
+              <Portfolio onSelectProject={handleSelectProject} />
+              <Protocols />
+            </div>
+            
             <Testimonials />
 
             {/* 🪐 Saturn transition: Testimonials → SocialCTA */}
@@ -121,7 +127,6 @@ export default function App() {
               onOpenContact={openContact}
             />
             <Certifications />
-            <Bio />
 
             {/* Footer */}
             <footer className="relative z-10 text-center py-12 px-6 border-t border-white/[0.04]">

@@ -5,10 +5,9 @@ import { NavbarSocials } from './SocialCTA';
 
 const NAV_LINKS = [
     { label: 'INICIO', href: '#hero' },
-    { label: 'SKILLS', href: '#skills' },
-    { label: 'EXPERIENCIA', href: '#experience' },
-    { label: 'PROYECTOS', href: '#projects' },
-    { label: 'BIO', href: '#bio' },
+    { label: 'MISIÓN', href: '#bio' },
+    { label: 'OPERACIONES', href: '#operaciones' },
+    { label: 'PROTOCOLOS', href: '#protocols' },
 ];
 
 function useScrollSpy(ids, offset = 120) {
@@ -74,7 +73,7 @@ function useScrollDirection() {
 
 export default function Navbar({ hidden = false, onOpenContact }) {
     const [mobileOpen, setMobileOpen] = useState(false);
-    const activeId = useScrollSpy(['hero', 'skills', 'experience', 'projects', 'bio']);
+    const activeId = useScrollSpy(['hero', 'bio', 'operaciones', 'protocols']);
     const { visible, atTop } = useScrollDirection();
 
     const handleClick = useCallback((e, href) => {

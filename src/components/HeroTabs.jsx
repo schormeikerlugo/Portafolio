@@ -8,10 +8,10 @@ const tabs = [
         content: (
             <>
                 <p className="mb-4">
-                    Con más de siete años de trayectoria en el ecosistema digital, mi carrera ha evolucionado en la intersección donde la estética de alta fidelidad se encuentra con la lógica de programación robusta. No entiendo el diseño y el desarrollo como disciplinas aisladas, sino como un único proceso de ingeniería destinado a resolver problemas complejos mediante interfaces intuitivas y sistemas escalables.
+                    Optimizo sistemas digitales que han perdido su rumbo. Mi enfoque no se limita a "crear interfaces", sino a eliminar la fricción entre el diseño y la ingeniería. Resuelvo problemas estructurales mediante arquitecturas visuales escalables y sistemas de diseño que permiten a los equipos iterar sin romper el ecosistema.
                 </p>
                 <p>
-                    Mi enfoque se centra en la eficiencia operativa. Como diseñador UI/UX, priorizo la claridad y la psicología del usuario, utilizando el Glassmorphism y el diseño atómico. Como desarrollador Frontend, traduzco esa visión en código limpio y de alto rendimiento utilizando <span className="text-cyan">React</span>, <span className="text-cyan">Vite</span> y <span className="text-cyan">Supabase</span>.
+                    Como <span className="text-cyan">Design Engineer</span>, priorizo la arquitectura de información y la psicología del usuario para reducir la carga cognitiva. Traduzco visiones complejas en código de alto rendimiento utilizando <span className="text-cyan">React</span>, <span className="text-cyan">Vite</span> y <span className="text-cyan">Framer Motion</span>, asegurando que cada píxel tenga un propósito operativo.
                 </p>
             </>
         ),

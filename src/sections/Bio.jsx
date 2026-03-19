@@ -38,19 +38,17 @@ export default function Bio() {
                             transition={{ duration: 0.5, delay: 0.1 }}
                         >
                             <h3 className="mono text-cyan text-xs tracking-[0.2em] mb-5">
-                                PERFIL OPERATIVO
+                                HISTORIA DE LA MISIÓN // ORIGEN
                             </h3>
-                            <p className="text-text-secondary text-sm leading-relaxed">
-                                Especialista en la integración estratégica de IA aplicada al
-                                diseño y desarrollo. Optimización de procesos mediante Ingeniería
-                                de Prompts y despliegue de LLMs locales para flujos de trabajo
-                                eficientes y privados.
-                            </p>
-                            <div className="mt-6 pt-5 border-t border-white/[0.05]">
-                                <p className="text-text-secondary text-sm leading-relaxed">
-                                    Enfoque en arquitecturas modernas con React y Supabase.
-                                    Experiencia en diseño de sistemas escalables y prototipado
-                                    rápido con Figma.
+                            <div className="space-y-4 text-text-secondary text-sm leading-relaxed">
+                                <p>
+                                    Mi viaje no comenzó en una pantalla, sino entre circuitos y soldadores. Esa formación base en electrónica forjó en mí una mentalidad de **pensamiento sistémico**: antes de que algo sea bello, debe ser funcional y eficiente.
+                                </p>
+                                <p>
+                                    Con el tiempo, mi curiosidad me llevó de los sistemas físicos a los digitales. Descubrí que el diseño de interfaces no es decoración, sino **ingeniería de interacción**. Hoy, utilizo esa herencia técnica para construir puentes entre lo complejo y lo intuitivo.
+                                </p>
+                                <p>
+                                    No solo entrego píxeles; entrego soluciones operativas que eliminan la fricción, reducen la deuda técnica y permiten a los productos escalar en órbitas cada vez más complejas.
                                 </p>
                             </div>
                         </motion.div>

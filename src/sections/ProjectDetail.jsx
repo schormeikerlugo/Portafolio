@@ -195,65 +195,75 @@ export default function ProjectDetail({ project, onBack, onSelectProject }) {
                         </a>
                     </motion.div>
                 )}
-
-                {/* MISSION */}
-                {project.mission && (
+                {/* FASE 01: DIAGNÓSTICO */}
+                {(project.mission || project.problem) && (
                     <motion.div
                         initial={{ opacity: 0, y: 15 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2, duration: 0.3 }}
-                        className="mb-8"
+                        className="mb-12"
                     >
-                        <GlassContainer className="p-5 sm:p-6 rounded-lg">
-                            <div className="flex items-center gap-2 mb-3">
-                                <Target size={14} strokeWidth={1.5} className="text-cyan" />
-                                <h2 className="mono text-xs text-cyan tracking-[0.15em]">MISIÓN</h2>
+                        <div className="flex items-center gap-3 mb-6">
+                            <span className="mono text-[10px] text-cyan/50 bg-cyan/5 px-2 py-0.5 border border-cyan/10">FASE 01</span>
+                            <h2 className="font-jura text-xl font-bold text-white tracking-widest uppercase">EL DIAGNÓSTICO</h2>
+                        </div>
+
+                        {project.mission && (
+                            <div className="mb-6">
+                                <div className="flex items-center gap-2 mb-3">
+                                    <Target size={14} strokeWidth={1.5} className="text-cyan" />
+                                    <h3 className="mono text-[10px] text-cyan tracking-[0.15em]">LA MISIÓN</h3>
+                                </div>
+                                <p className="text-text-secondary text-sm leading-relaxed border-l border-white/10 pl-4">{project.mission}</p>
                             </div>
-                            <p className="text-text-secondary text-sm leading-relaxed">{project.mission}</p>
-                        </GlassContainer>
+                        )}
+
+                        {project.problem && (
+                            <div className="mt-8">
+                                <div className="flex items-center gap-2 mb-3">
+                                    <Terminal size={14} strokeWidth={1.5} className="text-magenta" />
+                                    <h3 className="mono text-[10px] text-magenta tracking-[0.15em]">EL PROBLEMA (TERMINAL_LOG)</h3>
+                                </div>
+                                <div className="bg-black/60 border border-cyan/10 rounded-lg overflow-hidden">
+                                    <div className="flex items-center gap-1.5 px-4 py-2 bg-black/40 border-b border-white/[0.04]">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-red-500/40" />
+                                        <div className="w-1.5 h-1.5 rounded-full bg-yellow-500/40" />
+                                        <div className="w-1.5 h-1.5 rounded-full bg-green-500/40" />
+                                        <span className="ml-2 mono text-[9px] text-text-dim lowercase font-light">diagnostics.sh</span>
+                                    </div>
+                                    <pre className="p-4 sm:p-5 font-mono text-xs text-cyan/70 leading-relaxed whitespace-pre-wrap">
+                                        {project.problem}
+                                    </pre>
+                                </div>
+                            </div>
+                        )}
                     </motion.div>
                 )}
 
-                {/* PROBLEM — Terminal */}
-                {project.problem && (
-                    <motion.div
-                        initial={{ opacity: 0, y: 15 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.3, duration: 0.3 }}
-                        className="mb-8"
-                    >
-                        <div className="flex items-center gap-2 mb-3">
-                            <Terminal size={14} strokeWidth={1.5} className="text-magenta" />
-                            <h2 className="mono text-xs text-magenta tracking-[0.15em]">DIAGNÓSTICO</h2>
-                        </div>
-                        <div className="bg-black/60 border border-cyan/10 rounded-lg overflow-hidden">
-                            <div className="flex items-center gap-1.5 px-4 py-2.5 border-b border-white/[0.04]">
-                                <div className="w-2 h-2 rounded-full bg-red-500/70" />
-                                <div className="w-2 h-2 rounded-full bg-yellow-500/70" />
-                                <div className="w-2 h-2 rounded-full bg-green-500/70" />
-                                <span className="ml-2 mono text-[10px] text-text-dim">diagnostics.sh</span>
-                            </div>
-                            <pre className="p-4 sm:p-5 font-mono text-xs text-cyan/80 leading-relaxed whitespace-pre-wrap">
-                                {project.problem}
-                            </pre>
-                        </div>
-                    </motion.div>
-                )}
-
-                {/* SOLUTION */}
+                {/* FASE 02: SOLUCIÓN */}
                 {project.solution && (
                     <motion.div
                         initial={{ opacity: 0, y: 15 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.4, duration: 0.3 }}
-                        className="mb-10"
+                        className="mb-12"
                     >
-                        <GlassContainer className="p-5 sm:p-6 rounded-lg">
-                            <div className="flex items-center gap-2 mb-3">
-                                <Rocket size={14} strokeWidth={1.5} className="text-cyan" />
-                                <h2 className="mono text-xs text-cyan tracking-[0.15em]">SOLUCIÓN IMPLEMENTADA</h2>
+                        <div className="flex items-center gap-3 mb-6">
+                            <span className="mono text-[10px] text-cyan/50 bg-cyan/5 px-2 py-0.5 border border-cyan/10">FASE 02</span>
+                            <h2 className="font-jura text-xl font-bold text-white tracking-widest uppercase">TRATAMIENTO OPERATIVO</h2>
+                        </div>
+
+                        <GlassContainer className="p-6 sm:p-8 rounded-lg relative overflow-hidden group">
+                            {/* Decorative background element */}
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-cyan/5 blur-3xl rounded-full -mr-16 -mt-16 group-hover:bg-cyan/10 transition-colors" />
+                            
+                            <div className="flex items-start gap-4">
+                                <Rocket size={18} strokeWidth={1.5} className="text-cyan mt-1 shrink-0" />
+                                <div>
+                                    <h3 className="mono text-[10px] text-cyan tracking-[0.15em] mb-4 uppercase">SOLUCIÓN IMPLEMENTADA</h3>
+                                    <p className="text-text-secondary text-sm leading-relaxed">{project.solution}</p>
+                                </div>
                             </div>
-                            <p className="text-text-secondary text-sm leading-relaxed">{project.solution}</p>
                         </GlassContainer>
                     </motion.div>
                 )}
