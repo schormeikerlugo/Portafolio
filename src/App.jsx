@@ -1,148 +1,98 @@
-import { useState, useCallback, lazy, Suspense } from 'react';
-import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion';
+import { useState, useEffect, useCallback, lazy, Suspense } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
+
+// Context & Hooks
+import { SettingsProvider } from './context/SettingsContext';
+import { useVimNavigation } from './hooks/useVimNavigation';
+
+// Layout & Components
+import Layout from './layouts/Layout';
+import LoadingScreen from './components/LoadingScreen';
 import ContactModal from './components/ContactModal';
+import TerminalCursor from './components/TerminalCursor';
+import HelpModal from './components/HelpModal';
 
-import StarField from './components/StarField';
-import CustomCursor from './components/CustomCursor';
-import ShootingStars from './components/ShootingStars';
-import Navbar from './components/Navbar';
-import SocialCTA, { FooterSocials } from './components/SocialCTA';
+// Pages
+import Home from './pages/Home';
+import AboutPage from './pages/AboutPage';
+import ServicesPage from './pages/ServicesPage';
+import PortfolioPage from './pages/PortfolioPage';
+import WritingPage from './pages/WritingPage';
+import ProjectDetailView from './pages/ProjectDetailView';
+import ContactPage from './pages/ContactPage';
+import Approach from './pages/Approach';
 
-import Hero from './sections/Hero';
-import Bio from './sections/Bio';
-import Skills from './sections/Skills';
-import Experience from './sections/Experience';
-import Metrics from './sections/Metrics';
-import Portfolio from './sections/Portfolio';
-import Testimonials from './sections/Testimonials';
-import Certifications from './sections/Certifications';
-import ProjectDetail from './sections/ProjectDetail';
-import Anomalies from './sections/Anomalies';
-import Protocols from './sections/Protocols';
-
-/* Cosmic elements — lazy loaded for performance */
-const Saturn = lazy(() => import('./components/Saturn'));
-const BlackHole = lazy(() => import('./components/BlackHole'));
-
-export default function App() {
-  const [selectedProject, setSelectedProject] = useState(null);
+function AppContent() {
+  const [loading, setLoading] = useState(true);
   const [contactOpen, setContactOpen] = useState(false);
+  const [helpOpen, setHelpOpen] = useState(false);
+  const location = useLocation();
+
+  const handleLoadingComplete = useCallback(() => {
+    setLoading(false);
+  }, []);
+
   const openContact = useCallback(() => setContactOpen(true), []);
   const closeContact = useCallback(() => setContactOpen(false), []);
+  const toggleHelp = useCallback(() => setHelpOpen(prev => !prev), []);
 
-  const { scrollYProgress } = useScroll();
-  const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '10%']);
+  // Initialize VIM navigation
+  useVimNavigation(toggleHelp);
 
-  const handleSelectProject = useCallback((project) => {
-    setSelectedProject(project);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, []);
+  // Handle route changes: scroll to top
+  useEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
-    const handleBack = useCallback(() => {
-    setSelectedProject(null);
-    setTimeout(() => {
-      document.getElementById('operaciones')?.scrollIntoView({ behavior: 'smooth' });
-    }, 100);
-  }, []);
+  // Lock scroll while loading
+  useEffect(() => {
+    if (loading) {
+      document.body.style.overflow = 'hidden';
+      window.scrollTo(0, 0);
+    } else {
+      document.body.style.overflow = '';
+    }
+  }, [loading]);
 
   return (
-    <div className="relative min-h-screen">
-      <ShootingStars />
-      {/* Star field */}
-      <motion.div style={{ y: bgY }} className="fixed inset-0 z-0">
-        <StarField />
-      </motion.div>
+    <>
+      <Layout key="main-layout" onOpenContact={openContact}>
+        <Suspense fallback={null}>
+          <AnimatePresence mode="wait">
+            <Routes location={location} key={location.pathname}>
+              <Route path="/" element={<Home onOpenContact={openContact} />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/work" element={<PortfolioPage />} />
+              <Route path="/services" element={<ServicesPage />} />
+              <Route path="/writing" element={<WritingPage />} />
+              <Route path="/portfolio/:id" element={<ProjectDetailView />} />
+              <Route path="/approach" element={<Approach />} />
+              <Route path="/contact" element={<ContactPage />} />
+            </Routes>
+          </AnimatePresence>
+        </Suspense>
+      </Layout>
+      <ContactModal isOpen={contactOpen} onClose={closeContact} />
+      <HelpModal isOpen={helpOpen} onClose={() => setHelpOpen(false)} />
+      <TerminalCursor />
 
-      {/* Crosshair cursor */}
-      <CustomCursor />
-
-      {/* Navbar */}
-      <Navbar hidden={!!selectedProject} onOpenContact={openContact} />
-
-      {/* Content */}
-      <AnimatePresence mode="wait">
-        {selectedProject ? (
-          <motion.div
-            key="detail"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.25 }}
-          >
-            <ProjectDetail
-              project={selectedProject}
-              onBack={handleBack}
-              onSelectProject={handleSelectProject}
-            />
-          </motion.div>
-        ) : (
-          <motion.div
-            key="home"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.25 }}
-          >
-            <Hero onOpenContact={openContact} />
-            <Anomalies />
-            <Bio />
-            <Skills />
-
-            <Experience />
-            <Metrics />
-
-            {/* 🕳️ Black Hole transition: Metrics → SocialCTA */}
-            <Suspense fallback={null}>
-              <div className="w-full h-[400px] sm:h-[500px] lg:h-[600px]">
-                <BlackHole />
-              </div>
-            </Suspense>
-
-            <SocialCTA
-              title="TRANSMISIÓN ABIERTA"
-              message="El universo no fue diseñado para explorarlo solo. Conecta con la estación y sigamos construyendo juntos."
-              author="Comandante SL"
-              networks={['instagram', 'tiktok', 'dribbble']}
-              onOpenContact={openContact}
-            />
-
-            <div id="operaciones">
-              <Portfolio onSelectProject={handleSelectProject} />
-              <Protocols />
-            </div>
-            
-            <Testimonials />
-
-            {/* 🪐 Saturn transition: Testimonials → SocialCTA */}
-            <Suspense fallback={null}>
-              <div className="w-full h-[300px] sm:h-[400px] lg:h-[500px]">
-                <Saturn />
-              </div>
-            </Suspense>
-
-            <SocialCTA
-              title="SEÑAL DETECTADA"
-              message="Cada proyecto es una nueva órbita. Si buscas a alguien que diseñe con la precisión de un ingeniero y la visión de un artista... ya me encontraste."
-              networks={['github', 'behance', 'linkedin', 'dribbble', 'instagram', 'tiktok']}
-              onOpenContact={openContact}
-            />
-            <Certifications />
-
-            {/* Footer */}
-            <footer className="relative z-10 py-12 px-6 border-t border-white/[0.04]">
-              <div className="max-w-[1400px] mx-auto text-center">
-                <p className="mono text-[10px] text-white/70 tracking-wider">
-                  © {new Date().getFullYear()} SCHORMEIKER LUGO // ALL SYSTEMS OPERATIONAL
-                </p>
-                <FooterSocials />
-              </div>
-            </footer>
-          </motion.div>
+      <AnimatePresence>
+        {loading && (
+          <LoadingScreen key="loading" onComplete={handleLoadingComplete} />
         )}
       </AnimatePresence>
+    </>
+  );
+}
 
-      {/* Contact Modal */}
-      <ContactModal isOpen={contactOpen} onClose={closeContact} />
-    </div>
+export default function App() {
+  return (
+    <SettingsProvider>
+      <AppContent />
+    </SettingsProvider>
   );
 }

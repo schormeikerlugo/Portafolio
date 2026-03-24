@@ -1,42 +1,38 @@
 import { motion } from 'framer-motion';
 import GlassContainerValorant from '../components/GlassContainerValorant';
 import { skills } from '../data/content';
+import CipherText from '../components/CipherText';
+import TypewriterText from '../components/TypewriterText';
+import Particles from '../components/Particles';
 
 export default function Skills() {
     return (
-        <section id="skills" className="relative z-10 py-24 sm:py-32 px-6">
-            <div className="max-w-[1400px] mx-auto">
-                {/* Section label */}
-                <motion.div
-                    className="flex items-center gap-3 mb-10 justify-center lg:justify-start"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5 }}
-                >
-                    <div className="hud-line flex-1 lg:max-w-12" />
-                    <span className="mono text-text-dim tracking-[0.3em] shrink-0">MÓDULO 01</span>
-                    <div className="hud-line flex-1" />
-                </motion.div>
+        <section id="skills" className="relative z-10 py-24 sm:py-32 px-6 bg-void border-t border-border overflow-hidden">
+            {/* Animated Constellation Network */}
+            <Particles quantity={40} />
 
-                <motion.h2
-                    className="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-3 text-center lg:text-left"
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5 }}
-                >
-                    MATRIZ DE HABILIDADES
-                </motion.h2>
-                <motion.p
-                    className="text-text-secondary text-sm mb-12 max-w-lg text-center lg:text-left mx-auto lg:mx-0"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.1 }}
-                >
-                    Stack tecnológico y capacidades de diseño del operador.
-                </motion.p>
+            <div className="max-w-[1400px] mx-auto relative z-10">
+                <header className="mb-16 flex flex-col items-center md:items-start text-center md:text-left">
+                    <motion.div
+                        className="flex items-center gap-4 mb-2"
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5 }}
+                    >
+                        <span className="mono text-[10px] sm:text-xs text-text-dim tracking-[0.4em] uppercase">
+                            0X02 // MATRIZ_DE_HABILIDADES
+                        </span>
+                    </motion.div>
+
+                    <h2 className="text-[clamp(1.5rem,6vw,4rem)] md:text-6xl lg:text-7xl font-sans text-text-primary mb-6 font-bold tracking-tighter break-words">
+                        <CipherText text="Matriz de Habilidades." />
+                    </h2>
+                    
+                    <p className="max-w-2xl text-text-secondary text-lg sm:text-xl leading-relaxed font-sans">
+                        <TypewriterText text="Stack tecnológico y capacidades de diseño del operador." delay={1.6} />
+                    </p>
+                </header>
 
                 {/* Skills Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

@@ -1,339 +1,222 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, Target, Terminal, Rocket, ExternalLink, X, Send } from 'lucide-react';
-import GlassContainer from '../components/GlassContainer';
-import { projects } from '../data/content';
+import { ArrowLeft, Target, Terminal, Rocket, ExternalLink, X, Send, Cpu, Layout as LayoutIcon, Eye } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 function Lightbox({ image, onClose }) {
     return (
         <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-sm p-4"
+            className="fixed inset-0 z-[1000] flex items-center justify-center bg-void/95 backdrop-blur-md p-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
             onClick={onClose}
         >
             <motion.div
-                className="relative max-w-4xl w-full"
+                className="relative max-w-[1400px] w-full"
                 initial={{ scale: 0.95, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.95, opacity: 0 }}
-                transition={{ duration: 0.2 }}
                 onClick={(e) => e.stopPropagation()}
             >
-                <button onClick={onClose} className="absolute -top-10 right-0 text-text-dim hover:text-white transition-colors cursor-pointer">
-                    <X size={18} strokeWidth={1.5} />
+                <button onClick={onClose} className="absolute -top-12 right-0 text-white/40 hover:text-white transition-colors cursor-pointer p-2">
+                    <X size={24} />
                 </button>
-                <img src={image} alt="" className="w-full h-auto rounded-lg border border-white/[0.06]" />
+                <img src={image} alt="" className="w-full h-auto border border-white/10 shadow-2xl" />
             </motion.div>
         </motion.div>
     );
 }
 
-function ContactForm() {
-    const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-    const [sent, setSent] = useState(false);
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setSent(true);
-        setTimeout(() => {
-            setSent(false);
-            setFormData({ name: '', email: '', message: '' });
-        }, 3000);
-    };
-
-    return (
-        <GlassContainer className="p-6 sm:p-8 rounded-lg max-w-lg mx-auto">
-            <h3 className="mono text-xs text-cyan tracking-[0.15em] mb-6">INICIAR TRANSMISIÓN</h3>
-
-            {sent ? (
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    className="text-center py-6"
-                >
-                    <Send className="text-cyan mx-auto mb-3" size={20} strokeWidth={1.5} />
-                    <p className="text-text-primary text-sm font-medium mb-1">TRANSMISIÓN ENVIADA</p>
-                    <p className="mono text-[10px] text-text-dim">TIEMPO DE RESPUESTA ESTIMADO: 24H</p>
-                </motion.div>
-            ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
-                    <input
-                        type="text"
-                        name="name"
-                        value={formData.name}
-                        onChange={(e) => setFormData(p => ({ ...p, name: e.target.value }))}
-                        placeholder="[NOMBRE]"
-                        required
-                        className="w-full px-4 py-2.5 bg-white/[0.02] border border-white/[0.06] rounded text-text-primary placeholder:text-text-dim mono text-xs focus:outline-none focus:border-cyan/30 transition-colors duration-200"
-                    />
-                    <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={(e) => setFormData(p => ({ ...p, email: e.target.value }))}
-                        placeholder="[EMAIL]"
-                        required
-                        className="w-full px-4 py-2.5 bg-white/[0.02] border border-white/[0.06] rounded text-text-primary placeholder:text-text-dim mono text-xs focus:outline-none focus:border-cyan/30 transition-colors duration-200"
-                    />
-                    <textarea
-                        name="message"
-                        value={formData.message}
-                        onChange={(e) => setFormData(p => ({ ...p, message: e.target.value }))}
-                        placeholder="[MENSAJE]"
-                        required
-                        rows={3}
-                        className="w-full px-4 py-2.5 bg-white/[0.02] border border-white/[0.06] rounded text-text-primary placeholder:text-text-dim mono text-xs focus:outline-none focus:border-cyan/30 transition-colors duration-200 resize-none"
-                    />
-                    <motion.button
-                        type="submit"
-                        className="w-full py-2.5 rounded border border-cyan/30 text-cyan mono text-xs tracking-wider cursor-pointer hover-glow-soft"
-                        whileTap={{ scale: 0.98 }}
-                    >
-                        [INICIAR TRANSMISIÓN]
-                    </motion.button>
-                </form>
-            )}
-        </GlassContainer>
-    );
-}
-
-function ProjectCarousel({ onSelectProject, currentId }) {
-    const others = projects.filter(p => p.id !== currentId);
-    const doubled = [...others, ...others];
-
-    return (
-        <div className="overflow-hidden py-8">
-            <p className="mono text-[10px] text-text-dim tracking-[0.2em] text-center mb-6">
-                MISIONES RELACIONADAS
-            </p>
-            <div className="flex animate-scroll-left gap-3 w-max">
-                {doubled.map((project, i) => (
-                    <motion.div
-                        key={`${project.id}-${i}`}
-                        className="flex-shrink-0 w-44 h-28 rounded-lg overflow-hidden cursor-pointer group panel glow-hover"
-                        whileHover={{ y: -3 }}
-                        transition={{ duration: 0.15 }}
-                        onClick={() => {
-                            if (project.link) {
-                                window.open(project.link, '_blank', 'noopener');
-                            } else {
-                                onSelectProject(project);
-                            }
-                        }}
-                    >
-                        <div className="relative w-full h-full">
-                            <img src={project.image} alt={project.title} loading="lazy" className="w-full h-full object-cover" />
-                            <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors duration-200" />
-                            <div className="absolute bottom-2 left-2.5 right-2.5">
-                                <p className="mono text-[9px] text-text-secondary truncate">{project.title}</p>
-                            </div>
-                        </div>
-                    </motion.div>
-                ))}
-            </div>
+const InfoBlock = ({ icon: Icon, label, value }) => (
+    <div className="space-y-1">
+        <div className="flex items-center gap-2 opacity-40">
+            <Icon size={12} className="text-cyan" />
+            <span className="mono text-[8px] uppercase tracking-widest font-bold">{label}</span>
         </div>
-    );
-}
+        <div className="mono text-[11px] text-white/80 uppercase font-bold">{value}</div>
+    </div>
+);
 
-export default function ProjectDetail({ project, onBack, onSelectProject }) {
+export default function ProjectDetail({ project, onBack }) {
+    const { t } = useTranslation();
     const [lightboxImage, setLightboxImage] = useState(null);
+
+    if (!project) return null;
 
     return (
         <motion.section
-            className="relative z-10 min-h-screen py-20 sm:py-28 px-6"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-[100] bg-void overflow-y-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
         >
-            <div className="max-w-4xl mx-auto">
-                {/* Back */}
-                <motion.button
+            {/* Top Navigation Bar: IDE Style */}
+            <nav className="sticky top-0 z-50 bg-void/80 backdrop-blur-md border-b border-white/5 px-6 py-4 flex items-center justify-between">
+                <button
                     onClick={onBack}
-                    className="flex items-center gap-2 text-text-dim hover:text-cyan transition-colors mb-10 cursor-pointer mono text-xs tracking-wider"
-                    whileHover={{ x: -3 }}
-                    transition={{ duration: 0.15 }}
+                    className="flex items-center gap-3 text-white/40 hover:text-cyan transition-colors mono text-[10px] font-bold tracking-widest uppercase"
                 >
-                    <ArrowLeft size={14} strokeWidth={1.5} />
-                    VOLVER AL SISTEMA
-                </motion.button>
-
-                {/* Hero image */}
-                <motion.div
-                    className="relative rounded-lg overflow-hidden mb-10 panel"
-                    initial={{ opacity: 0, y: 15 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.1, duration: 0.4 }}
-                >
-                    <img src={project.image} alt={project.title} className="w-full h-56 sm:h-72 object-cover" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
-                    <div className="absolute bottom-5 left-5 right-5">
-                        <p className="mono text-[10px] text-text-dim mb-1.5">{project.subtitle}</p>
-                        <h1 className="text-xl sm:text-2xl font-bold text-white tracking-wide">{project.title}</h1>
-                    </div>
-                </motion.div>
-
-                {/* External Link Button */}
-                {project.link && (
-                    <motion.div
-                        initial={{ opacity: 0, y: 15 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.15, duration: 0.3 }}
-                        className="mb-8"
-                    >
+                    <ArrowLeft size={14} />
+                    [ESC] CLOSE_SESSION
+                </button>
+                
+                <div className="flex items-center gap-4">
+                    <span className="mono text-[10px] text-white/20 uppercase hidden sm:block">STATUS: READ_ONLY</span>
+                    {project.link && (
                         <a
                             href={project.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 px-5 py-2.5 border border-cyan/30 rounded text-cyan mono text-xs tracking-wider hover:bg-cyan/10 transition-all"
+                            className="bg-cyan/10 text-cyan px-4 py-1.5 rounded-sm mono text-[10px] font-bold border border-cyan/20 hover:bg-cyan hover:text-void transition-all uppercase flex items-center gap-2"
                         >
-                            <ExternalLink size={14} strokeWidth={1.5} />
-                            VER PROYECTO EN {project.source?.toUpperCase() || 'EXTERNO'}
+                            <ExternalLink size={12} />
+                            Live Demo
                         </a>
-                    </motion.div>
-                )}
-                {/* FASE 01: DIAGNÓSTICO */}
-                {(project.mission || project.problem) && (
-                    <motion.div
-                        initial={{ opacity: 0, y: 15 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2, duration: 0.3 }}
-                        className="mb-12"
-                    >
-                        <div className="flex items-center gap-3 mb-6">
-                            <span className="mono text-[10px] text-cyan/50 bg-cyan/5 px-2 py-0.5 border border-cyan/10">FASE 01</span>
-                            <h2 className="font-jura text-xl font-bold text-white tracking-widest uppercase">EL DIAGNÓSTICO</h2>
-                        </div>
+                    )}
+                </div>
+            </nav>
 
-                        {project.mission && (
-                            <div className="mb-6">
-                                <div className="flex items-center gap-2 mb-3">
-                                    <Target size={14} strokeWidth={1.5} className="text-cyan" />
-                                    <h3 className="mono text-[10px] text-cyan tracking-[0.15em]">LA MISIÓN</h3>
-                                </div>
-                                <p className="text-text-secondary text-sm leading-relaxed border-l border-white/10 pl-4">{project.mission}</p>
+            <div className="max-w-[1400px] mx-auto py-16 px-6 space-y-24">
+                
+                {/* 01: HERO & METADATA */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+                    <div className="lg:col-span-8 space-y-8">
+                        <header className="space-y-4">
+                            <div className="flex items-center gap-3">
+                                <span className="mono text-[10px] text-cyan bg-cyan/10 px-2 py-0.5 rounded-sm font-bold">PROJECT_DEV</span>
+                                <span className="text-white/10 mono text-[10px]">//</span>
+                                <span className="mono text-[10px] text-white/40 uppercase tracking-widest">{project.subcategory}</span>
                             </div>
-                        )}
+                            <h1 className="text-5xl md:text-7xl lg:text-8xl font-sans font-bold text-white tracking-tighter uppercase leading-[0.85]">
+                                {project.title}
+                            </h1>
+                        </header>
 
-                        {project.problem && (
-                            <div className="mt-8">
-                                <div className="flex items-center gap-2 mb-3">
-                                    <Terminal size={14} strokeWidth={1.5} className="text-magenta" />
-                                    <h3 className="mono text-[10px] text-magenta tracking-[0.15em]">EL PROBLEMA (TERMINAL_LOG)</h3>
-                                </div>
-                                <div className="bg-black/60 border border-cyan/10 rounded-lg overflow-hidden">
-                                    <div className="flex items-center gap-1.5 px-4 py-2 bg-black/40 border-b border-white/[0.04]">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-red-500/40" />
-                                        <div className="w-1.5 h-1.5 rounded-full bg-yellow-500/40" />
-                                        <div className="w-1.5 h-1.5 rounded-full bg-green-500/40" />
-                                        <span className="ml-2 mono text-[9px] text-text-dim lowercase font-light">diagnostics.sh</span>
-                                    </div>
-                                    <pre className="p-4 sm:p-5 font-mono text-xs text-cyan/70 leading-relaxed whitespace-pre-wrap">
-                                        {project.problem}
-                                    </pre>
-                                </div>
-                            </div>
-                        )}
-                    </motion.div>
-                )}
-
-                {/* FASE 02: SOLUCIÓN */}
-                {project.solution && (
-                    <motion.div
-                        initial={{ opacity: 0, y: 15 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.4, duration: 0.3 }}
-                        className="mb-12"
-                    >
-                        <div className="flex items-center gap-3 mb-6">
-                            <span className="mono text-[10px] text-cyan/50 bg-cyan/5 px-2 py-0.5 border border-cyan/10">FASE 02</span>
-                            <h2 className="font-jura text-xl font-bold text-white tracking-widest uppercase">TRATAMIENTO OPERATIVO</h2>
+                        <div className="aspect-video w-full bg-white/[0.02] border border-white/5 relative group overflow-hidden">
+                            <img 
+                                src={project.image} 
+                                alt={project.title} 
+                                className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-void via-transparent to-transparent" />
                         </div>
+                    </div>
 
-                        <GlassContainer className="p-6 sm:p-8 rounded-lg relative overflow-hidden group">
-                            {/* Decorative background element */}
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-cyan/5 blur-3xl rounded-full -mr-16 -mt-16 group-hover:bg-cyan/10 transition-colors" />
+                    <div className="lg:col-span-4 space-y-12 lg:sticky lg:top-32">
+                        {/* Quick Specs */}
+                        <div className="p-8 border-l border-white/5 space-y-8 pt-0">
+                            <InfoBlock icon={Target} label="Role" value={project.subtitle} />
+                            <InfoBlock icon={Cpu} label="Core Tech" value={project.tags?.[0] || '---'} />
+                            <InfoBlock icon={Rocket} label="Status" value="PROD_LIVE" />
                             
-                            <div className="flex items-start gap-4">
-                                <Rocket size={18} strokeWidth={1.5} className="text-cyan mt-1 shrink-0" />
-                                <div>
-                                    <h3 className="mono text-[10px] text-cyan tracking-[0.15em] mb-4 uppercase">SOLUCIÓN IMPLEMENTADA</h3>
-                                    <p className="text-text-secondary text-sm leading-relaxed">{project.solution}</p>
+                            <div className="pt-8 border-t border-white/5 space-y-4">
+                                <span className="mono text-[9px] text-white/20 uppercase tracking-[0.2em] font-bold">STACK_OVERVIEW</span>
+                                <div className="flex flex-wrap gap-2">
+                                    {project.tags?.map(tag => (
+                                        <span key={tag} className="mono text-[8px] text-white/60 bg-white/5 border border-white/10 px-2 py-1 rounded-sm">
+                                            {tag.toUpperCase()}
+                                        </span>
+                                    ))}
                                 </div>
                             </div>
-                        </GlassContainer>
-                    </motion.div>
-                )}
+                        </div>
+                    </div>
+                </div>
 
-                {/* GALLERY */}
+                {/* 02: NARRATIVE: PROBLEM & SOLUTION */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+                    <div className="lg:col-span-8 space-y-24">
+                        {/* Summary / Intro */}
+                        <section className="space-y-6">
+                            <h3 className="font-sans text-3xl font-bold text-white uppercase tracking-tight flex items-center gap-4">
+                                <span className="text-cyan mono text-sm">[01]</span>
+                                Executive Summary
+                            </h3>
+                            <p className="text-xl text-white/60 leading-relaxed font-light">
+                                {project.mission || t('project.summary_placeholder', 'Investigación y desarrollo de sistemas visuales de alta precisión para optimizar la interacción del usuario con datos complejos.')}
+                            </p>
+                        </section>
+
+                        {/* Problem Block */}
+                        {project.problem && (
+                            <section className="space-y-8">
+                                <div className="flex items-center gap-4 border-b border-white/5 pb-4">
+                                    <Terminal size={18} className="text-white/20" />
+                                    <h3 className="font-sans text-2xl font-bold text-white uppercase tracking-tight tracking-widest">The Challenge</h3>
+                                </div>
+                                <div className="bg-white/[0.02] border border-white/5 p-8 relative">
+                                    <div className="absolute top-0 right-0 p-4 mono text-[10px] text-white/10 uppercase">ERR_LOG_0x04</div>
+                                    <p className="text-white/50 text-base leading-relaxed font-mono uppercase tracking-tight whitespace-pre-wrap">
+                                        {project.problem}
+                                    </p>
+                                </div>
+                            </section>
+                        )}
+
+                        {/* Solution Block */}
+                        {project.solution && (
+                            <section className="space-y-8">
+                                <div className="flex items-center gap-4 border-b border-white/5 pb-4">
+                                    <LayoutIcon size={18} className="text-cyan/40" />
+                                    <h3 className="font-sans text-2xl font-bold text-white uppercase tracking-tight tracking-widest">Architectural Solution</h3>
+                                </div>
+                                <div className="space-y-6 text-white/80 text-lg leading-relaxed font-light first-letter:text-5xl first-letter:text-cyan first-letter:font-sans first-letter:font-bold first-letter:mr-3 first-letter:float-left">
+                                    {project.solution}
+                                </div>
+                            </section>
+                        )}
+                    </div>
+                </div>
+
+                {/* 03: TECHNICAL GALLERY */}
                 {project.gallery && project.gallery.length > 0 && (
-                    <motion.div
-                        initial={{ opacity: 0, y: 15 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.5, duration: 0.3 }}
-                        className="mb-10"
-                    >
-                        <h2 className="mono text-xs text-text-dim tracking-[0.15em] mb-4">GALERÍA TÉCNICA</h2>
-                        <div className="flex flex-col gap-8">
+                    <section className="space-y-12">
+                        <header className="flex items-center justify-between">
+                            <div className="flex items-center gap-4">
+                                <span className="text-cyan mono text-sm">[03]</span>
+                                <h3 className="font-sans text-3xl font-bold text-white uppercase tracking-tight">Technical Gallery</h3>
+                            </div>
+                            <span className="mono text-[10px] text-white/20 uppercase tracking-[0.2em] font-bold block bg-white/5 px-3 py-1 border border-white/5">
+                                SOURCE: ASSET_SERVER
+                            </span>
+                        </header>
+                        
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                             {project.gallery.map((img, i) => (
                                 <motion.div
                                     key={i}
-                                    className="relative rounded-lg overflow-hidden cursor-pointer group panel border border-white/[0.03]"
-                                    whileHover={{ scale: 1.01 }}
-                                    transition={{ duration: 0.2 }}
+                                    whileHover={{ scale: 1.02 }}
+                                    className="cursor-pointer border border-white/5 bg-white/[0.02] relative group overflow-hidden"
                                     onClick={() => setLightboxImage(img)}
                                 >
-                                    <img src={img} alt="" className="w-full h-auto" />
-                                    <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300" />
-                                    <div className="absolute inset-0 flex items-center justify-center translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                                        <div className="px-4 py-2 bg-black/60 backdrop-blur-md rounded border border-white/20 text-white mono text-[10px] tracking-widest flex items-center gap-2">
-                                            <ExternalLink size={12} strokeWidth={1.5} />
-                                            EXPANDIR VISUAL
+                                    <img src={img} alt="" className="w-full h-auto opacity-70 group-hover:opacity-100 transition-opacity" />
+                                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-void/40 backdrop-blur-sm">
+                                        <div className="flex items-center gap-2 mono text-[10px] text-white font-bold uppercase tracking-widest">
+                                            <Eye size={14} /> View Asset
                                         </div>
                                     </div>
                                 </motion.div>
                             ))}
                         </div>
-                    </motion.div>
+                    </section>
                 )}
 
-                {/* STACK */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.6, duration: 0.3 }}
-                    className="flex flex-wrap gap-1.5 mb-16"
-                >
-                    {project.tags?.map((tag) => (
-                        <span key={tag} className="mono text-[10px] text-text-dim px-2.5 py-1 rounded border border-white/[0.05] bg-white/[0.02]">
-                            [{tag}]
-                        </span>
-                    ))}
-                </motion.div>
-
-                {/* Divider */}
-                <div className="hud-line mb-16" />
-
-                {/* Contact form */}
-                <ContactForm />
-
-                {/* Related projects */}
-                <div className="mt-16">
-                    <ProjectCarousel onSelectProject={onSelectProject} currentId={project.id} />
-                </div>
-
-                {/* Footer */}
-                <div className="text-center mt-12 pt-6 border-t border-white/[0.04]">
-                    <p className="mono text-[10px] text-text-dim tracking-wider">
-                        © {new Date().getFullYear()} SCHORMEIKER LUGO // ALL SYSTEMS OPERATIONAL
+                {/* Footer: IDE Command Style */}
+                <footer className="pt-24 border-t border-white/5 text-center space-y-8">
+                    <p className="mono text-[10px] text-white/20 uppercase tracking-[0.4em] font-bold">
+                        // END_OF_LOG // MISSION_COMPLETE
                     </p>
-                </div>
+                    <button
+                        onClick={onBack}
+                        className="inline-flex items-center gap-3 px-8 py-3 bg-white text-void font-mono text-[11px] font-bold tracking-[0.2em] hover:bg-cyan hover:text-void transition-colors uppercase cursor-pointer"
+                    >
+                        Return to Dashboard
+                    </button>
+                </footer>
             </div>
 
-            {/* Lightbox */}
             <AnimatePresence>
                 {lightboxImage && <Lightbox image={lightboxImage} onClose={() => setLightboxImage(null)} />}
             </AnimatePresence>

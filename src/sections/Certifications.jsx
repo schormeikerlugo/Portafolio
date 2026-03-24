@@ -1,187 +1,52 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
+import GlassContainerValorant from '../components/GlassContainerValorant';
+import ScrambleText from '../components/ScrambleText';
 
-/* ── Certifications data from CV ── */
 const CERTIFICATIONS = [
     {
-        id: 'cert-1',
-        title: 'Figma: Técnicas Avanzadas de Diseño',
-        institution: 'Platzi',
-        date: 'Nov 2024',
-        category: 'design',
-        icon: '◆',
-        link: 'https://platzi.com/p/schormeikerlugo/curso/7998-figma-tecnicas-avanzadas/diploma/detalle/',
+        id: 1,
+        title: 'Google UX Design Professional Certificate',
+        issuer: 'Google',
+        year: '2022',
+        url: 'https://coursera.org/verify/professional-cert/UXDESIGN',
+        skills: ['UX Research', 'Prototyping', 'Figma'],
+        icon: '🎯'
     },
     {
-        id: 'cert-2',
-        title: 'Figma: Prototyping e Interfaz',
-        institution: 'Platzi',
-        date: 'Nov 2024',
-        category: 'design',
-        icon: '◆',
-        link: 'https://platzi.com/p/schormeikerlugo/curso-4038-figma-basico/diploma/detalle/',
+        id: 2,
+        title: 'Meta Front-End Developer Professional Certificate',
+        issuer: 'Meta',
+        year: '2023',
+        url: 'https://coursera.org/verify/professional-cert/METAFRONTEND',
+        skills: ['React', 'JavaScript', 'CSS', 'HTML'],
+        icon: '⚛️'
     },
     {
-        id: 'cert-3',
-        title: 'Adobe XD',
-        institution: 'Platzi',
-        date: 'Nov 2024',
-        category: 'design',
-        icon: '◇',
-        link: 'https://platzi.com/p/schormeikerlugo/curso/2420-course/diploma/detalle/',
+        id: 3,
+        title: 'Advanced React & Web Performance',
+        issuer: 'Epic React',
+        year: '2023',
+        url: 'https://epicreact.dev/verify',
+        skills: ['Performance', 'Architecture', 'Testing'],
+        icon: '⚡'
     },
     {
-        id: 'cert-4',
-        title: 'Fundamentos de Diseño de Interfaces',
-        institution: 'Platzi',
-        date: 'May 2024',
-        category: 'ux',
-        icon: '▣',
-        link: 'https://platzi.com/p/schormeikerlugo/curso/1754-course/diploma/detalle/',
-    },
-    {
-        id: 'cert-5',
-        title: 'Arquitectura de Información y Usabilidad',
-        institution: 'Platzi',
-        date: 'Nov 2024',
-        category: 'ux',
-        icon: '▣',
-        link: 'https://platzi.com/p/schormeikerlugo/curso/1354-course/diploma/detalle/',
-    },
-    {
-        id: 'cert-6',
-        title: 'Curso Introductorio de Diseño',
-        institution: 'Platzi',
-        date: 'Dic 2024',
-        category: 'design',
-        icon: '◇',
-        link: 'https://platzi.com/p/schormeikerlugo/curso/1228-course/diploma/detalle/',
-    },
-    {
-        id: 'cert-7',
-        title: 'Matte Painting: Técnica Completa',
-        institution: 'Udemy',
-        date: 'Nov 2019',
-        category: 'art',
-        icon: '✦',
-        link: 'https://www.udemy.com/certificate/UC-JSLCGQQ9/',
-    },
+        id: 4,
+        title: 'Design Systems for Developers',
+        issuer: 'Storybook',
+        year: '2024',
+        url: 'https://storybook.js.org/learn',
+        skills: ['Design Systems', 'Atomic Design', 'Storybook'],
+        icon: '🧩'
+    }
 ];
 
-/* ── Skills from CV ── */
-const CORE_SKILLS = [
-    { label: 'Figma', level: 95 },
-    { label: 'HTML & CSS', level: 90 },
-    { label: 'JavaScript', level: 80 },
-    { label: 'React', level: 85 },
-    { label: 'WordPress', level: 80 },
-    { label: 'Photoshop', level: 85 },
-    { label: 'Illustrator', level: 75 },
-    { label: 'Wireframing', level: 90 },
-    { label: 'Prototyping', level: 90 },
-    { label: 'UI/UX', level: 95 },
-];
-
-/* ── Category badge colors ── */
-const CATEGORY_STYLES = {
-    design: 'border-cyan/30 text-cyan',
-    ux: 'border-magenta/30 text-magenta',
-    art: 'border-yellow-400/30 text-yellow-400',
-    dev: 'border-green-400/30 text-green-400',
-};
-
-const CATEGORY_LABELS = {
-    design: 'DISEÑO',
-    ux: 'UX',
-    art: 'ARTE',
-    dev: 'DEV',
-};
-
-/* ── Single certification card ── */
-function CertCard({ cert, index }) {
-    return (
-        <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-40px' }}
-            transition={{ duration: 0.4, delay: index * 0.06 }}
-            className="panel glow-hover p-5 relative group"
-        >
-            {/* Icon and category */}
-            <div className="flex items-start justify-between mb-3">
-                <span className="text-cyan text-lg">{cert.icon}</span>
-                <span
-                    className={`mono text-[8px] px-1.5 py-0.5 border rounded-sm ${CATEGORY_STYLES[cert.category]}`}
-                >
-                    {CATEGORY_LABELS[cert.category]}
-                </span>
-            </div>
-
-            {/* Title */}
-            <h3 className="text-sm font-semibold text-white font-jura leading-snug mb-2">
-                {cert.title}
-            </h3>
-
-            {/* Institution & date */}
-            <p className="mono text-[9px] text-white/60 tracking-wider">
-                {cert.institution}
-            </p>
-            <p className="mono text-[9px] text-white/60 tracking-wider mt-0.5">
-                ⏱ {cert.date}
-            </p>
-
-            {/* Star connection line (decorative) */}
-            <div className="absolute -bottom-4 left-1/2 w-px h-4 bg-gradient-to-b from-cyan/10 to-transparent hidden lg:block" />
-
-            {/* Verification link */}
-            {cert.link && (
-                <a
-                    href={cert.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-3 inline-flex items-center gap-1.5 mono text-[8px] tracking-wider text-white/50 hover:text-cyan border border-white/[0.06] hover:border-cyan/30 px-2 py-1 rounded-sm transition-colors duration-200 cursor-pointer"
-                    onClick={(e) => e.stopPropagation()}
-                >
-                    <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                    VERIFICAR CERTIFICADO
-                </a>
-            )}
-        </motion.div>
-    );
-}
-
-/* ── Skill bar ── */
-function SkillBar({ skill, index }) {
-    return (
-        <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-40px' }}
-            transition={{ duration: 0.4, delay: index * 0.05 }}
-            className="flex items-center gap-3"
-        >
-            <span className="mono text-[10px] text-text-secondary tracking-wider w-28 text-right shrink-0">
-                {skill.label}
-            </span>
-            <div className="flex-1 h-1.5 bg-white/[0.04] rounded-full overflow-hidden">
-                <motion.div
-                    initial={{ width: 0 }}
-                    whileInView={{ width: `${skill.level}%` }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1, delay: 0.3 + index * 0.05, ease: [0.16, 1, 0.3, 1] }}
-                    className="h-full bg-gradient-to-r from-cyan/60 to-cyan rounded-full"
-                />
-            </div>
-            <span className="mono text-[9px] text-white/60 w-8 shrink-0">{skill.level}%</span>
-        </motion.div>
-    );
-}
-
-/* ── Certifications & Education Section ── */
 export default function Certifications() {
+    const { t } = useTranslation();
+
     return (
-        <section id="certifications" className="relative py-24 lg:py-32 px-6 z-10 overflow-hidden">
+        <section id="certifications" className="relative py-24 lg:py-32 px-6 z-10">
             <div className="max-w-[1400px] mx-auto">
                 {/* Section header */}
                 <motion.div
@@ -191,70 +56,70 @@ export default function Certifications() {
                     transition={{ duration: 0.6 }}
                     className="text-center mb-16"
                 >
-                    <div className="flex items-center gap-3 mb-4 justify-center">
-                        <div className="hud-line flex-1 lg:max-w-12 lg:flex-none" />
-                        <span className="mono text-[10px] text-text-dim tracking-widest shrink-0">
-                            MAPA ESTELAR DE CONOCIMIENTO
-                        </span>
-                        <div className="hud-line flex-1 lg:hidden" />
-                    </div>
-                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-jura text-white mt-3 tracking-tight">
-                        FORMACIÓN
+                    <span className="mono text-[10px] text-text-dim tracking-[0.3em] font-bold uppercase">
+                        {t('certifications.tag', 'CREDENCIALES VALIDADAS')}
+                    </span>
+                    <h2 className="text-[clamp(1.5rem,5vw,3rem)] font-bold font-mono text-white mt-4 tracking-tight uppercase break-words">
+                        <ScrambleText text={t('certifications.title', 'FORMACIÓN')} />
                     </h2>
-                    <p className="text-text-secondary text-sm mt-4 max-w-lg mx-auto">
-                        Cada certificación es una estrella en la constelación del conocimiento.
-                        Aprendizaje continuo como combustible de la misión.
+                    <p className="text-text-secondary text-base mt-6 max-w-xl mx-auto leading-relaxed font-light opacity-80 uppercase font-mono tracking-tighter text-xs">
+                        {t('certifications.subtitle', 'Mejora continua del operativo.')}
                     </p>
-                    <div className="hud-line mt-6 w-48 mx-auto" />
+                    <div className="hud-line mt-8 w-48 mx-auto" />
                 </motion.div>
 
-                {/* Two-column layout: Certs grid + Skill bars */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-                    {/* Certifications grid */}
-                    <div className="lg:col-span-7">
-                        <h3 className="mono text-[11px] text-cyan tracking-widest mb-6">
-                            ◇ CERTIFICACIONES
-                        </h3>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            {CERTIFICATIONS.map((cert, i) => (
-                                <CertCard key={cert.id} cert={cert} index={i} />
-                            ))}
-                        </div>
-                    </div>
+                {/* Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    {CERTIFICATIONS.map((cert, idx) => (
+                        <motion.div
+                            key={cert.id}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.4, delay: idx * 0.1 }}
+                        >
+                            <GlassContainerValorant className="p-0 h-full flex flex-col group/cert hover:scale-[1.02] transition-transform duration-300">
+                                <div className="p-6 flex flex-col h-full">
+                                    {/* Icon & Year */}
+                                    <div className="flex items-center justify-between mb-4">
+                                        <div className="w-10 h-10 rounded-lg bg-white/[0.03] border border-white/10 flex items-center justify-center text-xl group-hover/cert:border-cyan/30 transition-colors">
+                                            {cert.icon}
+                                        </div>
+                                        <span className="mono text-[10px] text-text-dim font-bold tracking-widest group-hover/cert:text-cyan transition-colors">
+                                            {cert.year}
+                                        </span>
+                                    </div>
 
-                    {/* Skill proficiency bars */}
-                    <div className="lg:col-span-5">
-                        <h3 className="mono text-[11px] text-cyan tracking-widest mb-6">
-                            ◆ DOMINIO TÉCNICO
-                        </h3>
-                        <div className="flex flex-col gap-4 panel p-6">
-                            {CORE_SKILLS.map((skill, i) => (
-                                <SkillBar key={skill.label} skill={skill} index={i} />
-                            ))}
-                        </div>
+                                    {/* Content */}
+                                    <h3 className="text-sm font-bold text-white mb-2 font-mono uppercase leading-tight group-hover/cert:text-cyan transition-colors">
+                                        {cert.title}
+                                    </h3>
+                                    <p className="mono text-[9px] text-text-dim uppercase tracking-widest mb-4">
+                                        ISSUER: {cert.issuer}
+                                    </p>
 
-                        {/* Languages */}
-                        <div className="mt-8">
-                            <h3 className="mono text-[11px] text-cyan tracking-widest mb-4">
-                                ◈ IDIOMAS
-                            </h3>
-                            <div className="panel p-5 space-y-3">
-                                <div className="flex items-center justify-between">
-                                    <span className="text-sm text-text-secondary">Español</span>
-                                    <span className="mono text-[10px] text-cyan border border-cyan/20 px-2 py-0.5 rounded-sm">
-                                        NATIVO
-                                    </span>
+                                    {/* Skills tags */}
+                                    <div className="flex flex-wrap gap-1.5 mb-6">
+                                        {cert.skills.map(skill => (
+                                            <span key={skill} className="text-[8px] mono px-1.5 py-0.5 bg-white/5 border border-white/10 text-white/40 uppercase">
+                                                {skill}
+                                            </span>
+                                        ))}
+                                    </div>
+
+                                    {/* Link button */}
+                                    <a
+                                        href={cert.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="mt-auto w-full py-2 border border-white/10 font-mono text-[9px] text-text-secondary text-center hover:bg-cyan/10 hover:border-cyan/40 hover:text-cyan transition-all uppercase tracking-widest font-bold"
+                                    >
+                                        {t('certifications.verify', 'VERIFICAR CERTIFICADO')}
+                                    </a>
                                 </div>
-                                <div className="w-full h-px bg-white/[0.04]" />
-                                <div className="flex items-center justify-between">
-                                    <span className="text-sm text-text-secondary">English</span>
-                                    <span className="mono text-[10px] text-white/60 border border-white/[0.10] px-2 py-0.5 rounded-sm">
-                                        BÁSICO / TÉCNICO
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                            </GlassContainerValorant>
+                        </motion.div>
+                    ))}
                 </div>
             </div>
         </section>

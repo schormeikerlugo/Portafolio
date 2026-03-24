@@ -1,37 +1,7 @@
 import { useRef, useEffect, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
-
-/* ── Counter data ── */
-const STATS = [
-    {
-        value: 7,
-        suffix: '+',
-        label: 'AÑOS EN ÓRBITA',
-        description: 'Resolviendo fricción estructural',
-        icon: '🕐',
-    },
-    {
-        value: 25,
-        suffix: '+',
-        label: 'SISTEMAS DESPLEGADOS',
-        description: 'Impacto directo en el producto',
-        icon: '🚀',
-    },
-    {
-        value: 15,
-        suffix: '+',
-        label: 'PROTOCOLOS TÉCNICOS',
-        description: 'Stack de alta fidelidad',
-        icon: '🛠️',
-    },
-    {
-        value: 6,
-        suffix: '',
-        label: 'NACIONES ALCANZADAS',
-        description: 'Alcance global del sistema',
-        icon: '🌎',
-    },
-];
+import { useTranslation } from 'react-i18next';
+import ScrambleText from '../components/ScrambleText';
 
 /* ── Animated counter ── */
 function AnimatedCounter({ value, suffix, duration = 2 }) {
@@ -77,23 +47,23 @@ function StatCard({ stat, index }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="panel glow-hover p-6 lg:p-8 text-center relative group"
+            className="panel glow-hover p-6 lg:p-8 text-center relative group overflow-hidden"
         >
             {/* Icon */}
-            <div className="text-2xl mb-4">{stat.icon}</div>
+            <div className="text-2xl mb-4 select-none opacity-80 group-hover:opacity-100 transition-opacity grayscale group-hover:grayscale-0">{stat.icon}</div>
 
             {/* Counter */}
-            <div className="text-4xl lg:text-5xl font-bold font-jura text-white mb-2">
+            <div className="text-4xl lg:text-5xl font-bold font-mono text-white mb-2">
                 <AnimatedCounter value={stat.value} suffix={stat.suffix} />
             </div>
 
             {/* Label */}
-            <div className="mono text-[11px] text-cyan tracking-widest mb-2">
+            <div className="mono text-[10px] text-cyan tracking-widest mb-2 px-2 uppercase leading-tight font-bold">
                 {stat.label}
             </div>
 
             {/* Description */}
-            <p className="text-xs text-white/70 leading-relaxed">{stat.description}</p>
+            <p className="text-[10px] text-white/50 leading-tight uppercase font-mono tracking-tighter">{stat.description}</p>
 
             {/* Decorative corner */}
             <div className="absolute top-0 right-0 w-6 h-6 border-t border-r border-cyan/10 rounded-tr-sm opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -104,6 +74,39 @@ function StatCard({ stat, index }) {
 
 /* ── Metrics Section ── */
 export default function Metrics() {
+    const { t } = useTranslation();
+
+    const STATS = [
+        {
+            value: 7,
+            suffix: '+',
+            label: t('metrics.items.experience.label', 'AÑOS EN ÓRBITA'),
+            description: t('metrics.items.experience.desc', 'Resolviendo fricción estructural'),
+            icon: '🕐',
+        },
+        {
+            value: 25,
+            suffix: '+',
+            label: t('metrics.items.projects.label', 'SISTEMAS DESPLEGADOS'),
+            description: t('metrics.items.projects.desc', 'Impacto directo en el producto'),
+            icon: '🚀',
+        },
+        {
+            value: 15,
+            suffix: '+',
+            label: t('metrics.items.protocols.label', 'PROTOCOLOS TÉCNICOS'),
+            description: t('metrics.items.protocols.desc', 'Stack de alta fidelidad'),
+            icon: '🛠️',
+        },
+        {
+            value: 6,
+            suffix: '',
+            label: t('metrics.items.nations.label', 'NACIONES ALCANZADAS'),
+            description: t('metrics.items.nations.desc', 'Alcance global del sistema'),
+            icon: '🌎',
+        },
+    ];
+
     return (
         <section id="metrics" className="relative py-24 lg:py-32 px-6 z-10 overflow-hidden">
             <div className="max-w-[1400px] mx-auto">
@@ -115,11 +118,11 @@ export default function Metrics() {
                     transition={{ duration: 0.6 }}
                     className="text-center mb-14"
                 >
-                    <span className="mono text-[10px] text-text-dim tracking-widest">
-                        TELEMETRÍA DEL SISTEMA
+                    <span className="mono text-[10px] text-text-dim tracking-widest uppercase font-bold">
+                        {t('metrics.tag', 'TELEMETRÍA DEL SISTEMA')}
                     </span>
-                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-jura text-white mt-3 tracking-tight">
-                        MÉTRICAS
+                    <h2 className="text-[clamp(1.5rem,5vw,3rem)] font-bold font-mono text-white mt-3 tracking-tight uppercase break-words">
+                        <ScrambleText text={t('metrics.title', 'MÉTRICAS')} />
                     </h2>
                     <div className="hud-line mt-6 w-48 mx-auto" />
                 </motion.div>

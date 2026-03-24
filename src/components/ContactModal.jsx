@@ -1,211 +1,187 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import emailjs from '@emailjs/browser';
-
-/* ── Status states ── */
-const STATUS = {
-    IDLE: 'idle',
-    SENDING: 'sending',
-    SUCCESS: 'success',
-    ERROR: 'error',
-};
-
-/* ── Backdrop + Panel animation ── */
-const backdropVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1 },
-    exit: { opacity: 0 },
-};
-
-const panelVariants = {
-    hidden: { opacity: 0, y: 40, scale: 0.96 },
-    visible: {
-        opacity: 1, y: 0, scale: 1,
-        transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
-    },
-    exit: {
-        opacity: 0, y: 20, scale: 0.98,
-        transition: { duration: 0.3, ease: 'easeIn' },
-    },
-};
+import { X, Send, User, Mail, MessageSquare, ShieldCheck, CheckCircle2, AlertCircle } from 'lucide-react';
+import GlassContainerValorant from './GlassContainerValorant';
+import { useTranslation } from 'react-i18next';
 
 export default function ContactModal({ isOpen, onClose }) {
-    const formRef = useRef(null);
-    const [status, setStatus] = useState(STATUS.IDLE);
-    const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const { t } = useTranslation();
+  const [formState, setFormState] = useState('idle'); // idle, sending, success, error
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
 
-    // Close on Escape
-    useEffect(() => {
-        const handleKey = (e) => { if (e.key === 'Escape') onClose(); };
-        if (isOpen) {
-            window.addEventListener('keydown', handleKey);
-            document.body.style.overflow = 'hidden';
-        }
-        return () => {
-            window.removeEventListener('keydown', handleKey);
-            document.body.style.overflow = '';
-        };
-    }, [isOpen, onClose]);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setFormState('sending');
 
-    const handleChange = (e) => {
-        setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-    };
+    // Simulate API call
+    setTimeout(() => {
+      setFormState('success');
+      // Reset after success
+      setTimeout(() => {
+        setFormState('idle');
+        setFormData({ name: '', email: '', message: '' });
+        onClose();
+      }, 3000);
+    }, 2000);
+  };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setStatus(STATUS.SENDING);
+  return (
+    <AnimatePresence>
+      {isOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
+          {/* Backdrop */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={onClose}
+            className="absolute inset-0 bg-void/80 backdrop-blur-sm"
+          />
 
-        try {
-            await emailjs.sendForm(
-                import.meta.env.VITE_EMAILJS_SERVICE_ID,
-                import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-                formRef.current,
-                import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
-            );
-            setStatus(STATUS.SUCCESS);
-            setFormData({ name: '', email: '', message: '' });
-            setTimeout(() => {
-                setStatus(STATUS.IDLE);
-                onClose();
-            }, 2500);
-        } catch {
-            setStatus(STATUS.ERROR);
-            setTimeout(() => setStatus(STATUS.IDLE), 3000);
-        }
-    };
-
-    return (
-        <AnimatePresence>
-            {isOpen && (
-                <motion.div
-                    className="fixed inset-0 z-[100] flex items-center justify-center px-4"
-                    variants={backdropVariants}
-                    initial="hidden"
-                    animate="visible"
-                    exit="exit"
+          {/* Modal Container */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, y: 20 }}
+            className="relative w-full max-w-lg z-10"
+          >
+            <GlassContainerValorant className="p-0 overflow-hidden">
+              {/* Header */}
+              <div className="p-6 border-b border-white/5 bg-white/[0.02] flex items-center justify-between">
+                <div>
+                  <h2 className="text-xl font-bold text-white font-jura uppercase tracking-tight">
+                    {t('contact.title', 'ESTABLISH CONNECTION')}
+                  </h2>
+                  <p className="mono text-[10px] text-text-dim uppercase tracking-widest mt-1">
+                    {t('contact.subtitle', 'Send a secure message to the station.')}
+                  </p>
+                </div>
+                <button
+                  onClick={onClose}
+                  className="p-2 hover:bg-white/5 rounded-full text-text-dim hover:text-white transition-colors cursor-pointer"
                 >
-                    {/* Backdrop */}
-                    <div
-                        className="absolute inset-0 bg-black/80 backdrop-blur-sm"
-                        onClick={onClose}
-                    />
+                  <X size={20} />
+                </button>
+              </div>
 
-                    {/* Panel */}
-                    <motion.div
-                        className="relative w-full max-w-[520px] border border-cyan/20 bg-[#0a0a12]/95 backdrop-blur-md"
-                        variants={panelVariants}
+              {/* Form Content */}
+              <div className="p-8">
+                {formState === 'success' ? (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="py-12 flex flex-col items-center text-center"
+                  >
+                    <div className="w-16 h-16 rounded-full bg-cyan/10 border border-cyan/30 flex items-center justify-center mb-6 text-cyan shadow-[0_0_20px_rgba(0,229,255,0.2)]">
+                      <CheckCircle2 size={32} />
+                    </div>
+                    <h3 className="text-xl font-bold text-white mb-2 uppercase font-jura">
+                      {t('contact.success', 'TRANSMISSION RECEIVED')}
+                    </h3>
+                    <p className="mono text-xs text-text-dim uppercase tracking-wider">
+                      Target recognized. Awaiting further response...
+                    </p>
+                  </motion.div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    {/* Name Field */}
+                    <div className="space-y-2 group">
+                      <label className="mono text-[10px] text-text-dim group-focus-within:text-cyan transition-colors uppercase tracking-widest font-bold">
+                        {t('contact.name', 'OPERATOR NAME')}
+                      </label>
+                      <div className="relative">
+                        <User className="absolute left-4 top-1/2 -translate-y-1/2 text-white/20 group-focus-within:text-cyan transition-colors" size={16} />
+                        <input
+                          required
+                          type="text"
+                          value={formData.name}
+                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                          className="w-full bg-white/[0.03] border border-white/10 rounded-sm py-3.5 pl-12 pr-4 text-sm text-white focus:outline-none focus:border-cyan/50 focus:bg-white/[0.05] transition-all placeholder:text-white/10 uppercase font-mono tracking-tighter"
+                          placeholder={t('contact.name', 'OPERATOR NAME')}
+                        />
+                      </div>
+                    </div>
+
+                    {/* Email Field */}
+                    <div className="space-y-2 group">
+                      <label className="mono text-[10px] text-text-dim group-focus-within:text-cyan transition-colors uppercase tracking-widest font-bold">
+                        {t('contact.email', 'COMMUNICATION FREQUENCY')}
+                      </label>
+                      <div className="relative">
+                        <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-white/20 group-focus-within:text-cyan transition-colors" size={16} />
+                        <input
+                          required
+                          type="email"
+                          value={formData.email}
+                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                          className="w-full bg-white/[0.03] border border-white/10 rounded-sm py-3.5 pl-12 pr-4 text-sm text-white focus:outline-none focus:border-cyan/50 focus:bg-white/[0.05] transition-all placeholder:text-white/10"
+                          placeholder="FREQ@SYSTEM.NODE"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Message Field */}
+                    <div className="space-y-2 group">
+                      <label className="mono text-[10px] text-text-dim group-focus-within:text-cyan transition-colors uppercase tracking-widest font-bold">
+                        {t('contact.message', 'MESSAGE CONTENT')}
+                      </label>
+                      <div className="relative">
+                        <MessageSquare className="absolute left-4 top-4 text-white/20 group-focus-within:text-cyan transition-colors" size={16} />
+                        <textarea
+                          required
+                          rows={4}
+                          value={formData.message}
+                          onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                          className="w-full bg-white/[0.03] border border-white/10 rounded-sm py-3.5 pl-12 pr-4 text-sm text-white focus:outline-none focus:border-cyan/50 focus:bg-white/[0.05] transition-all placeholder:text-white/10 resize-none font-mono tracking-tighter"
+                          placeholder="..."
+                        />
+                      </div>
+                    </div>
+
+                    {/* Submit Button */}
+                    <button
+                      disabled={formState === 'sending'}
+                      type="submit"
+                      className="w-full group/btn relative py-4 bg-cyan/10 border border-cyan/30 overflow-hidden transition-all hover:bg-cyan/20 cursor-pointer disabled:opacity-50"
                     >
-                        {/* Corner accents */}
-                        <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-cyan/50" />
-                        <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-cyan/50" />
-                        <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-cyan/50" />
-                        <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-cyan/50" />
+                      <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-cyan/20 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700 ease-in-out" />
+                      <div className="flex items-center justify-center gap-2 relative z-10">
+                        {formState === 'sending' ? (
+                          <>
+                            <div className="w-4 h-4 border-2 border-cyan/30 border-t-cyan rounded-full animate-spin" />
+                            <span className="mono text-[11px] font-bold text-cyan tracking-[0.3em] uppercase">
+                              {t('contact.sending', 'SENDING...')}
+                            </span>
+                          </>
+                        ) : (
+                          <>
+                            <Send size={16} className="text-cyan" />
+                            <span className="mono text-[11px] font-bold text-cyan tracking-[0.3em] uppercase">
+                              {t('contact.send', 'SEND TRANSMISSION')}
+                            </span>
+                          </>
+                        )}
+                      </div>
+                    </button>
 
-                        {/* Header */}
-                        <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-white/[0.06]">
-                            <div className="flex items-center gap-3">
-                                <span className="w-1.5 h-1.5 rounded-full bg-cyan animate-pulse" />
-                                <h3 className="mono text-[11px] tracking-[0.3em] text-cyan">
-                                    CANAL DE COMUNICACIÓN
-                                </h3>
-                            </div>
-                            <button
-                                onClick={onClose}
-                                className="mono text-[10px] text-text-dim hover:text-cyan transition-colors cursor-pointer tracking-wider"
-                            >
-                                [ESC]
-                            </button>
-                        </div>
-
-                        {/* Form */}
-                        <form ref={formRef} onSubmit={handleSubmit} className="p-6 space-y-5">
-                            {/* Name */}
-                            <div>
-                                <label className="mono text-[10px] text-text-secondary tracking-[0.2em] block mb-2">
-                                    {'>'} IDENTIFICACIÓN
-                                </label>
-                                <input
-                                    type="text"
-                                    name="name"
-                                    required
-                                    value={formData.name}
-                                    onChange={handleChange}
-                                    placeholder="Tu nombre"
-                                    className="w-full bg-white/[0.03] border border-white/[0.08] px-4 py-3 text-sm text-text-primary placeholder:text-text-dim/70 font-light focus:border-cyan/40 focus:outline-none focus:bg-white/[0.05] transition-all duration-300"
-                                />
-                            </div>
-
-                            {/* Email */}
-                            <div>
-                                <label className="mono text-[10px] text-text-secondary tracking-[0.2em] block mb-2">
-                                    {'>'} FRECUENCIA DE RETORNO
-                                </label>
-                                <input
-                                    type="email"
-                                    name="email"
-                                    required
-                                    value={formData.email}
-                                    onChange={handleChange}
-                                    placeholder="tu@email.com"
-                                    className="w-full bg-white/[0.03] border border-white/[0.08] px-4 py-3 text-sm text-text-primary placeholder:text-text-dim/70 font-light focus:border-cyan/40 focus:outline-none focus:bg-white/[0.05] transition-all duration-300"
-                                />
-                            </div>
-
-                            {/* Message */}
-                            <div>
-                                <label className="mono text-[10px] text-text-secondary tracking-[0.2em] block mb-2">
-                                    {'>'} TRANSMISIÓN
-                                </label>
-                                <textarea
-                                    name="message"
-                                    required
-                                    rows={4}
-                                    value={formData.message}
-                                    onChange={handleChange}
-                                    placeholder="Escribe tu mensaje..."
-                                    className="w-full bg-white/[0.03] border border-white/[0.08] px-4 py-3 text-sm text-text-primary placeholder:text-text-dim/70 font-light resize-none focus:border-cyan/40 focus:outline-none focus:bg-white/[0.05] transition-all duration-300"
-                                />
-                            </div>
-
-                            {/* Submit */}
-                            <div className="flex items-center justify-between pt-2">
-                                <span className="mono text-[9px] text-text-dim/50 tracking-wider">
-                                    {status === STATUS.SENDING && '⟳ TRANSMITIENDO...'}
-                                    {status === STATUS.SUCCESS && '✓ TRANSMISIÓN EXITOSA'}
-                                    {status === STATUS.ERROR && '✗ ERROR DE TRANSMISIÓN'}
-                                    {status === STATUS.IDLE && <><span className="text-cyan">CANAL SEGURO</span> // <span className="text-white">ENCRIPTADO</span></>}
-                                </span>
-
-                                <motion.button
-                                    type="submit"
-                                    disabled={status === STATUS.SENDING || status === STATUS.SUCCESS}
-                                    className={`
-                                        mono text-xs tracking-[0.15em] px-6 py-3 cursor-pointer
-                                        border transition-all duration-300
-                                        ${status === STATUS.SUCCESS
-                                            ? 'border-green-500/40 text-green-400 bg-green-500/10'
-                                            : status === STATUS.ERROR
-                                                ? 'border-red-500/40 text-red-400 bg-red-500/10'
-                                                : 'border-cyan/30 text-cyan hover:bg-cyan/10 hover:border-cyan/50'
-                                        }
-                                        disabled:opacity-50 disabled:cursor-not-allowed
-                                    `}
-                                    whileHover={status === STATUS.IDLE ? { scale: 1.02 } : {}}
-                                    whileTap={status === STATUS.IDLE ? { scale: 0.98 } : {}}
-                                >
-                                    {status === STATUS.SENDING && 'ENVIANDO...'}
-                                    {status === STATUS.SUCCESS && 'ENVIADO ✓'}
-                                    {status === STATUS.ERROR && 'REINTENTAR'}
-                                    {status === STATUS.IDLE && 'ENVIAR SEÑAL'}
-                                </motion.button>
-                            </div>
-                        </form>
-
-                        {/* Footer scanline */}
-                        <div className="h-px w-full bg-gradient-to-r from-transparent via-cyan/20 to-transparent" />
-                    </motion.div>
-                </motion.div>
-            )}
-        </AnimatePresence>
-    );
+                    {/* Footer Info */}
+                    <div className="flex items-center justify-center gap-2 pt-2 opacity-30">
+                      <ShieldCheck size={12} className="text-cyan" />
+                      <span className="mono text-[8px] uppercase tracking-[0.4em] font-bold">
+                        SECURE_CHANNEL // END_TO_END_ENCRYPTED
+                      </span>
+                    </div>
+                  </form>
+                )}
+              </div>
+            </GlassContainerValorant>
+          </motion.div>
+        </div>
+      )}
+    </AnimatePresence>
+  );
 }

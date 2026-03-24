@@ -6,6 +6,7 @@ const CHARS = 'ABCDEF0123456789_#@$%-/';
 export default function CipherText({ text, className, delay = 0, duration = 1.5, triggerRef, multiline = false }) {
     const [displayText, setDisplayText] = useState('');
     const [isComplete, setIsComplete] = useState(false);
+    const [hasStarted, setHasStarted] = useState(false);
     const internalRef = useRef(null);
     const ref = triggerRef || internalRef;
     const isInView = useInView(ref, { once: true, margin: '-80px' });
@@ -40,6 +41,7 @@ export default function CipherText({ text, className, delay = 0, duration = 1.5,
         };
 
         const timeout = setTimeout(() => {
+            setHasStarted(true);
             animationFrame = requestAnimationFrame(animate);
         }, delay * 1000);
 
@@ -49,26 +51,24 @@ export default function CipherText({ text, className, delay = 0, duration = 1.5,
         };
     }, [text, delay, duration, shouldStart]);
 
-    if (isComplete) {
-        return <span ref={internalRef} className={className}>{text}</span>;
-    }
+    const baseClass = multiline ? "relative block" : "relative inline-block";
 
-    if (multiline) {
+    if (isComplete) {
         return (
-            <span ref={internalRef} className={className} style={{ position: 'relative', display: 'block' }}>
-                <span style={{ visibility: 'hidden' }}>{text}</span>
-                <span style={{ position: 'absolute', inset: 0 }} aria-hidden="true">
-                    {displayText}
-                    {shouldStart && <span className="animate-pulse text-cyan">_</span>}
-                </span>
+            <span ref={internalRef} className={`${baseClass} animate-glitch-10s ${className || ''}`} data-text={text}>
+                <span className="invisible select-none whitespace-pre-wrap">{text}</span>
+                <span className="absolute inset-0 whitespace-pre-wrap">{text}</span>
             </span>
         );
     }
 
     return (
-        <span ref={internalRef} className={className}>
-            {displayText}
-            {shouldStart && <span className="animate-pulse text-cyan">_</span>}
+        <span ref={internalRef} className={`${baseClass} ${className || ''}`}>
+            <span className="invisible select-none whitespace-pre-wrap">{text}</span>
+            <span className="absolute inset-0 whitespace-pre-wrap" aria-hidden="true">
+                {displayText}
+                {hasStarted && !isComplete && <span className="animate-pulse text-cyan">_</span>}
+            </span>
         </span>
     );
 }

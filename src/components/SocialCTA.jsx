@@ -74,7 +74,7 @@ export function NavbarSocials() {
 /* ── Footer social row ── */
 export function FooterSocials() {
     return (
-        <div className="flex items-center justify-center gap-5 mt-4">
+        <div className="flex items-center justify-start gap-5 mt-4">
             {Object.keys(SOCIAL_LINKS).map((name) => (
                 <SocialIcon key={name} name={name} />
             ))}
@@ -85,7 +85,6 @@ export function FooterSocials() {
 /* ── CTA Section ── */
 import { useRef } from 'react';
 import CipherText from './CipherText';
-import Button from './Button';
 
 export default function SocialCTA({ title, message, author, networks = [], onOpenContact }) {
     const sectionRef = useRef(null);
@@ -137,9 +136,12 @@ export default function SocialCTA({ title, message, author, networks = [], onOpe
                 <div className="h-px w-full max-w-[200px] mx-auto mt-8 mb-8 bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
 
                 <div className="flex justify-center">
-                    <Button onClick={onOpenContact} className="!border-cyan/40 !text-cyan">
-                        INICIAR CONTACTO
-                    </Button>
+                    <button 
+                        onClick={onOpenContact} 
+                        className="px-8 py-3 bg-cyan text-void font-mono text-[11px] tracking-[0.2em] font-bold hover:bg-white transition-colors duration-300 uppercase glow-hover cursor-pointer"
+                    >
+                        [ INICIAR CONTACTO ]
+                    </button>
                 </div>
             </motion.div>
         </section>

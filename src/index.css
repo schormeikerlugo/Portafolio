@@ -1,25 +1,50 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;700&family=Jura:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;700&display=swap');
 @import 'tailwindcss';
 
 /* ── Theme Tokens ── */
 @theme {
   --color-void: #000000;
   --color-void-soft: #030303;
-  --color-panel: #080808;
-  --color-surface: #0d0d0d;
-  --color-border: rgba(255, 255, 255, 0.08);
-  --color-border-active: rgba(0, 255, 255, 0.35);
-  --color-border-magenta: rgba(255, 0, 255, 0.35);
-  --color-text-primary: #e8e8e8;
-  --color-text-secondary: #a0a0a0;
-  --color-text-dim: #8a8a8a;
+  --color-panel: #050505;
+  --color-surface: #0a0a0a;
+  --color-border: rgba(255, 255, 255, 0.05);
+  --color-border-active: rgba(0, 229, 255, 0.25);
+  --color-text-primary: #f5f5f5;
+  --color-text-secondary: rgba(245, 245, 245, 0.55);
+  --color-text-dim: rgba(255, 255, 255, 0.3);
   --color-cyan: #00e5ff;
   --color-magenta: #e040fb;
-  --color-mono-bg: rgba(255, 255, 255, 0.03);
+  --color-mono-bg: rgba(255, 255, 255, 0.02);
+  --color-accent: #00e5ff;
+  --color-accent-dim: rgba(0, 229, 255, 0.1);
 
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-sans: 'Geist', 'Inter', sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
   --font-jura: 'Jura', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+}
+
+/* Noise Texture Overlay */
+.noise-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1000%; /* Cover long scroll */
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+.animate-scanline {
+  animation: scanline 8s linear infinite;
 }
 
 /* ── Base ── */
@@ -43,10 +68,11 @@
   body {
     background: var(--color-void);
     color: var(--color-text-primary);
-    font-family: var(--font-sans);
+    font-family: var(--font-sans); /* Geist for readability */
     overflow-x: hidden;
-    cursor: none;
+    cursor: none; /* Custom cursor implementation */
     line-height: 1.6;
+    letter-spacing: -0.01em;
   }
 
   ::selection {
@@ -55,64 +81,18 @@
   }
 }
 
-/* ── Jupiter entrance (compositor-only, no layout recalc) ── */
-@keyframes jupiterEntrance {
-  from {
-    opacity: 0;
-    transform: scale(0.85) rotate(8deg);
-    filter: blur(10px);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1) rotate(0deg);
-    filter: blur(0px);
-  }
-}
-
-.jupiter-entrance {
-  animation: jupiterEntrance 2.8s cubic-bezier(0.16, 1, 0.3, 1) 1.2s both;
-  will-change: transform, opacity, filter;
-}
-
-/* ── Panel: technical glass ── */
-@layer components {
-  .panel {
-    background: rgba(255, 255, 255, 0.02);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    border: 1px solid var(--color-border);
-  }
-
-  .panel-active {
-    border-color: var(--color-border-active);
-  }
-}
-
-/* ── Scrollbar ── */
-::-webkit-scrollbar {
-  width: 4px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 2px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 229, 255, 0.3);
-}
-
-/* ── Mono label utility ── */
-.mono {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.05em;
+/* ── Technical Typography ── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans) !important;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
   text-transform: uppercase;
+}
+
+.terminal-green {
+  color: #00ff41;
+  text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
 }
 
 /* ── HUD line decoration ── */
@@ -232,4 +212,55 @@
   top: 0;
   left: 40%;
   animation-delay: 2.2s;
+}
+
+/* ── Name Glitch (Periodic Interference) ── */
+.animate-glitch-10s {
+  position: relative;
+}
+
+.animate-glitch-10s::before,
+.animate-glitch-10s::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-void);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.animate-glitch-10s::before {
+  text-shadow: -3px 0 var(--color-cyan);
+  animation: glitch-interference-1 10s infinite;
+  animation-delay: 3s;
+}
+
+.animate-glitch-10s::after {
+  text-shadow: 3px 0 var(--color-magenta);
+  animation: glitch-interference-2 10s infinite;
+  animation-delay: 3s;
+}
+
+@keyframes glitch-interference-1 {
+  0%, 96.999% { opacity: 0; transform: translate(0); }
+  97.0% { opacity: 1; clip-path: inset(20% 0 80% 0); transform: translate(-10px, 0) skewX(10deg); }
+  97.4% { opacity: 1; clip-path: inset(60% 0 10% 0); transform: translate(10px, 0) skewX(-15deg); }
+  97.8% { opacity: 1; clip-path: inset(10% 0 50% 0); transform: translate(-5px, 0) skewX(20deg); }
+  98.2% { opacity: 1; clip-path: inset(80% 0 5% 0); transform: translate(15px, 0) skewX(-10deg); }
+  98.6% { opacity: 1; clip-path: inset(30% 0 40% 0); transform: translate(-10px, 0) skewX(5deg); }
+  99.0%, 100% { opacity: 0; transform: translate(0); }
+}
+
+@keyframes glitch-interference-2 {
+  0%, 96.999% { opacity: 0; transform: translate(0); }
+  97.0% { opacity: 1; clip-path: inset(80% 0 20% 0); transform: translate(10px, 0) skewX(-10deg); }
+  97.4% { opacity: 1; clip-path: inset(10% 0 60% 0); transform: translate(-10px, 0) skewX(15deg); }
+  97.8% { opacity: 1; clip-path: inset(50% 0 10% 0); transform: translate(5px, 0) skewX(-20deg); }
+  98.2% { opacity: 1; clip-path: inset(5% 0 80% 0); transform: translate(-15px, 0) skewX(10deg); }
+  98.6% { opacity: 1; clip-path: inset(40% 0 30% 0); transform: translate(10px, 0) skewX(-5deg); }
+  99.0%, 100% { opacity: 0; transform: translate(0); }
 }

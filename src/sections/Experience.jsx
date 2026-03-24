@@ -1,34 +1,36 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
+import ScrambleText from '../components/ScrambleText';
 
 /* ── Experience data from CV ── */
 const MISSIONS = [
     {
         id: 'mission-07',
-        label: 'MISIÓN 07',
+        label: '07', // Just the number, 'MISSION' part will be translated
         role: 'UI/UX Designer & Frontend Developer',
         company: 'Aqomi',
         location: 'Polonia',
         period: 'Sep 2023 — May 2025',
         description:
             'Desarrollé identidades visuales completas para marcas emergentes. Diseñé y prototipé interfaces web en Figma para sitios corporativos y landing pages orientadas a conversión. Utilicé herramientas de IA como ChatGPT para generar contenido de soporte y Midjourney para exploraciones visuales conceptuales. Implementé sitios WordPress personalizados, optimizados para rendimiento y experiencia mobile.',
-        tech: ['Figma', 'WordPress', 'ChatGPT', 'Midjourney', 'HTML/CSS'],
+        tech: ['Figma', 'WordPress', 'ChatGPT', 'Midjourney', 'React'],
         type: 'contract',
     },
     {
         id: 'mission-06',
-        label: 'MISIÓN 06',
+        label: '06',
         role: 'UI/UX Designer',
         company: 'Sacscloud.com',
         location: 'México',
         period: 'Ago 2020 — Ago 2023',
         description:
-            'Rediseñé el dashboard de administración para una plataforma SaaS, reduciendo el tiempo de navegación del usuario en un 30%. Implementé prototipos interactivos con Figma para validar ideas con stakeholders antes de la fase de desarrollo. Establecí sistemas de diseño reutilizables que mejoraron la consistencia visual.',
+            'Rediseñé el dashboard de administración para una plataforma SaaS, reduciendo el tiempo de navegación del usuario en un 30%. Implementé prototipos interactivos con Figma para validar ideas con stakeholders antes de la fase de desarrollo. Estableció sistemas de diseño reutilizables que mejoraron la consistencia visual.',
         tech: ['Figma', 'Design Systems', 'Prototyping', 'UX Research'],
         type: 'contract',
     },
     {
         id: 'mission-05',
-        label: 'MISIÓN 05',
+        label: '05',
         role: 'UI/UX Designer',
         company: 'Splinterlands',
         location: 'USA',
@@ -40,7 +42,7 @@ const MISSIONS = [
     },
     {
         id: 'mission-04',
-        label: 'MISIÓN 04',
+        label: '04',
         role: 'UI/UX Designer',
         company: 'TakoDeFi',
         location: 'España',
@@ -52,7 +54,7 @@ const MISSIONS = [
     },
     {
         id: 'mission-03',
-        label: 'MISIÓN 03',
+        label: '03',
         role: 'UI/UX Designer',
         company: 'Kooomo',
         location: 'Colombia',
@@ -64,7 +66,7 @@ const MISSIONS = [
     },
     {
         id: 'mission-02',
-        label: 'MISIÓN 02',
+        label: '02',
         role: 'Web Designer',
         company: 'Limbic',
         location: 'Chile',
@@ -76,7 +78,7 @@ const MISSIONS = [
     },
     {
         id: 'mission-01',
-        label: 'MISIÓN 01',
+        label: '01',
         role: 'Tech Support & Designer',
         company: 'Password Technology',
         location: 'Venezuela',
@@ -95,14 +97,10 @@ const TYPE_STYLES = {
     fulltime: 'border-white/20 text-text-secondary',
 };
 
-const TYPE_LABELS = {
-    contract: 'CONTRATO',
-    freelance: 'FREELANCE',
-    fulltime: 'TIEMPO COMPLETO',
-};
-
 /* ── Single mission card ── */
 function MissionCard({ mission, index, isLeft }) {
+    const { t } = useTranslation();
+    
     return (
         <motion.div
             initial={{ opacity: 0, x: isLeft ? -40 : 40 }}
@@ -117,52 +115,54 @@ function MissionCard({ mission, index, isLeft }) {
             />
 
             {/* Card */}
-            <div className="panel glow-hover w-full max-w-[520px] p-6 relative group">
+            <div className="panel glow-hover w-full max-w-[520px] p-6 relative group overflow-hidden">
                 {/* Header */}
                 <div className="flex items-start justify-between mb-4">
                     <div>
-                        <span className="mono text-[10px] text-cyan tracking-widest">
-                            {mission.label}
+                        <span className="mono text-[10px] text-cyan tracking-[0.2em] font-bold uppercase opacity-80 group-hover:opacity-100 transition-opacity">
+                            {t('experience.mission', 'MISSION')} {mission.label}
                         </span>
-                        <h3 className="text-lg font-semibold text-white mt-1 font-jura">
+                        <h3 className="text-xl font-bold text-white mt-1 font-mono uppercase tracking-tight">
                             {mission.role}
                         </h3>
-                        <p className="mono text-[11px] text-text-secondary mt-0.5">
+                        <p className="mono text-[11px] text-text-secondary mt-1 opacity-70">
                             {mission.company} · {mission.location}
                         </p>
                     </div>
                     <span
-                        className={`mono text-[9px] px-2 py-1 border rounded-sm ${TYPE_STYLES[mission.type]}`}
+                        className={`mono text-[9px] px-2 py-1 border rounded-sm font-bold tracking-widest ${TYPE_STYLES[mission.type]}`}
                     >
-                        {TYPE_LABELS[mission.type]}
+                        {t(`experience.types.${mission.type}`, mission.type.toUpperCase())}
                     </span>
                 </div>
 
                 {/* Period */}
-                <div className="mono text-[10px] text-text-dim mb-3 tracking-wider">
-                    ⏱ {mission.period}
+                <div className="mono text-[10px] text-text-dim mb-4 tracking-widest flex items-center gap-2 opacity-60">
+                    <span className="w-1.5 h-1.5 rounded-full bg-cyan/40 animate-pulse" />
+                    {mission.period}
                 </div>
 
                 {/* Description */}
-                <p className="text-sm text-text-secondary leading-relaxed mb-4">
+                <p className="text-sm text-text-secondary leading-relaxed mb-6 font-light">
                     {mission.description}
                 </p>
 
                 {/* Tech tags */}
-                <div className="flex flex-wrap gap-1.5">
+                <div className="flex flex-wrap gap-2 mt-auto">
                     {mission.tech.map((t) => (
                         <span
                             key={t}
-                            className="mono text-[9px] px-2 py-0.5 border border-white/[0.08] bg-white/[0.02] text-white/80 rounded-sm transition-colors duration-300 group-hover:text-cyan group-hover:border-cyan/40"
+                            className="mono text-[8px] px-2 py-1 border border-white/[0.08] bg-white/[0.02] text-white/50 rounded-sm transition-all duration-300 group-hover:text-cyan group-hover:border-cyan/40 group-hover:bg-cyan/5 group-hover:text-[10px]"
                         >
-                            {t}
+                            {t.toUpperCase()}
                         </span>
                     ))}
                 </div>
 
-                {/* Subtle corner decoration */}
-                <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-cyan/20 rounded-tl-sm opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-cyan/20 rounded-br-sm opacity-0 group-hover:opacity-100 transition-opacity" />
+                {/* Subtle decorative background label */}
+                <div className="absolute -bottom-2 -right-2 text-white/[0.02] font-black text-6xl pointer-events-none select-none italic">
+                    {mission.label}
+                </div>
             </div>
         </motion.div>
     );
@@ -170,6 +170,8 @@ function MissionCard({ mission, index, isLeft }) {
 
 /* ── Experience Section ── */
 export default function Experience() {
+    const { t } = useTranslation();
+
     return (
         <section id="experience" className="relative py-24 lg:py-32 px-6 z-10 overflow-hidden">
             <div className="max-w-[1400px] mx-auto">
@@ -179,19 +181,18 @@ export default function Experience() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="text-center mb-16 lg:mb-20"
+                    className="text-center mb-16 lg:mb-24"
                 >
-                    <span className="mono text-[10px] text-text-dim tracking-widest">
-                        BITÁCORA DE MISIONES
+                    <span className="mono text-[10px] text-text-dim tracking-[0.3em] font-bold uppercase">
+                        {t('experience.tag', 'BITÁCORA DE MISIONES')}
                     </span>
-                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-jura text-white mt-3 tracking-tight">
-                        EXPERIENCIA
+                    <h2 className="text-[clamp(1.5rem,5vw,3rem)] font-bold font-mono text-white mt-4 tracking-tight uppercase break-words">
+                        <ScrambleText text={t('experience.title', 'EXPERIENCIA')} />
                     </h2>
-                    <p className="text-text-secondary text-sm mt-4 max-w-lg mx-auto">
-                        +7 años navegando por el ecosistema digital, diseñando interfaces que
-                        conectan la visión creativa con la ejecución técnica.
+                    <p className="text-text-secondary text-base mt-6 max-w-xl mx-auto leading-relaxed font-light opacity-80">
+                        {t('experience.subtitle', '+7 años navegando por el ecosistema digital, diseñando interfaces que conectan la visión creativa con la ejecución técnica.')}
                     </p>
-                    <div className="hud-line mt-6 w-48 mx-auto" />
+                    <div className="hud-line mt-8 w-48 mx-auto" />
                 </motion.div>
 
                 {/* Timeline */}
@@ -200,7 +201,7 @@ export default function Experience() {
                     <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-cyan/20 to-transparent" />
 
                     {/* Mission cards */}
-                    <div className="flex flex-col gap-8 lg:gap-12">
+                    <div className="flex flex-col gap-12 lg:gap-16">
                         {MISSIONS.map((mission, i) => (
                             <MissionCard
                                 key={mission.id}

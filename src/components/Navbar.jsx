@@ -1,41 +1,32 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Globe } from 'lucide-react';
+import { NavLink, Link, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { NavbarSocials } from './SocialCTA';
 
-const NAV_LINKS = [
-    { label: 'INICIO', href: '#hero' },
-    { label: 'MISIÓN', href: '#bio' },
-    { label: 'OPERACIONES', href: '#operaciones' },
-    { label: 'PROTOCOLOS', href: '#protocols' },
-];
+const LanguageSelector = () => {
+    const { i18n } = useTranslation();
+    const currentLang = (i18n.language || 'en').split('-')[0]; // Handle cases like 'en-US'
 
-function useScrollSpy(ids, offset = 120) {
-    const [activeId, setActiveId] = useState(ids[0]);
+    const toggleLanguage = () => {
+        const nextLang = currentLang === 'en' ? 'es' : 'en';
+        i18n.changeLanguage(nextLang);
+    };
 
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                const visible = entries
-                    .filter((e) => e.isIntersecting)
-                    .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-                if (visible.length > 0) {
-                    setActiveId(visible[0].target.id);
-                }
-            },
-            { rootMargin: `-${offset}px 0px -40% 0px`, threshold: 0.1 }
-        );
-
-        ids.forEach((id) => {
-            const el = document.getElementById(id);
-            if (el) observer.observe(el);
-        });
-
-        return () => observer.disconnect();
-    }, [ids, offset]);
-
-    return activeId;
-}
+    return (
+        <button
+            onClick={toggleLanguage}
+            className="flex items-center gap-1.5 px-2 py-1 hover:bg-white/5 rounded transition-colors group cursor-pointer"
+            title="Toggle Language"
+        >
+            <Globe size={12} className="text-text-dim group-hover:text-cyan transition-colors" />
+            <span className="font-mono text-[10px] text-text-dim group-hover:text-white uppercase tracking-tighter">
+                {currentLang}
+            </span>
+        </button>
+    );
+};
 
 function useScrollDirection() {
     const [visible, setVisible] = useState(true);
@@ -71,22 +62,26 @@ function useScrollDirection() {
     return { visible, atTop };
 }
 
-export default function Navbar({ hidden = false, onOpenContact }) {
+export default function Navbar({ onOpenContact }) {
     const [mobileOpen, setMobileOpen] = useState(false);
-    const activeId = useScrollSpy(['hero', 'bio', 'operaciones', 'protocols']);
+    const [hasMounted, setHasMounted] = useState(false);
     const { visible, atTop } = useScrollDirection();
+    const { t } = useTranslation();
+    const location = useLocation();
 
-    const handleClick = useCallback((e, href) => {
-        e.preventDefault();
-        setMobileOpen(false);
-        const id = href.replace('#', '');
-        const el = document.getElementById(id);
-        if (el) {
-            el.scrollIntoView({ behavior: 'smooth' });
-        }
+    useEffect(() => {
+        const timer = setTimeout(() => setHasMounted(true), 6500);
+        return () => clearTimeout(timer);
     }, []);
 
-    if (hidden) return null;
+    const NAV_LINKS = [
+        { label: 'Home', path: '/' },
+        { label: 'About', path: '/about' },
+        { label: 'Work', path: '/work' },
+        { label: 'Services', path: '/services' },
+        { label: 'Writing', path: '/writing' },
+        { label: 'Contact', path: '/contact' },
+    ];
 
     const show = visible || mobileOpen;
 
@@ -97,70 +92,58 @@ export default function Navbar({ hidden = false, onOpenContact }) {
                     }`}
                 initial={{ y: -80 }}
                 animate={{ y: show ? 0 : -80 }}
-                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.3, delay: hasMounted ? 0 : 6.0, ease: [0.16, 1, 0.3, 1] }}
             >
                 <div className="max-w-[1600px] mx-auto flex items-center justify-between h-14">
-                    {/* Logo */}
-                    <a
-                        href="#hero"
-                        onClick={(e) => handleClick(e, '#hero')}
-                        className="flex items-center gap-2 group"
+                    {/* Logo: Minimalist SL */}
+                    <Link
+                        to="/"
+                        className="flex items-center gap-1.5 group"
                     >
-                        <span className="w-2 h-2 rounded-full bg-cyan shadow-[0_0_8px_rgba(0,229,255,0.6)]" />
-                        <span className="font-mono text-xs font-medium tracking-widest text-text-primary group-hover:text-cyan transition-colors">
-                            SL
+                        <span className="font-mono text-[11px] font-bold tracking-[0.3em] text-white group-hover:text-cyan transition-colors">
+                            SL // SYSTEM
                         </span>
-                    </a>
+                    </Link>
 
                     {/* Desktop links + socials */}
                     <div className="hidden md:flex items-center">
-                        <div className="flex items-center gap-1">
-                            {NAV_LINKS.map(({ label, href }) => {
-                                const id = href.replace('#', '');
-                                const isActive = activeId === id;
-                                return (
-                                    <a
-                                        key={href}
-                                        href={href}
-                                        onClick={(e) => handleClick(e, href)}
-                                        className={`relative px-4 py-2 font-mono text-[11px] tracking-wider transition-colors duration-200 ${isActive
+                        <div className="flex items-center gap-0 mr-6">
+                            {NAV_LINKS.map(({ label, path }) => (
+                                <NavLink
+                                    key={path}
+                                    to={path}
+                                    className={({ isActive }) => 
+                                        `relative px-4 py-2 font-mono text-[10px] uppercase tracking-[0.2em] transition-colors duration-200 ${isActive
                                             ? 'text-cyan'
-                                            : 'text-text-secondary hover:text-text-primary'
-                                            }`}
-                                    >
-                                        {label}
-                                        {isActive && (
-                                            <span className="animate-pulse ml-0.5">_</span>
-                                        )}
-                                        {isActive && (
-                                            <motion.div
-                                                layoutId="nav-indicator"
-                                                className="absolute bottom-0 left-2 right-2 h-px bg-cyan shadow-[0_0_6px_rgba(0,229,255,0.4)]"
-                                                transition={{ type: 'spring', stiffness: 350, damping: 30 }}
-                                            />
-                                        )}
-                                    </a>
-                                );
-                            })}
+                                            : 'text-white/40 hover:text-white'
+                                        }`
+                                    }
+                                >
+                                    {label}
+                                </NavLink>
+                            ))}
                         </div>
-                        {/* Contact button */}
-                        <button
-                            onClick={onOpenContact}
-                            className="ml-3 px-4 py-1.5 border border-cyan/30 font-mono text-[11px] tracking-wider text-cyan hover:bg-cyan/10 hover:border-cyan/50 transition-all duration-200 cursor-pointer"
-                        >
-                            CONTACTO
-                        </button>
+
+                        <div className="flex items-center gap-4 h-6 border-l border-white/5 pl-4">
+                            <LanguageSelector />
+                            
+                            {/* Settings trigger or mode display can go here if needed */}
+                        </div>
+                        
                         <NavbarSocials />
                     </div>
 
                     {/* Mobile hamburger */}
-                    <button
-                        onClick={() => setMobileOpen((v) => !v)}
-                        className="md:hidden p-2 text-text-secondary hover:text-cyan transition-colors"
-                        aria-label="Toggle menu"
-                    >
-                        {mobileOpen ? <X size={18} /> : <Menu size={18} />}
-                    </button>
+                    <div className="md:hidden flex items-center gap-4">
+                        <LanguageSelector />
+                        <button
+                            onClick={() => setMobileOpen((v) => !v)}
+                            className="p-2 text-text-secondary hover:text-cyan transition-colors"
+                            aria-label="Toggle menu"
+                        >
+                            {mobileOpen ? <X size={18} /> : <Menu size={18} />}
+                        </button>
+                    </div>
                 </div>
             </motion.nav>
 
@@ -175,37 +158,34 @@ export default function Navbar({ hidden = false, onOpenContact }) {
                         transition={{ duration: 0.2 }}
                     >
                         <div className="flex flex-col items-center justify-center h-full gap-8">
-                            {NAV_LINKS.map(({ label, href }, i) => {
-                                const id = href.replace('#', '');
-                                const isActive = activeId === id;
-                                return (
-                                    <motion.a
-                                        key={href}
-                                        href={href}
-                                        onClick={(e) => handleClick(e, href)}
-                                        initial={{ opacity: 0, y: 20 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        exit={{ opacity: 0, y: -10 }}
-                                        transition={{ delay: i * 0.06, duration: 0.3 }}
-                                        className={`font-mono text-lg tracking-[0.3em] transition-colors ${isActive ? 'text-cyan' : 'text-text-secondary'
-                                            }`}
-                                    >
-                                        {isActive && <span className="text-cyan mr-2">›</span>}
-                                        {label}
-                                        {isActive && <span className="animate-pulse ml-1">_</span>}
-                                    </motion.a>
-                                );
-                            })}
+                            {NAV_LINKS.map(({ label, path }, i) => (
+                                <NavLink
+                                    key={path}
+                                    to={path}
+                                    onClick={() => setMobileOpen(false)}
+                                    className={({ isActive }) => 
+                                        `font-mono text-lg tracking-[0.3em] transition-colors ${isActive ? 'text-cyan' : 'text-text-secondary'}`
+                                    }
+                                >
+                                    {({ isActive }) => (
+                                        <>
+                                            {isActive && <span className="text-cyan mr-2">›</span>}
+                                            {label}
+                                            {isActive && <span className="animate-pulse ml-1">_</span>}
+                                        </>
+                                    )}
+                                </NavLink>
+                            ))}
                             {/* Mobile contact button */}
                             <motion.button
                                 onClick={() => { setMobileOpen(false); onOpenContact?.(); }}
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -10 }}
-                                transition={{ delay: NAV_LINKS.length * 0.06, duration: 0.3 }}
+                                transition={{ delay: 0.3, duration: 0.3 }}
                                 className="font-mono text-lg tracking-[0.3em] text-cyan border border-cyan/30 px-8 py-3 mt-4 hover:bg-cyan/10 transition-colors cursor-pointer"
                             >
-                                CONTACTO
+                                {t('nav.contact_btn', 'CONTACTO')}
                             </motion.button>
                         </div>
                     </motion.div>
