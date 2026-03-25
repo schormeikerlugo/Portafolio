@@ -65,7 +65,7 @@ const MISSIONS = [
 ];
 
 const TechnicalTag = ({ icon: Icon, label, value, delay = 0 }) => (
-    <motion.div 
+    <motion.div
         initial={{ opacity: 0, x: -10 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
@@ -79,7 +79,7 @@ const TechnicalTag = ({ icon: Icon, label, value, delay = 0 }) => (
 );
 
 const TimelineItem = ({ m, index, isLast }) => (
-    <motion.div 
+    <motion.div
         initial={{ opacity: 0, x: -20 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, margin: "-100px" }}
@@ -170,10 +170,10 @@ export default function Bio({ isTeaser = false }) {
 
     return (
         <section id="about" className="relative z-10 py-24 sm:py-32 px-6 overflow-hidden bg-void border-t border-border">
-            
+
             {/* Fondo de Puntos Animado Sutil */}
             <div className="absolute inset-0 pointer-events-none z-0">
-                <div 
+                <div
                     className="absolute inset-0 opacity-40"
                     style={{
                         backgroundImage: 'radial-gradient(rgba(0, 229, 255, 0.8) 1px, transparent 1px)',
@@ -214,11 +214,12 @@ export default function Bio({ isTeaser = false }) {
                         {/* Left: Texts */}
                         <div className="flex-1 space-y-10">
                             <div className="space-y-6 text-text-secondary text-lg sm:text-xl leading-relaxed font-sans">
-                                <p>{t('bio.p1', 'Mi viaje comenzó entre circuitos analógicos y esa herencia mecánica define cómo percibo el software hoy: una máquina de precisión que debe funcionar sin fallos.')}</p>
-                                <p>{t('bio.p2', 'He ayudado a equipos en Polonia, México y España a destilar complejidad técnica en experiencias de usuario táctiles y directas. Cada sombra, cada transición y cada línea de código tiene un propósito operativo.')}</p>
+                                <p>{t('bio.p1', 'Soy Schormeiker Lugo, Diseñador UI/UX y Desarrollador Frontend con más de siete años de trayectoria profesional. Mi perfil une una capacidad técnica avanzada con un sólido conocimiento en publicidad y marketing. Esta combinación me facilita crear productos digitales que poseen una arquitectura robusta y priorizan la experiencia del usuario final.')}</p>
+                                <p>{t('bio.p2', 'Mi metodología transforma flujos complejos en interfaces eficientes y atractivas. El proceso creativo se respalda con un dominio profundo de HTML, CSS y JavaScript. Además, construyo aplicaciones interactivas mediante React y Vite, y conecto estos entornos visuales con bases de datos ágiles utilizando herramientas como Supabase y PostgreSQL.')}</p>
+                                <p>{t('bio.p3', 'El flujo de trabajo que utilizo integra la Inteligencia Artificial como un recurso fundamental. Mi experiencia en ingeniería de prompts maximiza el rendimiento de los modelos de lenguaje (LLMs), tanto en plataformas comerciales como en entornos de ejecución local. Esta adopción tecnológica acelera la ideación visual, automatiza tareas rutinarias y eleva la calidad general de cada proyecto.')}</p>
                             </div>
 
-                            <motion.div 
+                            <motion.div
                                 initial={{ opacity: 0, scale: 0.98 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true }}
@@ -229,7 +230,7 @@ export default function Bio({ isTeaser = false }) {
                                 </p>
                             </motion.div>
                         </div>
-                        
+
                         {/* Right: Sci-Fi Profile Picture */}
                         <motion.div
                             initial={{ opacity: 0, scale: 0.95 }}
@@ -273,34 +274,34 @@ export default function Bio({ isTeaser = false }) {
                             </div>
                         </motion.div>
                     </div>
-                    
+
                     {/* Evolución integrada sin cajones pesados */}
                     <div className="w-full space-y-12 mt-16 pt-16 border-t border-white/5">
-                        <motion.div 
+                        <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             className="space-y-10 text-text-secondary text-base sm:text-lg leading-relaxed font-sans max-w-2xl"
                         >
-                        <div>
-                            <span className="mono text-[10px] text-cyan uppercase tracking-widest block mb-1">01 // UI/UX Foundation</span>
-                            <p>Empecé orquestando la estética y la interacción humana. Diseñando para startups y entornos eCommerce, forjé mis raíces en la psicología visual y la arquitectura de la información, desarrollando un ojo clínico para la consistencia técnica.</p>
-                        </div>
-                        
-                        <div>
-                            <span className="mono text-[10px] text-cyan uppercase tracking-widest block mb-1">02 // Frontend Engineering</span>
-                            <p>La asimetría visual entre el diseño y la producción en vivo impulsó un pivote agresivo. Esa fricción operativa me llevó a dominar arquitecturas en React y Tailwind CSS, asumiendo yo mismo el control arquitectónico absoluto para asegurar implementaciones con cero tolerancia a la pérdida de fidelidad.</p>
-                        </div>
+                            <div>
+                                <span className="mono text-[10px] text-cyan uppercase tracking-widest block mb-1">01 // UI/UX Design</span>
+                                <p>Empecé orquestando la estética y la interacción humana. Diseñando para startups y entornos eCommerce, forjé mis raíces en la psicología visual y la arquitectura de la información, desarrollando un ojo clínico para la consistencia técnica.</p>
+                            </div>
 
-                        <div>
-                            <span className="mono text-[10px] text-cyan uppercase tracking-widest block mb-1">03 // Sistemas Interactivos</span>
-                            <p>Las pantallas estáticas alcanzaron un límite. Para ecosistemas Web3 y productos de alta fidelidad, la micro-interacción es el puente primario hacia la confianza. Introduje ingenierías de movimiento como GSAP y Framer Motion para convertir interfaces planas en entornos que reaccionan tácticamente a cada input del usuario.</p>
-                        </div>
+                            <div>
+                                <span className="mono text-[10px] text-cyan uppercase tracking-widest block mb-1">02 // Frontend Engineering</span>
+                                <p>La asimetría visual entre el diseño y la producción en vivo impulsó un pivote agresivo. Esa fricción operativa me llevó a dominar arquitecturas en React y Tailwind CSS, asumiendo yo mismo el control arquitectónico absoluto para asegurar implementaciones con cero tolerancia a la pérdida de fidelidad.</p>
+                            </div>
 
-                        <div>
-                            <span className="mono text-[10px] text-cyan uppercase tracking-widest block mb-1">04 // IA & Automatización</span>
-                            <p>Actualmente, el cuello de botella es la latencia de desarrollo. Por ello, integro orquestaciones de Inteligencia Artificial (Prompt Engineering y despliegues LLM) directamente dentro de mi flujo de desarrollo, permitiéndome acelerar drásticamente los pipelines de producción y experimentación.</p>
-                        </div>
+                            <div>
+                                <span className="mono text-[10px] text-cyan uppercase tracking-widest block mb-1">03 // Sistemas Interactivos</span>
+                                <p>Las pantallas estáticas alcanzaron un límite. Para ecosistemas Web3 y productos de alta fidelidad, la micro-interacción es el puente primario hacia la confianza. Introduje ingenierías de movimiento como GSAP y Framer Motion para convertir interfaces planas en entornos que reaccionan tácticamente a cada input del usuario.</p>
+                            </div>
+
+                            <div>
+                                <span className="mono text-[10px] text-cyan uppercase tracking-widest block mb-1">04 // IA & Automatización</span>
+                                <p>Actualmente, el cuello de botella es la latencia de desarrollo. Por ello, integro orquestaciones de Inteligencia Artificial (Prompt Engineering y despliegues LLM) directamente dentro de mi flujo de desarrollo, permitiéndome acelerar drásticamente los pipelines de producción y experimentación.</p>
+                            </div>
                         </motion.div>
                     </div>
 
