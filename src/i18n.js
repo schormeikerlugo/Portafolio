@@ -49,7 +49,7 @@ const resources = {
       bio: {
         tag: 'MODULE 03',
         title: 'MISSION HISTORY // ARCHITECT',
-        p1: 'I am Schormeiker Lugo, a UI/UX Designer and Frontend Developer with more than seven years of professional experience. My profile combines advanced technical capability with a solid background in advertising and marketing. This combination allows me to create digital products with robust architecture that prioritize the end user experience.',
+        p1: 'Hi, my name is Schormeiker Lugo, a UI/UX Designer and Frontend Developer with more than seven years of professional experience. My profile combines advanced technical capability with a solid background in advertising and marketing. This combination allows me to create digital products with robust architecture that prioritize the end user experience.',
         p2: 'My methodology transforms complex flows into efficient and attractive interfaces. The creative process is backed by deep mastery of HTML, CSS, and JavaScript. I also build interactive applications using React and Vite, and connect these visual environments to agile databases using tools like Supabase and PostgreSQL.',
         p3: 'My workflow integrates Artificial Intelligence as a fundamental resource. My expertise in prompt engineering maximizes the performance of large language models (LLMs), both on commercial platforms and in local execution environments. This technological adoption accelerates visual ideation, automates routine tasks, and elevates the overall quality of each project.',
         specs_title: 'STATION SPECIFICATIONS',
@@ -240,7 +240,7 @@ const resources = {
       bio: {
         tag: 'MÓDULO 03',
         title: 'Historia de la misión // Arquitecto',
-        p1: 'Soy Schormeiker Lugo, Diseñador UI/UX y Desarrollador Frontend con más de siete años de trayectoria profesional. Mi perfil une una capacidad técnica avanzada con un sólido conocimiento en publicidad y marketing. Esta combinación me facilita crear productos digitales que poseen una arquitectura robusta y priorizan la experiencia del usuario final.',
+        p1: 'Hola, mi nombre es Schormeiker Lugo, Diseñador UI/UX y Desarrollador Frontend con más de siete años de trayectoria profesional. Mi perfil une una capacidad técnica avanzada con un sólido conocimiento en publicidad y marketing. Esta combinación me facilita crear productos digitales que poseen una arquitectura robusta y priorizan la experiencia del usuario final.',
         p2: 'Mi metodología transforma flujos complejos en interfaces eficientes y atractivas. El proceso creativo se respalda con un dominio profundo de HTML, CSS y JavaScript. Además, construyo aplicaciones interactivas mediante React y Vite, y conecto estos entornos visuales con bases de datos ágiles utilizando herramientas como Supabase y PostgreSQL.',
         p3: 'El flujo de trabajo que utilizo integra la Inteligencia Artificial como un recurso fundamental. Mi experiencia en ingeniería de prompts maximiza el rendimiento de los modelos de lenguaje (LLMs), tanto en plataformas comerciales como en entornos de ejecución local. Esta adopción tecnológica acelera la ideación visual, automatiza tareas rutinarias y eleva la calidad general de cada proyecto.',
         specs_title: 'ESPECIFICACIONES DE LA ESTACIÓN',
