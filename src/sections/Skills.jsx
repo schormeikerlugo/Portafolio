@@ -6,6 +6,7 @@ import TypewriterText from '../components/TypewriterText';
 import Particles from '../components/Particles';
 import { SectionLabel, GhostText, CrosshairDot, FloatingGlyphs } from '../components/ValorantOverlays';
 import { HexGrid, AbstractShapes } from '../components/ValorantPatterns';
+import ViewportPauser from '../components/ViewportPauser';
 
 export default function Skills() {
     return (
@@ -14,9 +15,11 @@ export default function Skills() {
             <Particles quantity={40} />
 
             {/* Valorant Overlays */}
-            <HexGrid opacity={0.06} />
-            <AbstractShapes variant="side-only" />
-            <FloatingGlyphs />
+            <ViewportPauser>
+                <HexGrid opacity={0.06} />
+                <AbstractShapes variant="side-only" />
+                <FloatingGlyphs />
+            </ViewportPauser>
             <SectionLabel text="const skills = require('./arsenal')" />
             <SectionLabel text="export { React, Figma, Node }" side="right" />
             <GhostText text="02" position="bottom-left" size="text-[180px] md:text-[260px]" />

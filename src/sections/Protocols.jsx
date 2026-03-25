@@ -7,6 +7,7 @@ import TypewriterText from '../components/TypewriterText';
 import Particles from '../components/Particles';
 import { SectionLabel, GhostText, CrosshairDot, CornerBrackets, FloatingGlyphs } from '../components/ValorantOverlays';
 import { DiagonalHatch, AbstractShapes } from '../components/ValorantPatterns';
+import ViewportPauser from '../components/ViewportPauser';
 
 export default function Protocols() {
     const { t } = useTranslation();
@@ -44,9 +45,11 @@ export default function Protocols() {
 
     return (
         <section id="protocols" className="py-24 sm:py-32 px-6 relative overflow-hidden bg-void border-t border-border">
-            <DiagonalHatch opacity={0.05} spacing={60} />
-            <AbstractShapes variant="grid" />
-            <FloatingGlyphs />
+            <ViewportPauser>
+                <DiagonalHatch opacity={0.05} spacing={60} />
+                <AbstractShapes variant="grid" />
+                <FloatingGlyphs />
+            </ViewportPauser>
 
             {/* Valorant Overlays */}
             <SectionLabel text="function solve(problem) { return design }" />

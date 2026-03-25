@@ -8,6 +8,7 @@ import TypewriterText from '../components/TypewriterText';
 import Particles from '../components/Particles';
 import { SectionLabel, GhostText, CrosshairDot, FloatingGlyphs } from '../components/ValorantOverlays';
 import { TriangleField, AbstractShapes } from '../components/ValorantPatterns';
+import ViewportPauser from '../components/ViewportPauser';
 
 export default function Portfolio({ onSelectProject, isTeaser = false, limit = 6 }) {
     const { t } = useTranslation();
@@ -63,7 +64,9 @@ export default function Portfolio({ onSelectProject, isTeaser = false, limit = 6
     return (
         <section id={isTeaser ? 'tease-work' : 'work'} className="relative z-10 py-24 sm:py-32 px-6 bg-void border-t border-border overflow-hidden">
             <Particles quantity={30} />
-            <FloatingGlyphs />
+            <ViewportPauser>
+                <FloatingGlyphs />
+            </ViewportPauser>
 
             {/* Valorant Overlays */}
             <SectionLabel text="projects.map(p => deploy(p))" />

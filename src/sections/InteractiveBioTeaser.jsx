@@ -8,6 +8,7 @@ import { useGSAP } from '@gsap/react';
 import { PhilosophyVisuals } from '../components/PhilosophyVisuals';
 import { SectionLabel, GhostText, FloatingGlyphs } from '../components/ValorantOverlays';
 import { CircuitLines, AbstractShapes } from '../components/ValorantPatterns';
+import ViewportPauser from '../components/ViewportPauser';
 import GlassContainerValorant from '../components/GlassContainerValorant';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -111,8 +112,10 @@ export default function InteractiveBioTeaser() {
             className="relative bg-black overflow-hidden border-t border-white/5 z-20 w-full"
         >
             {/* Background */}
-            <CircuitLines opacity={0.08} />
-            <FloatingGlyphs />
+            <ViewportPauser>
+                <CircuitLines opacity={0.08} />
+                <FloatingGlyphs />
+            </ViewportPauser>
             <div className="absolute inset-0 pointer-events-none opacity-5">
                 <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
             </div>

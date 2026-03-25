@@ -5,6 +5,7 @@ import TypewriterText from '../components/TypewriterText';
 import CipherText from '../components/CipherText';
 import { SectionLabel, GhostText, CrosshairDot, FloatingGlyphs } from '../components/ValorantOverlays';
 import { DiagonalHatch, AbstractShapes } from '../components/ValorantPatterns';
+import ViewportPauser from '../components/ViewportPauser';
 
 const ANOMALIES = [
     {
@@ -74,9 +75,11 @@ export default function Anomalies() {
     return (
         <section id="anomalias" className="relative z-10 py-24 sm:py-32 px-6 bg-void border-t border-border">
             {/* Valorant-style backgrounds */}
-            <DiagonalHatch opacity={0.06} spacing={50} />
-            <AbstractShapes variant="side-only" />
-            <FloatingGlyphs />
+            <ViewportPauser>
+                <DiagonalHatch opacity={0.06} spacing={50} />
+                <AbstractShapes variant="side-only" />
+                <FloatingGlyphs />
+            </ViewportPauser>
 
             {/* Valorant Overlays */}
             <SectionLabel text="try { diagnose() } catch(e) { fix(e) }" />
