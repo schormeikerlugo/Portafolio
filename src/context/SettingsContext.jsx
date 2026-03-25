@@ -19,8 +19,13 @@ export const SettingsProvider = ({ children }) => {
         // Apply smooth scroll to html
         document.documentElement.style.scrollBehavior = settings.smoothScroll ? 'smooth' : 'auto';
         
-        // Hide default cursor if custom is on
-        document.body.style.cursor = settings.customCursor ? 'none' : 'auto';
+        // Hide default cursor if custom is on, but only for desktop
+        const isTouch = window.matchMedia('(pointer: coarse)').matches;
+        if (settings.customCursor && !isTouch) {
+            document.body.style.cursor = 'none';
+        } else {
+            document.body.style.cursor = 'auto';
+        }
     }, [settings]);
 
     const toggleSetting = (key) => {

@@ -1,14 +1,16 @@
 import { useState, useEffect, useRef } from 'react';
 import { useSettings } from '../context/SettingsContext';
+import useMobileDetect from '../hooks/useMobileDetect';
 
 export default function TerminalCursor() {
     const { settings } = useSettings();
+    const isMobile = useMobileDetect();
     const cursorRef = useRef(null);
     const [isPointer, setIsPointer] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
-        if (!settings.customCursor) return;
+        if (!settings.customCursor || isMobile) return;
 
         const handleMouseMove = (e) => {
             // Uninterrupted 120fps hardware-accelerated DOM manipulation, bypassing React render queue entirely.
@@ -39,9 +41,9 @@ export default function TerminalCursor() {
             window.removeEventListener('mousemove', handleMouseMove);
             document.removeEventListener('mouseleave', handleMouseLeave);
         };
-    }, [settings.customCursor]);
+    }, [settings.customCursor, isMobile]);
 
-    if (!settings.customCursor) return null;
+    if (!settings.customCursor || isMobile) return null;
 
     return (
         <div 
