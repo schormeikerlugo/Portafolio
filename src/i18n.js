@@ -49,9 +49,9 @@ const resources = {
       bio: {
         tag: 'MODULE 03',
         title: 'MISSION HISTORY // ARCHITECT',
-        p1: 'I don\'t build "websites". I configure high-performance operational environments. My journey began among analog circuits, and that mechanical heritage defines how I perceive software today: a precision machine that must operate without failure.',
-        p2: 'I\'ve helped teams in Poland, Mexico, and Spain distill technical complexity into tactile, direct user experiences. My approach ignores superfluous decoration; every shadow, every transition, and every line of code has an operational purpose.',
-        p3: 'I specialize in creating technical interfaces for complex systems where clarity is non-negotiable. From crypto-dashboards to enterprise design systems, I bridge the gap between abstract engineering and human intuition.',
+        p1: 'I am Schormeiker Lugo, a UI/UX Designer and Frontend Developer with more than seven years of professional experience. My profile combines advanced technical capability with a solid background in advertising and marketing. This combination allows me to create digital products with robust architecture that prioritize the end user experience.',
+        p2: 'My methodology transforms complex flows into efficient and attractive interfaces. The creative process is backed by deep mastery of HTML, CSS, and JavaScript. I also build interactive applications using React and Vite, and connect these visual environments to agile databases using tools like Supabase and PostgreSQL.',
+        p3: 'My workflow integrates Artificial Intelligence as a fundamental resource. My expertise in prompt engineering maximizes the performance of large language models (LLMs), both on commercial platforms and in local execution environments. This technological adoption accelerates visual ideation, automates routine tasks, and elevates the overall quality of each project.',
         specs_title: 'STATION SPECIFICATIONS',
         status: 'ALL SYSTEMS OPERATIONAL',
         metrics: {
@@ -240,9 +240,9 @@ const resources = {
       bio: {
         tag: 'MÓDULO 03',
         title: 'Historia de la misión // Arquitecto',
-        p1: 'No construyo "páginas web". Configuro entornos operativos de alto rendimiento. Mi viaje comenzó entre circuitos analógicos, y esa herencia mecánica define cómo percibo el software hoy: una máquina de precisión que debe funcionar sin fallos.',
-        p2: 'He ayudado a equipos en Polonia, México y España a destilar complejidad técnica en experiencias de usuario táctiles y directas. Mi enfoque ignora la decoración superflua; cada sombra, cada transición y cada línea de código tiene un propósito operativo.',
-        p3: 'Me especializo en crear interfaces técnicas para sistemas complejos donde la claridad no es negociable. Desde dashboards cripto hasta sistemas de diseño empresariales, cierro la brecha entre la ingeniería abstracta y la intuición humana.',
+        p1: 'Soy Schormeiker Lugo, Diseñador UI/UX y Desarrollador Frontend con más de siete años de trayectoria profesional. Mi perfil une una capacidad técnica avanzada con un sólido conocimiento en publicidad y marketing. Esta combinación me facilita crear productos digitales que poseen una arquitectura robusta y priorizan la experiencia del usuario final.',
+        p2: 'Mi metodología transforma flujos complejos en interfaces eficientes y atractivas. El proceso creativo se respalda con un dominio profundo de HTML, CSS y JavaScript. Además, construyo aplicaciones interactivas mediante React y Vite, y conecto estos entornos visuales con bases de datos ágiles utilizando herramientas como Supabase y PostgreSQL.',
+        p3: 'El flujo de trabajo que utilizo integra la Inteligencia Artificial como un recurso fundamental. Mi experiencia en ingeniería de prompts maximiza el rendimiento de los modelos de lenguaje (LLMs), tanto en plataformas comerciales como en entornos de ejecución local. Esta adopción tecnológica acelera la ideación visual, automatiza tareas rutinarias y eleva la calidad general de cada proyecto.',
         specs_title: 'ESPECIFICACIONES DE LA ESTACIÓN',
         status: 'TODOS LOS SISTEMAS OPERATIVOS',
         metrics: {
