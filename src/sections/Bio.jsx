@@ -84,12 +84,12 @@ const TimelineItem = ({ m, index, isLast }) => (
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6, delay: index * 0.1 }}
-        className="relative pl-8 sm:pl-16 pb-16 group text-center md:text-left"
+        className="relative px-6 sm:pl-16 pb-16 group text-center md:text-left"
     >
         {!isLast && (
-            <div className="absolute left-[5px] sm:left-[9px] top-6 bottom-0 w-px bg-border" />
+            <div className="absolute left-[5px] sm:left-[9px] top-6 bottom-0 w-px bg-border hidden sm:block" />
         )}
-        <div className="absolute left-[-4px] sm:left-0 top-2 w-5 h-5 sm:w-6 sm:h-6 rounded-full border border-border bg-void flex items-center justify-center group-hover:border-cyan/50 transition-all z-10">
+        <div className="absolute left-[-4px] sm:left-0 top-2 w-5 h-5 sm:w-6 sm:h-6 rounded-full border border-border bg-void hidden sm:flex items-center justify-center group-hover:border-cyan/50 transition-all z-10">
             <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-text-dim group-hover:bg-cyan transition-colors" />
         </div>
 
