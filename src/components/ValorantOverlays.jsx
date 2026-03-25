@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import useMobileDetect from '../hooks/useMobileDetect';
 
 /* ══════════════════════════════════════════════════════
    VALORANT OVERLAYS — HUD Decorative Components
@@ -146,18 +147,21 @@ export function ChevronMarker({ direction = 'down', className = '' }) {
             aria-hidden="true"
         >
             {[0, 1, 2].map((i) => (
-                <motion.svg
+                <svg
                     key={i}
                     width="16"
                     height="10"
                     viewBox="0 0 16 10"
-                    style={{ transform: `rotate(${rotation}deg)` }}
-                    animate={{ opacity: [0.1, 0.5, 0.1] }}
-                    transition={{ duration: 1.8, repeat: Infinity, delay: i * 0.25, ease: 'easeInOut' }}
+                    className="chevron-pulse"
+                    style={{ transform: `rotate(${rotation}deg)`, animationDelay: `${i * 0.25}s` }}
                 >
                     <path d="M1 1L8 8L15 1" stroke="rgba(0,229,255,0.6)" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-                </motion.svg>
+                </svg>
             ))}
+            <style>{`
+                @keyframes chevronPulse { 0%,100% { opacity: 0.1; } 50% { opacity: 0.5; } }
+                .chevron-pulse { animation: chevronPulse 1.8s ease-in-out infinite; }
+            `}</style>
         </motion.div>
     );
 }
@@ -168,16 +172,18 @@ export function ChevronMarker({ direction = 'down', className = '' }) {
 export function ScanlineBar({ className = '' }) {
     return (
         <div className={`relative w-full h-px overflow-hidden pointer-events-none ${className}`}>
-            <motion.div
-                className="absolute top-0 left-0 w-1/3 h-full"
+            <div
+                className="absolute top-0 left-0 w-1/3 h-full scanline-sweep"
                 style={{
                     background: 'linear-gradient(90deg, transparent 0%, rgba(0,229,255,0.5) 40%, rgba(0,229,255,0.8) 50%, rgba(0,229,255,0.5) 60%, transparent 100%)',
                     boxShadow: '0 0 8px rgba(0,229,255,0.3)',
                 }}
-                animate={{ x: ['-100%', '400%'] }}
-                transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
             />
             <div className="absolute inset-0" style={{ background: 'linear-gradient(90deg, transparent, rgba(0,229,255,0.08), transparent)' }} />
+            <style>{`
+                @keyframes scanSweep { 0% { transform: translateX(-100%); } 100% { transform: translateX(400%); } }
+                .scanline-sweep { animation: scanSweep 3s linear infinite; }
+            `}</style>
         </div>
     );
 }
@@ -187,6 +193,9 @@ export function ScanlineBar({ className = '' }) {
  * These are abstract shapes: brackets, slashes, dots, angles.
  */
 export function FloatingGlyphs({ className = '' }) {
+    const isMobile = useMobileDetect();
+    if (isMobile) return null;
+
     const glyphs = ['</', '/>', '{', '}', '()', '=>', '[]', '&&', '||', '::' , '/**', '*/', '!=', '==='];
 
     return (

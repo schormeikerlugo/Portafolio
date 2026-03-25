@@ -173,10 +173,7 @@ export default function Bio({ isTeaser = false }) {
             
             {/* Fondo de Puntos Animado Sutil */}
             <div className="absolute inset-0 pointer-events-none z-0">
-                <motion.div 
-                    initial={{ backgroundPosition: "0px 0px" }}
-                    animate={{ backgroundPosition: "0px -40px" }}
-                    transition={{ repeat: Infinity, duration: 15, ease: "linear" }}
+                <div 
                     className="absolute inset-0 opacity-40"
                     style={{
                         backgroundImage: 'radial-gradient(rgba(0, 229, 255, 0.8) 1px, transparent 1px)',

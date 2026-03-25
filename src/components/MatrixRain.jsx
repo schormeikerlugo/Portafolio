@@ -2,9 +2,11 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { motion } from 'framer-motion';
+import useMobileDetect from '../hooks/useMobileDetect';
 
 const MatrixRain = ({ opacity = 0.15 }) => {
     const canvasRef = useRef(null);
+    const isMobile = useMobileDetect();
 
     useGSAP(() => {
         const canvas = canvasRef.current;
@@ -15,15 +17,17 @@ const MatrixRain = ({ opacity = 0.15 }) => {
 
         const characters = 'ｦｧｨｩｪｫｬｭｮｯｰｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ0123456789@#$%&*+=';
 
-        const layers = [
-            { fontSize: 14, speed: 0.002, opacity: 0.1, tailLength: 20 },
-            { fontSize: 24, speed: 0.004, opacity: 0.25, tailLength: 30 },
-            { fontSize: 42, speed: 0.006, opacity: 0.40, tailLength: 40 }
-        ];
+        const layers = isMobile
+            ? [{ fontSize: 24, speed: 0.004, opacity: 0.25, tailLength: 30 }]
+            : [
+                { fontSize: 14, speed: 0.002, opacity: 0.1, tailLength: 20 },
+                { fontSize: 24, speed: 0.004, opacity: 0.25, tailLength: 30 },
+                { fontSize: 42, speed: 0.006, opacity: 0.40, tailLength: 40 }
+            ];
 
         const drops = layers.map(layer => {
-            // Menos denso: duplicamos el espacio entre columnas
-            const columns = Math.ceil(width / (layer.fontSize * 3));
+            const colSpacing = isMobile ? layer.fontSize * 5 : layer.fontSize * 3;
+            const columns = Math.ceil(width / colSpacing);
             return new Array(columns).fill(0).map(() => Math.random() * -100);
         });
 
@@ -73,8 +77,8 @@ const MatrixRain = ({ opacity = 0.15 }) => {
                         // Caracter estático o con muy poco parpadeo
                         const char = j === 0 ? layerChars[i].char : characters[Math.floor((layerChars[i].char.charCodeAt(0) + j) % characters.length)];
 
-                        // Posicionamiento horizontal ajustado a la menor densidad (fontSize * 3)
-                        ctx.fillText(char, i * (layer.fontSize * 3), pixelY);
+                        const colSpacing = isMobile ? layer.fontSize * 5 : layer.fontSize * 3;
+                        ctx.fillText(char, i * colSpacing, pixelY);
                     }
 
                     // Reposición y movimiento

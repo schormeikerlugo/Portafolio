@@ -1,16 +1,19 @@
 import { motion } from 'framer-motion';
+import useMobileDetect from '../hooks/useMobileDetect';
 
 /* ══════════════════════════════════════════════════════
    VALORANT PATTERNS — Abstract Animated Backgrounds
-   V3: ACTUALLY VISIBLE — big shapes, bright strokes, no vignette killing
+   V4: MOBILE-OPTIMIZED — all heavy SVG patterns disabled on mobile
    ══════════════════════════════════════════════════════ */
 
 /**
  * AbstractShapes — Large geometric outlines that pulse and glow.
- * These need to be SEEN — think Valorant agent select screen.
+ * DISABLED on mobile to save GPU (SVG blur filters are iOS killers).
  */
 export function AbstractShapes({ variant = 'default', className = '' }) {
-    // variant 'side-only' or 'portfolio' will move shapes to extreme edges to avoid text overlap
+    const isMobile = useMobileDetect();
+    if (isMobile) return null;
+
     const isSideOnly = variant === 'side-only' || variant === 'portfolio';
 
     return (
@@ -152,9 +155,12 @@ export function AbstractShapes({ variant = 'default', className = '' }) {
 }
 
 /**
- * DiagonalHatch — Crossed lines with VISIBLE pulsing intersection nodes.
+ * DiagonalHatch — DISABLED on mobile.
  */
 export function DiagonalHatch({ opacity = 0.08, spacing = 50, className = '' }) {
+    const isMobile = useMobileDetect();
+    if (isMobile) return null;
+
     return (
         <div className={`absolute inset-0 pointer-events-none overflow-hidden z-[1] ${className}`} aria-hidden="true">
             <div
@@ -167,7 +173,6 @@ export function DiagonalHatch({ opacity = 0.08, spacing = 50, className = '' }) 
                     `,
                 }}
             />
-            {/* Bright pulsing cyan dots at intersections */}
             <svg className="absolute inset-0 w-full h-full">
                 <defs>
                     <filter id="nodeGlow">
@@ -188,16 +193,18 @@ export function DiagonalHatch({ opacity = 0.08, spacing = 50, className = '' }) 
                     />
                 ))}
             </svg>
-            {/* Lighter vignette — don't kill visibility */}
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_50%,#000000_95%)]" />
         </div>
     );
 }
 
 /**
- * CircuitLines — Animated circuit-board with GLOWING nodes.
+ * CircuitLines — DISABLED on mobile.
  */
 export function CircuitLines({ opacity = 0.12, className = '' }) {
+    const isMobile = useMobileDetect();
+    if (isMobile) return null;
+
     return (
         <div className={`absolute inset-0 pointer-events-none overflow-hidden z-[1] ${className}`} aria-hidden="true">
             <svg className="absolute inset-0 w-full h-full" style={{ opacity }} preserveAspectRatio="none" viewBox="0 0 800 600">
@@ -208,7 +215,6 @@ export function CircuitLines({ opacity = 0.12, className = '' }) {
                     </filter>
                 </defs>
 
-                {/* Horizontal lines with dashes */}
                 {[100, 220, 370, 500].map((y, i) => (
                     <g key={`h-${i}`}>
                         <motion.line
@@ -220,7 +226,6 @@ export function CircuitLines({ opacity = 0.12, className = '' }) {
                             animate={{ strokeDashoffset: -150 }}
                             transition={{ duration: 12 + i * 2, repeat: Infinity, ease: 'linear' }}
                         />
-                        {/* BIG glowing nodes */}
                         {[100 + i * 90, 350 + i * 60, 600 - i * 50].map((x, j) => (
                             <motion.circle
                                 key={`n-${i}-${j}`}
@@ -234,7 +239,6 @@ export function CircuitLines({ opacity = 0.12, className = '' }) {
                     </g>
                 ))}
 
-                {/* Vertical lines */}
                 {[180, 420, 650].map((x, i) => (
                     <motion.line
                         key={`v-${i}`}
@@ -248,16 +252,18 @@ export function CircuitLines({ opacity = 0.12, className = '' }) {
                     />
                 ))}
             </svg>
-            {/* Light vignette */}
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_50%,#000000_95%)]" />
         </div>
     );
 }
 
 /**
- * RadialTarget — Concentric rings with BRIGHT pulsing center.
+ * RadialTarget — DISABLED on mobile.
  */
 export function RadialTarget({ size = 500, className = '' }) {
+    const isMobile = useMobileDetect();
+    if (isMobile) return null;
+
     const center = size / 2;
 
     return (
@@ -270,7 +276,6 @@ export function RadialTarget({ size = 500, className = '' }) {
                     </filter>
                 </defs>
 
-                {/* Concentric rings — visible strokes */}
                 {[0.15, 0.3, 0.5, 0.7, 0.9].map((r, i) => (
                     <motion.circle
                         key={i}
@@ -284,11 +289,9 @@ export function RadialTarget({ size = 500, className = '' }) {
                     />
                 ))}
 
-                {/* Crosshair lines */}
                 <line x1="0" y1={center} x2={size} y2={center} stroke="rgba(0,229,255,0.12)" strokeWidth="0.5" />
                 <line x1={center} y1="0" x2={center} y2={size} stroke="rgba(0,229,255,0.12)" strokeWidth="0.5" />
 
-                {/* Bright pulsing center dot */}
                 <motion.circle
                     cx={center} cy={center} r="5"
                     fill="rgba(0,229,255,0.8)"
@@ -302,9 +305,12 @@ export function RadialTarget({ size = 500, className = '' }) {
 }
 
 /**
- * TriangleField — Scattered triangles with BRIGHT pulsing blink.
+ * TriangleField — DISABLED on mobile.
  */
 export function TriangleField({ className = '' }) {
+    const isMobile = useMobileDetect();
+    if (isMobile) return null;
+
     const triangles = [
         { points: '100,60 145,140 55,140', delay: 0 },
         { points: '320,180 370,260 270,260', delay: 1.2 },
@@ -337,7 +343,6 @@ export function TriangleField({ className = '' }) {
                         transition={{ duration: 3.5 + (i % 3), repeat: Infinity, delay: tri.delay, ease: 'easeInOut' }}
                     />
                 ))}
-                {/* Bright vertex dots */}
                 {triangles.slice(0, 5).map((tri, i) => {
                     const pts = tri.points.split(' ')[0].split(',');
                     return (
@@ -357,12 +362,14 @@ export function TriangleField({ className = '' }) {
 }
 
 /**
- * HexGrid — Hexagon pattern with BRIGHT animated highlight nodes.
+ * HexGrid — DISABLED on mobile.
  */
 export function HexGrid({ className = '' }) {
+    const isMobile = useMobileDetect();
+    if (isMobile) return null;
+
     return (
         <div className={`absolute inset-0 pointer-events-none overflow-hidden z-[1] ${className}`} aria-hidden="true">
-            {/* Hex pattern */}
             <div
                 className="absolute inset-0"
                 style={{
@@ -371,7 +378,6 @@ export function HexGrid({ className = '' }) {
                     backgroundSize: '60px 52px',
                 }}
             />
-            {/* Bright pulsing highlight nodes */}
             <svg className="absolute inset-0 w-full h-full">
                 <defs>
                     <filter id="hexGlow">
@@ -398,7 +404,6 @@ export function HexGrid({ className = '' }) {
                     />
                 ))}
             </svg>
-            {/* Very light vignette — barely there */}
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_60%,#000000_98%)]" />
         </div>
     );
