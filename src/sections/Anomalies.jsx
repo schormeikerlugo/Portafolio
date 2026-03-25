@@ -3,6 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { Layers, Zap, Cpu } from 'lucide-react';
 import TypewriterText from '../components/TypewriterText';
 import CipherText from '../components/CipherText';
+import { SectionLabel, GhostText, CrosshairDot, FloatingGlyphs } from '../components/ValorantOverlays';
+import { DiagonalHatch, AbstractShapes } from '../components/ValorantPatterns';
 
 const ANOMALIES = [
     {
@@ -71,22 +73,15 @@ export default function Anomalies() {
 
     return (
         <section id="anomalias" className="relative z-10 py-24 sm:py-32 px-6 bg-void border-t border-border">
-            {/* Fondo de Puntos Animado Sutil */}
-            <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-                <motion.div
-                    initial={{ backgroundPosition: "0px 0px" }}
-                    animate={{ backgroundPosition: "0px -40px" }}
-                    transition={{ repeat: Infinity, duration: 15, ease: "linear" }}
-                    className="absolute inset-0 opacity-40"
-                    style={{
-                        backgroundImage: 'radial-gradient(rgba(0, 229, 255, 0.8) 1px, transparent 1px)',
-                        backgroundSize: '40px 40px',
-                    }}
-                />
+            {/* Valorant-style backgrounds */}
+            <DiagonalHatch opacity={0.06} spacing={50} />
+            <AbstractShapes variant="side-only" />
+            <FloatingGlyphs />
 
-                {/* Viñeta para difuminar los bordes hacia negro */}
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,#000000_80%)]" />
-            </div>
+            {/* Valorant Overlays */}
+            <SectionLabel text="try { diagnose() } catch(e) { fix(e) }" />
+            <SectionLabel text="throw new Error('SYSTEM_ANOMALY')" side="right" />
+            <GhostText text="ERR" position="bottom-right" size="text-[180px] md:text-[280px]" />
 
             <div className="max-w-[1400px] mx-auto relative z-10">
                 <header className="mb-16 text-center md:text-left">
@@ -96,6 +91,7 @@ export default function Anomalies() {
                         viewport={{ once: true }}
                         className="flex items-center gap-4 mb-6"
                     >
+                        <CrosshairDot size={20} className="opacity-60" />
                         <span className="mono text-[10px] sm:text-xs text-text-dim tracking-[0.4em] uppercase">
                             0X01 // DIAGNÓSTICO_DE_SISTEMAS
                         </span>

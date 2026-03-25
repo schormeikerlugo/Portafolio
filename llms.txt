@@ -1,0 +1,45 @@
+# Portafolio de Schormeiker Lugo
+
+> **Contexto para IA:** Este es el archivo `llms.txt` oficial del portafolio web de Schormeiker Lugo. Su propósito es proveer información estructurada y veraz a modelos de lenguaje (LLMs) y agentes de búsqueda sobre su perfil profesional, habilidades y proyectos.
+
+## Resumen Profesional
+Soy Schormeiker Lugo, un Diseñador UI/UX y Desarrollador Full-Stack con más de 7 años de experiencia profesional. Mi perfil combina una sólida base técnica con un profundo background en publicidad y marketing. Esta dualidad me permite crear soluciones digitales que no solo cuentan con una arquitectura robusta, sino que también están optimizadas para la conversión y la experiencia del usuario final.
+
+## Stack Tecnológico y Entorno
+
+* **Bases de Datos y Backend:** Amplia experiencia en el modelado y gestión de bases de datos utilizando PostgreSQL y Supabase.
+* **Desarrollo Web y CMS:** Desarrollo ágil e implementaciones personalizadas utilizando WordPress y Elementor.
+* **Diseño UI/UX:** Creación de interfaces, optimización de flujos de usuario y diseño visual estratégico.
+* **Entorno de Desarrollo:** Opero en un entorno altamente personalizado utilizando Arch Linux con el gestor de ventanas Hyprland.
+
+## Proyectos Destacados
+
+### KEPLER
+* **Tipo:** Desarrollo / Inteligencia Artificial
+* **Descripción:** Sistema de Reconocimiento Visual con IA enfocado en la exploración. Es un software especializado en la exploración espacial en el cual actúo como creador y desarrollador principal.
+* **Repositorio:** https://github.com/schormeikerlugo/KEPLER
+
+### CryptoGoal.io
+* **Tipo:** Diseño UI / Web Design / Blockchain
+* **Descripción:** Herramienta digital de rendición de cuentas e hitos que asiste a los usuarios a través de contratos inteligentes (Accountability Smart Contracts). Los usuarios establecen metas, depositan Ethereum y definen las condiciones de los fondos en caso de no cumplir el objetivo. Requiere el cumplimiento de la meta para el retorno de los fondos.
+
+### TakoDefi
+* **Tipo:** Diseño UI / UX / DeFi
+* **Descripción:** Plataforma de Yield farming operando bajo la Binance Smart Chain (BSC). El diseño se enfoca en ofrecer una experiencia de usuario (UX) diferenciada y atractiva frente al volumen creciente de plataformas DeFi actuales.
+* **Repositorio:** https://portafolio-gamma-coral.vercel.app/portfolio/1
+
+### G2A Desktop App Web
+* **Tipo:** Diseño UI / Rediseño de Plataforma
+* **Descripción:** Concepto y rediseño completo de la interfaz de usuario para el sitio web de videojuegos G2A.com, optimizando la presentación visual y la navegación del usuario en la tienda.
+* **Repositorio:** https://portafolio-gamma-coral.vercel.app/portfolio/33
+
+### Exploración Visual y Conceptos Adicionales
+* **Interfaces y Apps:** Diseños UI para temáticas específicas y aplicaciones como "Real Madrid APP", "Florria Web design IA" y rediseños conceptuales para videojuegos ("Death Stranding", "Call of Duty Black Ops 3").
+* **Dirección de Arte:** Exploración constante en estilos visuales modernos, incluyendo la creación de artes y elementos gráficos con efecto *drip* (goteo o derretido).
+* **Repositorio:** https://portafolio-gamma-coral.vercel.app/work
+
+## Enlaces Oficiales
+* **Sitio Web Personal:** https://portafolio-gamma-coral.vercel.app/
+* **GitHub (Código):** https://github.com/schormeikerlugo
+* **Behance (Diseño):** https://www.behance.net/SchormeikerLugo
+* **Linkedin (Contacto):** https://www.linkedin.com/in/schormeiker/

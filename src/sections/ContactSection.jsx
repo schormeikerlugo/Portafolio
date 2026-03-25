@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Send, Terminal, Mail, MessageSquare, ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import ScrambleText from '../components/ScrambleText';
+import GlassContainerValorant from '../components/GlassContainerValorant';
 
 export default function ContactSection() {
     const { t } = useTranslation();
@@ -68,50 +69,50 @@ export default function ContactSection() {
 
                     {/* Form: IDE Style */}
                     <div className="lg:col-span-7">
-                        <motion.div
+                        <GlassContainerValorant
                             initial={{ opacity: 0, scale: 0.98 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
-                            className="bg-white/[0.02] border border-white/5 p-8 sm:p-12 relative overflow-hidden"
+                            className="p-8 sm:p-12 relative overflow-hidden"
                         >
                             {/* Form Header */}
-                            <div className="flex items-center justify-between mb-12 border-b border-white/5 pb-6">
+                            <div className="flex items-center justify-between mb-12 border-b border-white/10 pb-6">
                                 <div className="flex items-center gap-3">
-                                    <Terminal size={16} className="text-cyan/40" />
-                                    <span className="mono text-[10px] text-white/30 uppercase tracking-[0.2em] font-bold">NEW_MESSAGE.SH</span>
+                                    <Terminal size={16} className="text-cyan/60" />
+                                    <span className="mono text-[10px] text-white/60 uppercase tracking-[0.2em] font-bold">NEW_MESSAGE.SH</span>
                                 </div>
                                 <div className="flex gap-1.5">
-                                    <div className="w-2 h-2 rounded-full bg-white/5" />
-                                    <div className="w-2 h-2 rounded-full bg-white/5" />
-                                    <div className="w-2 h-2 rounded-full bg-cyan/40 animate-pulse" />
+                                    <div className="w-2 h-2 rounded-full bg-white/10" />
+                                    <div className="w-2 h-2 rounded-full bg-white/10" />
+                                    <div className="w-2 h-2 rounded-full bg-cyan/60 animate-pulse" />
                                 </div>
                             </div>
 
                             <form className="space-y-8">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                     <div className="space-y-2">
-                                        <label className="mono text-[9px] text-white/20 uppercase tracking-widest font-bold">IDENTIFIER</label>
+                                        <label className="mono text-[9px] text-white/40 uppercase tracking-widest font-bold">IDENTIFIER</label>
                                         <input 
                                             type="text" 
                                             placeholder="[TU NOMBRE]" 
-                                            className="w-full bg-transparent border-b border-white/10 py-3 text-white placeholder:text-white/10 focus:outline-none focus:border-cyan transition-colors mono text-sm"
+                                            className="w-full bg-transparent border-b border-white/20 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-cyan transition-colors mono text-sm"
                                         />
                                     </div>
                                     <div className="space-y-2">
-                                        <label className="mono text-[9px] text-white/20 uppercase tracking-widest font-bold">CHANNEL_LINK</label>
+                                        <label className="mono text-[9px] text-white/40 uppercase tracking-widest font-bold">CHANNEL_LINK</label>
                                         <input 
                                             type="email" 
                                             placeholder="[TU EMAIL]" 
-                                            className="w-full bg-transparent border-b border-white/10 py-3 text-white placeholder:text-white/10 focus:outline-none focus:border-cyan transition-colors mono text-sm"
+                                            className="w-full bg-transparent border-b border-white/20 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-cyan transition-colors mono text-sm"
                                         />
                                     </div>
                                 </div>
                                 <div className="space-y-2">
-                                    <label className="mono text-[9px] text-white/20 uppercase tracking-widest font-bold">TRANSMISSION_DATA</label>
+                                    <label className="mono text-[9px] text-white/40 uppercase tracking-widest font-bold">TRANSMISSION_DATA</label>
                                     <textarea 
                                         rows="4" 
                                         placeholder="[DESCRIBE TU MISIÓN...]" 
-                                        className="w-full bg-transparent border-b border-white/10 py-3 text-white placeholder:text-white/10 focus:outline-none focus:border-cyan transition-colors mono text-sm resize-none"
+                                        className="w-full bg-transparent border-b border-white/20 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-cyan transition-colors mono text-sm resize-none"
                                     ></textarea>
                                 </div>
                                 
@@ -123,10 +124,10 @@ export default function ContactSection() {
                             </form>
                             
                             {/* Background Overlay */}
-                            <div className="absolute -bottom-12 -right-12 opacity-5 pointer-events-none">
+                            <div className="absolute -bottom-12 -right-12 opacity-10 pointer-events-none">
                                 <Terminal size={300} />
                             </div>
-                        </motion.div>
+                        </GlassContainerValorant>
                     </div>
                 </div>
             </div>

@@ -6,6 +6,9 @@ import { useTranslation } from 'react-i18next';
 import { Cpu, Zap, Shield, Target, Activity } from 'lucide-react';
 import { useGSAP } from '@gsap/react';
 import { PhilosophyVisuals } from '../components/PhilosophyVisuals';
+import { SectionLabel, GhostText, FloatingGlyphs } from '../components/ValorantOverlays';
+import { CircuitLines, AbstractShapes } from '../components/ValorantPatterns';
+import GlassContainerValorant from '../components/GlassContainerValorant';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -25,19 +28,19 @@ const TechnicalSegment = ({ title, text, icon: Icon, index }) => {
                     {title}
                 </h3>
                 
-                <div className="relative p-8 bg-white/[0.01] border-l border-cyan/20 backdrop-blur-sm max-w-2xl">
-                    <p className="text-base md:text-xl text-white/50 leading-relaxed font-mono uppercase tracking-tighter">
+                <GlassContainerValorant className="p-8 max-w-2xl border-l-2 border-l-cyan/40">
+                    <p className="text-base md:text-xl text-white/70 leading-relaxed font-mono uppercase tracking-tighter">
                         {text}
                     </p>
                     
-                    <div className="mt-10 flex items-center justify-between opacity-20">
+                    <div className="mt-10 flex items-center justify-between opacity-40">
                         <div className="flex items-center gap-3">
                             <Activity size={10} className="text-cyan animate-pulse" />
-                            <span className="mono text-[8px] uppercase tracking-[0.4em]">SYSTEM_RESPONSE_FAST</span>
+                            <span className="mono text-[8px] uppercase tracking-[0.4em] text-white">SYSTEM_RESPONSE_FAST</span>
                         </div>
                         <span className="mono text-[8px] uppercase tracking-widest text-cyan font-bold">NODE_STABLE</span>
                     </div>
-                </div>
+                </GlassContainerValorant>
             </div>
         </div>
     );
@@ -107,11 +110,17 @@ export default function InteractiveBioTeaser() {
             ref={sectionRef} 
             className="relative bg-black overflow-hidden border-t border-white/5 z-20 w-full"
         >
-            {/* Background Narrative Grid */}
+            {/* Background */}
+            <CircuitLines opacity={0.08} />
+            <FloatingGlyphs />
             <div className="absolute inset-0 pointer-events-none opacity-5">
-                <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:50px_50px]" />
                 <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
             </div>
+
+            {/* Valorant Overlays */}
+            <SectionLabel text="class Philosophy extends Core {}" side="right" />
+            <SectionLabel text="async function optimize(system) {}" />
+
 
             {/* Fixed Starfield Visual (Right Side) */}
             <PhilosophyVisuals />

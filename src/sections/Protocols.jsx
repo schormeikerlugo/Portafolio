@@ -5,6 +5,8 @@ import ScrambleText from '../components/ScrambleText';
 import CipherText from '../components/CipherText';
 import TypewriterText from '../components/TypewriterText';
 import Particles from '../components/Particles';
+import { SectionLabel, GhostText, CrosshairDot, CornerBrackets, FloatingGlyphs } from '../components/ValorantOverlays';
+import { DiagonalHatch, AbstractShapes } from '../components/ValorantPatterns';
 
 export default function Protocols() {
     const { t } = useTranslation();
@@ -42,6 +44,14 @@ export default function Protocols() {
 
     return (
         <section id="protocols" className="py-24 sm:py-32 px-6 relative overflow-hidden bg-void border-t border-border">
+            <DiagonalHatch opacity={0.05} spacing={60} />
+            <AbstractShapes variant="grid" />
+            <FloatingGlyphs />
+
+            {/* Valorant Overlays */}
+            <SectionLabel text="function solve(problem) { return design }" />
+            <SectionLabel text="npm run build --production" side="right" />
+            <GhostText text="PRTC" position="bottom-left" size="text-[140px] md:text-[220px]" />
             <div className="max-w-[1400px] mx-auto">
                 <header className="mb-16 flex flex-col items-center md:items-start text-center md:text-left">
                     <motion.div
@@ -50,6 +60,7 @@ export default function Protocols() {
                         viewport={{ once: true }}
                         className="flex items-center gap-4 mb-2"
                     >
+                        <CrosshairDot size={20} className="opacity-60" />
                         <span className="mono text-[10px] sm:text-xs text-text-dim tracking-[0.4em] uppercase">
                             0X05 // PROTOCOLOS_OPERATIVOS
                         </span>
@@ -94,9 +105,8 @@ export default function Protocols() {
                                 </p>
                             </div>
 
-                            {/* Corner accents */}
-                            <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-cyan/0 group-hover:border-cyan/50 transition-colors" />
-                            <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-cyan/0 group-hover:border-cyan/50 transition-colors" />
+                            {/* Corner accents — Valorant style (behind text) */}
+                            <CornerBrackets size={10} color="border-cyan/0 group-hover:border-cyan/40" hoverColor="" className="absolute inset-0 pointer-events-none z-0" />
                         </motion.div>
                     ))}
                 </div>

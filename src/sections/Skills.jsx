@@ -4,12 +4,22 @@ import { skills } from '../data/content';
 import CipherText from '../components/CipherText';
 import TypewriterText from '../components/TypewriterText';
 import Particles from '../components/Particles';
+import { SectionLabel, GhostText, CrosshairDot, FloatingGlyphs } from '../components/ValorantOverlays';
+import { HexGrid, AbstractShapes } from '../components/ValorantPatterns';
 
 export default function Skills() {
     return (
         <section id="skills" className="relative z-10 py-24 sm:py-32 px-6 bg-void border-t border-border overflow-hidden">
             {/* Animated Constellation Network */}
             <Particles quantity={40} />
+
+            {/* Valorant Overlays */}
+            <HexGrid opacity={0.06} />
+            <AbstractShapes variant="side-only" />
+            <FloatingGlyphs />
+            <SectionLabel text="const skills = require('./arsenal')" />
+            <SectionLabel text="export { React, Figma, Node }" side="right" />
+            <GhostText text="02" position="bottom-left" size="text-[180px] md:text-[260px]" />
 
             <div className="max-w-[1400px] mx-auto relative z-10">
                 <header className="mb-16 flex flex-col items-center md:items-start text-center md:text-left">
@@ -20,6 +30,7 @@ export default function Skills() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
                     >
+                        <CrosshairDot size={20} className="opacity-60" />
                         <span className="mono text-[10px] sm:text-xs text-text-dim tracking-[0.4em] uppercase">
                             0X02 // MATRIZ_DE_HABILIDADES
                         </span>

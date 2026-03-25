@@ -6,6 +6,7 @@ import ShootingStars from '../components/ShootingStars';
 import SiteStatusBar from '../components/SiteStatusBar';
 import { useScroll, useTransform } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { SectionLabel, CornerBrackets } from '../components/ValorantOverlays';
 
 const Layout = ({ children, onOpenContact }) => {
   const { scrollYProgress } = useScroll();
@@ -32,7 +33,8 @@ const Layout = ({ children, onOpenContact }) => {
       <SiteStatusBar /> {/* Added SiteStatusBar component */}
 
       {/* Footer */}
-      <footer className="relative z-10 py-16 lg:py-24 px-6 border-t border-border bg-void">
+      <footer className="relative z-10 py-16 lg:py-24 px-6 border-t border-border bg-void overflow-visible">
+        <SectionLabel text="EOF // END" />
         <div className="max-w-[1400px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
             
@@ -59,12 +61,14 @@ const Layout = ({ children, onOpenContact }) => {
                  <span className="mono text-[10px] text-text-dim tracking-[0.3em] uppercase font-bold">
                     SYSTEM_STATUS
                  </span>
+                 <CornerBrackets size={8} color="border-cyan/20" hoverColor="group-hover:border-cyan/50" className="p-1">
                  <div className="flex items-center gap-3 px-4 py-2 border border-cyan/20 bg-cyan/5">
-                     <div className="w-2 h-2 bg-cyan shadow-[0_0_10px_rgba(0,255,229,0.8)]" />
+                     <div className="w-2 h-2 bg-cyan shadow-[0_0_10px_rgba(0,229,255,0.8)]" />
                      <span className="font-sans text-xs sm:text-sm font-semibold text-cyan uppercase tracking-wider">
                          Operando al 100%
                      </span>
                  </div>
+                 </CornerBrackets>
               </div>
 
               <div className="flex flex-col md:items-end gap-3 pt-8 md:pt-0">

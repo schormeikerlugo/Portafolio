@@ -6,6 +6,8 @@ import { projects } from '../data/content';
 import CipherText from '../components/CipherText';
 import TypewriterText from '../components/TypewriterText';
 import Particles from '../components/Particles';
+import { SectionLabel, GhostText, CrosshairDot, FloatingGlyphs } from '../components/ValorantOverlays';
+import { TriangleField, AbstractShapes } from '../components/ValorantPatterns';
 
 export default function Portfolio({ onSelectProject, isTeaser = false, limit = 6 }) {
     const { t } = useTranslation();
@@ -61,6 +63,12 @@ export default function Portfolio({ onSelectProject, isTeaser = false, limit = 6
     return (
         <section id={isTeaser ? 'tease-work' : 'work'} className="relative z-10 py-24 sm:py-32 px-6 bg-void border-t border-border overflow-hidden">
             <Particles quantity={30} />
+            <FloatingGlyphs />
+
+            {/* Valorant Overlays */}
+            <SectionLabel text="projects.map(p => deploy(p))" />
+            <SectionLabel text="git push origin main --force" side="right" />
+            <GhostText text="04" position="top-right" size="text-[180px] md:text-[260px]" />
 
             <div className="max-w-[1400px] mx-auto relative z-10">
                 {/* Section Header */}
@@ -71,6 +79,7 @@ export default function Portfolio({ onSelectProject, isTeaser = false, limit = 6
                         viewport={{ once: true }}
                         className="flex items-center gap-4 mb-2"
                     >
+                        <CrosshairDot size={20} className="opacity-60" />
                         <span className="mono text-[10px] sm:text-xs text-text-dim tracking-[0.4em] uppercase">
                             0X04 // OPERACIONES_DIGITALES
                         </span>

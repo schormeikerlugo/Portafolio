@@ -4,6 +4,7 @@ import { Suspense, lazy } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import SocialCTA from '../components/SocialCTA';
 import { ArrowRight } from 'lucide-react';
+import { ScanlineBar, DiagonalLine } from '../components/ValorantOverlays';
 
 // Lazy imports for all sections
 const Hero = lazy(() => import('../sections/Hero'));
@@ -63,10 +64,14 @@ export default function Home({ onOpenContact }) {
                     <PortalBridge to="/approach" label="Ver mi enfoque completo" />
                 </div>
 
+                <ScanlineBar />
+
                 {/* 0X02 // section.skills */}
                 <div className="relative group border-t border-white/5">
                     <Skills />
                 </div>
+
+                <DiagonalLine height={30} />
 
                 {/* 03 // section.about (Interactive Content Shift) */}
                 <div className="relative group border-t border-white/5">
@@ -74,11 +79,15 @@ export default function Home({ onOpenContact }) {
                     <PortalBridge to="/about" label="Explorar mi trayectoria" />
                 </div>
 
+                <ScanlineBar />
+
                 {/* 04 // section.work (Work Teaser) */}
                 <div className="relative group border-t border-white/5">
                     <Portfolio isTeaser={true} limit={3} onSelectProject={handleSelectProject} />
                     <PortalBridge to="/work" label="Ver todos los proyectos" />
                 </div>
+
+                <DiagonalLine height={30} />
 
                 {/* 05 // section.services (Services Teaser) */}
                 <div className="relative group border-t border-white/5">

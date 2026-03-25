@@ -47,6 +47,31 @@
   animation: scanline 8s linear infinite;
 }
 
+/* ── Valorant Art Direction Utilities ── */
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+.ghost-text {
+  position: absolute;
+  font-weight: 900;
+  text-transform: uppercase;
+  opacity: 0.02;
+  pointer-events: none;
+  user-select: none;
+  line-height: 0.85;
+}
+
+@keyframes chevron-pulse {
+  0%, 100% { opacity: 0.08; }
+  50% { opacity: 0.3; }
+}
+
+.animate-chevron-pulse {
+  animation: chevron-pulse 2s ease-in-out infinite;
+}
+
 /* ── Base ── */
 @layer base {
 
