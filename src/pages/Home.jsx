@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { Suspense, lazy } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import SocialCTA from '../components/SocialCTA';
 import { ArrowRight } from 'lucide-react';
 
@@ -27,7 +27,7 @@ const SectionPlaceholder = () => (
 
 const PortalBridge = ({ to, label }) => (
     <div className="flex justify-center pb-24 sm:pb-32 bg-void">
-        <Link 
+        <Link
             to={to}
             className="group flex items-center gap-4 px-10 py-4 border border-white/10 hover:border-cyan/40 bg-white/[0.02] hover:bg-cyan/5 transition-all text-white/60 hover:text-cyan"
         >
@@ -39,6 +39,11 @@ const PortalBridge = ({ to, label }) => (
 
 export default function Home({ onOpenContact }) {
     const { t } = useTranslation();
+    const navigate = useNavigate();
+
+    const handleSelectProject = (project) => {
+        navigate(`/portfolio/${project.id}`);
+    };
 
     return (
         <motion.div
@@ -51,30 +56,30 @@ export default function Home({ onOpenContact }) {
             <Suspense fallback={<SectionPlaceholder />}>
                 {/* 01 // system.init */}
                 <Hero onOpenContact={onOpenContact} />
-                
+
                 {/* 0x01 // the_problem (Teaser) */}
                 <div className="relative group">
                     <Anomalies isTeaser={true} />
                     <PortalBridge to="/approach" label="Ver mi enfoque completo" />
                 </div>
-                
+
                 {/* 0X02 // section.skills */}
                 <div className="relative group border-t border-white/5">
                     <Skills />
                 </div>
-                
+
                 {/* 03 // section.about (Interactive Content Shift) */}
                 <div className="relative group border-t border-white/5">
                     <InteractiveBioTeaser />
                     <PortalBridge to="/about" label="Explorar mi trayectoria" />
                 </div>
-                
+
                 {/* 04 // section.work (Work Teaser) */}
                 <div className="relative group border-t border-white/5">
-                    <Portfolio isTeaser={true} limit={3} />
+                    <Portfolio isTeaser={true} limit={3} onSelectProject={handleSelectProject} />
                     <PortalBridge to="/work" label="Ver todos los proyectos" />
                 </div>
-                
+
                 {/* 05 // section.services (Services Teaser) */}
                 <div className="relative group border-t border-white/5">
                     <Protocols />

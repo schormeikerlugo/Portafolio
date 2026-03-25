@@ -12,6 +12,7 @@ import LoadingScreen from './components/LoadingScreen';
 import ContactModal from './components/ContactModal';
 import TerminalCursor from './components/TerminalCursor';
 import HelpModal from './components/HelpModal';
+import ScrollToTop from './components/ScrollToTop';
 
 // Pages
 import Home from './pages/Home';
@@ -79,6 +80,7 @@ function AppContent() {
       <ContactModal isOpen={contactOpen} onClose={closeContact} />
       <HelpModal isOpen={helpOpen} onClose={() => setHelpOpen(false)} />
       <TerminalCursor />
+      <ScrollToTop />
 
       <AnimatePresence>
         {loading && (

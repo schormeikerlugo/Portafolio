@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import CardValorant from '../components/CardValorant';
@@ -26,6 +26,9 @@ export default function Portfolio({ onSelectProject, isTeaser = false, limit = 6
 
     const currentSubs = subcategories[activeFilter] || null;
 
+    // Stable random seed per page visit (different each time the component mounts)
+    const seedRef = useRef(Math.random());
+
     const filtered = useMemo(() => {
         let result = projects;
         if (activeFilter !== 'Todos') {
@@ -34,10 +37,18 @@ export default function Portfolio({ onSelectProject, isTeaser = false, limit = 6
         if (activeSub !== 'Todos' && currentSubs) {
             result = result.filter(p => p.subcategory === activeSub);
         }
-        
-        // Apply teaser limit
+
+        // Apply teaser limit with random shuffle so projects vary on each visit
         if (isTeaser) {
-            return result.slice(0, limit);
+            // Seeded Fisher-Yates shuffle (stable within the same mount)
+            const arr = [...result];
+            let seed = seedRef.current;
+            for (let i = arr.length - 1; i > 0; i--) {
+                seed = (seed * 9301 + 49297) % 233280;
+                const j = Math.floor((seed / 233280) * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr.slice(0, limit);
         }
         return result;
     }, [activeFilter, activeSub, currentSubs, isTeaser, limit]);
