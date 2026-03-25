@@ -109,7 +109,7 @@ const TimelineItem = ({ m, index, isLast }) => (
                     <h3 className="font-sans text-2xl sm:text-3xl font-bold text-text-primary uppercase tracking-tight group-hover:text-cyan transition-colors">
                         {m.role}
                     </h3>
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center justify-center md:justify-start gap-2">
                         <Globe size={14} className="text-cyan/80" />
                         <span className="mono text-[11px] sm:text-sm text-text-secondary uppercase tracking-widest">{m.company}</span>
                     </div>
@@ -119,11 +119,11 @@ const TimelineItem = ({ m, index, isLast }) => (
                 </div>
 
                 <div className="lg:col-span-4 space-y-3 pt-2 lg:pt-0">
-                    <div className="flex items-center gap-2 opacity-50">
+                    <div className="flex items-center justify-center md:justify-start gap-2 opacity-50">
                         <Terminal size={12} />
                         <span className="mono text-[10px] text-text-secondary uppercase tracking-widest font-bold">TECH_STACK</span>
                     </div>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap justify-center md:justify-start gap-2">
                         {m.tech.map(t => (
                             <span key={t} className="mono text-[10px] text-cyan/80 border border-cyan/20 px-2 py-1 bg-cyan/5 rounded-sm uppercase tracking-wider">
                                 {t}
@@ -205,7 +205,7 @@ export default function Bio({ isTeaser = false }) {
                             <CipherText text="Orígenes." />
                         </h2>
 
-                        <div className="flex flex-wrap gap-3 pt-2">
+                        <div className="flex flex-wrap justify-center md:justify-start gap-3 pt-2">
                             <TechnicalTag icon={Cpu} label="Exp" value="+07 YRS" delay={0.1} />
                             <TechnicalTag icon={Terminal} label="Prod" value="12 UNIT" delay={0.2} />
                             <TechnicalTag icon={Shield} label="SLA" value="99.9%" delay={0.3} />
@@ -213,7 +213,7 @@ export default function Bio({ isTeaser = false }) {
                         </div>
                     </div>
 
-                    <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start w-full">
+                    <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center lg:items-start w-full">
                         {/* Left: Texts */}
                         <div className="flex-1 space-y-10">
                             <div className="space-y-6 text-text-secondary text-lg sm:text-xl leading-relaxed font-sans">
