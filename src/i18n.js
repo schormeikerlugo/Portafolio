@@ -49,7 +49,7 @@ const resources = {
       bio: {
         tag: 'MODULE 03',
         title: 'MISSION HISTORY // ARCHITECT',
-        p1: 'Hi, my name is Schormeiker Lugo, a UI/UX Designer and Frontend Developer with more than seven years of professional experience. My profile combines advanced technical capability with a solid background in advertising and marketing. This combination allows me to create digital products with robust architecture that prioritize the end user experience.',
+        p1: 'Hi, my name is Schormeiker Lugo, a UI/UX Designer and Frontend Developer with more than seven years of professional experience. My profile combines advanced technical capability with a solid background in Graphic Interface Design and Prototyping. This combination allows me to create digital products with robust architecture that prioritize the end user experience.',
         p2: 'My methodology transforms complex flows into efficient and attractive interfaces. The creative process is backed by deep mastery of HTML, CSS, and JavaScript. I also build interactive applications using React and Vite, and connect these visual environments to agile databases using tools like Supabase and PostgreSQL.',
         p3: 'My workflow integrates Artificial Intelligence as a fundamental resource. My expertise in prompt engineering maximizes the performance of large language models (LLMs), both on commercial platforms and in local execution environments. This technological adoption accelerates visual ideation, automates routine tasks, and elevates the overall quality of each project.',
         specs_title: 'STATION SPECIFICATIONS',
@@ -66,6 +66,16 @@ const resources = {
           p2_d: 'Every millisecond of latency is user friction.',
           p3_t: 'High-Impact Design',
           p3_d: 'Interfaces that are not just aesthetic, but operational.'
+        },
+        phases: {
+          t1: '01 // UI/UX Design',
+          d1: 'My journey began with structuring aesthetics and human interaction. Working in startups and e-commerce platforms consolidated my foundation in visual psychology and information architecture. This initial experience refined my judgment to ensure high technical consistency in every interface.',
+          t2: '02 // Frontend Engineering',
+          d2: 'The visual gap between the original design and the final product motivated a decisive change in focus. This operational friction drove me to master architectures based on React and Tailwind CSS. Today, I take full control of the code to guarantee exact results and prevent any loss of visual fidelity.',
+          t3: '03 // Interactive Systems',
+          d3: 'Static interfaces present limitations in user retention. Web3 ecosystems and advanced digital products require micro-interactions to build trust. For this reason, I integrate animation libraries such as GSAP and Framer Motion. These technologies transform flat screens into dynamic environments that respond naturally to every user action.',
+          t4: '04 // AI and Automation',
+          d4: 'Programming time often represents the greatest technical challenge today. My methodology solves this problem by adopting Artificial Intelligence in the daily workflow. I apply advanced prompt engineering techniques and run large language models (LLMs) in local environments. This strategy significantly accelerates code writing, production, and constant experimentation.'
         }
       },
       project: {
@@ -240,7 +250,7 @@ const resources = {
       bio: {
         tag: 'MÓDULO 03',
         title: 'Historia de la misión // Arquitecto',
-        p1: 'Hola, mi nombre es Schormeiker Lugo, Diseñador UI/UX y Desarrollador Frontend con más de siete años de trayectoria profesional. Mi perfil une una capacidad técnica avanzada con un sólido conocimiento en publicidad y marketing. Esta combinación me facilita crear productos digitales que poseen una arquitectura robusta y priorizan la experiencia del usuario final.',
+        p1: 'Hola, mi nombre es Schormeiker Lugo, Diseñador UI/UX y Desarrollador Frontend con más de siete años de trayectoria profesional. Mi perfil une una capacidad técnica avanzada con un sólido conocimiento en Diseño de interfaces graficas y prototipado. Esta combinación me facilita crear productos digitales que poseen una arquitectura robusta y priorizan la experiencia del usuario final.',
         p2: 'Mi metodología transforma flujos complejos en interfaces eficientes y atractivas. El proceso creativo se respalda con un dominio profundo de HTML, CSS y JavaScript. Además, construyo aplicaciones interactivas mediante React y Vite, y conecto estos entornos visuales con bases de datos ágiles utilizando herramientas como Supabase y PostgreSQL.',
         p3: 'El flujo de trabajo que utilizo integra la Inteligencia Artificial como un recurso fundamental. Mi experiencia en ingeniería de prompts maximiza el rendimiento de los modelos de lenguaje (LLMs), tanto en plataformas comerciales como en entornos de ejecución local. Esta adopción tecnológica acelera la ideación visual, automatiza tareas rutinarias y eleva la calidad general de cada proyecto.',
         specs_title: 'ESPECIFICACIONES DE LA ESTACIÓN',
@@ -257,6 +267,16 @@ const resources = {
           p2_d: 'Cada milisegundo de latencia es fricción en el usuario.',
           p3_t: 'Diseño de Alto-Impacto',
           p3_d: 'Interfaces que no solo son estéticas, sino operativas.'
+        },
+        phases: {
+          t1: '01 // Diseño UI/UX',
+          d1: 'Mi trayectoria comenzó con la estructuración de la estética y la interacción humana. El trabajo en startups y plataformas de comercio electrónico consolidó mis bases en la psicología visual y la arquitectura de la información. Esta experiencia inicial afinó mi criterio para asegurar una alta consistencia técnica en cada interfaz.',
+          t2: '02 // Ingeniería Frontend',
+          d2: 'La diferencia visual entre el diseño original y el producto final motivó un cambio de enfoque decisivo. Esta fricción operativa me impulsó a dominar arquitecturas basadas en React y Tailwind CSS. Hoy en día, asumo el control total del código para garantizar resultados exactos y prevenir cualquier pérdida de fidelidad visual.',
+          t3: '03 // Sistemas Interactivos',
+          d3: 'Las interfaces estáticas presentan limitaciones en la retención del usuario. Los ecosistemas Web3 y los productos digitales avanzados requieren microinteracciones para construir confianza. Por esta razón, integro bibliotecas de animación como GSAP y Framer Motion. Estas tecnologías transforman pantallas planas en entornos dinámicos que responden de forma natural a cada acción de la persona.',
+          t4: '04 // IA y Automatización',
+          d4: 'El tiempo de programación representa frecuentemente el mayor desafío técnico en la actualidad. Mi metodología resuelve este problema mediante la adopción de la Inteligencia Artificial en el ciclo diario de trabajo. Aplico técnicas avanzadas de ingeniería de prompts y ejecuto modelos de lenguaje (LLMs) en entornos locales. Esta estrategia acelera significativamente la escritura de código, la producción y la experimentación constante.'
         }
       },
       project: {
