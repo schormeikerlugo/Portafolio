@@ -150,7 +150,7 @@ export default function Bio({ isTeaser = false }) {
     };
 
     return (
-        <section id="about" className="relative z-10 py-24 sm:py-32 px-6 overflow-hidden bg-void border-t border-border">
+        <section id="about" className="relative z-10 py-24 sm:py-32 px-6 bg-void border-t border-border">
 
             {/* Fondo de Puntos Animado Sutil */}
             <div className="absolute inset-0 pointer-events-none z-0">
@@ -194,14 +194,14 @@ export default function Bio({ isTeaser = false }) {
                     <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center lg:items-start w-full">
                         {/* Left: Texts */}
                         <div className="flex-1 space-y-10">
-                            <div className="space-y-6 text-text-secondary text-lg sm:text-xl leading-relaxed font-sans">
+                            <div className="space-y-6 text-text-secondary text-lg sm:text-xl leading-relaxed font-sans max-w-3xl">
                                 <p>{t('bio.p1', 'Hola, mi nombre es Schormeiker Lugo, Diseñador UI/UX y Desarrollador Frontend con más de siete años de trayectoria profesional. Mi perfil une una capacidad técnica avanzada con un sólido conocimiento en Diseño de interfaces graficas y prototipado. Esta combinación me facilita crear productos digitales que poseen una arquitectura robusta y priorizan la experiencia del usuario final.')}</p>
                                 <p>{t('bio.p2', 'Mi metodología transforma flujos complejos en interfaces eficientes y atractivas. El proceso creativo se respalda con un dominio profundo de HTML, CSS y JavaScript. Además, construyo aplicaciones interactivas mediante React y Vite, y conecto estos entornos visuales con bases de datos ágiles utilizando herramientas como Supabase y PostgreSQL.')}</p>
                                 <p>{t('bio.p3', 'El flujo de trabajo que utilizo integra la Inteligencia Artificial como un recurso fundamental. Mi experiencia en ingeniería de prompts maximiza el rendimiento de los modelos de lenguaje (LLMs), tanto en plataformas comerciales como en entornos de ejecución local. Esta adopción tecnológica acelera la ideación visual, automatiza tareas rutinarias y eleva la calidad general de cada proyecto.')}</p>
                             </div>
 
                             {/* Evolución integrada sin cajones pesados */}
-                            <div className="space-y-10 text-text-secondary text-base sm:text-lg leading-relaxed font-sans max-w-2xl border-t border-white/5 pt-10">
+                            <div className="space-y-10 text-text-secondary text-base sm:text-lg leading-relaxed font-sans border-t border-white/5 pt-10 max-w-3xl">
                                 <div>
                                     <h4 className="mono text-lg sm:text-xl text-cyan uppercase tracking-[0.2em] block mb-2 font-bold opacity-90">{t('bio.phases.t1', '01 // Diseño UI/UX')}</h4>
                                     <p>{t('bio.phases.d1', 'Mi trayectoria comenzó con la estructuración de la estética y la interacción humana. El trabajo en startups y plataformas de comercio electrónico consolidó mis bases en la psicología visual y la arquitectura de la información. Esta experiencia inicial afinó mi criterio para asegurar una alta consistencia técnica en cada interfaz.')}</p>
@@ -235,17 +235,18 @@ export default function Bio({ isTeaser = false }) {
                             </motion.div>
                         </div>
 
-                        {/* Right: Sci-Fi Profile Picture */}
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 1 }}
-                            className="w-full sm:w-[320px] lg:w-[360px] shrink-0 aspect-[4/5] relative group overflow-hidden bg-void/50 shadow-[0_0_30px_rgba(0,229,255,0.05)] border border-cyan/20"
-                            style={{
-                                clipPath: 'polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px)'
-                            }}
-                        >
+                        {/* Right: Sci-Fi Profile Picture (Sticky) */}
+                        <div className="hidden lg:block w-[320px] lg:w-[360px] shrink-0 sticky top-40 self-start">
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.95 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 1 }}
+                                className="aspect-[4/5] relative group overflow-hidden bg-void/50 shadow-[0_0_30px_rgba(0,229,255,0.05)] border border-cyan/20 z-10"
+                                style={{
+                                    clipPath: 'polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px)'
+                                }}
+                            >
                             <svg className="absolute w-0 h-0 pointer-events-none" aria-hidden="true">
                                 <filter id="pixelate" x="-10%" y="-10%" width="120%" height="120%">
                                     <feFlood x="4" y="4" height="2" width="2" floodColor="white" />
@@ -257,6 +258,40 @@ export default function Bio({ isTeaser = false }) {
                             </svg>
 
                             <img
+                                src="/media/perfil.jpg"
+                                alt="Schormeiker Lugo"
+                                className="absolute inset-0 w-full h-full object-cover filter grayscale group-hover:opacity-0 transition-opacity duration-300 z-0 opacity-80"
+                            />
+                            <img
+                                src="/media/perfil.jpg"
+                                alt="Schormeiker Lugo Pixelated"
+                                className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-10"
+                                style={{ filter: 'grayscale(100%) url(#pixelate)' }}
+                            />
+
+                            {/* Corner accents */}
+                            <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-cyan/30 group-hover:border-cyan transition-colors z-20" />
+                            <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-cyan/30 group-hover:border-cyan transition-colors z-20" />
+
+                                {/* Scanline effect */}
+                                <div className="absolute inset-0 pointer-events-none overflow-hidden mix-blend-overlay opacity-30 z-20">
+                                    <div className="w-full h-[2px] bg-cyan/50 animate-scanline shadow-[0_0_10px_rgba(0,229,255,0.8)]" />
+                                </div>
+                            </motion.div>
+                        </div>
+
+                        {/* Mobile Profile Picture (Non-sticky fallback) */}
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 1 }}
+                            className="lg:hidden w-full sm:w-[320px] aspect-[4/5] relative group overflow-hidden bg-void/50 shadow-[0_0_30px_rgba(0,229,255,0.05)] border border-cyan/20 mt-8"
+                            style={{
+                                clipPath: 'polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px)'
+                            }}
+                        >
+                             <img
                                 src="/media/perfil.jpg"
                                 alt="Schormeiker Lugo"
                                 className="absolute inset-0 w-full h-full object-cover filter grayscale group-hover:opacity-0 transition-opacity duration-300 z-0 opacity-80"
