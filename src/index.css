@@ -87,14 +87,14 @@
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow-x: clip;
+    /* overflow-x: clip removed to fix sticky behavior */
   }
 
   body {
     background: var(--color-void);
     color: var(--color-text-primary);
     font-family: var(--font-sans); /* Geist for readability */
-    overflow-x: hidden;
+    /* position: relative; */
     cursor: none; /* Custom cursor implementation */
     line-height: 1.6;
     letter-spacing: -0.01em;
@@ -288,4 +288,24 @@ h1, h2, h3, h4, h5, h6 {
   98.2% { opacity: 1; clip-path: inset(5% 0 80% 0); transform: translate(-15px, 0) skewX(10deg); }
   98.6% { opacity: 1; clip-path: inset(40% 0 30% 0); transform: translate(10px, 0) skewX(-5deg); }
   99.0%, 100% { opacity: 0; transform: translate(0); }
+}
+
+/* ── Strong Profile Glitch (Constant) ── */
+.animate-profile-glitch {
+  animation: glitch-anim 0.3s infinite;
+  opacity: 0.8;
+}
+
+@keyframes glitch-anim {
+  0% { transform: translate(0); clip-path: inset(0 0 0 0); }
+  10% { transform: translate(-2px, -2px); clip-path: inset(10% 0 85% 0); }
+  20% { transform: translate(2px, 2px); clip-path: inset(80% 0 5% 0); }
+  30% { transform: translate(-2px, 2px); clip-path: inset(40% 0 43% 0); }
+  40% { transform: translate(2px, -2px); clip-path: inset(0 0 0 0); }
+  50% { transform: translate(-2px, -2px); clip-path: inset(60% 0 30% 0); }
+  60% { transform: translate(2px, 2px); clip-path: inset(10% 0 10% 0); }
+  70% { transform: translate(-2px, 2px); clip-path: inset(85% 0 5% 0); }
+  80% { transform: translate(2px, -2px); clip-path: inset(0 0 0 0); }
+  90% { transform: translate(-2px, -2px); clip-path: inset(30% 0 60% 0); }
+  100% { transform: translate(0); clip-path: inset(0 0 0 0); }
 }

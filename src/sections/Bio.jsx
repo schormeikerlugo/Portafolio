@@ -248,35 +248,51 @@ export default function Bio({ isTeaser = false }) {
                                 }}
                             >
                             <svg className="absolute w-0 h-0 pointer-events-none" aria-hidden="true">
-                                <filter id="pixelate" x="-10%" y="-10%" width="120%" height="120%">
-                                    <feFlood x="4" y="4" height="2" width="2" floodColor="white" />
-                                    <feComposite width="10" height="10" />
+                                <filter id="pixelate-strong" x="-20%" y="-20%" width="140%" height="140%">
+                                    <feFlood x="6" y="6" height="3" width="3" floodColor="white" />
+                                    <feComposite width="12" height="12" />
                                     <feTile result="a" />
                                     <feComposite in="SourceGraphic" in2="a" operator="in" />
-                                    <feMorphology operator="dilate" radius="5" />
+                                    <feMorphology operator="dilate" radius="3" />
                                 </filter>
                             </svg>
 
+                            {/* Default: Glitched/Pixelated State */}
+                            <div className="absolute inset-0 z-10 group-hover:opacity-0 transition-opacity duration-500">
+                                <img
+                                    src="/media/perfil.jpg"
+                                    alt="Schormeiker Lugo Glitched"
+                                    className="absolute inset-0 w-full h-full object-cover animate-profile-glitch"
+                                    style={{ filter: 'grayscale(100%) url(#pixelate-strong)' }}
+                                />
+                                {/* RGB Split Layer */}
+                                <img
+                                    src="/media/perfil.jpg"
+                                    alt="Schormeiker Lugo RGB"
+                                    className="absolute inset-0 w-full h-full object-cover animate-profile-glitch opacity-40 mix-blend-screen"
+                                    style={{ 
+                                        filter: 'grayscale(100%) url(#pixelate-strong) sepia(100%) saturate(500%) hue-rotate(180deg)',
+                                        transform: 'translateX(3px)'
+                                    }}
+                                />
+                                {/* Scanline effect (internal to glitch state) */}
+                                <div className="absolute inset-0 pointer-events-none overflow-hidden mix-blend-overlay opacity-50">
+                                    <div className="w-full h-[2px] bg-cyan/50 animate-scanline shadow-[0_0_10px_rgba(0,229,255,0.8)]" />
+                                </div>
+                            </div>
+
+                            {/* Hover/Tap: Clear Reveal State */}
                             <img
                                 src="/media/perfil.jpg"
-                                alt="Schormeiker Lugo"
-                                className="absolute inset-0 w-full h-full object-cover filter grayscale group-hover:opacity-0 transition-opacity duration-300 z-0 opacity-80"
-                            />
-                            <img
-                                src="/media/perfil.jpg"
-                                alt="Schormeiker Lugo Pixelated"
-                                className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-10"
-                                style={{ filter: 'grayscale(100%) url(#pixelate)' }}
+                                alt="Schormeiker Lugo Revealed"
+                                className="absolute inset-0 w-full h-full object-cover filter grayscale opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-20"
                             />
 
                             {/* Corner accents */}
                             <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-cyan/30 group-hover:border-cyan transition-colors z-20" />
                             <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-cyan/30 group-hover:border-cyan transition-colors z-20" />
 
-                                {/* Scanline effect */}
-                                <div className="absolute inset-0 pointer-events-none overflow-hidden mix-blend-overlay opacity-30 z-20">
-                                    <div className="w-full h-[2px] bg-cyan/50 animate-scanline shadow-[0_0_10px_rgba(0,229,255,0.8)]" />
-                                </div>
+
                             </motion.div>
                         </div>
 
@@ -291,26 +307,31 @@ export default function Bio({ isTeaser = false }) {
                                 clipPath: 'polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px)'
                             }}
                         >
-                             <img
-                                src="/media/perfil.jpg"
-                                alt="Schormeiker Lugo"
-                                className="absolute inset-0 w-full h-full object-cover filter grayscale group-hover:opacity-0 transition-opacity duration-300 z-0 opacity-80"
-                            />
+                            {/* Same Glitch Setup for Mobile */}
+                            <div className="absolute inset-0 z-10 group-hover:opacity-0 transition-opacity duration-500">
+                                <img
+                                    src="/media/perfil.jpg"
+                                    alt="Schormeiker Lugo Glitched Mobile"
+                                    className="absolute inset-0 w-full h-full object-cover animate-profile-glitch"
+                                    style={{ filter: 'grayscale(100%) url(#pixelate-strong)' }}
+                                />
+                                {/* Scanline effect (Mobile) */}
+                                <div className="absolute inset-0 pointer-events-none overflow-hidden mix-blend-overlay opacity-50">
+                                    <div className="w-full h-[2px] bg-cyan/50 animate-scanline shadow-[0_0_10px_rgba(0,229,255,0.8)]" />
+                                </div>
+                            </div>
+
                             <img
                                 src="/media/perfil.jpg"
-                                alt="Schormeiker Lugo Pixelated"
-                                className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-10"
-                                style={{ filter: 'grayscale(100%) url(#pixelate)' }}
+                                alt="Schormeiker Lugo Revealed Mobile"
+                                className="absolute inset-0 w-full h-full object-cover filter grayscale opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-20"
                             />
 
                             {/* Corner accents */}
                             <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-cyan/30 group-hover:border-cyan transition-colors z-20" />
                             <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-cyan/30 group-hover:border-cyan transition-colors z-20" />
 
-                            {/* Scanline effect */}
-                            <div className="absolute inset-0 pointer-events-none overflow-hidden mix-blend-overlay opacity-30 z-20">
-                                <div className="w-full h-[2px] bg-cyan/50 animate-scanline shadow-[0_0_10px_rgba(0,229,255,0.8)]" />
-                            </div>
+
                         </motion.div>
                     </div>
 
