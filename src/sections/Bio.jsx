@@ -203,22 +203,22 @@ export default function Bio({ isTeaser = false }) {
                             {/* Evolución integrada sin cajones pesados */}
                             <div className="space-y-10 text-text-secondary text-base sm:text-lg leading-relaxed font-sans max-w-2xl border-t border-white/5 pt-10">
                                 <div>
-                                    <h4 className="mono text-[10px] text-cyan uppercase tracking-widest block mb-1">{t('bio.phases.t1', '01 // Diseño UI/UX')}</h4>
+                                    <h4 className="mono text-lg sm:text-xl text-cyan uppercase tracking-[0.2em] block mb-2 font-bold opacity-90">{t('bio.phases.t1', '01 // Diseño UI/UX')}</h4>
                                     <p>{t('bio.phases.d1', 'Mi trayectoria comenzó con la estructuración de la estética y la interacción humana. El trabajo en startups y plataformas de comercio electrónico consolidó mis bases en la psicología visual y la arquitectura de la información. Esta experiencia inicial afinó mi criterio para asegurar una alta consistencia técnica en cada interfaz.')}</p>
                                 </div>
 
                                 <div>
-                                    <h4 className="mono text-[10px] text-cyan uppercase tracking-widest block mb-1">{t('bio.phases.t2', '02 // Ingeniería Frontend')}</h4>
+                                    <h4 className="mono text-lg sm:text-xl text-cyan uppercase tracking-[0.2em] block mb-2 font-bold opacity-90">{t('bio.phases.t2', '02 // Ingeniería Frontend')}</h4>
                                     <p>{t('bio.phases.d2', 'La diferencia visual entre el diseño original y el producto final motivó un cambio de enfoque decisivo. Esta fricción operativa me impulsó a dominar arquitecturas basadas en React y Tailwind CSS. Hoy en día, asumo el control total del código para garantizar resultados exactos y prevenir cualquier pérdida de fidelidad visual.')}</p>
                                 </div>
 
                                 <div>
-                                    <h4 className="mono text-[10px] text-cyan uppercase tracking-widest block mb-1">{t('bio.phases.t3', '03 // Sistemas Interactivos')}</h4>
+                                    <h4 className="mono text-lg sm:text-xl text-cyan uppercase tracking-[0.2em] block mb-2 font-bold opacity-90">{t('bio.phases.t3', '03 // Sistemas Interactivos')}</h4>
                                     <p>{t('bio.phases.d3', 'Las interfaces estáticas presentan limitaciones en la retención del usuario. Los ecosistemas Web3 y los productos digitales avanzados requieren microinteracciones para construir confianza. Por esta razón, integro bibliotecas de animación como GSAP y Framer Motion. Estas tecnologías transforman pantallas planas en entornos dinámicos que responden de forma natural a cada acción de la persona.')}</p>
                                 </div>
 
                                 <div>
-                                    <h4 className="mono text-[10px] text-cyan uppercase tracking-widest block mb-1">{t('bio.phases.t4', '04 // IA y Automatización')}</h4>
+                                    <h4 className="mono text-lg sm:text-xl text-cyan uppercase tracking-[0.2em] block mb-2 font-bold opacity-90">{t('bio.phases.t4', '04 // IA y Automatización')}</h4>
                                     <p>{t('bio.phases.d4', 'El tiempo de programación representa frecuentemente el mayor desafío técnico en la actualidad. Mi metodología resuelve este problema mediante la adopción de la Inteligencia Artificial en el ciclo diario de trabajo. Aplico técnicas avanzadas de ingeniería de prompts y ejecuto modelos de lenguaje (LLMs) en entornos locales. Esta estrategia acelera significativamente la escritura de código, la producción y la experimentación constante.')}</p>
                                 </div>
                             </div>
