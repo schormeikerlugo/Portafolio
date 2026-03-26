@@ -149,25 +149,6 @@ export default function Bio({ isTeaser = false }) {
         timelineRef.current.style.setProperty('--mouse-y', `${y}px`);
     };
 
-    const PHASES = [
-        {
-            title: "0X01 // FUNDAMENTOS_VISUALES: [ Figma, CMS ]",
-            text: "Empecé orquestando la estética y la interacción humana. Diseñando para startups y entornos eCommerce, forjé mis raíces en la psicología visual y la arquitectura de la información. Me apoyé en estructuras como WordPress para tangibilizar las experiencias, desarrollando un ojo clínico para la consistencia y el impacto."
-        },
-        {
-            title: "0X02 // INGENIERÍA_FRONTEND: [ React, Tailwind ]",
-            text: "La asimetría entre diseño y producción impulsó mi transición. La fricción operativa de delegar interfaces me llevó a dominar React y Tailwind CSS, asumiendo yo mismo el control arquitectónico absoluto para asegurar implementaciones robustas con cero pérdida de fidelidad respecto al prototipo."
-        },
-        {
-            title: "0X03 // ECOSISTEMAS_INTERACTIVOS: [ Web3, Framer Motion, GSAP ]",
-            text: "Las pantallas estáticas alcanzaron un límite. Para la Web3 y ecosistemas DeFi, la micro-interacción es el puente hacia la confianza. Introduje ingenierías de movimiento (Framer Motion y GSAP) para hacer que las interfaces \"respiren\" y reaccionen como un entorno vivo ante cada input del usuario."
-        },
-        {
-            title: "0X04 // IA_Y_AUTOMATIZACIÓN: [ Modelos_Locales, Prompt_Engineering ]",
-            text: "En el presente, el cuello de botella ya no es el stack clásico. Integro orquestaciones de Inteligencia Artificial (Prompt Engineering y LLMs locales bajo estricta privacidad) directamente dentro del ciclo de desarrollo. Esto me permite escalar flujos de UX/UI y producir código iterativo a una velocidad terminal."
-        }
-    ];
-
     return (
         <section id="about" className="relative z-10 py-24 sm:py-32 px-6 overflow-hidden bg-void border-t border-border">
 
@@ -217,6 +198,29 @@ export default function Bio({ isTeaser = false }) {
                                 <p>{t('bio.p1', 'Hola, mi nombre es Schormeiker Lugo, Diseñador UI/UX y Desarrollador Frontend con más de siete años de trayectoria profesional. Mi perfil une una capacidad técnica avanzada con un sólido conocimiento en Diseño de interfaces graficas y prototipado. Esta combinación me facilita crear productos digitales que poseen una arquitectura robusta y priorizan la experiencia del usuario final.')}</p>
                                 <p>{t('bio.p2', 'Mi metodología transforma flujos complejos en interfaces eficientes y atractivas. El proceso creativo se respalda con un dominio profundo de HTML, CSS y JavaScript. Además, construyo aplicaciones interactivas mediante React y Vite, y conecto estos entornos visuales con bases de datos ágiles utilizando herramientas como Supabase y PostgreSQL.')}</p>
                                 <p>{t('bio.p3', 'El flujo de trabajo que utilizo integra la Inteligencia Artificial como un recurso fundamental. Mi experiencia en ingeniería de prompts maximiza el rendimiento de los modelos de lenguaje (LLMs), tanto en plataformas comerciales como en entornos de ejecución local. Esta adopción tecnológica acelera la ideación visual, automatiza tareas rutinarias y eleva la calidad general de cada proyecto.')}</p>
+                            </div>
+
+                            {/* Evolución integrada sin cajones pesados */}
+                            <div className="space-y-10 text-text-secondary text-base sm:text-lg leading-relaxed font-sans max-w-2xl border-t border-white/5 pt-10">
+                                <div>
+                                    <h4 className="mono text-[10px] text-cyan uppercase tracking-widest block mb-1">{t('bio.phases.t1', '01 // Diseño UI/UX')}</h4>
+                                    <p>{t('bio.phases.d1', 'Mi trayectoria comenzó con la estructuración de la estética y la interacción humana. El trabajo en startups y plataformas de comercio electrónico consolidó mis bases en la psicología visual y la arquitectura de la información. Esta experiencia inicial afinó mi criterio para asegurar una alta consistencia técnica en cada interfaz.')}</p>
+                                </div>
+
+                                <div>
+                                    <h4 className="mono text-[10px] text-cyan uppercase tracking-widest block mb-1">{t('bio.phases.t2', '02 // Ingeniería Frontend')}</h4>
+                                    <p>{t('bio.phases.d2', 'La diferencia visual entre el diseño original y el producto final motivó un cambio de enfoque decisivo. Esta fricción operativa me impulsó a dominar arquitecturas basadas en React y Tailwind CSS. Hoy en día, asumo el control total del código para garantizar resultados exactos y prevenir cualquier pérdida de fidelidad visual.')}</p>
+                                </div>
+
+                                <div>
+                                    <h4 className="mono text-[10px] text-cyan uppercase tracking-widest block mb-1">{t('bio.phases.t3', '03 // Sistemas Interactivos')}</h4>
+                                    <p>{t('bio.phases.d3', 'Las interfaces estáticas presentan limitaciones en la retención del usuario. Los ecosistemas Web3 y los productos digitales avanzados requieren microinteracciones para construir confianza. Por esta razón, integro bibliotecas de animación como GSAP y Framer Motion. Estas tecnologías transforman pantallas planas en entornos dinámicos que responden de forma natural a cada acción de la persona.')}</p>
+                                </div>
+
+                                <div>
+                                    <h4 className="mono text-[10px] text-cyan uppercase tracking-widest block mb-1">{t('bio.phases.t4', '04 // IA y Automatización')}</h4>
+                                    <p>{t('bio.phases.d4', 'El tiempo de programación representa frecuentemente el mayor desafío técnico en la actualidad. Mi metodología resuelve este problema mediante la adopción de la Inteligencia Artificial en el ciclo diario de trabajo. Aplico técnicas avanzadas de ingeniería de prompts y ejecuto modelos de lenguaje (LLMs) en entornos locales. Esta estrategia acelera significativamente la escritura de código, la producción y la experimentación constante.')}</p>
+                                </div>
                             </div>
 
                             <motion.div
@@ -271,36 +275,6 @@ export default function Bio({ isTeaser = false }) {
                             {/* Scanline effect */}
                             <div className="absolute inset-0 pointer-events-none overflow-hidden mix-blend-overlay opacity-30 z-20">
                                 <div className="w-full h-[2px] bg-cyan/50 animate-scanline shadow-[0_0_10px_rgba(0,229,255,0.8)]" />
-                            </div>
-                        </motion.div>
-                    </div>
-
-                    {/* Evolución integrada sin cajones pesados */}
-                    <div className="w-full space-y-12 mt-16 pt-16 border-t border-white/5">
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            className="space-y-10 text-text-secondary text-base sm:text-lg leading-relaxed font-sans max-w-2xl"
-                        >
-                            <div>
-                                <h4 className="mono text-[10px] text-cyan uppercase tracking-widest block mb-1">{t('bio.phases.t1', '01 // Diseño UI/UX')}</h4>
-                                <p>{t('bio.phases.d1', 'Mi trayectoria comenzó con la estructuración de la estética y la interacción humana. El trabajo en startups y plataformas de comercio electrónico consolidó mis bases en la psicología visual y la arquitectura de la información. Esta experiencia inicial afinó mi criterio para asegurar una alta consistencia técnica en cada interfaz.')}</p>
-                            </div>
-
-                            <div>
-                                <h4 className="mono text-[10px] text-cyan uppercase tracking-widest block mb-1">{t('bio.phases.t2', '02 // Ingeniería Frontend')}</h4>
-                                <p>{t('bio.phases.d2', 'La diferencia visual entre el diseño original y el producto final motivó un cambio de enfoque decisivo. Esta fricción operativa me impulsó a dominar arquitecturas basadas en React y Tailwind CSS. Hoy en día, asumo el control total del código para garantizar resultados exactos y prevenir cualquier pérdida de fidelidad visual.')}</p>
-                            </div>
-
-                            <div>
-                                <h4 className="mono text-[10px] text-cyan uppercase tracking-widest block mb-1">{t('bio.phases.t3', '03 // Sistemas Interactivos')}</h4>
-                                <p>{t('bio.phases.d3', 'Las interfaces estáticas presentan limitaciones en la retención del usuario. Los ecosistemas Web3 y los productos digitales avanzados requieren microinteracciones para construir confianza. Por esta razón, integro bibliotecas de animación como GSAP y Framer Motion. Estas tecnologías transforman pantallas planas en entornos dinámicos que responden de forma natural a cada acción de la persona.')}</p>
-                            </div>
-
-                            <div>
-                                <h4 className="mono text-[10px] text-cyan uppercase tracking-widest block mb-1">{t('bio.phases.t4', '04 // IA y Automatización')}</h4>
-                                <p>{t('bio.phases.d4', 'El tiempo de programación representa frecuentemente el mayor desafío técnico en la actualidad. Mi metodología resuelve este problema mediante la adopción de la Inteligencia Artificial en el ciclo diario de trabajo. Aplico técnicas avanzadas de ingeniería de prompts y ejecuto modelos de lenguaje (LLMs) en entornos locales. Esta estrategia acelera significativamente la escritura de código, la producción y la experimentación constante.')}</p>
                             </div>
                         </motion.div>
                     </div>
