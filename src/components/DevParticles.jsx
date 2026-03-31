@@ -16,7 +16,7 @@ const CODE_LINES = [
     '101010', 'system.boot()'
 ];
 
-export default function DevParticles({ opacity = 0.2 }) {
+export default function DevParticles({ opacity = 0.4 }) {
     const isMobile = useMobileDetect();
     const canvasRef = useRef(null);
 
