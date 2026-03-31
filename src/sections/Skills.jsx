@@ -1,43 +1,131 @@
-import { motion } from 'framer-motion';
+import { useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
 import GlassContainerValorant from '../components/GlassContainerValorant';
 import { skills } from '../data/content';
 import CipherText from '../components/CipherText';
 import TypewriterText from '../components/TypewriterText';
-import Particles from '../components/Particles';
-import { SectionLabel, GhostText, CrosshairDot, FloatingGlyphs } from '../components/ValorantOverlays';
-import { HexGrid, AbstractShapes } from '../components/ValorantPatterns';
-import ViewportPauser from '../components/ViewportPauser';
+import { CrosshairDot, FloatingGlyphs } from '../components/ValorantOverlays';
+
+/* ═══════════════════════════════════════════════
+   BRUTALIST SCI-FI SKILLS SECTION
+   GSAP ScrollTrigger para efectos de "carga de
+   datos" brutales con progress bars animadas.
+   
+   WHY SCROLLTRIGGER: Las barras de progreso se
+   animan cuando entran en viewport, creando un
+   efecto de "inicialización de módulos" brutal.
+   ═══════════════════════════════════════════════ */
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Skills() {
-    return (
-        <section id="skills" className="relative z-10 py-24 sm:py-32 px-6 bg-void border-t border-border overflow-hidden">
-            {/* Animated Constellation Network */}
-            <Particles quantity={40} />
+    const sectionRef = useRef(null);
+    const gridRef = useRef(null);
 
-            {/* Valorant Overlays */}
-            <ViewportPauser>
-                <HexGrid opacity={0.06} />
-                <AbstractShapes variant="side-only" />
-                <FloatingGlyphs />
-            </ViewportPauser>
-            <SectionLabel text="const skills = require('./arsenal')" />
-            <SectionLabel text="export { React, Figma, Node }" side="right" />
-            <GhostText text="02" position="bottom-left" size="text-[180px] md:text-[260px]" />
+    useGSAP(() => {
+        const section = sectionRef.current;
+        const grid = gridRef.current;
+
+        if (!section || !grid) return;
+
+        // WHY SCROLLTRIGGER: Header se desplaza brutalmente
+        gsap.fromTo('.skills-header',
+            {
+                opacity: 0,
+                x: -40,
+                scale: 0.95
+            },
+            {
+                opacity: 1,
+                x: 0,
+                scale: 1,
+                duration: 0.8,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: section,
+                    start: 'top 80%',
+                    toggleActions: 'play none none reverse',
+                }
+            }
+        );
+
+        // WHY SCROLLTRIGGER: Grid items con stagger brutal
+        // que crea un efecto de "cascada de inicialización"
+        gsap.fromTo(grid.children,
+            {
+                opacity: 0,
+                y: 50,
+                scale: 0.95,
+                rotateX: 5
+            },
+            {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                rotateX: 0,
+                duration: 0.7,
+                stagger: 0.12,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: grid,
+                    start: 'top 85%',
+                    toggleActions: 'play none none reverse',
+                }
+            }
+        );
+
+        // WHY SCROLLTRIGGER: Progress bars se llenan
+        // cuando entran en viewport con efecto brutal
+        const progressBars = grid.querySelectorAll('.skill-progress');
+        progressBars.forEach((bar, i) => {
+            const progress = parseInt(bar.dataset.progress) || 0;
+            gsap.fromTo(bar,
+                { width: '0%' },
+                {
+                    width: `${progress}%`,
+                    duration: 1.2,
+                    ease: 'power2.out',
+                    scrollTrigger: {
+                        trigger: bar,
+                        start: 'top 90%',
+                        toggleActions: 'play none none reverse',
+                    }
+                }
+            );
+        });
+
+        // WHY SCROLLTRIGGER: Efecto parallax brutal
+        // en los overlays decorativos
+        gsap.to('.skills-overlay', {
+            y: -20,
+            scrollTrigger: {
+                trigger: section,
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: 1,
+            }
+        });
+
+        return () => {
+            ScrollTrigger.getAll().forEach(t => t.kill());
+        };
+    }, { scope: sectionRef });
+
+    return (
+        <section ref={sectionRef} id="skills" className="relative z-10 py-20 sm:py-24 px-6 bg-void overflow-hidden">
+            {/* Subtle code particles */}
+            <FloatingGlyphs />
 
             <div className="max-w-[1400px] mx-auto relative z-10">
-                <header className="mb-16 flex flex-col items-center md:items-start text-center md:text-left">
-                    <motion.div
-                        className="flex items-center gap-4 mb-2"
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5 }}
-                    >
+                <header className="skills-header mb-16 flex flex-col items-center md:items-start text-center md:text-left">
+                    <div className="flex items-center gap-4 mb-2">
                         <CrosshairDot size={20} className="opacity-60" />
                         <span className="mono text-[10px] sm:text-xs text-text-dim tracking-[0.4em] uppercase">
                             0X02 // MATRIZ_DE_HABILIDADES
                         </span>
-                    </motion.div>
+                    </div>
 
                     <h2 className="text-[clamp(1.5rem,6vw,4rem)] md:text-6xl lg:text-7xl font-sans text-text-primary mb-6 font-bold tracking-tighter break-words">
                         <CipherText text="Matriz de Habilidades." />
@@ -49,14 +137,10 @@ export default function Skills() {
                 </header>
 
                 {/* Skills Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {Object.entries(skills).map(([key, category], catIdx) => (
-                        <motion.div
+                        <div
                             key={key}
-                            initial={{ opacity: 0, y: 15 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.4, delay: catIdx * 0.1 }}
                             className="h-full"
                         >
                             <GlassContainerValorant className="p-0 h-full flex flex-col relative group/card">
@@ -109,17 +193,15 @@ export default function Skills() {
 
                                             {/* Progress Bar */}
                                             <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden relative">
-                                                <motion.div
-                                                    initial={{ width: 0 }}
-                                                    whileInView={{ width: `${skill.progress}%` }}
-                                                    viewport={{ once: true }}
-                                                    transition={{ duration: 1, delay: 0.2 + (i * 0.1), ease: "easeOut" }}
-                                                    className={`h-full absolute left-0 top-0 ${skill.level === 'EXPERT' ? 'bg-cyan' :
+                                                <div
+                                                    className={`skill-progress h-full absolute left-0 top-0 ${skill.level === 'EXPERT' ? 'bg-cyan' :
                                                         skill.level === 'SPECIALIST' ? 'bg-purple-500' :
                                                             skill.level === 'ADVANCED' ? 'bg-blue-500' :
                                                                 skill.level === 'INTERMEDIATE' ? 'bg-emerald-500' :
                                                                     'bg-white/40'
                                                         }`}
+                                                    data-progress={skill.progress}
+                                                    style={{ width: '0%' }}
                                                 />
                                             </div>
                                         </div>
@@ -136,7 +218,7 @@ export default function Skills() {
                                     </p>
                                 </div>
                             </GlassContainerValorant>
-                        </motion.div>
+                        </div>
                     ))}
                 </div>
             </div>

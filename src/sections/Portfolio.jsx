@@ -5,10 +5,7 @@ import CardValorant from '../components/CardValorant';
 import { projects } from '../data/content';
 import CipherText from '../components/CipherText';
 import TypewriterText from '../components/TypewriterText';
-import Particles from '../components/Particles';
-import { SectionLabel, GhostText, CrosshairDot, FloatingGlyphs } from '../components/ValorantOverlays';
-import { TriangleField, AbstractShapes } from '../components/ValorantPatterns';
-import ViewportPauser from '../components/ViewportPauser';
+import { CrosshairDot, FloatingGlyphs } from '../components/ValorantOverlays';
 
 export default function Portfolio({ onSelectProject, isTeaser = false, limit = 6 }) {
     const { t } = useTranslation();
@@ -62,16 +59,9 @@ export default function Portfolio({ onSelectProject, isTeaser = false, limit = 6
     };
 
     return (
-        <section id={isTeaser ? 'tease-work' : 'work'} className="relative z-10 py-24 sm:py-32 px-6 bg-void border-t border-border overflow-hidden">
-            <Particles quantity={30} />
-            <ViewportPauser>
-                <FloatingGlyphs />
-            </ViewportPauser>
-
-            {/* Valorant Overlays */}
-            <SectionLabel text="projects.map(p => deploy(p))" />
-            <SectionLabel text="git push origin main --force" side="right" />
-            <GhostText text="04" position="top-right" size="text-[180px] md:text-[260px]" />
+        <section id={isTeaser ? 'tease-work' : 'work'} className="relative z-10 py-20 sm:py-24 px-6 bg-void overflow-hidden">
+            {/* Subtle code particles */}
+            <FloatingGlyphs />
 
             <div className="max-w-[1400px] mx-auto relative z-10">
                 {/* Section Header */}

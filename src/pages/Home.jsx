@@ -1,21 +1,17 @@
-import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { Suspense, lazy } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import SocialCTA from '../components/SocialCTA';
 import { ArrowRight } from 'lucide-react';
-import { ScanlineBar, DiagonalLine } from '../components/ValorantOverlays';
+import { ScanlineBar } from '../components/ValorantOverlays';
 
 // Lazy imports for all sections
 const Hero = lazy(() => import('../sections/Hero'));
 const Anomalies = lazy(() => import('../sections/Anomalies'));
-const Bio = lazy(() => import('../sections/Bio'));
 const InteractiveBioTeaser = lazy(() => import('../sections/InteractiveBioTeaser'));
 const Portfolio = lazy(() => import('../sections/Portfolio'));
 const Protocols = lazy(() => import('../sections/Protocols'));
-const Writing = lazy(() => import('../sections/Writing'));
 const Skills = lazy(() => import('../sections/Skills'));
-const Certifications = lazy(() => import('../sections/Certifications'));
 
 const SectionPlaceholder = () => (
     <div className="w-full h-[300px] flex items-center justify-center bg-void">
@@ -27,14 +23,21 @@ const SectionPlaceholder = () => (
 );
 
 const PortalBridge = ({ to, label }) => (
-    <div className="flex justify-center pb-24 sm:pb-32 bg-void">
+    <div className="flex justify-center pb-16 sm:pb-20 bg-void">
         <Link
             to={to}
-            className="group flex items-center gap-4 px-10 py-4 border border-white/10 hover:border-cyan/40 bg-white/[0.02] hover:bg-cyan/5 transition-all text-white/60 hover:text-cyan"
+            className="group flex items-center gap-4 px-8 py-3 border border-white/10 hover:border-cyan/40 bg-white/[0.02] hover:bg-cyan/5 transition-all text-white/60 hover:text-cyan"
         >
-            <span className="mono text-[11px] font-bold tracking-[0.4em] uppercase">{label}</span>
-            <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform" />
+            <span className="mono text-[10px] font-bold tracking-[0.3em] uppercase">{label}</span>
+            <ArrowRight size={14} className="group-hover:translate-x-2 transition-transform" />
         </Link>
+    </div>
+);
+
+/* ── Simple horizontal separator ── */
+const SectionDivider = () => (
+    <div className="relative w-full h-px bg-white/5">
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-cyan/20 to-transparent" />
     </div>
 );
 
@@ -47,55 +50,49 @@ export default function Home({ onOpenContact }) {
     };
 
     return (
-        <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-            className="space-y-0"
-        >
+        <div className="space-y-0">
             <Suspense fallback={<SectionPlaceholder />}>
                 {/* 01 // system.init */}
                 <Hero onOpenContact={onOpenContact} />
 
-                {/* 0x01 // the_problem (Teaser) */}
-                <div className="relative group">
+                {/* 0x01 // Anomalies */}
+                <div className="relative">
                     <Anomalies isTeaser={true} />
                     <PortalBridge to="/approach" label="Ver mi enfoque completo" />
                 </div>
 
-                <ScanlineBar />
+                <SectionDivider />
 
-                {/* 0X02 // section.skills */}
-                <div className="relative group border-t border-white/5">
+                {/* 0x02 // Skills */}
+                <div className="relative">
                     <Skills />
                 </div>
 
-                <DiagonalLine height={30} />
+                <SectionDivider />
 
-                {/* 03 // section.about (Interactive Content Shift) */}
-                <div className="relative group border-t border-white/5">
+                {/* 0x03 // Bio Teaser */}
+                <div className="relative">
                     <InteractiveBioTeaser />
                     <PortalBridge to="/about" label="Explorar mi trayectoria" />
                 </div>
 
-                <ScanlineBar />
+                <SectionDivider />
 
-                {/* 04 // section.work (Work Teaser) */}
-                <div className="relative group border-t border-white/5">
+                {/* 0x04 // Portfolio */}
+                <div className="relative">
                     <Portfolio isTeaser={true} limit={3} onSelectProject={handleSelectProject} />
                     <PortalBridge to="/work" label="Ver todos los proyectos" />
                 </div>
 
-                <DiagonalLine height={30} />
+                <SectionDivider />
 
-                {/* 05 // section.services (Services Teaser) */}
-                <div className="relative group border-t border-white/5">
+                {/* 0x05 // Protocols */}
+                <div className="relative">
                     <Protocols />
                     <PortalBridge to="/services" label="Mis capacidades técnicas" />
                 </div>
 
-                {/* Social CTA / Bridge */}
+                {/* Social CTA */}
                 <SocialCTA
                     title={t('social.title', 'TRANSMISIÓN ABIERTA')}
                     message={t('social.message', 'El universo no fue diseñado para explorarlo solo. Conecta con la estación y sigamos construyendo juntos.')}
@@ -104,6 +101,6 @@ export default function Home({ onOpenContact }) {
                     onOpenContact={onOpenContact}
                 />
             </Suspense>
-        </motion.div>
+        </div>
     );
 }

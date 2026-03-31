@@ -189,39 +189,29 @@ export function ScanlineBar({ className = '' }) {
 }
 
 /**
- * FloatingGlyphs — Scattered code glyphs/symbols that float in the background.
- * These are abstract shapes: brackets, slashes, dots, angles.
+ * FloatingGlyphs — Scattered code glyphs/symbols.
+ * Subtle, static, minimal.
  */
 export function FloatingGlyphs({ className = '' }) {
     const isMobile = useMobileDetect();
     if (isMobile) return null;
 
-    const glyphs = ['</', '/>', '{', '}', '()', '=>', '[]', '&&', '||', '::' , '/**', '*/', '!=', '==='];
+    const glyphs = ['</', '/>', '{', '}', '()', '=>'];
 
     return (
         <div className={`absolute inset-0 pointer-events-none overflow-hidden z-[1] ${className}`} aria-hidden="true">
             {glyphs.map((glyph, i) => (
-                <motion.span
+                <span
                     key={i}
-                    className="absolute mono text-cyan/[0.08] font-bold select-none"
+                    className="absolute mono text-cyan/[0.04] font-bold select-none"
                     style={{
-                        fontSize: `${16 + (i % 5) * 8}px`,
-                        left: `${5 + (i * 7.2) % 90}%`,
-                        top: `${8 + (i * 13.7) % 85}%`,
-                    }}
-                    animate={{
-                        opacity: [0.04, 0.15, 0.04],
-                        y: [0, -10, 0],
-                    }}
-                    transition={{
-                        duration: 4 + (i % 3) * 2,
-                        repeat: Infinity,
-                        delay: i * 0.7,
-                        ease: 'easeInOut',
+                        fontSize: '14px',
+                        left: `${10 + i * 15}%`,
+                        top: `${20 + (i * 23) % 60}%`,
                     }}
                 >
                     {glyph}
-                </motion.span>
+                </span>
             ))}
         </div>
     );

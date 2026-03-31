@@ -1,25 +1,17 @@
-import { motion } from 'framer-motion';
 import Navbar from '../components/Navbar';
 import { FooterSocials } from '../components/SocialCTA';
-import TechnicalBackground from '../components/TechnicalBackground';
-import ShootingStars from '../components/ShootingStars';
+import SubtleBackground from '../components/SubtleBackground';
 import SiteStatusBar from '../components/SiteStatusBar';
-import { useScroll, useTransform } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { SectionLabel, CornerBrackets } from '../components/ValorantOverlays';
+import { CornerBrackets } from '../components/ValorantOverlays';
 
 const Layout = ({ children, onOpenContact }) => {
-  const { scrollYProgress } = useScroll();
-  const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '10%']);
   const { t } = useTranslation();
 
   return (
     <div className="relative min-h-screen">
-      <ShootingStars />
-      {/* Star field */}
-      <motion.div style={{ y: bgY }} className="fixed inset-0 z-0">
-        <TechnicalBackground />
-      </motion.div>
+      {/* Subtle background */}
+      <SubtleBackground />
 
       {/* Navbar */}
       <Navbar onOpenContact={onOpenContact} />
@@ -30,11 +22,10 @@ const Layout = ({ children, onOpenContact }) => {
       </main>
 
       {/* Site Status Bar */}
-      <SiteStatusBar /> {/* Added SiteStatusBar component */}
+      <SiteStatusBar />
 
       {/* Footer */}
       <footer className="relative z-10 py-16 lg:py-24 px-6 border-t border-border bg-void overflow-visible">
-        <SectionLabel text="EOF // END" />
         <div className="max-w-[1400px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
             

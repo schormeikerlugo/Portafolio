@@ -1,9 +1,24 @@
 import { useRef } from 'react';
-import { motion } from 'framer-motion';
 import { Cpu, Terminal, Shield, Target, Globe } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
 import TypewriterText from '../components/TypewriterText';
 import CipherText from '../components/CipherText';
+
+/* ═══════════════════════════════════════════════
+   BRUTALIST SCI-FI BIO SECTION
+   GSAP ScrollTrigger scrub para efectos de
+   "reconstrucción de datos" brutales.
+   
+   WHY SCROLLTRIGGER SCRUB: Vincula la animación
+   al scroll para crear un efecto de "revelación
+   progresiva" brutalista donde los elementos
+   se reconstruyen a medida que el usuario scrollea.
+   ═══════════════════════════════════════════════ */
+
+gsap.registerPlugin(ScrollTrigger);
 
 const MISSIONS = [
     {
@@ -64,93 +79,284 @@ const MISSIONS = [
     },
 ];
 
-const TechnicalTag = ({ icon: Icon, label, value, delay = 0 }) => (
-    <motion.div
-        initial={{ opacity: 0, x: -10 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay }}
-        className="inline-flex items-center gap-2 px-3 py-1.5 border border-border bg-surface hover:border-cyan/30 transition-all rounded-sm"
-    >
+const TechnicalTag = ({ icon: Icon, label, value }) => (
+    <div className="bio-tag inline-flex items-center gap-2 px-3 py-1.5 border border-border bg-surface hover:border-cyan/30 transition-all rounded-sm">
         <Icon size={12} className="text-cyan/60" />
         <span className="mono text-[10px] text-text-dim uppercase tracking-widest">{label}:</span>
         <span className="mono text-[10px] text-text-primary font-bold">{value}</span>
-    </motion.div>
+    </div>
 );
 
-const TimelineItem = ({ m, index, isLast }) => (
-    <motion.div
-        initial={{ opacity: 0, x: -20 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.6, delay: index * 0.1 }}
-        className="relative px-6 sm:pl-16 pb-16 group text-center md:text-left"
-    >
-        {!isLast && (
-            <div className="absolute left-[5px] sm:left-[9px] top-6 bottom-0 w-px bg-border hidden sm:block" />
-        )}
-        <div className="absolute left-[-4px] sm:left-0 top-2 w-5 h-5 sm:w-6 sm:h-6 rounded-full border border-border bg-void hidden sm:flex items-center justify-center group-hover:border-cyan/50 transition-all z-10">
-            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-text-dim group-hover:bg-cyan transition-colors" />
-        </div>
+const TimelineItem = ({ m, index, isLast, containerRef }) => {
+    const itemRef = useRef(null);
 
-        <div className="w-full space-y-6">
-            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
-                <span className="mono text-xs text-text-secondary font-bold tracking-[0.2em] uppercase">
-                    {m.period}
-                </span>
-                <div className="h-px flex-1 bg-border hidden sm:block" />
-                <span className="mono text-[9px] text-text-dim uppercase tracking-widest bg-surface border border-border px-2 py-0.5 rounded-sm">
-                    MISSION_ID: {MISSIONS.length - index}
-                </span>
+    useGSAP(() => {
+        if (!itemRef.current) return;
+
+        // WHY SCROLLTRIGGER SCRUB: Animación vinculada
+        // al scroll para revelación progresiva brutal
+        gsap.fromTo(itemRef.current,
+            {
+                opacity: 0,
+                x: index % 2 === 0 ? -60 : 60,
+                scale: 0.9,
+                rotateY: index % 2 === 0 ? -5 : 5
+            },
+            {
+                opacity: 1,
+                x: 0,
+                scale: 1,
+                rotateY: 0,
+                duration: 1,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: itemRef.current,
+                    start: 'top 85%',
+                    end: 'top 50%',
+                    scrub: 1, // Suaviza el scroll
+                    toggleActions: 'play none none reverse',
+                }
+            }
+        );
+
+        // WHY GSAP: Efecto de "glitch" en hover
+        // con skew y scale para brutalidad visual
+        const handleMouseEnter = () => {
+            gsap.to(itemRef.current, {
+                scale: 1.02,
+                skewX: 2,
+                duration: 0.2,
+                ease: 'power2.out'
+            });
+        };
+
+        const handleMouseLeave = () => {
+            gsap.to(itemRef.current, {
+                scale: 1,
+                skewX: 0,
+                duration: 0.3,
+                ease: 'power2.out'
+            });
+        };
+
+        itemRef.current.addEventListener('mouseenter', handleMouseEnter);
+        itemRef.current.addEventListener('mouseleave', handleMouseLeave);
+
+        return () => {
+            if (itemRef.current) {
+                itemRef.current.removeEventListener('mouseenter', handleMouseEnter);
+                itemRef.current.removeEventListener('mouseleave', handleMouseLeave);
+            }
+        };
+    }, { scope: itemRef });
+
+    return (
+        <div
+            ref={itemRef}
+            className="relative px-6 sm:pl-16 pb-16 group text-center md:text-left"
+            style={{ willChange: 'transform, opacity' }}
+        >
+            {!isLast && (
+                <div className="absolute left-[5px] sm:left-[9px] top-6 bottom-0 w-px bg-border hidden sm:block" />
+            )}
+            <div className="absolute left-[-4px] sm:left-0 top-2 w-5 h-5 sm:w-6 sm:h-6 rounded-full border border-border bg-void hidden sm:flex items-center justify-center group-hover:border-cyan/50 transition-all z-10">
+                <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-text-dim group-hover:bg-cyan transition-colors" />
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-                <div className="lg:col-span-8 space-y-3">
-                    <h3 className="font-sans text-2xl sm:text-3xl font-bold text-text-primary uppercase tracking-tight group-hover:text-cyan transition-colors">
-                        {m.role}
-                    </h3>
-                    <div className="flex items-center justify-center md:justify-start gap-2">
-                        <Globe size={14} className="text-cyan/80" />
-                        <span className="mono text-[11px] sm:text-sm text-text-secondary uppercase tracking-widest">{m.company}</span>
-                    </div>
-                    <p className="text-sm sm:text-base text-text-secondary leading-relaxed font-sans pt-2">
-                        {m.description}
-                    </p>
+            {/* Brutalist corner accents */}
+            <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-cyan/10 group-hover:border-cyan transition-colors" />
+            <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-cyan/10 group-hover:border-cyan transition-colors" />
+            <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-cyan/10 group-hover:border-cyan transition-colors" />
+            <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-cyan/10 group-hover:border-cyan transition-colors" />
+
+            <div className="w-full space-y-6">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+                    <span className="mono text-xs text-text-secondary font-bold tracking-[0.2em] uppercase">
+                        {m.period}
+                    </span>
+                    <div className="h-px flex-1 bg-border hidden sm:block" />
+                    <span className="mono text-[9px] text-text-dim uppercase tracking-widest bg-surface border border-border px-2 py-0.5 rounded-sm">
+                        MISSION_ID: {MISSIONS.length - index}
+                    </span>
                 </div>
 
-                <div className="lg:col-span-4 space-y-3 pt-2 lg:pt-0">
-                    <div className="flex items-center justify-center md:justify-start gap-2 opacity-50">
-                        <Terminal size={12} />
-                        <span className="mono text-[10px] text-text-secondary uppercase tracking-widest font-bold">TECH_STACK</span>
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+                    <div className="lg:col-span-8 space-y-3">
+                        <h3 className="font-sans text-2xl sm:text-3xl font-bold text-text-primary uppercase tracking-tight group-hover:text-cyan transition-colors">
+                            {m.role}
+                        </h3>
+                        <div className="flex items-center justify-center md:justify-start gap-2">
+                            <Globe size={14} className="text-cyan/80" />
+                            <span className="mono text-[11px] sm:text-sm text-text-secondary uppercase tracking-widest">{m.company}</span>
+                        </div>
+                        <p className="text-sm sm:text-base text-text-secondary leading-relaxed font-sans pt-2">
+                            {m.description}
+                        </p>
                     </div>
-                    <div className="flex flex-wrap justify-center md:justify-start gap-2">
-                        {m.tech.map(t => (
-                            <span key={t} className="mono text-[10px] text-cyan/80 border border-cyan/20 px-2 py-1 bg-cyan/5 rounded-sm uppercase tracking-wider">
-                                {t}
-                            </span>
-                        ))}
+
+                    <div className="lg:col-span-4 space-y-3 pt-2 lg:pt-0">
+                        <div className="flex items-center justify-center md:justify-start gap-2 opacity-50">
+                            <Terminal size={12} />
+                            <span className="mono text-[10px] text-text-secondary uppercase tracking-widest font-bold">TECH_STACK</span>
+                        </div>
+                        <div className="flex flex-wrap justify-center md:justify-start gap-2">
+                            {m.tech.map(t => (
+                                <span key={t} className="mono text-[10px] text-cyan/80 border border-cyan/20 px-2 py-1 bg-cyan/5 rounded-sm uppercase tracking-wider">
+                                    {t}
+                                </span>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </motion.div>
-);
+    );
+};
 
 export default function Bio({ isTeaser = false }) {
     const { t } = useTranslation();
+    const sectionRef = useRef(null);
     const timelineRef = useRef(null);
+    const profileRef = useRef(null);
 
-    const handleMouseMove = (e) => {
-        if (!timelineRef.current) return;
-        const rect = timelineRef.current.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        timelineRef.current.style.setProperty('--mouse-x', `${x}px`);
-        timelineRef.current.style.setProperty('--mouse-y', `${y}px`);
-    };
+    useGSAP(() => {
+        const section = sectionRef.current;
+        if (!section) return;
+
+        // WHY SCROLLTRIGGER: Header se desplaza brutalmente
+        gsap.fromTo('.bio-header',
+            {
+                opacity: 0,
+                x: -40,
+                scale: 0.95
+            },
+            {
+                opacity: 1,
+                x: 0,
+                scale: 1,
+                duration: 0.8,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: section,
+                    start: 'top 80%',
+                    toggleActions: 'play none none reverse',
+                }
+            }
+        );
+
+        // WHY SCROLLTRIGGER: Tags se animan con stagger
+        gsap.fromTo('.bio-tag',
+            {
+                opacity: 0,
+                y: 20,
+                scale: 0.9
+            },
+            {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                duration: 0.6,
+                stagger: 0.1,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: section,
+                    start: 'top 75%',
+                    toggleActions: 'play none none reverse',
+                }
+            }
+        );
+
+        // WHY SCROLLTRIGGER SCRUB: Texto se revela
+        // progresivamente con el scroll
+        gsap.fromTo('.bio-text',
+            {
+                opacity: 0,
+                y: 30
+            },
+            {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                scrollTrigger: {
+                    trigger: '.bio-text',
+                    start: 'top 85%',
+                    end: 'top 50%',
+                    scrub: 1,
+                    toggleActions: 'play none none reverse',
+                }
+            }
+        );
+
+        // WHY SCROLLTRIGGER: Profile image con efecto brutal
+        if (profileRef.current) {
+            gsap.fromTo(profileRef.current,
+                {
+                    opacity: 0,
+                    scale: 0.8,
+                    rotateY: 10
+                },
+                {
+                    opacity: 1,
+                    scale: 1,
+                    rotateY: 0,
+                    duration: 1,
+                    ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: profileRef.current,
+                        start: 'top 85%',
+                        toggleActions: 'play none none reverse',
+                    }
+                }
+            );
+        }
+
+        // WHY SCROLLTRIGGER: Mission statement con efecto brutal
+        gsap.fromTo('.mission-statement',
+            {
+                opacity: 0,
+                scale: 0.95,
+                borderLeftWidth: 0
+            },
+            {
+                opacity: 1,
+                scale: 1,
+                borderLeftWidth: 2,
+                duration: 0.8,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: '.mission-statement',
+                    start: 'top 85%',
+                    toggleActions: 'play none none reverse',
+                }
+            }
+        );
+
+        // WHY SCROLLTRIGGER: Timeline header con efecto brutal
+        gsap.fromTo('.timeline-header',
+            {
+                opacity: 0,
+                x: -30
+            },
+            {
+                opacity: 1,
+                x: 0,
+                duration: 0.8,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: '.timeline-header',
+                    start: 'top 85%',
+                    toggleActions: 'play none none reverse',
+                }
+            }
+        );
+
+        return () => {
+            ScrollTrigger.getAll().forEach(t => t.kill());
+        };
+    }, { scope: sectionRef });
 
     return (
-        <section id="about" className="relative z-10 py-24 sm:py-32 px-6 bg-void border-t border-border">
+        <section ref={sectionRef} id="about" className="relative z-10 py-24 sm:py-32 px-6 bg-void border-t border-border">
 
             {/* Fondo de Puntos Animado Sutil */}
             <div className="absolute inset-0 pointer-events-none z-0">
@@ -167,16 +373,11 @@ export default function Bio({ isTeaser = false }) {
 
             <div className="max-w-[1400px] mx-auto flex flex-col items-start relative z-10">
                 <div className="w-full flex flex-col items-center md:items-start text-center md:text-left space-y-12">
-                    <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        className="flex items-center gap-4 mb-2"
-                    >
+                    <div className="bio-header flex items-center gap-4 mb-2">
                         <span className="mono text-[10px] sm:text-xs text-text-dim tracking-[0.4em] uppercase">
                             0X03 // HISTORIA_DE_LA_MISIÓN
                         </span>
-                    </motion.div>
+                    </div>
 
                     <div className="space-y-6 w-full">
                         <h2 className="text-[clamp(1.5rem,6vw,4rem)] md:text-6xl lg:text-7xl font-sans text-text-primary leading-[1] font-bold tracking-tighter mb-6 break-words">
@@ -184,16 +385,16 @@ export default function Bio({ isTeaser = false }) {
                         </h2>
 
                         <div className="flex flex-wrap justify-center md:justify-start gap-3 pt-2">
-                            <TechnicalTag icon={Cpu} label="Exp" value="+07 YRS" delay={0.1} />
-                            <TechnicalTag icon={Terminal} label="Prod" value="12 UNIT" delay={0.2} />
-                            <TechnicalTag icon={Shield} label="SLA" value="99.9%" delay={0.3} />
-                            <TechnicalTag icon={Target} label="Lead" value="06 TEAM" delay={0.4} />
+                            <TechnicalTag icon={Cpu} label="Exp" value="+07 YRS" />
+                            <TechnicalTag icon={Terminal} label="Prod" value="12 UNIT" />
+                            <TechnicalTag icon={Shield} label="SLA" value="99.9%" />
+                            <TechnicalTag icon={Target} label="Lead" value="06 TEAM" />
                         </div>
                     </div>
 
                     <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center lg:items-start w-full">
                         {/* Left: Texts */}
-                        <div className="flex-1 space-y-10">
+                        <div className="bio-text flex-1 space-y-10">
                             <div className="space-y-6 text-text-secondary text-lg sm:text-xl leading-relaxed font-sans max-w-3xl">
                                 <p>{t('bio.p1', 'Hola, mi nombre es Schormeiker Lugo, Diseñador UI/UX y Desarrollador Frontend con más de siete años de trayectoria profesional. Mi perfil une una capacidad técnica avanzada con un sólido conocimiento en Diseño de interfaces graficas y prototipado. Esta combinación me facilita crear productos digitales que poseen una arquitectura robusta y priorizan la experiencia del usuario final.')}</p>
                                 <p>{t('bio.p2', 'Mi metodología transforma flujos complejos en interfaces eficientes y atractivas. El proceso creativo se respalda con un dominio profundo de HTML, CSS y JavaScript. Además, construyo aplicaciones interactivas mediante React y Vite, y conecto estos entornos visuales con bases de datos ágiles utilizando herramientas como Supabase y PostgreSQL.')}</p>
@@ -223,25 +424,16 @@ export default function Bio({ isTeaser = false }) {
                                 </div>
                             </div>
 
-                            <motion.div
-                                initial={{ opacity: 0, scale: 0.98 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
-                                className="relative p-6 sm:p-8 border-l-2 border-cyan bg-surface"
-                            >
+                            <div className="mission-statement relative p-6 sm:p-8 border-l-2 border-cyan bg-surface">
                                 <p className="italic font-sans text-text-primary text-xl md:text-2xl leading-snug">
                                     "{t('bio.mission_statement', 'Cierro la brecha entre la ingeniería abstracta y la intuición humana.')}"
                                 </p>
-                            </motion.div>
+                            </div>
                         </div>
 
                         {/* Right: Sci-Fi Profile Picture (Sticky) */}
-                        <div className="hidden lg:block w-[320px] lg:w-[360px] shrink-0 sticky top-40 self-start">
-                            <motion.div
-                                initial={{ opacity: 0, scale: 0.95 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 1 }}
+                        <div ref={profileRef} className="hidden lg:block w-[320px] lg:w-[360px] shrink-0 sticky top-40 self-start">
+                            <div
                                 className="aspect-[4/5] relative group overflow-hidden bg-void/50 shadow-[0_0_30px_rgba(0,229,255,0.05)] border border-cyan/20 z-10"
                                 style={{
                                     clipPath: 'polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px)'
@@ -293,15 +485,11 @@ export default function Bio({ isTeaser = false }) {
                             <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-cyan/30 group-hover:border-cyan transition-colors z-20" />
 
 
-                            </motion.div>
+                            </div>
                         </div>
 
                         {/* Mobile Profile Picture (Non-sticky fallback) */}
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 1 }}
+                        <div
                             className="lg:hidden w-full sm:w-[320px] aspect-[4/5] relative group overflow-hidden bg-void/50 shadow-[0_0_30px_rgba(0,229,255,0.05)] border border-cyan/20 mt-8"
                             style={{
                                 clipPath: 'polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px)'
@@ -332,21 +520,21 @@ export default function Bio({ isTeaser = false }) {
                             <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-cyan/30 group-hover:border-cyan transition-colors z-20" />
 
 
-                        </motion.div>
+                        </div>
                     </div>
 
                 </div>
 
                 {!isTeaser && (
                     <div className="w-full mt-32 pt-24 border-t border-border">
-                        <header className="mb-16 flex flex-col items-center md:items-start text-center md:text-left">
+                        <header className="timeline-header mb-16 flex flex-col items-center md:items-start text-center md:text-left">
                             <h3 className="text-[clamp(1.5rem,6vw,4rem)] md:text-6xl lg:text-7xl font-sans font-bold text-text-primary tracking-tighter break-words">
                                 <CipherText text="Historial Operativo." />
                             </h3>
                         </header>
-                        <div className="relative">
+                        <div ref={timelineRef} className="relative">
                             {MISSIONS.map((m, i) => (
-                                <TimelineItem key={m.id} m={m} index={i} isLast={i === MISSIONS.length - 1} />
+                                <TimelineItem key={m.id} m={m} index={i} isLast={i === MISSIONS.length - 1} containerRef={sectionRef} />
                             ))}
                         </div>
                     </div>
