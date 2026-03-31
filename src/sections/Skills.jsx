@@ -7,6 +7,7 @@ import { skills } from '../data/content';
 import CipherText from '../components/CipherText';
 import TypewriterText from '../components/TypewriterText';
 import { CrosshairDot, FloatingGlyphs } from '../components/ValorantOverlays';
+import DevParticles from '../components/DevParticles';
 
 /* ═══════════════════════════════════════════════
    BRUTALIST SCI-FI SKILLS SECTION
@@ -115,7 +116,8 @@ export default function Skills() {
 
     return (
         <section ref={sectionRef} id="skills" className="relative z-10 py-20 sm:py-24 px-6 bg-void overflow-hidden">
-            {/* Subtle code particles */}
+            {/* Code rain animation */}
+            <DevParticles />
             <FloatingGlyphs />
 
             <div className="max-w-[1400px] mx-auto relative z-10">

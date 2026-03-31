@@ -1,11 +1,8 @@
-import { motion } from 'framer-motion';
 import useMobileDetect from '../hooks/useMobileDetect';
 
 /* ═══════════════════════════════════════════════
    SUBTLE BACKGROUND PATTERN
-   Minimalista, integrado, sin triángulos.
-   Inspirado en el estilo de 0x03 (CircuitLines)
-   pero más ligero y sutil.
+   Minimalista, sin vignette oscuro.
    ═══════════════════════════════════════════════ */
 
 export default function SubtleBackground() {
@@ -39,13 +36,6 @@ export default function SubtleBackground() {
 
             {/* Noise texture */}
             <div className="noise-overlay" />
-
-            {/* Vignette */}
-            <div className="absolute inset-0 pointer-events-none"
-                style={{
-                    background: 'radial-gradient(ellipse at center, transparent 0%, transparent 50%, rgba(0,0,0,0.4) 100%)'
-                }}
-            />
         </div>
     );
 }

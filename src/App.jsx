@@ -118,7 +118,7 @@ function AppContent() {
           <AnimatePresence mode="wait">
             <PageTransition isLoading={pageLoading}>
               <Routes location={location} key={location.pathname}>
-                <Route path="/" element={<Home onOpenContact={openContact} />} />
+                <Route path="/" element={<Home onOpenContact={openContact} isAppLoading={loading} />} />
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/work" element={<PortfolioPage />} />
                 <Route path="/services" element={<ServicesPage />} />

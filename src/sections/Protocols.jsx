@@ -8,6 +8,7 @@ import ScrambleText from '../components/ScrambleText';
 import CipherText from '../components/CipherText';
 import TypewriterText from '../components/TypewriterText';
 import { SectionLabel, CrosshairDot, FloatingGlyphs } from '../components/ValorantOverlays';
+import DevParticles from '../components/DevParticles';
 
 /* ═══════════════════════════════════════════════
    PROTOCOLS SECTION
@@ -96,7 +97,8 @@ export default function Protocols() {
 
     return (
         <section ref={sectionRef} id="protocols" className="py-20 sm:py-24 px-6 relative overflow-hidden bg-void">
-            {/* Subtle code particles */}
+            {/* Code rain animation */}
+            <DevParticles />
             <FloatingGlyphs />
 
             {/* Overlays */}

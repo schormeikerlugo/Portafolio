@@ -28,9 +28,13 @@ const MatrixRain = ({ opacity = 0.15 }) => {
         const characters = 'ｦｧｨｩｪｫｬｭｮｯｰｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ0123456789@#$%&*+=';
 
         // Desktop: 5 layers — mini, small, medium, large, giant
-        // Mobile:  1 layer for performance
+        // Mobile:  3 layers for rich depth without compromising performance
         const layers = isMobile
-            ? [{ fontSize: 24, speed: 0.004, opacity: 0.25, tailLength: 30 }]
+            ? [
+                { fontSize: 12, speed: 0.002, opacity: 0.15, tailLength: 20 },
+                { fontSize: 18, speed: 0.003, opacity: 0.20, tailLength: 25 },
+                { fontSize: 24, speed: 0.004, opacity: 0.30, tailLength: 30 }
+              ]
             : [
                 { fontSize:  8, speed: 0.0015, opacity: 0.06, tailLength: 15 }, // micro — atmospheric depth
                 { fontSize: 14, speed: 0.002,  opacity: 0.10, tailLength: 22 }, // small
@@ -40,7 +44,7 @@ const MatrixRain = ({ opacity = 0.15 }) => {
             ];
 
         const drops = layers.map(layer => {
-            const colSpacing = isMobile ? layer.fontSize * 5 : layer.fontSize * 2.5;
+            const colSpacing = isMobile ? layer.fontSize * 3 : layer.fontSize * 2.5;
             const columns = Math.ceil(width / colSpacing);
             return new Array(columns).fill(0).map(() => Math.random() * -100);
         });
@@ -57,7 +61,7 @@ const MatrixRain = ({ opacity = 0.15 }) => {
                 ctx.font = `${layer.fontSize}px monospace`;
                 const layerDrops = drops[layerIdx];
                 const layerChars = activeChars[layerIdx];
-                const colSpacing = isMobile ? layer.fontSize * 5 : layer.fontSize * 2.5;
+                const colSpacing = isMobile ? layer.fontSize * 3 : layer.fontSize * 2.5;
 
                 for (let i = 0; i < layerDrops.length; i++) {
                     const headY = layerDrops[i];
@@ -123,14 +127,13 @@ const MatrixRain = ({ opacity = 0.15 }) => {
         <div ref={containerRef} className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
             <motion.div
                 className="w-full h-full"
-                initial={{ filter: 'blur(0px)' }}
-                animate={{ filter: 'blur(3px)' }}
+                initial={{ filter: 'blur(0px)', opacity: opacity }}
+                animate={{ filter: 'blur(3px)', opacity: opacity + 0.3 }}
                 transition={{ duration: 2, delay: 6.0, ease: 'easeInOut' }}
             >
                 <canvas
                     ref={canvasRef}
                     className="w-full h-full"
-                    style={{ opacity }}
                 />
             </motion.div>
 

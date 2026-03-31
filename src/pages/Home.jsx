@@ -41,7 +41,7 @@ const SectionDivider = () => (
     </div>
 );
 
-export default function Home({ onOpenContact }) {
+export default function Home({ onOpenContact, isAppLoading }) {
     const { t } = useTranslation();
     const navigate = useNavigate();
 
@@ -53,7 +53,7 @@ export default function Home({ onOpenContact }) {
         <div className="space-y-0">
             <Suspense fallback={<SectionPlaceholder />}>
                 {/* 01 // system.init */}
-                <Hero onOpenContact={onOpenContact} />
+                <Hero onOpenContact={onOpenContact} isAppLoading={isAppLoading} />
 
                 {/* 0x01 // Anomalies */}
                 <div className="relative">

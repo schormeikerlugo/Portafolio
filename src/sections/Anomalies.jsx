@@ -7,6 +7,7 @@ import { useGSAP } from '@gsap/react';
 import TypewriterText from '../components/TypewriterText';
 import CipherText from '../components/CipherText';
 import { CrosshairDot, FloatingGlyphs } from '../components/ValorantOverlays';
+import DevParticles from '../components/DevParticles';
 
 /* ═══════════════════════════════════════════════
    BRUTALIST SCI-FI ANOMALIES SECTION
@@ -229,7 +230,8 @@ export default function Anomalies() {
 
     return (
         <section ref={sectionRef} id="anomalias" className="relative z-10 py-20 sm:py-24 px-6 bg-void">
-            {/* Subtle code particles */}
+            {/* Code rain animation */}
+            <DevParticles />
             <FloatingGlyphs />
 
             <div className="max-w-[1400px] mx-auto relative z-10">
