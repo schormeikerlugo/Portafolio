@@ -6,6 +6,14 @@ import { t, type Lang } from '../../i18n';
 
 const lang: Lang = 'en';
 
+const filterCategories = [
+  { id: 'all', label: 'All' },
+  { id: 'design', label: 'Design', tags: ['UX', 'BRUTALISM', 'DESIGN_SYSTEMS', 'SCALABILITY', 'COLOR_THEORY', 'DESIGN_TOKENS', 'TYPOGRAPHY', 'A11Y'] },
+  { id: 'dev', label: 'Development', tags: ['PERFORMANCE', 'REACT', 'ASTRO', 'ARCHITECTURE', 'CSS', 'ANIMATIONS', 'TAILWIND', 'ENGINEERING', 'SEO', 'PORTFOLIO'] },
+  { id: 'ai', label: 'Artificial Intelligence', tags: ['AI', 'LOCAL_LLMS', 'PROMPT_ENG'] },
+  { id: 'workflow', label: 'Workflow', tags: ['LINUX', 'WORKFLOW'] },
+];
+
 const KEYWORDS = ['React', 'Vite', 'Framer Motion', 'GSAP', 'Tailwind', 'Astro', 'Ollama', 'Figma', 'CSS', 'JavaScript', 'Design System', 'Design Engineer', 'WCAG', 'IntersectionObserver'];
 const FUNCTIONS = ['optimize', 'build', 'deploy', 'configure', 'render', 'design', 'solve', 'create', 'implement'];
 
@@ -53,11 +61,25 @@ function syntaxHighlight(text: string): string {
         </div>
       </div>
 
-      <div class="border-t border-white/5" data-animate-group>
+      <!-- Filters -->
+      <div class="mb-8 flex flex-wrap justify-center md:justify-start gap-3" data-animate>
+        {filterCategories.map((fc) => (
+          <button
+            class:list={['writing-filter mono text-[10px] uppercase tracking-widest px-4 py-2 border transition-all', fc.id === 'all' ? 'border-cyan/30 text-cyan bg-cyan/10' : 'border-border/50 text-text-dim hover:border-cyan/30 hover:text-cyan']}
+            data-filter-id={fc.id}
+            data-filter-tags={fc.id === 'all' ? '' : fc.tags?.join(',')}
+          >
+            {fc.label}
+          </button>
+        ))}
+      </div>
+
+      <div id="writing-list" class="border-t border-white/5" data-animate-group>
         {articles.map((paper, i) => (
           <a
             href={`/en/writing/${paper.id}`}
-            class="group block py-10 border-b border-white/5 hover:border-cyan/30 transition-all relative overflow-hidden"
+            class="writing-item group block py-10 border-b border-white/5 hover:border-cyan/30 transition-all relative overflow-hidden"
+            data-tags={paper.tags.join(',')}
           >
             <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10" data-animate-stagger>
               <div class="space-y-4 max-w-4xl">
@@ -100,3 +122,37 @@ function syntaxHighlight(text: string): string {
     </div>
   </section>
 </Base>
+
+<script>
+  function initWritingFilters() {
+    const filterBtns = document.querySelectorAll('.writing-filter');
+    const items = document.querySelectorAll('.writing-item');
+
+    filterBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const filterId = (btn as HTMLElement).dataset.filterId;
+        const filterTags = ((btn as HTMLElement).dataset.filterTags || '').split(',').filter(Boolean);
+
+        filterBtns.forEach(b => {
+          b.classList.remove('text-cyan', 'border-cyan/30', 'bg-cyan/10');
+          b.classList.add('text-text-dim', 'border-border/50');
+        });
+        btn.classList.add('text-cyan', 'border-cyan/30', 'bg-cyan/10');
+        btn.classList.remove('text-text-dim', 'border-border/50');
+
+        items.forEach((item) => {
+          const el = item as HTMLElement;
+          const itemTags = (el.dataset.tags || '').split(',');
+          if (filterId === 'all') {
+            el.style.display = '';
+          } else {
+            const match = itemTags.some(tag => filterTags.includes(tag));
+            el.style.display = match ? '' : 'none';
+          }
+        });
+      });
+    });
+  }
+
+  document.addEventListener('astro:page-load', initWritingFilters);
+</script>

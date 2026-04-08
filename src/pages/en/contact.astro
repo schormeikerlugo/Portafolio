@@ -102,8 +102,12 @@ const lang: Lang = 'en';
                 ></textarea>
               </div>
 
+              <!-- Status message -->
+              <div id="form-status" class="hidden mono text-[11px] tracking-widest uppercase text-center py-3"></div>
+
               <button
                 type="submit"
+                id="submit-btn"
                 class="w-full px-8 py-4 bg-cyan text-void mono text-[11px] tracking-[0.2em] font-bold uppercase btn-primary"
               >
                 {t(lang, 'contact.submitButton')}
@@ -115,3 +119,46 @@ const lang: Lang = 'en';
     </div>
   </section>
 </Base>
+
+<script>
+  import emailjs from '@emailjs/browser';
+
+  function initContactForm() {
+    const form = document.getElementById('contact-form') as HTMLFormElement;
+    const statusEl = document.getElementById('form-status');
+    const submitBtn = document.getElementById('submit-btn');
+    if (!form || !statusEl || !submitBtn) return;
+
+    emailjs.init('tBWThKCCfKhzkB3e_');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      submitBtn.setAttribute('disabled', 'true');
+      submitBtn.textContent = 'SENDING...';
+      submitBtn.style.opacity = '0.6';
+      statusEl.classList.add('hidden');
+
+      try {
+        await emailjs.sendForm(
+          'service_bsa03au',
+          'template_be9bip7',
+          form
+        );
+
+        statusEl.textContent = '✓ TRANSMISSION SENT SUCCESSFULLY';
+        statusEl.className = 'mono text-[11px] tracking-widest uppercase text-center py-3 text-cyan';
+        form.reset();
+      } catch (error) {
+        statusEl.textContent = '✗ TRANSMISSION ERROR. PLEASE TRY AGAIN.';
+        statusEl.className = 'mono text-[11px] tracking-widest uppercase text-center py-3 text-red-400';
+      }
+
+      submitBtn.removeAttribute('disabled');
+      submitBtn.textContent = 'Send Transmission';
+      submitBtn.style.opacity = '1';
+    });
+  }
+
+  document.addEventListener('astro:page-load', initContactForm);
+</script>

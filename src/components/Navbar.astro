@@ -85,7 +85,7 @@ const logoHref = lang === 'en' ? '/en' : '/';
 </nav>
 
 <!-- Mobile Menu Overlay -->
-<div id="mobile-menu" class="fixed inset-0 z-40 bg-void/95 backdrop-blur-2xl md:hidden hidden">
+<div id="mobile-menu" class="fixed inset-0 z-40 bg-void/95 backdrop-blur-2xl md:hidden mobile-menu-hidden">
   <div class="flex flex-col items-center justify-center h-full gap-8">
     {NAV_LINKS.map(({ label, path }) => {
       const homePath = lang === 'en' ? '/en' : '/';
@@ -161,11 +161,27 @@ const logoHref = lang === 'en' ? '/en' : '/';
     const closeIcon = document.getElementById('close-icon');
 
     toggle?.addEventListener('click', () => {
-      const isOpen = !menu?.classList.contains('hidden');
-      menu?.classList.toggle('hidden');
-      menuIcon?.classList.toggle('hidden');
-      closeIcon?.classList.toggle('hidden');
-      document.body.style.overflow = isOpen ? '' : 'hidden';
+      const isOpen = menu?.classList.contains('mobile-menu-visible');
+
+      if (isOpen) {
+        // Close: animate out then hide
+        menu?.classList.remove('mobile-menu-visible');
+        menu?.classList.add('mobile-menu-closing');
+        setTimeout(() => {
+          menu?.classList.remove('mobile-menu-closing');
+          menu?.classList.add('mobile-menu-hidden');
+        }, 300);
+        menuIcon?.classList.remove('hidden');
+        closeIcon?.classList.add('hidden');
+        document.body.style.overflow = '';
+      } else {
+        // Open: show then animate in
+        menu?.classList.remove('mobile-menu-hidden');
+        menu?.classList.add('mobile-menu-visible');
+        menuIcon?.classList.add('hidden');
+        closeIcon?.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
     });
   }
 

@@ -322,6 +322,56 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/* ── Hero backdrop: lighter on mobile ── */
+.hero-backdrop {
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  background: rgba(0, 0, 0, 0.2);
+}
+@media (min-width: 768px) {
+  .hero-backdrop {
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    background: rgba(0, 0, 0, 0.4);
+  }
+}
+
+/* ── Mobile menu transitions ── */
+.mobile-menu-hidden {
+  display: none;
+}
+.mobile-menu-visible {
+  display: block;
+  animation: mobileMenuIn 0.3s ease forwards;
+}
+.mobile-menu-visible > div {
+  animation: mobileMenuContentIn 0.35s ease forwards;
+}
+.mobile-menu-closing {
+  display: block;
+  animation: mobileMenuOut 0.3s ease forwards;
+}
+.mobile-menu-closing > div {
+  animation: mobileMenuContentOut 0.25s ease forwards;
+}
+
+@keyframes mobileMenuIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes mobileMenuOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+@keyframes mobileMenuContentIn {
+  from { opacity: 0; transform: translateY(-20px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes mobileMenuContentOut {
+  from { opacity: 1; transform: translateY(0) scale(1); }
+  to { opacity: 0; transform: translateY(10px) scale(0.98); }
+}
+
 /* ── Blog syntax highlighting (safe classes) ── */
 .hl-cyan { color: #00e5ff; font-weight: 500; }
 .hl-amber { color: #fbbf24; font-weight: 500; }

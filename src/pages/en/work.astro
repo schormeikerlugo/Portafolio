@@ -6,12 +6,20 @@ import { breadcrumbSchema, collectionSchema } from '../../lib/seo';
 import { t, type Lang } from '../../i18n';
 
 const lang: Lang = 'en';
-const categories = [...new Set(projects.map(p => p.category))];
+const projectTranslations = t(lang, 'projects') || {};
 
-// Build subcategory map per category
+// Build translated projects for filters
+const translatedProjects = projects.map(p => {
+  const tr = projectTranslations[p.id] || {};
+  return { ...p, category: tr.category || p.category, subcategory: tr.subcategory || p.subcategory };
+});
+
+const categories = [...new Set(translatedProjects.map(p => p.category))];
+
+// Build subcategory map per translated category
 const subcategoryMap: Record<string, string[]> = {};
 categories.forEach(cat => {
-  subcategoryMap[cat] = [...new Set(projects.filter(p => p.category === cat).map(p => p.subcategory))];
+  subcategoryMap[cat] = [...new Set(translatedProjects.filter(p => p.category === cat).map(p => p.subcategory))];
 });
 ---
 
@@ -45,7 +53,7 @@ categories.forEach(cat => {
           {t(lang, 'work.filterAll')} ({projects.length})
         </button>
         {categories.map((cat) => {
-          const count = projects.filter(p => p.category === cat).length;
+          const count = translatedProjects.filter(p => p.category === cat).length;
           return (
             <button class="filter-btn mono text-[10px] uppercase tracking-widest px-4 py-2 border border-border/50 text-text-dim hover:border-cyan/30 hover:text-cyan transition-all" data-filter={cat}>
               {cat} ({count})
