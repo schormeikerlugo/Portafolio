@@ -1,0 +1,156 @@
+---
+import '../styles/global.css';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import SEOHead from '../components/SEOHead.astro';
+import { ViewTransitions } from 'astro:transitions';
+import { t, type Lang } from '../i18n';
+
+interface Props {
+  title: string;
+  description: string;
+  lang?: Lang;
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+  keywords?: string[];
+  ogImage?: string;
+  ogType?: string;
+  article?: { publishedTime?: string; author?: string };
+}
+
+const { title, description, lang = 'es', jsonLd, keywords, ogImage, ogType, article } = Astro.props;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#050505" />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <SEOHead title={title} description={description} lang={lang} jsonLd={jsonLd} keywords={keywords} ogImage={ogImage} ogType={ogType} article={article} />
+    <ViewTransitions />
+  </head>
+  <body class="relative min-h-screen">
+    <!-- Noise Overlay -->
+    <div class="noise-overlay" aria-hidden="true"></div>
+
+    <Navbar lang={lang} />
+
+    <main class="relative z-10">
+      <slot />
+    </main>
+
+    <Footer lang={lang} />
+
+    <!-- Scroll to Top Button — Valorant HUD style (hidden when near footer) -->
+    <button
+      id="scroll-top"
+      class="
+        fixed bottom-10 right-6 z-50
+        group flex flex-col items-center justify-center gap-1
+        w-12 h-12
+        border border-cyan/30 bg-void/80
+        hover:border-cyan hover:bg-cyan/5
+        backdrop-blur-sm
+        cursor-pointer
+        shadow-[0_0_12px_rgba(0,255,229,0.08)]
+        hover:shadow-[0_0_20px_rgba(0,255,229,0.25)]
+        scroll-top-hidden
+      "
+      aria-label={t(lang, 'scrollTop.ariaLabel')}
+    >
+      <!-- Corner decorations -->
+      <span class="absolute top-[3px] left-[3px] w-2 h-2 border-t border-l border-cyan/60 group-hover:border-cyan transition-colors"></span>
+      <span class="absolute top-[3px] right-[3px] w-2 h-2 border-t border-r border-cyan/60 group-hover:border-cyan transition-colors"></span>
+      <span class="absolute bottom-[3px] left-[3px] w-2 h-2 border-b border-l border-cyan/60 group-hover:border-cyan transition-colors"></span>
+      <span class="absolute bottom-[3px] right-[3px] w-2 h-2 border-b border-r border-cyan/60 group-hover:border-cyan transition-colors"></span>
+
+      <!-- Arrow -->
+      <svg
+        width="14"
+        height="14"
+        viewBox="0 0 14 14"
+        fill="none"
+        class="text-cyan/70 group-hover:text-cyan group-hover:-translate-y-0.5 transition-all duration-300"
+      >
+        <path
+          d="M7 12V2M7 2L2.5 6.5M7 2L11.5 6.5"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+
+      <!-- Label -->
+      <span class="mono text-[7px] text-cyan/50 group-hover:text-cyan tracking-[0.2em] uppercase transition-colors leading-none">
+        {t(lang, 'scrollTop.label')}
+      </span>
+    </button>
+
+    <script>
+      import { initAnimations } from '../lib/animations';
+      document.addEventListener('astro:page-load', () => {
+        initAnimations();
+
+        // Scroll-to-top button
+        const btn = document.getElementById('scroll-top');
+        const footer = document.querySelector('footer');
+        if (!btn) return;
+
+        let footerVisible = false;
+        if (footer) {
+          const obs = new IntersectionObserver(
+            ([entry]) => { footerVisible = entry.isIntersecting; updateBtn(); },
+            { threshold: 0.05 }
+          );
+          obs.observe(footer);
+        }
+
+        function updateBtn() {
+          const show = window.scrollY > 400 && !footerVisible;
+          if (show) {
+            btn!.classList.remove('scroll-top-hidden');
+            btn!.classList.add('scroll-top-visible');
+          } else {
+            btn!.classList.remove('scroll-top-visible');
+            btn!.classList.add('scroll-top-hidden');
+          }
+        }
+
+        window.addEventListener('scroll', updateBtn, { passive: true });
+        btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+      });
+    </script>
+
+    <script>
+      // Language auto-detection and preference persistence
+      (function () {
+        const saved = localStorage.getItem('lang');
+        if (!saved) {
+          const browserLang = navigator.language || '';
+          if (browserLang.startsWith('en') && window.location.pathname === '/') {
+            localStorage.setItem('lang', 'en');
+            window.location.href = '/en';
+            return;
+          }
+        }
+        // Save lang choice when clicking language toggle links
+        document.addEventListener('click', (e) => {
+          const target = (e.target as HTMLElement).closest('[data-lang-switch]');
+          if (target) {
+            const lang = (target as HTMLElement).dataset.langSwitch;
+            if (lang) localStorage.setItem('lang', lang);
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,117 @@
+---
+import Base from '../../layouts/Base.astro';
+import { breadcrumbSchema } from '../../lib/seo';
+import { t, type Lang } from '../../i18n';
+
+const lang: Lang = 'en';
+---
+
+<Base
+  lang="en"
+  title="Contact"
+  description="Contacta a Schormeiker Lugo — Disponible para proyectos de diseño UI/UX y desarrollo frontend. Colaboración remota internacional."
+  keywords={['contacto', 'contratar diseñador UI/UX', 'desarrollador frontend freelance', 'colaboración remota', 'presupuesto web']}
+  jsonLd={breadcrumbSchema([
+    { name: 'Home', url: 'https://schormeikerlugo.com' },
+    { name: 'Contact', url: 'https://schormeikerlugo.com/contact' },
+  ])}
+>
+  <section class="pt-28 pb-24 px-6 min-h-screen">
+    <div class="max-w-[1200px] mx-auto">
+      <div class="mb-16" data-animate>
+        <span class="mono text-[10px] text-cyan/60 tracking-[0.3em] uppercase">{t(lang, 'contact.tag')}</span>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-sans font-black text-text-primary mt-4">{t(lang, 'contact.title')}</h1>
+        <p class="text-text-secondary font-sans text-lg max-w-2xl mt-6 leading-relaxed">
+          {t(lang, 'contact.description')}
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <!-- Contact Info -->
+        <div class="lg:col-span-4 space-y-8" data-animate>
+          <div>
+            <span class="mono text-[9px] text-text-dim tracking-widest uppercase">{t(lang, 'contact.emailLabel')}</span>
+            <a href="mailto:schormeikerl@gmail.com" class="block text-cyan font-sans text-lg mt-2 hover:text-white transition-colors">
+              schormeikerl@gmail.com
+            </a>
+          </div>
+
+          <div>
+            <span class="mono text-[9px] text-text-dim tracking-widest uppercase">{t(lang, 'contact.socialLabel')}</span>
+            <div class="flex flex-col gap-2 mt-2">
+              <a href="https://www.linkedin.com/in/schormeiker/" target="_blank" rel="noopener" class="text-text-secondary hover:text-cyan transition-colors font-sans text-sm">LinkedIn ↗</a>
+              <a href="https://github.com/schormeikerlugo" target="_blank" rel="noopener" class="text-text-secondary hover:text-cyan transition-colors font-sans text-sm">GitHub ↗</a>
+              <a href="https://behance.net/schormeikerlugo" target="_blank" rel="noopener" class="text-text-secondary hover:text-cyan transition-colors font-sans text-sm">Behance ↗</a>
+              <a href="https://dribbble.com/schormeiker" target="_blank" rel="noopener" class="text-text-secondary hover:text-cyan transition-colors font-sans text-sm">Dribbble ↗</a>
+              <a href="https://instagram.com/schormeiker_lugo" target="_blank" rel="noopener" class="text-text-secondary hover:text-cyan transition-colors font-sans text-sm">Instagram ↗</a>
+            </div>
+          </div>
+
+          <div>
+            <span class="mono text-[9px] text-text-dim tracking-widest uppercase">{t(lang, 'contact.downloadLabel')}</span>
+            <a href="/media/CV.pdf" download class="block text-text-secondary hover:text-cyan transition-colors font-sans text-sm mt-2">
+              {t(lang, 'contact.downloadCv')}
+            </a>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="lg:col-span-8" data-animate>
+          <div class="border border-border/30 bg-surface/20">
+            <!-- Form Header -->
+            <div class="px-6 py-3 border-b border-border/30 flex items-center gap-3">
+              <div class="flex gap-1.5">
+                <div class="w-2.5 h-2.5 rounded-full bg-red-500/60"></div>
+                <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/60"></div>
+                <div class="w-2.5 h-2.5 rounded-full bg-green-500/60"></div>
+              </div>
+              <span class="mono text-[10px] text-text-dim">{t(lang, 'contact.formHeader')}</span>
+            </div>
+
+            <form id="contact-form" class="p-6 sm:p-8 space-y-6">
+              <div>
+                <label class="mono text-[9px] text-text-dim tracking-widest uppercase block mb-2">{t(lang, 'contact.nameLabel')}</label>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder={t(lang, 'contact.namePlaceholder')}
+                  required
+                  class="w-full bg-void/50 border border-border/30 px-4 py-3 mono text-sm text-text-primary placeholder-text-dim focus:border-cyan/50 focus:outline-none transition-colors"
+                />
+              </div>
+
+              <div>
+                <label class="mono text-[9px] text-text-dim tracking-widest uppercase block mb-2">{t(lang, 'contact.emailFieldLabel')}</label>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder={t(lang, 'contact.emailPlaceholder')}
+                  required
+                  class="w-full bg-void/50 border border-border/30 px-4 py-3 mono text-sm text-text-primary placeholder-text-dim focus:border-cyan/50 focus:outline-none transition-colors"
+                />
+              </div>
+
+              <div>
+                <label class="mono text-[9px] text-text-dim tracking-widest uppercase block mb-2">{t(lang, 'contact.messageLabel')}</label>
+                <textarea
+                  name="message"
+                  placeholder={t(lang, 'contact.messagePlaceholder')}
+                  rows="6"
+                  required
+                  class="w-full bg-void/50 border border-border/30 px-4 py-3 mono text-sm text-text-primary placeholder-text-dim focus:border-cyan/50 focus:outline-none transition-colors resize-none"
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                class="w-full px-8 py-4 bg-cyan text-void mono text-[11px] tracking-[0.2em] font-bold uppercase btn-primary"
+              >
+                {t(lang, 'contact.submitButton')}
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

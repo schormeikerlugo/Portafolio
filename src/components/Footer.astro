@@ -1,0 +1,78 @@
+---
+import { t, getAlternateUrl, type Lang } from '../i18n';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'es' } = Astro.props;
+const year = new Date().getFullYear();
+const alternateUrl = getAlternateUrl(Astro.url.pathname, lang === 'es' ? 'en' : 'es');
+const toggleLabel = lang === 'es' ? 'EN' : 'ES';
+const toggleLang = lang === 'es' ? 'en' : 'es';
+---
+
+<footer class="relative z-10 py-16 lg:py-24 px-6 border-t border-border bg-void">
+  <div class="max-w-[1400px] mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
+      <!-- Brand -->
+      <div class="md:col-span-6 lg:col-span-8 space-y-6">
+        <div class="flex items-center gap-3">
+          <div class="w-2 h-2 bg-cyan animate-pulse shadow-[0_0_10px_rgba(0,255,229,0.5)]"></div>
+          <h3 class="text-xl md:text-2xl font-black font-sans tracking-tight text-white uppercase">
+            Schormeiker Lugo
+          </h3>
+        </div>
+        <p class="text-text-secondary font-sans text-sm md:text-base max-w-md leading-relaxed">
+          {t(lang, 'footer.description')}
+        </p>
+        <div class="flex items-center gap-4 pt-4">
+          <a href="https://github.com/schormeikerlugo" target="_blank" rel="noopener" class="text-text-dim hover:text-cyan transition-colors" aria-label="GitHub">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65S8.93 17.38 9 18v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+          </a>
+          <a href="https://behance.net/schormeikerlugo" target="_blank" rel="noopener" class="text-text-dim hover:text-cyan transition-colors" aria-label="Behance">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 7h-7V5h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14H15.97c.13 3.211 3.483 3.312 4.588 2.029h3.168zm-7.686-4h4.965c-.105-1.547-1.136-2.219-2.477-2.219-1.466 0-2.277.768-2.488 2.219zm-9.574 6.988H0V5.021h6.953c5.476.081 5.58 5.444 2.72 6.906 3.461 1.26 3.577 8.061-3.207 8.061zM3 11h3.584c2.508 0 2.906-3-.312-3H3v3zm3.391 3H3v3.016h3.341c3.055 0 2.868-3.016.05-3.016z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/schormeiker/" target="_blank" rel="noopener" class="text-text-dim hover:text-cyan transition-colors" aria-label="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://dribbble.com/schormeiker" target="_blank" rel="noopener" class="text-text-dim hover:text-cyan transition-colors" aria-label="Dribbble">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M19.13 5.09C15.22 9.14 10 10.44 2.25 10.94"/><path d="M21.75 12.84c-6.62-1.41-12.14 1-16.38 6.32"/><path d="M8.56 2.75c4.37 6 6 9.42 8 17.72"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Status & Nav -->
+      <div class="md:col-span-6 lg:col-span-4 flex flex-col md:items-end justify-between h-full space-y-12 md:space-y-0">
+        <div class="flex flex-col md:items-end gap-3">
+          <span class="mono text-[10px] text-text-dim tracking-[0.3em] uppercase font-bold">{t(lang, 'footer.statusLabel')}</span>
+          <div class="flex items-center gap-3 px-4 py-2 border border-cyan/20 bg-cyan/5">
+            <div class="w-2 h-2 bg-cyan shadow-[0_0_10px_rgba(0,229,255,0.8)]"></div>
+            <span class="font-sans text-xs sm:text-sm font-semibold text-cyan uppercase tracking-wider">
+              {t(lang, 'footer.statusValue')}
+            </span>
+          </div>
+        </div>
+
+        <div class="flex flex-col md:items-end gap-3 pt-8 md:pt-0">
+          <button
+            onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+            class="mono text-xs text-text-secondary hover:text-cyan transition-colors uppercase tracking-widest flex items-center gap-2 group cursor-pointer"
+          >
+            {t(lang, 'footer.backToTop')} <span class="group-hover:-translate-y-1 transition-transform">↑</span>
+          </button>
+          <p class="font-sans text-xs text-text-dim">
+            © {year} Schormeiker Lugo. {t(lang, 'footer.rights')}
+          </p>
+          <a
+            href={alternateUrl}
+            data-lang-switch={toggleLang}
+            class="mono text-[10px] text-text-dim hover:text-cyan transition-colors tracking-[0.2em] uppercase mt-2"
+          >
+            {toggleLabel}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

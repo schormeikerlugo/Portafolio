@@ -1,0 +1,317 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;700&display=swap');
+@import 'tailwindcss';
+
+/* ── Theme Tokens ── */
+@theme {
+  --color-void: #000000;
+  --color-void-soft: #030303;
+  --color-panel: #050505;
+  --color-surface: #0a0a0a;
+  --color-border: rgba(255, 255, 255, 0.05);
+  --color-border-active: rgba(0, 229, 255, 0.25);
+  --color-text-primary: #f5f5f5;
+  --color-text-secondary: rgba(245, 245, 245, 0.55);
+  --color-text-dim: rgba(255, 255, 255, 0.3);
+  --color-cyan: #00e5ff;
+  --color-magenta: #e040fb;
+  --color-accent: #00e5ff;
+  --color-accent-dim: rgba(0, 229, 255, 0.1);
+
+  --font-sans: 'Geist', 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+/* ── Base ── */
+@layer base {
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background: var(--color-void);
+    color: var(--color-text-primary);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background: rgba(0, 229, 255, 0.2);
+    color: #fff;
+  }
+}
+
+/* ── Typography ── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+/* ── Utilities ── */
+.mono {
+  font-family: var(--font-mono);
+}
+
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+.ghost-text {
+  position: absolute;
+  font-weight: 900;
+  text-transform: uppercase;
+  opacity: 0.02;
+  pointer-events: none;
+  user-select: none;
+  line-height: 0.85;
+}
+
+.hud-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.2), transparent);
+}
+
+/* ── Button — Primary (solid cyan) ── */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  transition: left 0.5s ease;
+}
+.btn-primary:hover {
+  color: #000;
+  background: #fff;
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.3), 0 0 60px rgba(0, 229, 255, 0.1);
+  transform: translateY(-1px);
+}
+.btn-primary:hover::before {
+  left: 100%;
+}
+.btn-primary:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.2);
+}
+
+/* ── Button — Secondary (outline) ── */
+.btn-secondary {
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+.btn-secondary::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-cyan);
+  transition: width 0.4s ease;
+}
+.btn-secondary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 229, 255, 0);
+  transition: background 0.3s ease;
+}
+.btn-secondary:hover {
+  color: var(--color-cyan);
+  border-color: rgba(0, 229, 255, 0.5);
+  box-shadow: 0 0 24px rgba(0, 229, 255, 0.08), inset 0 0 30px rgba(0, 229, 255, 0.03);
+  transform: translateY(-1px);
+}
+.btn-secondary:hover::before {
+  width: 100%;
+}
+.btn-secondary:hover::after {
+  background: rgba(0, 229, 255, 0.04);
+}
+.btn-secondary:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.1);
+}
+
+/* Legacy aliases */
+.glow-hover { }
+.hover-glow-soft { }
+
+/* ── Animations ── */
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+.animate-scanline { animation: scanline 8s linear infinite; }
+
+@keyframes chevron-pulse {
+  0%, 100% { opacity: 0.08; }
+  50% { opacity: 0.3; }
+}
+.animate-chevron-pulse { animation: chevron-pulse 2s ease-in-out infinite; }
+
+/* ── Scroll-triggered animations ── */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+[data-animate].visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-animate-stagger] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+[data-animate-stagger].visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Glitch Effect ── */
+.animate-glitch-10s {
+  position: relative;
+}
+.animate-glitch-10s::before,
+.animate-glitch-10s::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-void);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+.animate-glitch-10s::before {
+  text-shadow: -3px 0 var(--color-cyan);
+  animation: glitch-interference-1 10s infinite;
+  animation-delay: 3s;
+}
+.animate-glitch-10s::after {
+  text-shadow: 3px 0 var(--color-magenta);
+  animation: glitch-interference-2 10s infinite;
+  animation-delay: 3s;
+}
+
+@keyframes glitch-interference-1 {
+  0%, 96.999% { opacity: 0; transform: translate(0); }
+  97.0% { opacity: 1; clip-path: inset(20% 0 80% 0); transform: translate(-10px, 0) skewX(10deg); }
+  97.4% { opacity: 1; clip-path: inset(60% 0 10% 0); transform: translate(10px, 0) skewX(-15deg); }
+  97.8% { opacity: 1; clip-path: inset(10% 0 50% 0); transform: translate(-5px, 0) skewX(20deg); }
+  98.2% { opacity: 1; clip-path: inset(80% 0 5% 0); transform: translate(15px, 0) skewX(-10deg); }
+  98.6% { opacity: 1; clip-path: inset(30% 0 40% 0); transform: translate(-10px, 0) skewX(5deg); }
+  99.0%, 100% { opacity: 0; transform: translate(0); }
+}
+@keyframes glitch-interference-2 {
+  0%, 96.999% { opacity: 0; transform: translate(0); }
+  97.0% { opacity: 1; clip-path: inset(80% 0 20% 0); transform: translate(10px, 0) skewX(-10deg); }
+  97.4% { opacity: 1; clip-path: inset(10% 0 60% 0); transform: translate(-10px, 0) skewX(15deg); }
+  97.8% { opacity: 1; clip-path: inset(50% 0 10% 0); transform: translate(5px, 0) skewX(-20deg); }
+  98.2% { opacity: 1; clip-path: inset(5% 0 80% 0); transform: translate(-15px, 0) skewX(10deg); }
+  98.6% { opacity: 1; clip-path: inset(40% 0 30% 0); transform: translate(10px, 0) skewX(-5deg); }
+  99.0%, 100% { opacity: 0; transform: translate(0); }
+}
+
+/* ── Navbar States ── */
+.navbar-transparent {
+  background: transparent;
+}
+.navbar-scrolled {
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ── Hero Sequential Entry ── */
+.hero-element {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.hero-element.hero-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Work list fast entry ── */
+.work-list-enter > * {
+  animation: workCardIn 0.4s ease both;
+}
+.work-list-enter > *:nth-child(1) { animation-delay: 0s; }
+.work-list-enter > *:nth-child(2) { animation-delay: 0.03s; }
+.work-list-enter > *:nth-child(3) { animation-delay: 0.06s; }
+.work-list-enter > *:nth-child(4) { animation-delay: 0.09s; }
+.work-list-enter > *:nth-child(5) { animation-delay: 0.12s; }
+.work-list-enter > *:nth-child(6) { animation-delay: 0.15s; }
+.work-list-enter > *:nth-child(7) { animation-delay: 0.18s; }
+.work-list-enter > *:nth-child(8) { animation-delay: 0.21s; }
+.work-list-enter > *:nth-child(n+9) { animation-delay: 0.24s; }
+
+@keyframes workCardIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Sub-filter animation ── */
+.sub-filters-enter {
+  animation: subFilterSlide 0.3s ease forwards;
+}
+@keyframes subFilterSlide {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Scroll-to-top button ── */
+.scroll-top-hidden {
+  opacity: 0;
+  transform: translateY(12px) scale(0.9);
+  pointer-events: none;
+  transition: opacity 0.25s ease-out, transform 0.25s ease-out;
+}
+.scroll-top-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+  transition: opacity 0.25s ease-out, transform 0.25s ease-out;
+}
+
+/* ── Noise Texture ── */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}

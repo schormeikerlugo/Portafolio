@@ -1,0 +1,110 @@
+---
+import Base from '../../layouts/Base.astro';
+import { anomalies, metrics, skills } from '../../data/content';
+import { breadcrumbSchema } from '../../lib/seo';
+import { t, type Lang } from '../../i18n';
+
+const lang: Lang = 'en';
+const philosophySegments = t(lang, 'approach.segments');
+---
+
+<Base
+  lang="en"
+  title="Approach"
+  description="Filosofía y metodología de Schormeiker Lugo — Optimización de ecosistemas digitales, ingeniería de información e inteligencia artificial aplicada."
+  keywords={['metodología', 'enfoque', 'filosofía de diseño', 'ecosistemas digitales', 'ingeniería de información', 'IA aplicada', 'design thinking']}
+  jsonLd={breadcrumbSchema([
+    { name: 'Home', url: 'https://schormeikerlugo.com' },
+    { name: 'Approach', url: 'https://schormeikerlugo.com/approach' },
+  ])}
+>
+  <!-- Philosophy -->
+  <section class="pt-28 pb-24 px-6">
+    <div class="max-w-[1400px] mx-auto">
+      <div class="mb-16" data-animate>
+        <span class="mono text-[10px] text-cyan/60 tracking-[0.3em] uppercase">{t(lang, 'approach.tag')}</span>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-sans font-black text-text-primary mt-4">{t(lang, 'approach.title')}</h1>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8" data-animate-group>
+        {philosophySegments.map((segment, i) => (
+          <div class="border border-border/30 bg-surface/20 p-8 hover:border-cyan/20 transition-colors" data-animate-stagger>
+            <span class="mono text-[10px] text-cyan/60 tracking-widest">MODULE_SYNC: 03.0{i + 1}</span>
+            <h3 class="text-xl font-sans font-bold text-text-primary mt-3 uppercase">{segment.title}</h3>
+            <p class="text-text-secondary font-sans text-sm mt-4 leading-relaxed">{segment.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Anomalies -->
+  <section class="py-24 px-6 border-t border-border">
+    <div class="max-w-[1400px] mx-auto">
+      <div class="mb-16" data-animate>
+        <span class="mono text-[10px] text-cyan/60 tracking-[0.3em] uppercase">{t(lang, 'approach.problemsTag')}</span>
+        <h2 class="text-3xl sm:text-4xl font-sans font-black text-text-primary mt-4">{t(lang, 'approach.problemsTitle')}</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6" data-animate-group>
+        {anomalies.map((anomaly) => (
+          <div class="border border-border/50 bg-surface/30 p-8 hover:border-cyan/30 transition-colors" data-animate-stagger>
+            <span class="mono text-[10px] text-red-400/80 tracking-widest uppercase">{anomaly.code}</span>
+            <h3 class="text-xl font-sans font-bold text-text-primary mt-3 uppercase">{anomaly.title}</h3>
+            <p class="mono text-[10px] text-text-dim mt-2">{t(lang, 'problems.impactLabel')} {anomaly.impact}</p>
+            <p class="text-text-secondary font-sans text-sm mt-4 leading-relaxed">{anomaly.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Metrics -->
+  <section class="py-24 px-6 border-t border-border">
+    <div class="max-w-[1400px] mx-auto">
+      <div class="mb-16" data-animate>
+        <span class="mono text-[10px] text-cyan/60 tracking-[0.3em] uppercase">{t(lang, 'approach.metricsTag')}</span>
+        <h2 class="text-3xl sm:text-4xl font-sans font-black text-text-primary mt-4">{t(lang, 'approach.metricsTitle')}</h2>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8" data-animate-group>
+        {metrics.map((metric) => (
+          <div class="text-center" data-animate-stagger>
+            <span class="text-5xl sm:text-6xl font-sans font-black text-cyan">{metric.value}{metric.suffix}</span>
+            <p class="mono text-[10px] text-text-primary uppercase tracking-widest mt-4">{metric.label}</p>
+            <p class="text-text-secondary font-sans text-sm mt-2">{metric.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Summary -->
+  <section class="py-24 px-6 border-t border-border">
+    <div class="max-w-[1400px] mx-auto">
+      <h2 class="text-3xl sm:text-4xl font-sans font-black text-text-primary mb-12 uppercase" data-animate>{t(lang, 'approach.skillsTitle')}</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8" data-animate-group>
+        {Object.values(skills).map((category) => (
+          <div class="border border-border/30 bg-surface/20 p-8" data-animate-stagger>
+            <h3 class="mono text-[10px] text-cyan tracking-widest uppercase font-bold mb-6">{category.title}</h3>
+            <div class="space-y-5">
+              {category.items.map((skill) => (
+                <div>
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="font-sans text-sm text-text-primary font-semibold">{skill.name}</span>
+                    <span class="mono text-[9px] text-cyan uppercase tracking-wider">{skill.level}</span>
+                  </div>
+                  <div class="h-1 bg-border/30 rounded-full overflow-hidden">
+                    <div class="h-full bg-cyan/60 rounded-full" style={`width: ${skill.progress}%`}></div>
+                  </div>
+                  <p class="mono text-[9px] text-text-dim mt-1">{skill.details}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>

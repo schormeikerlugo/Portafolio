@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://schormeikerlugo.com/sitemap-index.xml

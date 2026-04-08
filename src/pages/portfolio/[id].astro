@@ -1,0 +1,154 @@
+---
+import Base from '../../layouts/Base.astro';
+import { projects } from '../../data/content';
+import { projectSchema, breadcrumbSchema } from '../../lib/seo';
+import { t, type Lang } from '../../i18n';
+
+const lang: Lang = 'es';
+
+export function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { id: String(project.id) },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const idString = String(project.id).padStart(2, '0');
+const prevProject = projects.find(p => p.id === project.id - 1);
+const nextProject = projects.find(p => p.id === project.id + 1);
+---
+
+<Base
+  lang="es"
+  title={project.title}
+  description={project.mission}
+  keywords={[...project.tags, project.subcategory, project.category, 'proyecto', 'caso de estudio']}
+  ogImage={project.image}
+  jsonLd={[
+    projectSchema(project),
+    breadcrumbSchema([
+      { name: 'Home', url: 'https://schormeikerlugo.com' },
+      { name: 'Work', url: 'https://schormeikerlugo.com/work' },
+      { name: project.title, url: `https://schormeikerlugo.com/portfolio/${project.id}` },
+    ]),
+  ]}
+>
+  <section class="pt-28 pb-24 px-6">
+    <div class="max-w-[1200px] mx-auto">
+      <!-- Back -->
+      <a href="/work" class="inline-flex items-center gap-2 mono text-[10px] text-text-dim hover:text-cyan transition-colors uppercase tracking-widest mb-12" data-animate>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+        {t(lang, 'portfolio.backButton')}
+      </a>
+
+      <!-- Header -->
+      <div class="mb-16" data-animate>
+        <div class="flex items-center gap-4 mb-4">
+          <span class="mono text-[10px] text-cyan uppercase tracking-[0.2em] font-bold">ID: {idString}</span>
+          <span class="text-text-dim mono text-[10px]">//</span>
+          <span class="mono text-[9px] text-text-secondary uppercase tracking-[0.2em]">{project.subcategory}</span>
+          <span class="text-text-dim mono text-[10px]">//</span>
+          <span class="mono text-[9px] text-text-secondary uppercase tracking-[0.2em]">{project.category}</span>
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl lg:text-7xl font-sans font-black text-text-primary tracking-tight uppercase">{project.title}</h1>
+
+        <div class="flex flex-wrap gap-2 mt-6">
+          {project.tags.map((tag) => (
+            <span class="mono text-[9px] text-text-dim border border-border/50 px-3 py-1 uppercase tracking-wider">{tag}</span>
+          ))}
+        </div>
+      </div>
+
+      <!-- Hero Image -->
+      <div class="relative aspect-video w-full overflow-hidden border border-border/30 mb-16" data-animate>
+        <img
+          src={project.image}
+          alt={project.title}
+          class="w-full h-full object-cover"
+          loading="eager"
+        />
+      </div>
+
+      <!-- Content Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-16">
+        <!-- Mission -->
+        <div class="lg:col-span-2" data-animate>
+          <span class="mono text-[10px] text-cyan/60 tracking-widest uppercase">{t(lang, 'portfolio.missionLabel')}</span>
+          <p class="text-text-secondary font-sans text-lg leading-relaxed mt-4">{project.mission}</p>
+        </div>
+
+        <!-- Meta -->
+        <div class="space-y-6" data-animate>
+          <div>
+            <span class="mono text-[10px] text-text-dim tracking-widest uppercase">{t(lang, 'portfolio.categoryLabel')}</span>
+            <p class="text-text-primary font-sans mt-1">{project.category} — {project.subcategory}</p>
+          </div>
+          <div>
+            <span class="mono text-[10px] text-text-dim tracking-widest uppercase">{t(lang, 'portfolio.sourceLabel')}</span>
+            <a href={project.link} target="_blank" rel="noopener" class="block text-cyan font-sans mt-1 hover:text-white transition-colors capitalize">{project.source} ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Problem -->
+      <div class="mb-16 border border-border/30 bg-surface/20 p-8" data-animate>
+        <span class="mono text-[10px] text-red-400/80 tracking-widest uppercase">{t(lang, 'portfolio.diagnosisLabel')}</span>
+        <pre class="mono text-xs sm:text-sm text-text-secondary mt-4 whitespace-pre-wrap leading-relaxed overflow-x-auto">{project.problem}</pre>
+      </div>
+
+      <!-- Solution -->
+      <div class="mb-16" data-animate>
+        <span class="mono text-[10px] text-cyan/60 tracking-widest uppercase">{t(lang, 'portfolio.solutionLabel')}</span>
+        <p class="text-text-secondary font-sans text-lg leading-relaxed mt-4">{project.solution}</p>
+      </div>
+
+      <!-- Gallery -->
+      {project.gallery.length > 0 && (
+        <div class="mb-16" data-animate>
+          <span class="mono text-[10px] text-cyan/60 tracking-widest uppercase mb-6 block">{t(lang, 'portfolio.galleryLabel')}</span>
+          <div class="grid grid-cols-1 gap-4">
+            {project.gallery.map((img) => (
+              <div class="relative overflow-hidden border border-border/30">
+                <img
+                  src={img}
+                  alt={`${project.title} screenshot`}
+                  loading="lazy"
+                  class="w-full h-auto"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <!-- Navigation -->
+      <div class="flex items-center justify-between pt-12 border-t border-border" data-animate>
+        {prevProject ? (
+          <a href={`/portfolio/${prevProject.id}`} class="group flex items-center gap-3 text-text-dim hover:text-cyan transition-colors">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+            <div>
+              <span class="mono text-[9px] uppercase tracking-widest block">{t(lang, 'portfolio.prev')}</span>
+              <span class="font-sans text-sm font-bold uppercase group-hover:text-cyan transition-colors">{prevProject.title}</span>
+            </div>
+          </a>
+        ) : <div />}
+
+        <a href="/work" class="mono text-[10px] text-text-dim hover:text-cyan transition-colors uppercase tracking-widest">
+          {t(lang, 'portfolio.all')}
+        </a>
+
+        {nextProject ? (
+          <a href={`/portfolio/${nextProject.id}`} class="group flex items-center gap-3 text-text-dim hover:text-cyan transition-colors text-right">
+            <div>
+              <span class="mono text-[9px] uppercase tracking-widest block">{t(lang, 'portfolio.next')}</span>
+              <span class="font-sans text-sm font-bold uppercase group-hover:text-cyan transition-colors">{nextProject.title}</span>
+            </div>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        ) : <div />}
+      </div>
+    </div>
+  </section>
+</Base>

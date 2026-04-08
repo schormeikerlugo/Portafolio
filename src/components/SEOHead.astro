@@ -1,0 +1,86 @@
+---
+import { getAlternateUrl, type Lang } from '../i18n';
+
+interface Props {
+  title: string;
+  description: string;
+  lang?: Lang;
+  canonical?: string;
+  ogImage?: string;
+  ogType?: string;
+  keywords?: string[];
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+  article?: {
+    publishedTime?: string;
+    author?: string;
+  };
+}
+
+const {
+  title,
+  description,
+  lang = 'es',
+  canonical,
+  ogImage = '/og-image.png',
+  ogType = 'website',
+  keywords = [],
+  jsonLd,
+  article,
+} = Astro.props;
+
+const siteUrl = 'https://schormeikerlugo.com';
+const canonicalUrl = canonical || new URL(Astro.url.pathname, siteUrl).href;
+const siteName = 'Schormeiker Lugo';
+const fullTitle = title === 'Home' ? `${siteName} | Frontend Design Engineer` : `${title} — ${siteName}`;
+const absoluteOgImage = ogImage.startsWith('http') ? ogImage : new URL(ogImage, siteUrl).href;
+
+const defaultKeywords = ['Schormeiker Lugo', 'UI/UX Designer', 'Frontend Developer', 'React', 'Portfolio'];
+const allKeywords = [...new Set([...keywords, ...defaultKeywords])];
+
+const currentPath = Astro.url.pathname;
+const esUrl = new URL(getAlternateUrl(currentPath, 'es'), siteUrl).href;
+const enUrl = new URL(getAlternateUrl(currentPath, 'en'), siteUrl).href;
+const ogLocale = lang === 'en' ? 'en_US' : 'es_ES';
+---
+
+<!-- Primary -->
+<title>{fullTitle}</title>
+<meta name="description" content={description} />
+<meta name="keywords" content={allKeywords.join(', ')} />
+<meta name="author" content="Schormeiker Lugo" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<link rel="canonical" href={canonicalUrl} />
+
+<!-- Open Graph -->
+<meta property="og:type" content={ogType} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={absoluteOgImage} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:site_name" content={siteName} />
+<meta property="og:locale" content={ogLocale} />
+
+<!-- Hreflang alternates -->
+<link rel="alternate" hreflang="es" href={esUrl} />
+<link rel="alternate" hreflang="en" href={enUrl} />
+<link rel="alternate" hreflang="x-default" href={esUrl} />
+
+{article?.publishedTime && (
+  <meta property="article:published_time" content={article.publishedTime} />
+)}
+{article?.author && (
+  <meta property="article:author" content={article.author} />
+)}
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={absoluteOgImage} />
+
+<!-- RSS -->
+<link rel="alternate" type="application/rss+xml" title={`${siteName} Blog`} href="/rss.xml" />
+
+{jsonLd && (
+  <script type="application/ld+json" set:html={JSON.stringify(Array.isArray(jsonLd) ? jsonLd : [jsonLd])} />
+)}

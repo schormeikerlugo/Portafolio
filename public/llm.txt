@@ -1,0 +1,68 @@
+# Schormeiker Lugo — Frontend Design Engineer
+
+> Este archivo proporciona información estructurada para modelos de lenguaje (LLMs) y agentes de búsqueda sobre el perfil profesional de Schormeiker Lugo.
+
+## Identidad
+- Nombre: Schormeiker Lugo
+- Rol: UI/UX Designer & Frontend Developer
+- Experiencia: +7 años
+- Ubicación: Remoto (basado en Venezuela, experiencia internacional)
+- Idiomas: Español (nativo), Inglés (profesional)
+
+## Resumen Profesional
+Diseñador UI/UX y Desarrollador Frontend con más de 7 años de experiencia profesional. Combina capacidad técnica avanzada con sólido conocimiento en diseño de interfaces gráficas y prototipado. Especializado en crear productos digitales con arquitectura robusta que priorizan la experiencia del usuario final. Integra Inteligencia Artificial en el flujo de trabajo diario mediante ingeniería de prompts y LLMs locales.
+
+## Stack Tecnológico
+- Frontend: React, Astro, TypeScript, Tailwind CSS, HTML/CSS, JavaScript
+- Backend: Node.js, Supabase, PostgreSQL
+- Diseño: Figma, Adobe Suite, Prototyping
+- CMS: WordPress (Custom Themes, Headless)
+- AI/ML: Prompt Engineering, LLMs (Ollama, RAG), Stable Diffusion, Flux, ComfyUI
+- DevOps: Git, Docker, Vercel, Linux (Arch + Hyprland)
+
+## Experiencia Laboral
+1. AQOMI (Poland) — UI/UX Designer & Frontend Developer — Sep 2023 – May 2025
+2. SACSCLOUD.COM (Mexico) — UI/UX Designer — Aug 2020 – Aug 2023
+3. SPLINTERLANDS (USA) — UI/UX Designer — Nov 2021 – Mar 2022
+4. TAKODEFI (Spain) — UI/UX Designer — Aug 2020 – Apr 2021
+5. KOOOMO (Colombia) — UI/UX Designer — Jul 2020 – Sep 2020
+6. LIMBIC (Chile) — Web Designer — 2020
+7. PASSWORD TECHNOLOGY (Venezuela) — Tech Support & Designer — Jan 2018 – May 2020
+
+## Proyectos Destacados (34 total)
+
+### Diseño (29 proyectos)
+- TAKODEFI: DeFi platform UI — Behance
+- BLACKHOLE DEFI: Crypto exchange UI — Behance
+- CRYPTOGOAL.IO: Crypto sports web — Behance
+- CHUMBI VALLEY: NFT game UI — Behance
+- THE CALLISTO PROTOCOL: Game UI concept — Behance
+- G2A DESKTOP APP: Gaming store redesign — Behance
+- LEAGUE OF LEGENDS: Dashboard UI — Behance
+- STEAM REDESIGN: Gaming platform UI/UX — Behance
+- AITHR: AI platform web — Behance
+- DASHBOARD SACSCLOUD: SaaS enterprise dashboard — Behance
+- Y 19 proyectos más de diseño (Apps, Web, Dashboard)
+
+### Desarrollo (5 proyectos)
+- SYLVARAN RPG: Dark fantasy RPG en JavaScript puro — GitHub
+- SNAKE CLASSIC: Retro game reimagined con multiplayer — GitHub
+- RIFA ONLINE: Plataforma fullstack con Supabase — GitHub
+- G2A REDESIGN: Gaming store frontend — GitHub
+- KEPLER: AI vision system — GitHub
+
+## Servicios
+1. Design Systems — Escalabilidad Visual
+2. Interface Engineering — Fidelidad Técnica
+3. Product Strategy — Visión a Ejecución
+4. Applied AI Research — Innovación Operativa
+
+## Enlaces Oficiales
+- Sitio Web: https://schormeikerlugo.com
+- GitHub: https://github.com/schormeikerlugo
+- Behance: https://behance.net/schormeikerlugo
+- LinkedIn: https://www.linkedin.com/in/schormeiker/
+- Dribbble: https://dribbble.com/schormeiker
+- Instagram: https://instagram.com/schormeiker_lugo
+- TikTok: https://tiktok.com/@schormeikerlugo
+- Email: schormeikerl@gmail.com

@@ -1,0 +1,71 @@
+---
+interface Props {
+  text: string;
+  class?: string;
+  tag?: string;
+  delay?: number;
+  duration?: number;
+}
+
+const { text, class: className, tag = 'span', delay = 0, duration = 1.5 } = Astro.props;
+const Tag = tag as any;
+---
+
+<Tag
+  class={`cipher-text relative inline-block ${className || ''}`}
+  data-cipher-text={text}
+  data-cipher-delay={delay}
+  data-cipher-duration={duration}
+>
+  <span class="invisible select-none whitespace-pre-wrap">{text}</span>
+  <span class="cipher-display absolute inset-0 whitespace-pre-wrap"></span>
+</Tag>
+
+<script>
+  const CHARS = 'ABCDEF0123456789_#@$%-/';
+
+  function initCipherTexts() {
+    document.querySelectorAll('.cipher-text:not([data-cipher-init])').forEach((el) => {
+      el.setAttribute('data-cipher-init', 'true');
+      const text = el.getAttribute('data-cipher-text') || '';
+      const delay = parseFloat(el.getAttribute('data-cipher-delay') || '0');
+      const duration = parseFloat(el.getAttribute('data-cipher-duration') || '1.5');
+      const display = el.querySelector('.cipher-display') as HTMLElement;
+      if (!display) return;
+
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            observer.disconnect();
+            setTimeout(() => {
+              let startTime: number;
+              const animate = (time: number) => {
+                if (!startTime) startTime = time;
+                const progress = (time - startTime) / (duration * 1000);
+                if (progress < 1) {
+                  let result = '';
+                  for (let i = 0; i < text.length; i++) {
+                    result += i < text.length * progress
+                      ? text[i]
+                      : CHARS[Math.floor(Math.random() * CHARS.length)];
+                  }
+                  display.textContent = result;
+                  requestAnimationFrame(animate);
+                } else {
+                  display.textContent = text;
+                  el.classList.add('animate-glitch-10s');
+                  el.setAttribute('data-text', text);
+                }
+              };
+              requestAnimationFrame(animate);
+            }, delay * 1000);
+          }
+        },
+        { threshold: 0.1 }
+      );
+      observer.observe(el);
+    });
+  }
+
+  document.addEventListener('astro:page-load', initCipherTexts);
+</script>

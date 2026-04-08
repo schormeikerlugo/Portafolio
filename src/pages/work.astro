@@ -1,0 +1,172 @@
+---
+import Base from '../layouts/Base.astro';
+import CardValorant from '../components/CardValorant.astro';
+import { projects } from '../data/content';
+import { breadcrumbSchema, collectionSchema } from '../lib/seo';
+import { t, type Lang } from '../i18n';
+
+const lang: Lang = 'es';
+const categories = [...new Set(projects.map(p => p.category))];
+
+// Build subcategory map per category
+const subcategoryMap: Record<string, string[]> = {};
+categories.forEach(cat => {
+  subcategoryMap[cat] = [...new Set(projects.filter(p => p.category === cat).map(p => p.subcategory))];
+});
+---
+
+<Base
+  lang="es"
+  title="Work"
+  description="Portafolio de proyectos de Schormeiker Lugo — 34 proyectos de diseño UI/UX y desarrollo frontend en crypto, gaming, web y AI."
+  keywords={['portafolio', 'proyectos', 'diseño UI', 'UX', 'frontend', 'crypto', 'gaming', 'dashboard', 'web design', 'React']}
+  jsonLd={[
+    collectionSchema('Proyectos', 'Portafolio de 34 proyectos de diseño y desarrollo', projects.length),
+    breadcrumbSchema([
+      { name: 'Home', url: 'https://schormeikerlugo.com' },
+      { name: 'Work', url: 'https://schormeikerlugo.com/work' },
+    ]),
+  ]}
+>
+  <section class="pt-28 pb-24 px-6 min-h-screen">
+    <div class="max-w-[1400px] mx-auto">
+      <!-- Header -->
+      <div class="mb-12" data-animate>
+        <span class="mono text-[10px] text-cyan/60 tracking-[0.3em] uppercase">{t(lang, 'work.tag')}</span>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-sans font-black text-text-primary mt-4">{t(lang, 'work.title')}</h1>
+        <p class="text-text-secondary font-sans text-lg max-w-2xl mt-6 leading-relaxed">
+          {projects.length} proyectos de diseño y desarrollo. Cada uno resuelve un problema estructural específico.
+        </p>
+      </div>
+
+      <!-- Main Filters -->
+      <div class="mb-4 flex flex-wrap gap-3" data-animate>
+        <button class="filter-btn active mono text-[10px] uppercase tracking-widest px-4 py-2 border border-cyan/30 text-cyan bg-cyan/10 transition-all" data-filter="all">
+          {t(lang, 'work.filterAll')} ({projects.length})
+        </button>
+        {categories.map((cat) => {
+          const count = projects.filter(p => p.category === cat).length;
+          return (
+            <button class="filter-btn mono text-[10px] uppercase tracking-widest px-4 py-2 border border-border/50 text-text-dim hover:border-cyan/30 hover:text-cyan transition-all" data-filter={cat}>
+              {cat} ({count})
+            </button>
+          );
+        })}
+      </div>
+
+      <!-- Dynamic Sub-filters (hidden by default, shown when a category is selected) -->
+      <div id="sub-filters" class="mb-8 flex flex-wrap gap-2 hidden">
+        <!-- Populated dynamically by JS -->
+      </div>
+
+      <!-- Project List -->
+      <div id="project-list" class="work-list-enter">
+        {projects.map((project, i) => (
+          <CardValorant
+            id={project.id}
+            title={project.title}
+            subtitle={project.subtitle}
+            image={project.image}
+            tags={project.tags}
+            index={i}
+            source={project.source}
+            subcategory={project.subcategory}
+            solution={project.solution}
+            mission={project.mission}
+            category={project.category}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script define:vars={{ subcategoryMap }}>
+  // Make subcategoryMap available to the client
+  window.__subcategoryMap = subcategoryMap;
+</script>
+
+<script>
+  function initFilters() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const subFiltersContainer = document.getElementById('sub-filters');
+    const cards = document.querySelectorAll('#project-list > a');
+    const subcategoryMap = (window as any).__subcategoryMap || {};
+
+    let activeCategory = 'all';
+    let activeSubcategory = 'all';
+
+    function applyFilters() {
+      cards.forEach((card) => {
+        const el = card as HTMLElement;
+        const cat = el.dataset.category;
+        const sub = el.dataset.subcategory;
+        const matchCat = activeCategory === 'all' || cat === activeCategory;
+        const matchSub = activeSubcategory === 'all' || sub === activeSubcategory;
+        el.style.display = matchCat && matchSub ? '' : 'none';
+      });
+    }
+
+    function renderSubFilters(category: string) {
+      if (!subFiltersContainer) return;
+
+      const subs: string[] = subcategoryMap[category] || [];
+
+      if (subs.length === 0 || category === 'all') {
+        subFiltersContainer.classList.add('hidden');
+        subFiltersContainer.innerHTML = '';
+        return;
+      }
+
+      subFiltersContainer.innerHTML = subs.map(sub =>
+        `<button class="sub-filter-btn mono text-[9px] uppercase tracking-widest px-3 py-1.5 border border-border/30 text-text-dim hover:border-cyan/20 hover:text-cyan/60 transition-all" data-subfilter="${sub}">${sub}</button>`
+      ).join('');
+
+      subFiltersContainer.classList.remove('hidden');
+      subFiltersContainer.classList.add('sub-filters-enter');
+
+      // Remove animation class after it completes
+      setTimeout(() => subFiltersContainer.classList.remove('sub-filters-enter'), 300);
+
+      // Bind sub-filter click events
+      subFiltersContainer.querySelectorAll('.sub-filter-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const sub = (btn as HTMLElement).dataset.subfilter || '';
+          if (activeSubcategory === sub) {
+            activeSubcategory = 'all';
+            btn.classList.remove('text-cyan', 'border-cyan/20', 'bg-cyan/5');
+            btn.classList.add('text-text-dim', 'border-border/30');
+          } else {
+            subFiltersContainer.querySelectorAll('.sub-filter-btn').forEach(b => {
+              b.classList.remove('text-cyan', 'border-cyan/20', 'bg-cyan/5');
+              b.classList.add('text-text-dim', 'border-border/30');
+            });
+            btn.classList.add('text-cyan', 'border-cyan/20', 'bg-cyan/5');
+            btn.classList.remove('text-text-dim', 'border-border/30');
+            activeSubcategory = sub;
+          }
+          applyFilters();
+        });
+      });
+    }
+
+    filterBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => {
+          b.classList.remove('active', 'text-cyan', 'border-cyan/30', 'bg-cyan/10');
+          b.classList.add('text-text-dim', 'border-border/50');
+        });
+        btn.classList.add('active', 'text-cyan', 'border-cyan/30', 'bg-cyan/10');
+        btn.classList.remove('text-text-dim', 'border-border/50');
+
+        activeCategory = (btn as HTMLElement).dataset.filter || 'all';
+        activeSubcategory = 'all';
+
+        renderSubFilters(activeCategory);
+        applyFilters();
+      });
+    });
+  }
+
+  document.addEventListener('astro:page-load', initFilters);
+</script>

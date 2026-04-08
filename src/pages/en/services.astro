@@ -1,0 +1,180 @@
+---
+import Base from '../../layouts/Base.astro';
+import { breadcrumbSchema, serviceSchema, faqSchema } from '../../lib/seo';
+import { t, type Lang } from '../../i18n';
+
+const lang: Lang = 'en';
+
+// Merge translated text from i18n with structural data (icons, colors)
+const serviceIcons = [
+  'M4 5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5ZM14 5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1V5ZM4 15a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-4ZM14 15a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-4Z',
+  'M17 8l4 4m0 0l-4 4m4-4H3M13 4l-4 4m0 0l4 4m-4-4h14',
+  'M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25',
+  'M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 0 0-2.455 2.456Z',
+];
+const serviceColors = ['#00e5ff', '#a78bfa', '#fbbf24', '#f87171'];
+
+const translatedItems = t(lang, 'servicesPage.items');
+const services = translatedItems.map((item: any, i: number) => ({
+  id: String(i + 1).padStart(2, '0'),
+  icon: serviceIcons[i],
+  color: serviceColors[i],
+  ...item,
+}));
+
+const faqs = t(lang, 'servicesPage.faqs');
+---
+
+<Base
+  lang="en"
+  title="Services"
+  description={t(lang, 'seo.services.description')}
+  keywords={['services', 'design systems', 'frontend development', 'product strategy', 'AI research', 'UI/UX', 'consulting', 'freelance']}
+  jsonLd={[
+    ...serviceSchema(services.map(s => ({ name: s.title, description: s.description }))),
+    faqSchema(faqs),
+    breadcrumbSchema([
+      { name: 'Home', url: 'https://schormeikerlugo.com' },
+      { name: 'Services', url: 'https://schormeikerlugo.com/services' },
+    ]),
+  ]}
+>
+  <section class="pt-28 pb-24 px-6">
+    <div class="max-w-[1400px] mx-auto">
+      <!-- Header -->
+      <div class="mb-20" data-animate>
+        <span class="mono text-[10px] text-cyan/60 tracking-[0.3em] uppercase">{t(lang, 'servicesPage.pageTag')}</span>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-sans font-black text-text-primary mt-4">{t(lang, 'servicesPage.pageTitle')}</h1>
+        <p class="text-text-secondary font-sans text-lg max-w-2xl mt-6 leading-relaxed">
+          {t(lang, 'servicesPage.pageDescription')}
+        </p>
+      </div>
+
+      <!-- Services -->
+      <div class="space-y-32">
+        {services.map((service, i) => (
+          <div class="service-block" data-animate>
+            <!-- Service Header -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 pb-8 border-b border-border">
+              <div class="flex items-start gap-6">
+                <div class="w-14 h-14 shrink-0 border border-white/10 flex items-center justify-center" style={`background: ${service.color}10; border-color: ${service.color}30`}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={service.color} stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d={service.icon}/></svg>
+                </div>
+                <div>
+                  <span class="mono text-[10px] tracking-widest uppercase" style={`color: ${service.color}`}>PROTOCOL {service.id}</span>
+                  <h2 class="text-3xl sm:text-4xl lg:text-5xl font-sans font-black text-text-primary mt-1 uppercase">{service.title}</h2>
+                </div>
+              </div>
+              <p class="font-sans text-lg text-text-secondary italic max-w-md">{service.tagline}</p>
+            </div>
+
+            <!-- Content Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+              <!-- Left: Description -->
+              <div class="lg:col-span-7 space-y-8">
+                <p class="text-text-secondary font-sans text-base sm:text-lg leading-relaxed">{service.description}</p>
+
+                <!-- Problem / Solution -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div class="border border-red-500/20 bg-red-500/[0.03] p-6">
+                    <div class="flex items-center gap-2 mb-3">
+                      <div class="w-2 h-2 bg-red-400 rounded-full"></div>
+                      <span class="mono text-[9px] text-red-400 uppercase tracking-widest font-bold">{t(lang, 'servicesPage.problemLabel')}</span>
+                    </div>
+                    <p class="text-text-secondary font-sans text-sm leading-relaxed">{service.problem}</p>
+                  </div>
+
+                  <div class="border p-6" style={`border-color: ${service.color}30; background: ${service.color}05`}>
+                    <div class="flex items-center gap-2 mb-3">
+                      <div class="w-2 h-2 rounded-full" style={`background: ${service.color}`}></div>
+                      <span class="mono text-[9px] uppercase tracking-widest font-bold" style={`color: ${service.color}`}>{t(lang, 'servicesPage.solutionLabel')}</span>
+                    </div>
+                    <p class="text-text-secondary font-sans text-sm leading-relaxed">{service.solution}</p>
+                  </div>
+                </div>
+
+                <!-- Metrics -->
+                <div class="grid grid-cols-3 gap-4">
+                  {service.metrics.map((metric) => (
+                    <div class="text-center py-4 border border-border/20 bg-surface/30">
+                      <span class="block text-2xl sm:text-3xl font-sans font-black" style={`color: ${service.color}`}>{metric.value}</span>
+                      <span class="mono text-[8px] text-text-dim uppercase tracking-widest mt-1 block">{metric.label}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <!-- Right: Deliverables + Tools -->
+              <div class="lg:col-span-5 space-y-8">
+                <!-- Deliverables -->
+                <div class="border border-border/30 bg-surface/20 overflow-hidden">
+                  <div class="px-6 py-4 border-b border-border/20" style={`background: ${service.color}08`}>
+                    <span class="mono text-[9px] uppercase tracking-widest font-bold" style={`color: ${service.color}`}>{t(lang, 'servicesPage.deliverablesLabel')}</span>
+                  </div>
+                  <div class="p-6 space-y-0">
+                    {service.deliverables.map((d, di) => (
+                      <div class="flex items-center gap-4 py-3 border-b border-border/10 last:border-0 group/item">
+                        <span class="mono text-[10px] text-text-dim w-6">{String(di + 1).padStart(2, '0')}</span>
+                        <div class="w-1.5 h-1.5 rounded-full" style={`background: ${service.color}60`}></div>
+                        <span class="font-sans text-sm text-text-primary group-hover/item:text-white transition-colors">{d}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <!-- Tools -->
+                <div>
+                  <span class="mono text-[9px] text-text-dim tracking-widest uppercase block mb-3">{t(lang, 'servicesPage.stackLabel')}</span>
+                  <div class="flex flex-wrap gap-2">
+                    {service.tools.map((tool) => (
+                      <span class="mono text-[9px] px-3 py-1.5 border uppercase tracking-wider" style={`border-color: ${service.color}25; color: ${service.color}; background: ${service.color}08`}>{tool}</span>
+                    ))}
+                  </div>
+                </div>
+
+                <!-- CTA for this service -->
+                <a href="/en/contact" class="flex items-center justify-between w-full px-6 py-4 border transition-all duration-300 group/cta hover:translate-y-[-2px]" style={`border-color: ${service.color}30; background: ${service.color}05`}>
+                  <span class="mono text-[10px] uppercase tracking-widest font-bold" style={`color: ${service.color}`}>{t(lang, 'servicesPage.requestService')}</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={service.color} stroke-width="2" class="group-hover/cta:translate-x-1 transition-transform"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- FAQ Section -->
+      <div class="mt-32 border-t border-border pt-16">
+        <div class="mb-12 text-center" data-animate>
+          <span class="mono text-[10px] text-cyan/60 tracking-[0.3em] uppercase">{t(lang, 'servicesPage.faqTag')}</span>
+          <h2 class="text-3xl sm:text-4xl font-sans font-black text-text-primary mt-4">{t(lang, 'servicesPage.faqTitle')}</h2>
+        </div>
+
+        <div class="max-w-3xl mx-auto space-y-0" data-animate-group>
+          {faqs.map((faq, i) => (
+            <details class="group border-b border-border/30" data-animate-stagger>
+              <summary class="flex items-center justify-between py-6 cursor-pointer list-none">
+                <span class="font-sans text-base sm:text-lg text-text-primary font-semibold pr-8 group-hover:text-cyan transition-colors">{faq.question}</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-text-dim shrink-0 transition-transform duration-300 group-open:rotate-45"><path d="M12 5v14M5 12h14"/></svg>
+              </summary>
+              <div class="pb-6 pr-8">
+                <p class="text-text-secondary font-sans text-sm leading-relaxed">{faq.answer}</p>
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+
+      <!-- Final CTA -->
+      <div class="mt-24 text-center border-t border-border pt-16" data-animate>
+        <h2 class="text-2xl sm:text-3xl font-sans font-black text-text-primary uppercase">{t(lang, 'servicesPage.finalCtaTitle')}</h2>
+        <p class="text-text-secondary font-sans mt-4 max-w-lg mx-auto">
+          {t(lang, 'servicesPage.finalCtaDescription')}
+        </p>
+        <a href="/en/contact" class="inline-block mt-8 px-10 py-4 bg-cyan text-void mono text-[11px] tracking-[0.2em] font-bold uppercase btn-primary">
+          {t(lang, 'servicesPage.finalCtaButton')}
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>

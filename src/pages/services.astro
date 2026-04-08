@@ -1,0 +1,239 @@
+---
+import Base from '../layouts/Base.astro';
+import { breadcrumbSchema, serviceSchema, faqSchema } from '../lib/seo';
+import { t, type Lang } from '../i18n';
+
+const lang: Lang = 'es';
+
+const services = [
+  {
+    id: '01',
+    title: 'Design Systems',
+    tagline: 'Tu equipo deja de adivinar y empieza a construir.',
+    icon: 'M4 5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5ZM14 5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1V5ZM4 15a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-4ZM14 15a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-4Z',
+    color: '#00e5ff',
+    description: 'Construyo el lenguaje visual que conecta diseño con código. No es una librería de Figma — es un contrato técnico que garantiza consistencia en cada pantalla, en cada sprint, en cada equipo.',
+    problem: 'Sin un sistema de diseño, cada desarrollador interpreta el diseño de forma diferente. Los user flows no están documentados, lo que provoca que cada equipo construya recorridos de usuario contradictorios. El resultado son interfaces inconsistentes, ciclos de revisión interminables y deuda visual que crece con cada feature.',
+    solution: 'Diseño user flows validados que mapean cada recorrido del usuario antes de crear un solo componente. A partir de esos flujos, estandarizo tokens de color, tipografía, espaciado y componentes en un origen de verdad único. Tu equipo de ingeniería construye con fiabilidad visual del 100% porque cada pantalla responde a un flujo previamente definido y aprobado.',
+    deliverables: ['UI Kit Atómico en Figma', 'User Flows & Wireframes', 'Design Tokens (CSS/JSON)', 'Componentes React Documentados', 'Guía de Estilo Interactiva'],
+    metrics: [
+      { value: '100%', label: 'Consistencia visual' },
+      { value: '-60%', label: 'Tiempo de revisión' },
+      { value: '3x', label: 'Velocidad de iteración' },
+    ],
+    tools: ['Figma', 'React', 'Tailwind', 'Storybook'],
+  },
+  {
+    id: '02',
+    title: 'Interface Engineering',
+    tagline: 'Cada píxel funciona. Cada interacción responde.',
+    icon: 'M17 8l4 4m0 0l-4 4m4-4H3M13 4l-4 4m0 0l4 4m-4-4h14',
+    color: '#a78bfa',
+    description: 'Traduzco diseños de alta fidelidad en código frontend que se siente nativo. No uso librerías infladas ni atajos — cada componente se construye para rendir a 60fps con el menor costo de bundle posible.',
+    problem: 'El diseño aprobado en Figma nunca se ve igual en producción. Las animaciones se sienten artificiales, el rendimiento se degrada con cada componente nuevo y la accesibilidad queda como tarea pendiente permanente.',
+    solution: 'Desarrollo interfaces con React y Astro que replican el diseño con fidelidad pixel-perfect. Las micro-interacciones se implementan con CSS nativo cuando es posible y JavaScript quirúrgico cuando es necesario.',
+    deliverables: ['Desarrollo Frontend Completo', 'Optimización de Rendimiento', 'Micro-interacciones CSS/JS', 'Auditoría de Accesibilidad A11Y'],
+    metrics: [
+      { value: '98+', label: 'Lighthouse score' },
+      { value: '<100ms', label: 'Time to Interactive' },
+      { value: 'WCAG AA', label: 'Accesibilidad' },
+    ],
+    tools: ['React', 'Astro', 'TypeScript', 'Tailwind CSS'],
+  },
+  {
+    id: '03',
+    title: 'Product Strategy',
+    tagline: 'Antes de escribir código, trazamos la ruta correcta.',
+    icon: 'M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25',
+    color: '#fbbf24',
+    description: 'Actúo como puente entre la visión de negocio y la viabilidad técnica. Diagnostico problemas de UX, defino prioridades de desarrollo y diseño roadmaps donde cada recurso de ingeniería se invierte en resolver una carencia específica.',
+    problem: 'Los equipos construyen features sin validar si resuelven el problema correcto. Los stakeholders piden cambios que contradicen la investigación de usuarios. El producto crece sin dirección clara.',
+    solution: 'Realizo auditorías UX agresivas para identificar cuellos de botella. Diseño prototipos tácticos que validan hipótesis antes de invertir en desarrollo. Establezco métricas claras de éxito para cada decisión de producto.',
+    deliverables: ['Auditoría UX Completa', 'Research de Usuarios', 'Prototipado Rápido', 'Roadmap Técnico Priorizado'],
+    metrics: [
+      { value: '-40%', label: 'Features innecesarias' },
+      { value: '2x', label: 'Velocidad de validación' },
+      { value: '+30%', label: 'Adopción de usuarios' },
+    ],
+    tools: ['Figma', 'User Research', 'Analytics', 'Wireframing'],
+  },
+  {
+    id: '04',
+    title: 'Applied AI Integration',
+    tagline: 'La IA no reemplaza tu flujo — lo acelera.',
+    icon: 'M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 0 0-2.455 2.456Z',
+    color: '#f87171',
+    description: 'Integro inteligencia artificial en tu flujo de trabajo diario como una herramienta productiva, no como una moda. Desde prompts de sistema optimizados hasta despliegue de modelos locales que funcionan sin depender de APIs externas.',
+    problem: 'Los equipos experimentan con IA de forma desordenada: prompts improvisados, dependencia total de APIs cloud con costos impredecibles y resultados inconsistentes que generan más trabajo del que ahorran.',
+    solution: 'Diseño flujos de IA estructurados con prompts de sistema documentados y modelos locales que garantizan privacidad, latencia mínima y costo cero por token. La IA se convierte en un multiplicador de productividad medible.',
+    deliverables: ['Prompt Engineering Avanzado', 'Despliegue de LLMs Locales', 'Generación de Assets con IA', 'Automatización de Workflows'],
+    metrics: [
+      { value: '+60%', label: 'Velocidad de iteración' },
+      { value: '$0', label: 'Costo por token (local)' },
+      { value: '<50ms', label: 'Latencia de respuesta' },
+    ],
+    tools: ['Ollama', 'Stable Diffusion', 'ComfyUI', 'RAG Pipelines'],
+  },
+];
+
+const faqs = [
+  { question: '¿Cómo es tu proceso de trabajo?', answer: 'Cada proyecto comienza con una fase de diagnóstico donde analizo el estado actual del producto, identifico problemas y defino objetivos medibles. Después presento un roadmap con entregables claros y plazos realistas.' },
+  { question: '¿Trabajas de forma remota?', answer: 'Sí, trabajo 100% remoto con equipos en más de 6 países. Utilizo herramientas de colaboración asíncrona y mantengo comunicación constante para garantizar alineación en cada etapa.' },
+  { question: '¿Qué tecnologías utilizas?', answer: 'Mi stack principal incluye React, Astro, Tailwind CSS, TypeScript, Wordpress, Figma, pencil, Affnity, Photoshop, Illustrator para diseño. En backend uso Supabase y PostgreSQL. Para IA trabajo con Ollama, Stable Diffusion, Gemini, Claude y prompt engineering avanzado.' },
+  { question: '¿Puedes integrarte a un equipo existente?', answer: 'Absolutamente. He trabajado integrado en equipos de producto como Design Engineer, colaborando directamente con desarrolladores, product managers y stakeholders de negocio.' },
+];
+---
+
+<Base
+  lang="es"
+  title="Services"
+  description="Servicios profesionales de Schormeiker Lugo — Design Systems, Interface Engineering, Product Strategy y Applied AI Research para productos digitales."
+  keywords={['servicios', 'design systems', 'frontend development', 'product strategy', 'AI research', 'UI/UX', 'consultoría', 'freelance']}
+  jsonLd={[
+    ...serviceSchema(services.map(s => ({ name: s.title, description: s.description }))),
+    faqSchema(faqs),
+    breadcrumbSchema([
+      { name: 'Home', url: 'https://schormeikerlugo.com' },
+      { name: 'Services', url: 'https://schormeikerlugo.com/services' },
+    ]),
+  ]}
+>
+  <section class="pt-28 pb-24 px-6">
+    <div class="max-w-[1400px] mx-auto">
+      <!-- Header -->
+      <div class="mb-20" data-animate>
+        <span class="mono text-[10px] text-cyan/60 tracking-[0.3em] uppercase">0X05 // SERVICIOS_PROFESIONALES</span>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-sans font-black text-text-primary mt-4">Cómo Puedo Ayudarte.</h1>
+        <p class="text-text-secondary font-sans text-lg max-w-2xl mt-6 leading-relaxed">
+          Cada servicio se diseña para resolver un problema específico de tu producto digital. Sin soluciones genéricas — solo protocolos de ejecución adaptados a tus necesidades reales.
+        </p>
+      </div>
+
+      <!-- Services -->
+      <div class="space-y-32">
+        {services.map((service, i) => (
+          <div class="service-block" data-animate>
+            <!-- Service Header -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 pb-8 border-b border-border">
+              <div class="flex items-start gap-6">
+                <div class="w-14 h-14 shrink-0 border border-white/10 flex items-center justify-center" style={`background: ${service.color}10; border-color: ${service.color}30`}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={service.color} stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d={service.icon}/></svg>
+                </div>
+                <div>
+                  <span class="mono text-[10px] tracking-widest uppercase" style={`color: ${service.color}`}>PROTOCOL {service.id}</span>
+                  <h2 class="text-3xl sm:text-4xl lg:text-5xl font-sans font-black text-text-primary mt-1 uppercase">{service.title}</h2>
+                </div>
+              </div>
+              <p class="font-sans text-lg text-text-secondary italic max-w-md">{service.tagline}</p>
+            </div>
+
+            <!-- Content Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+              <!-- Left: Description -->
+              <div class="lg:col-span-7 space-y-8">
+                <p class="text-text-secondary font-sans text-base sm:text-lg leading-relaxed">{service.description}</p>
+
+                <!-- Problem / Solution -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div class="border border-red-500/20 bg-red-500/[0.03] p-6">
+                    <div class="flex items-center gap-2 mb-3">
+                      <div class="w-2 h-2 bg-red-400 rounded-full"></div>
+                      <span class="mono text-[9px] text-red-400 uppercase tracking-widest font-bold">El Problema</span>
+                    </div>
+                    <p class="text-text-secondary font-sans text-sm leading-relaxed">{service.problem}</p>
+                  </div>
+
+                  <div class="border p-6" style={`border-color: ${service.color}30; background: ${service.color}05`}>
+                    <div class="flex items-center gap-2 mb-3">
+                      <div class="w-2 h-2 rounded-full" style={`background: ${service.color}`}></div>
+                      <span class="mono text-[9px] uppercase tracking-widest font-bold" style={`color: ${service.color}`}>La Solución</span>
+                    </div>
+                    <p class="text-text-secondary font-sans text-sm leading-relaxed">{service.solution}</p>
+                  </div>
+                </div>
+
+                <!-- Metrics -->
+                <div class="grid grid-cols-3 gap-4">
+                  {service.metrics.map((metric) => (
+                    <div class="text-center py-4 border border-border/20 bg-surface/30">
+                      <span class="block text-2xl sm:text-3xl font-sans font-black" style={`color: ${service.color}`}>{metric.value}</span>
+                      <span class="mono text-[8px] text-text-dim uppercase tracking-widest mt-1 block">{metric.label}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <!-- Right: Deliverables + Tools -->
+              <div class="lg:col-span-5 space-y-8">
+                <!-- Deliverables -->
+                <div class="border border-border/30 bg-surface/20 overflow-hidden">
+                  <div class="px-6 py-4 border-b border-border/20" style={`background: ${service.color}08`}>
+                    <span class="mono text-[9px] uppercase tracking-widest font-bold" style={`color: ${service.color}`}>Entregables</span>
+                  </div>
+                  <div class="p-6 space-y-0">
+                    {service.deliverables.map((d, di) => (
+                      <div class="flex items-center gap-4 py-3 border-b border-border/10 last:border-0 group/item">
+                        <span class="mono text-[10px] text-text-dim w-6">{String(di + 1).padStart(2, '0')}</span>
+                        <div class="w-1.5 h-1.5 rounded-full" style={`background: ${service.color}60`}></div>
+                        <span class="font-sans text-sm text-text-primary group-hover/item:text-white transition-colors">{d}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <!-- Tools -->
+                <div>
+                  <span class="mono text-[9px] text-text-dim tracking-widest uppercase block mb-3">Stack Tecnológico</span>
+                  <div class="flex flex-wrap gap-2">
+                    {service.tools.map((tool) => (
+                      <span class="mono text-[9px] px-3 py-1.5 border uppercase tracking-wider" style={`border-color: ${service.color}25; color: ${service.color}; background: ${service.color}08`}>{tool}</span>
+                    ))}
+                  </div>
+                </div>
+
+                <!-- CTA for this service -->
+                <a href="/contact" class="flex items-center justify-between w-full px-6 py-4 border transition-all duration-300 group/cta hover:translate-y-[-2px]" style={`border-color: ${service.color}30; background: ${service.color}05`}>
+                  <span class="mono text-[10px] uppercase tracking-widest font-bold" style={`color: ${service.color}`}>Solicitar este servicio</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={service.color} stroke-width="2" class="group-hover/cta:translate-x-1 transition-transform"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- FAQ Section -->
+      <div class="mt-32 border-t border-border pt-16">
+        <div class="mb-12 text-center" data-animate>
+          <span class="mono text-[10px] text-cyan/60 tracking-[0.3em] uppercase">PREGUNTAS FRECUENTES</span>
+          <h2 class="text-3xl sm:text-4xl font-sans font-black text-text-primary mt-4">Antes de Contactarme.</h2>
+        </div>
+
+        <div class="max-w-3xl mx-auto space-y-0" data-animate-group>
+          {faqs.map((faq, i) => (
+            <details class="group border-b border-border/30" data-animate-stagger>
+              <summary class="flex items-center justify-between py-6 cursor-pointer list-none">
+                <span class="font-sans text-base sm:text-lg text-text-primary font-semibold pr-8 group-hover:text-cyan transition-colors">{faq.question}</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-text-dim shrink-0 transition-transform duration-300 group-open:rotate-45"><path d="M12 5v14M5 12h14"/></svg>
+              </summary>
+              <div class="pb-6 pr-8">
+                <p class="text-text-secondary font-sans text-sm leading-relaxed">{faq.answer}</p>
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+
+      <!-- Final CTA -->
+      <div class="mt-24 text-center border-t border-border pt-16" data-animate>
+        <h2 class="text-2xl sm:text-3xl font-sans font-black text-text-primary uppercase">¿Listo para trabajar juntos?</h2>
+        <p class="text-text-secondary font-sans mt-4 max-w-lg mx-auto">
+          Cada proyecto comienza con una conversación. Cuéntame sobre tu producto y diseñamos un plan de acción específico para tus necesidades.
+        </p>
+        <a href="/contact" class="inline-block mt-8 px-10 py-4 bg-cyan text-void mono text-[11px] tracking-[0.2em] font-bold uppercase btn-primary">
+          [ INICIAR CONVERSACIÓN ]
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>
