@@ -28,9 +28,10 @@ export default function MatrixRain({ opacity = 0.35 }: MatrixRainProps) {
 
     const layers = isMobile
       ? [
-          { fontSize: 12, speed: 0.002, opacity: 0.15, tailLength: 20 },
-          { fontSize: 18, speed: 0.003, opacity: 0.2, tailLength: 25 },
-          { fontSize: 24, speed: 0.004, opacity: 0.3, tailLength: 30 },
+          { fontSize: 10, speed: 0.002, opacity: 0.20, tailLength: 22 },
+          { fontSize: 14, speed: 0.003, opacity: 0.30, tailLength: 28 },
+          { fontSize: 20, speed: 0.004, opacity: 0.40, tailLength: 34 },
+          { fontSize: 28, speed: 0.005, opacity: 0.25, tailLength: 18 },
         ]
       : [
           { fontSize: 8, speed: 0.0015, opacity: 0.06, tailLength: 15 },
@@ -41,7 +42,7 @@ export default function MatrixRain({ opacity = 0.35 }: MatrixRainProps) {
         ];
 
     const drops = layers.map((layer) => {
-      const colSpacing = isMobile ? layer.fontSize * 3 : layer.fontSize * 2.5;
+      const colSpacing = isMobile ? layer.fontSize * 1.8 : layer.fontSize * 2.5;
       const columns = Math.ceil(width / colSpacing);
       return new Array(columns).fill(0).map(() => Math.random() * -100);
     });

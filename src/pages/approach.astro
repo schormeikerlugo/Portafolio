@@ -21,7 +21,7 @@ const philosophySegments = t(lang, 'approach.segments');
   <!-- Philosophy -->
   <section class="pt-28 pb-24 px-6">
     <div class="max-w-[1400px] mx-auto">
-      <div class="mb-16" data-animate>
+      <div class="mb-16 section-header" data-animate>
         <span class="mono text-[10px] text-cyan/60 tracking-[0.3em] uppercase">{t(lang, 'approach.tag')}</span>
         <h1 class="text-4xl sm:text-5xl lg:text-6xl font-sans font-black text-text-primary mt-4">{t(lang, 'approach.title')}</h1>
       </div>
@@ -41,7 +41,7 @@ const philosophySegments = t(lang, 'approach.segments');
   <!-- Anomalies -->
   <section class="py-24 px-6 border-t border-border">
     <div class="max-w-[1400px] mx-auto">
-      <div class="mb-16" data-animate>
+      <div class="mb-16 section-header" data-animate>
         <span class="mono text-[10px] text-cyan/60 tracking-[0.3em] uppercase">{t(lang, 'approach.problemsTag')}</span>
         <h2 class="text-3xl sm:text-4xl font-sans font-black text-text-primary mt-4">{t(lang, 'approach.problemsTitle')}</h2>
       </div>
@@ -62,7 +62,7 @@ const philosophySegments = t(lang, 'approach.segments');
   <!-- Metrics -->
   <section class="py-24 px-6 border-t border-border">
     <div class="max-w-[1400px] mx-auto">
-      <div class="mb-16" data-animate>
+      <div class="mb-16 section-header" data-animate>
         <span class="mono text-[10px] text-cyan/60 tracking-[0.3em] uppercase">{t(lang, 'approach.metricsTag')}</span>
         <h2 class="text-3xl sm:text-4xl font-sans font-black text-text-primary mt-4">{t(lang, 'approach.metricsTitle')}</h2>
       </div>
@@ -82,7 +82,7 @@ const philosophySegments = t(lang, 'approach.segments');
   <!-- Skills Summary -->
   <section class="py-24 px-6 border-t border-border">
     <div class="max-w-[1400px] mx-auto">
-      <h2 class="text-3xl sm:text-4xl font-sans font-black text-text-primary mb-12 uppercase" data-animate>{t(lang, 'approach.skillsTitle')}</h2>
+      <h2 class="text-3xl sm:text-4xl font-sans font-black text-text-primary mb-12 uppercase text-center md:text-left" data-animate>{t(lang, 'approach.skillsTitle')}</h2>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8" data-animate-group>
         {Object.values(skills).map((category) => (

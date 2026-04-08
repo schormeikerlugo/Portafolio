@@ -21,7 +21,7 @@ const lang: Lang = 'es';
   <!-- ═══ BIO ═══ -->
   <section class="pt-28 pb-24 px-6">
     <div class="max-w-[1400px] mx-auto">
-      <div class="mb-16" data-animate>
+      <div class="mb-16 section-header" data-animate>
         <span class="mono text-[10px] text-cyan/60 tracking-[0.3em] uppercase">{t(lang, 'about.tag')}</span>
         <h1 class="text-4xl sm:text-5xl lg:text-6xl font-sans font-black text-text-primary mt-4">{t(lang, 'about.title')}</h1>
       </div>
@@ -79,7 +79,7 @@ const lang: Lang = 'es';
 
       <!-- Evolution Phases -->
       <div class="mb-24">
-        <h2 class="text-3xl sm:text-4xl font-sans font-black text-text-primary mb-12 uppercase" data-animate>{t(lang, 'about.evolutionTitle')}</h2>
+        <h2 class="text-3xl sm:text-4xl font-sans font-black text-text-primary mb-12 uppercase text-center md:text-left" data-animate>{t(lang, 'about.evolutionTitle')}</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6" data-animate-group>
           {bio.phases.map((phase) => (
             <div class="border border-border/30 bg-surface/20 p-8 hover:border-cyan/20 transition-colors" data-animate-stagger>
@@ -96,7 +96,7 @@ const lang: Lang = 'es';
   <!-- ═══ EXPERIENCE ═══ -->
   <section class="py-24 px-6 border-t border-border">
     <div class="max-w-[1400px] mx-auto">
-      <h2 class="text-3xl sm:text-4xl font-sans font-black text-text-primary mb-12 uppercase" data-animate>{t(lang, 'about.timelineTitle')}</h2>
+      <h2 class="text-3xl sm:text-4xl font-sans font-black text-text-primary mb-12 uppercase text-center md:text-left" data-animate>{t(lang, 'about.timelineTitle')}</h2>
 
       <div class="space-y-0" data-animate-group>
         {experience.map((job, i) => (
@@ -129,7 +129,7 @@ const lang: Lang = 'es';
   <!-- ═══ EDUCACIÓN & CERTIFICACIONES ═══ -->
   <section class="py-24 px-6 border-t border-border">
     <div class="max-w-[1400px] mx-auto">
-      <h2 class="text-3xl sm:text-4xl font-sans font-black text-text-primary mb-12 uppercase" data-animate>{t(lang, 'about.certsTitle')}</h2>
+      <h2 class="text-3xl sm:text-4xl font-sans font-black text-text-primary mb-12 uppercase text-center md:text-left" data-animate>{t(lang, 'about.certsTitle')}</h2>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6" data-animate-group>
         {[
@@ -167,7 +167,7 @@ const lang: Lang = 'es';
   <!-- ═══ TELEMETRY ═══ -->
   <section class="py-24 px-6 border-t border-border">
     <div class="max-w-[1400px] mx-auto">
-      <h2 class="text-3xl sm:text-4xl font-sans font-black text-text-primary mb-12 uppercase" data-animate>{t(lang, 'about.telemetryTitle')}</h2>
+      <h2 class="text-3xl sm:text-4xl font-sans font-black text-text-primary mb-12 uppercase text-center md:text-left" data-animate>{t(lang, 'about.telemetryTitle')}</h2>
 
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4" data-animate-group>
         {telemetry.map((item) => (

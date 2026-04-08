@@ -302,6 +302,26 @@ h1, h2, h3, h4, h5, h6 {
   transition: opacity 0.25s ease-out, transform 0.25s ease-out;
 }
 
+/* ── Section headers: centered on mobile, left on desktop ── */
+.section-header {
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .section-header {
+    text-align: left;
+  }
+}
+.section-header p {
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (min-width: 768px) {
+  .section-header p {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
 /* ── Noise Texture ── */
 .noise-overlay {
   position: fixed;
