@@ -372,6 +372,131 @@ h1, h2, h3, h4, h5, h6 {
   to { opacity: 0; transform: translateY(10px) scale(0.98); }
 }
 
+/* ── Service block sci-fi animations ── */
+.service-block {
+  position: relative;
+}
+
+/* Icon pulse on hover */
+.service-icon {
+  position: relative;
+  transition: box-shadow 0.4s ease, transform 0.3s ease;
+}
+.service-block:hover .service-icon {
+  box-shadow: 0 0 20px var(--svc-color, rgba(0,229,255,0.3)), 0 0 40px var(--svc-color, rgba(0,229,255,0.1));
+  transform: scale(1.05);
+}
+.service-icon::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border: 1px solid var(--svc-color, rgba(0,229,255,0.2));
+  opacity: 0;
+  transition: opacity 0.3s ease, inset 0.3s ease;
+}
+.service-block:hover .service-icon::after {
+  opacity: 1;
+  inset: -8px;
+}
+
+/* Scanline sweep on service header */
+.service-header {
+  position: relative;
+}
+
+/* Metric value glow on hover */
+.metric-value {
+  transition: text-shadow 0.3s ease, transform 0.2s ease;
+}
+.service-block:hover .metric-value {
+  text-shadow: 0 0 12px var(--svc-color, rgba(0,229,255,0.4));
+}
+
+/* Deliverable item data-stream effect */
+.deliverable-item {
+  position: relative;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+.deliverable-item:hover {
+  background: var(--svc-color-bg, rgba(0,229,255,0.04));
+  transform: translateX(4px);
+}
+.deliverable-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 0;
+  height: 1px;
+  background: var(--svc-color, rgba(0,229,255,0.3));
+  transition: width 0.3s ease;
+  transform: translateY(-50%);
+}
+.deliverable-item:hover::before {
+  width: 100%;
+}
+
+/* Tool badge hover effect */
+.tool-badge {
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.tool-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--svc-color, rgba(0,229,255,0.15));
+}
+
+/* Problem/Solution card subtle breathing */
+.problem-card, .solution-card {
+  transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
+}
+.problem-card:hover {
+  border-color: rgba(248,113,113,0.4);
+  box-shadow: 0 0 24px rgba(248,113,113,0.08);
+  transform: translateY(-2px);
+}
+.solution-card:hover {
+  box-shadow: 0 0 24px var(--svc-color, rgba(0,229,255,0.08));
+  transform: translateY(-2px);
+}
+
+/* Service CTA arrow animation */
+.service-cta {
+  position: relative;
+  overflow: hidden;
+}
+.service-cta::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--svc-color, #00e5ff);
+  transition: width 0.4s ease;
+}
+.service-cta:hover::before {
+  width: 100%;
+}
+
+/* ── FAQ accordion ── */
+.faq-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s ease, opacity 0.3s ease;
+  opacity: 0;
+}
+.faq-content > * {
+  overflow: hidden;
+}
+.faq-item.open .faq-content {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  padding-bottom: 1.5rem;
+}
+.faq-item.open .faq-icon {
+  transform: rotate(45deg);
+}
+
 /* ── Blog syntax highlighting (safe classes) ── */
 .hl-cyan { color: #00e5ff; font-weight: 500; }
 .hl-amber { color: #fbbf24; font-weight: 500; }
