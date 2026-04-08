@@ -6,8 +6,8 @@
   --color-void: #000000;
   --color-void-soft: #030303;
   --color-panel: #050505;
-  --color-surface: #0a0a0a;
-  --color-border: rgba(255, 255, 255, 0.05);
+  --color-surface: #141414;
+  --color-border: rgba(255, 255, 255, 0.07);
   --color-border-active: rgba(0, 229, 255, 0.25);
   --color-text-primary: #f5f5f5;
   --color-text-secondary: rgba(245, 245, 245, 0.55);
@@ -320,6 +320,22 @@ h1, h2, h3, h4, h5, h6 {
     margin-left: 0;
     margin-right: 0;
   }
+}
+
+/* ── Blog syntax highlighting (safe classes) ── */
+.hl-cyan { color: #00e5ff; font-weight: 500; }
+.hl-amber { color: #fbbf24; font-weight: 500; }
+.hl-red { color: #f87171; font-weight: 500; }
+.hl-purple { color: #a78bfa; font-weight: 600; }
+.hl-green { color: #34d399; }
+.hl-dim { color: rgba(255,255,255,0.25); font-style: italic; font-size: 0.85em; }
+.hl-inline-code {
+  color: #00e5ff;
+  background: rgba(0,229,255,0.06);
+  padding: 0.1em 0.4em;
+  border-radius: 2px;
+  font-family: var(--font-mono);
+  font-size: 0.85em;
 }
 
 /* ── Noise Texture ── */

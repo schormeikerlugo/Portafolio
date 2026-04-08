@@ -50,7 +50,7 @@ const lang: Lang = 'es';
 
       <!-- Profile + Bio -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-24">
-        <div class="lg:col-span-4" data-animate>
+        <div class="lg:col-span-4 flex justify-center lg:justify-start" data-animate>
           <div class="relative max-w-[400px] overflow-hidden border border-border/30">
             <img
               src="/media/perfil.jpg"
@@ -62,20 +62,21 @@ const lang: Lang = 'es';
           </div>
         </div>
 
-        <div class="lg:col-span-8 space-y-6" data-animate>
+        <div class="lg:col-span-8 space-y-6 text-center lg:text-left" data-animate>
           {bio.paragraphs.map((p) => (
             <p class="text-text-secondary font-sans text-base sm:text-lg leading-relaxed">{p}</p>
           ))}
-          <blockquote class="border-l-2 border-cyan pl-6 mt-8">
+          <blockquote class="border-l-2 border-cyan pl-6 mt-8 text-left">
             <p class="text-cyan font-sans text-lg italic">{bio.missionStatement}</p>
           </blockquote>
 
-          <a href="/media/CV.pdf" download class="inline-flex items-center gap-2 mt-8 px-5 py-3 bg-cyan text-void mono text-[11px] tracking-[0.2em] font-bold uppercase btn-primary">
+          <div class="mt-8 flex justify-center lg:justify-start">
+          <a href="/media/CV.pdf" download class="inline-flex items-center gap-2 px-5 py-3 bg-cyan text-void mono text-[11px] tracking-[0.2em] font-bold uppercase btn-primary">
             {t(lang, 'about.downloadCv')}
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
           </a>
+          </div>
         </div>
-      </div>
 
       <!-- Evolution Phases -->
       <div class="mb-24">
