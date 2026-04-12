@@ -716,7 +716,7 @@ export const skills = {
         category: 'Intelligence',
         items: [
             { name: 'Generative AI', level: 'SPECIALIST', progress: 85, details: 'Stable Diffusion, Flux, ComfyUI' },
-            { name: 'LLM Engineering', level: 'SPECIALIST', progress: 80, details: 'Local LLMs, Ollama, RAG Pipelines' },
+            { name: 'LLM Engineering', level: 'SPECIALIST', progress: 80, details: 'Ollama, Opencode, Open Web UI' },
             { name: 'Prompt Engineering', level: 'EXPERT', progress: 90, details: 'System Prompts, Chain-of-Thought' },
         ]
     },

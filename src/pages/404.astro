@@ -1,0 +1,46 @@
+---
+import Base from '../layouts/Base.astro';
+import MatrixRain from '../components/react/MatrixRain';
+import { t, type Lang } from '../i18n';
+
+const lang: Lang = 'es';
+---
+
+<Base lang="es" title="404" description="Página no encontrada">
+  <section class="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
+    <!-- Matrix Rain background -->
+    <div class="absolute inset-0 pointer-events-none z-0">
+      <MatrixRain opacity={0.2} client:visible />
+    </div>
+    <div class="absolute inset-0 pointer-events-none z-[1] backdrop-blur-[2px] bg-void/30"></div>
+
+    <div class="relative z-10 text-center max-w-lg">
+      <div class="mono text-[10px] text-red-400/80 tracking-[0.4em] uppercase mb-6 animate-pulse">
+        ERROR_404 // PAGE_NOT_FOUND
+      </div>
+
+      <h1 class="text-[clamp(4rem,20vw,10rem)] font-sans font-black text-text-primary leading-none tracking-tighter">
+        4<span class="text-cyan">0</span>4
+      </h1>
+
+      <p class="text-text-secondary font-sans text-lg mt-6 leading-relaxed">
+        La ruta solicitada no existe en este sistema. El recurso fue eliminado, movido o nunca existió.
+      </p>
+
+      <div class="mt-4 border border-border/30 bg-surface/30 p-4 text-left">
+        <pre class="mono text-[11px] text-text-dim leading-relaxed"><span class="text-red-400">></span> <span class="text-cyan">system</span>@mission-control:~$ locate resource
+<span class="text-red-400">ERROR:</span> Resource not found in filesystem.
+<span class="text-text-dim">HINT:</span> Try navigating to a valid route.</pre>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-4 mt-10">
+        <a href="/" class="px-8 py-3 bg-cyan text-void mono text-[11px] tracking-[0.2em] font-bold uppercase btn-primary">
+          [ VOLVER AL INICIO ]
+        </a>
+        <a href="/work" class="px-8 py-3 border border-border text-text-primary mono text-[11px] tracking-[0.2em] uppercase btn-secondary">
+          [ VER PROYECTOS ]
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>

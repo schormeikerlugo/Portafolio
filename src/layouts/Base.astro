@@ -127,6 +127,25 @@ const { title, description, lang = 'es', jsonLd, keywords, ogImage, ogType, arti
 
         window.addEventListener('scroll', updateBtn, { passive: true });
         btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        // Code copy buttons
+        document.querySelectorAll('.code-copy-btn').forEach((btn) => {
+          btn.addEventListener('click', async () => {
+            const code = (btn as HTMLElement).dataset.code || '';
+            try {
+              await navigator.clipboard.writeText(code);
+              btn.textContent = 'COPIED ✓';
+              btn.classList.add('copied');
+              setTimeout(() => {
+                btn.textContent = 'COPY';
+                btn.classList.remove('copied');
+              }, 2000);
+            } catch {
+              btn.textContent = 'ERROR';
+              setTimeout(() => { btn.textContent = 'COPY'; }, 1500);
+            }
+          });
+        });
       });
     </script>
 

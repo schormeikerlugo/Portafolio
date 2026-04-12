@@ -1,0 +1,133 @@
+---
+import { type Lang } from '../i18n';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'es' } = Astro.props;
+
+const categories = [
+  {
+    label: lang === 'en' ? 'Design' : 'Diseño',
+    color: '#a78bfa',
+    tools: [
+      { name: 'Figma', level: 95 },
+      { name: 'Adobe Suite', level: 85 },
+      { name: 'Prototyping', level: 92 },
+      { name: 'User Research', level: 80 },
+    ],
+  },
+  {
+    label: 'Frontend',
+    color: '#00e5ff',
+    tools: [
+      { name: 'React', level: 95 },
+      { name: 'Astro', level: 90 },
+      { name: 'TypeScript', level: 85 },
+      { name: 'Tailwind CSS', level: 95 },
+      { name: 'HTML/CSS', level: 98 },
+    ],
+  },
+  {
+    label: 'Backend',
+    color: '#fbbf24',
+    tools: [
+      { name: 'Supabase', level: 75 },
+      { name: 'PostgreSQL', level: 60 },
+      { name: 'Node.js', level: 50 },
+      { name: 'REST APIs', level: 65 },
+    ],
+  },
+  {
+    label: lang === 'en' ? 'AI & Tools' : 'IA & Herramientas',
+    color: '#f87171',
+    tools: [
+      { name: 'Prompt Engineering', level: 90 },
+      { name: 'Ollama / LLMs', level: 80 },
+      { name: 'Stable Diffusion', level: 85 },
+      { name: 'Git / Docker', level: 70 },
+      { name: 'Linux / Neovim', level: 88 },
+    ],
+  },
+];
+---
+
+<section class="py-24 lg:py-32 px-6 border-t border-border overflow-hidden">
+  <div class="max-w-[1400px] mx-auto">
+    <div class="mb-16 section-header" data-animate>
+      <span class="mono text-[10px] text-cyan/60 tracking-[0.3em] uppercase">
+        {lang === 'en' ? '0X06 // TECHNOLOGY_MAP' : '0X06 // MAPA_TECNOLÓGICO'}
+      </span>
+      <h2 class="text-4xl sm:text-5xl lg:text-6xl font-sans font-black text-text-primary mt-4">
+        {lang === 'en' ? 'Technology Stack.' : 'Stack Tecnológico.'}
+      </h2>
+      <p class="text-text-secondary font-sans text-lg max-w-2xl mt-6 leading-relaxed">
+        {lang === 'en'
+          ? 'A visual map of the tools I use daily. Each bar reflects real proficiency through years of professional practice.'
+          : 'Un mapa visual de las herramientas que utilizo a diario. Cada barra refleja dominio real a través de años de práctica profesional.'}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8" data-animate-group>
+      {categories.map((cat) => (
+        <div class="tech-category group border border-border/30 bg-surface/20 overflow-hidden hover:border-white/15 transition-all duration-300" data-animate-stagger>
+          <!-- Category Header -->
+          <div class="px-6 py-4 border-b border-border/20 flex items-center justify-between" style={`background: ${cat.color}06`}>
+            <div class="flex items-center gap-3">
+              <div class="w-2 h-2 rounded-full animate-pulse" style={`background: ${cat.color}`}></div>
+              <span class="mono text-xs tracking-widest uppercase font-bold" style={`color: ${cat.color}`}>{cat.label}</span>
+            </div>
+            <span class="mono text-[9px] text-text-dim">{cat.tools.length} {lang === 'en' ? 'TOOLS' : 'HERRAMIENTAS'}</span>
+          </div>
+
+          <!-- Tools -->
+          <div class="p-6 space-y-5">
+            {cat.tools.map((tool) => (
+              <div class="tech-tool-item">
+                <div class="flex items-center justify-between mb-2">
+                  <span class="font-sans text-sm text-text-primary font-medium">{tool.name}</span>
+                  <span class="mono text-[10px] font-bold" style={`color: ${cat.color}`}>{tool.level}%</span>
+                </div>
+                <div class="h-1.5 bg-white/5 rounded-full overflow-hidden relative">
+                  <div
+                    class="tech-progress h-full rounded-full absolute left-0 top-0 transition-all duration-1000"
+                    data-progress={tool.level}
+                    style={`width: 0%; background: linear-gradient(90deg, ${cat.color}40, ${cat.color})`}
+                  ></div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <!-- HUD corners on hover -->
+          <div class="absolute top-1 left-1 w-3 h-3 border-t border-l opacity-0 group-hover:opacity-100 transition-opacity" style={`border-color: ${cat.color}40`}></div>
+          <div class="absolute bottom-1 right-1 w-3 h-3 border-b border-r opacity-0 group-hover:opacity-100 transition-opacity" style={`border-color: ${cat.color}40`}></div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  function initTechProgress() {
+    const bars = document.querySelectorAll('.tech-progress');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const bar = entry.target as HTMLElement;
+            const progress = bar.dataset.progress || '0';
+            setTimeout(() => {
+              bar.style.width = `${progress}%`;
+            }, 150);
+            observer.unobserve(bar);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    bars.forEach((bar) => observer.observe(bar));
+  }
+  document.addEventListener('astro:page-load', initTechProgress);
+</script>

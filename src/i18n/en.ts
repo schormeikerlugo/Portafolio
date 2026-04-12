@@ -19,7 +19,7 @@ export default {
     rightLabel: "import { Portfolio } from '@sl'",
   },
   problems: {
-    tag: '0X01 // TECHNICAL_DIAGNOSIS',
+    tag: '0X04 // TECHNICAL_DIAGNOSIS',
     title: 'Problems I Solve.',
     description:
       'Before building, I analyze. I identify the structural failure points that prevent a digital product from scaling efficiently.',
@@ -49,7 +49,7 @@ export default {
     ],
   },
   skills: {
-    tag: '0X02 // TECHNICAL_COMPETENCIES',
+    tag: '0X05 // TECHNICAL_COMPETENCIES',
     title: 'Technical Competencies.',
     description:
       'Technology stack and design capabilities consolidated over 7+ years of professional experience.',
@@ -57,7 +57,7 @@ export default {
     consoleDetected: '> DETECTED:',
   },
   metrics: {
-    tag: 'PERFORMANCE INDICATORS',
+    tag: '0X04 // PERFORMANCE_INDICATORS',
     title: 'Results.',
     items: [
       {
@@ -87,12 +87,12 @@ export default {
     ],
   },
   featured: {
-    tag: '0X02 // SELECTED_WORK',
-    title: 'Selected Work.',
+    tag: '0X01 // PORTFOLIO',
+    title: 'What I\'ve Built.',
     viewAll: '[ VIEW ALL PROJECTS ]',
   },
   services: {
-    tag: '0X05 // AREAS_OF_EXPERTISE',
+    tag: '0X02 // AREAS_OF_EXPERTISE',
     title: 'How I Can Help.',
     description:
       'Execution protocols designed to eliminate technical uncertainty and guarantee measurable results.',
@@ -238,7 +238,7 @@ export default {
     ],
   },
   work: {
-    tag: '0X02 // PROJECT_ARCHIVE',
+    tag: '0X05 // PROJECT_ARCHIVE',
     title: 'Projects.',
     description:
       '{count} design and development projects. Each one solves a specific structural problem.',
@@ -641,7 +641,7 @@ export default {
     },
   },
   servicesPage: {
-    pageTag: '0X05 // PROFESSIONAL_SERVICES',
+    pageTag: '0X02 // PROFESSIONAL_SERVICES',
     pageTitle: 'How I Can Help.',
     pageDescription:
       'Each service is designed to solve a specific problem in your digital product. No generic solutions — only execution protocols adapted to your real needs.',

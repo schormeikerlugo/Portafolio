@@ -148,7 +148,8 @@ function colorize(segment: string): string {
               );
             } else if (block.type === 'code') {
               return (
-                <div class="my-8" data-animate-stagger>
+                <div class="my-8 code-block-wrap" data-animate-stagger>
+                  <button class="code-copy-btn" data-code={block.value}>COPY</button>
                   <pre class="bg-white/[0.02] border border-white/10 p-4 sm:p-6 overflow-x-auto text-left" style="-webkit-overflow-scrolling:touch"><code class="mono text-[10px] sm:text-xs text-white/60 leading-relaxed whitespace-pre">{block.value}</code></pre>
                 </div>
               );

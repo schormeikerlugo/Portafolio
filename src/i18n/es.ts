@@ -19,7 +19,7 @@ export default {
     rightLabel: "import { Portfolio } from '@sl'",
   },
   problems: {
-    tag: '0X01 // DIAGNÓSTICO_TÉCNICO',
+    tag: '0X04 // DIAGNÓSTICO_TÉCNICO',
     title: 'Problemas que Resuelvo.',
     description:
       'Antes de construir, analizo. Identifico los puntos de fallo estructurales que impiden a un producto digital escalar con eficiencia.',
@@ -49,7 +49,7 @@ export default {
     ],
   },
   skills: {
-    tag: '0X02 // COMPETENCIAS_TÉCNICAS',
+    tag: '0X05 // COMPETENCIAS_TÉCNICAS',
     title: 'Competencias Técnicas.',
     description:
       'Stack tecnológico y capacidades de diseño consolidadas en +7 años de experiencia profesional.',
@@ -57,7 +57,7 @@ export default {
     consoleDetected: '> DETECTED:',
   },
   metrics: {
-    tag: 'INDICADORES DE RENDIMIENTO',
+    tag: '0X04 // INDICADORES_DE_RENDIMIENTO',
     title: 'Resultados.',
     items: [
       {
@@ -87,12 +87,12 @@ export default {
     ],
   },
   featured: {
-    tag: '0X02 // TRABAJO_SELECCIONADO',
-    title: 'Trabajo Seleccionado.',
+    tag: '0X01 // PORTAFOLIO',
+    title: 'Lo que He Construido.',
     viewAll: '[ VER TODOS LOS PROYECTOS ]',
   },
   services: {
-    tag: '0X05 // ÁREAS_DE_ESPECIALIZACIÓN',
+    tag: '0X02 // ÁREAS_DE_ESPECIALIZACIÓN',
     title: 'Cómo Puedo Ayudarte.',
     description:
       'Protocolos de ejecución diseñados para eliminar la incertidumbre técnica y garantizar resultados medibles.',
@@ -148,7 +148,7 @@ export default {
     telemetryTitle: 'Especificaciones Técnicas.',
   },
   work: {
-    tag: '0X02 // ARCHIVO_DE_PROYECTOS',
+    tag: '0X05 // ARCHIVO_DE_PROYECTOS',
     title: 'Proyectos.',
     description:
       '{count} proyectos de diseño y desarrollo. Cada uno resuelve un problema estructural específico.',
