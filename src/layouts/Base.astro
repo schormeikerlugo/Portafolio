@@ -49,6 +49,14 @@ const { title, description, lang = 'es', jsonLd, keywords, ogImage, ogType, arti
 
     <Footer lang={lang} />
 
+    <!-- Vercel Analytics + Speed Insights -->
+    <script>
+      import { inject } from '@vercel/analytics';
+      import { injectSpeedInsights } from '@vercel/speed-insights';
+      inject();
+      injectSpeedInsights();
+    </script>
+
     <!-- Scroll to Top Button — Valorant HUD style (hidden when near footer) -->
     <button
       id="scroll-top"
