@@ -1,39 +1,62 @@
 ---
 import Base from '../layouts/Base.astro';
 import MatrixRain from '../components/react/MatrixRain';
-import { t, type Lang } from '../i18n';
-
-const lang: Lang = 'es';
 ---
 
 <Base lang="es" title="404" description="Página no encontrada">
   <section class="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
-    <!-- Matrix Rain background -->
+    <!-- Matrix Rain background (more intense) -->
     <div class="absolute inset-0 pointer-events-none z-0">
-      <MatrixRain opacity={0.2} client:visible />
+      <MatrixRain opacity={0.4} client:visible />
     </div>
-    <div class="absolute inset-0 pointer-events-none z-[1] backdrop-blur-[2px] bg-void/30"></div>
+    <div class="absolute inset-0 pointer-events-none z-[1] backdrop-blur-[1px] bg-void/20"></div>
 
-    <div class="relative z-10 text-center max-w-lg">
-      <div class="mono text-[10px] text-red-400/80 tracking-[0.4em] uppercase mb-6 animate-pulse">
-        ERROR_404 // PAGE_NOT_FOUND
+    <!-- Scanlines -->
+    <div class="absolute inset-0 pointer-events-none z-[2] error-scanlines"></div>
+
+    <!-- Screen flicker -->
+    <div class="absolute inset-0 pointer-events-none z-[3] error-flicker"></div>
+
+    <div class="relative z-10 text-center max-w-2xl">
+      <!-- Error badge -->
+      <div class="error-badge mono text-[10px] text-red-400 tracking-[0.5em] uppercase mb-8">
+        <span class="error-blink">●</span> CRITICAL_SYSTEM_FAILURE <span class="error-blink">●</span>
       </div>
 
-      <h1 class="text-[clamp(4rem,20vw,10rem)] font-sans font-black text-text-primary leading-none tracking-tighter">
-        4<span class="text-cyan">0</span>4
-      </h1>
-
-      <p class="text-text-secondary font-sans text-lg mt-6 leading-relaxed">
-        La ruta solicitada no existe en este sistema. El recurso fue eliminado, movido o nunca existió.
-      </p>
-
-      <div class="mt-4 border border-border/30 bg-surface/30 p-4 text-left">
-        <pre class="mono text-[11px] text-text-dim leading-relaxed"><span class="text-red-400">></span> <span class="text-cyan">system</span>@mission-control:~$ locate resource
-<span class="text-red-400">ERROR:</span> Resource not found in filesystem.
-<span class="text-text-dim">HINT:</span> Try navigating to a valid route.</pre>
+      <!-- 404 number with aggressive glitch -->
+      <div class="error-number-wrap mb-6">
+        <h1 class="error-404 text-[clamp(5rem,25vw,14rem)] font-sans font-black leading-none tracking-tighter select-none" data-text="404">
+          4<span class="text-cyan error-zero">0</span>4
+        </h1>
       </div>
 
-      <div class="flex flex-wrap justify-center gap-4 mt-10">
+      <!-- Typewriter error label -->
+      <div class="mono text-sm sm:text-base text-red-400/60 tracking-[0.3em] uppercase mb-8 h-6">
+        <span id="error-typewriter"></span><span class="error-cursor">_</span>
+      </div>
+
+      <!-- Terminal diagnostic block -->
+      <div class="error-terminal border border-red-500/20 bg-red-500/[0.02] p-6 text-left mb-10 relative overflow-hidden">
+        <!-- Terminal header -->
+        <div class="flex items-center gap-3 mb-4 pb-3 border-b border-red-500/10">
+          <div class="flex gap-1.5">
+            <div class="w-2 h-2 rounded-full bg-red-500/60 animate-pulse"></div>
+            <div class="w-2 h-2 rounded-full bg-yellow-500/40"></div>
+            <div class="w-2 h-2 rounded-full bg-white/10"></div>
+          </div>
+          <span class="mono text-[9px] text-red-400/40 tracking-widest">SYSTEM_DIAGNOSTIC.SH</span>
+        </div>
+
+        <div id="terminal-output" class="mono text-[11px] sm:text-xs leading-relaxed space-y-1 min-h-[120px]">
+          <!-- Lines will be typed in by JS -->
+        </div>
+
+        <!-- Scanline inside terminal -->
+        <div class="absolute top-0 left-0 w-full h-[1px] bg-red-500/10 animate-scanline pointer-events-none"></div>
+      </div>
+
+      <!-- Action buttons -->
+      <div class="flex flex-wrap justify-center gap-4 error-buttons">
         <a href="/" class="px-8 py-3 bg-cyan text-void mono text-[11px] tracking-[0.2em] font-bold uppercase btn-primary">
           [ VOLVER AL INICIO ]
         </a>
@@ -41,6 +64,205 @@ const lang: Lang = 'es';
           [ VER PROYECTOS ]
         </a>
       </div>
+
+      <!-- Footer error code -->
+      <div class="mt-12 mono text-[9px] text-white/10 tracking-[0.3em] uppercase">
+        DUMP_REF: 0xDEAD_C0DE // STACK_TRACE: NULL // PID: 404
+      </div>
     </div>
   </section>
 </Base>
+
+<style is:global>
+  /* ── 404 Aggressive Glitch ── */
+  .error-404 {
+    position: relative;
+    animation: error-glitch 3s infinite;
+  }
+  .error-404::before,
+  .error-404::after {
+    content: '404';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .error-404::before {
+    color: #f87171;
+    animation: error-glitch-1 2s infinite;
+    z-index: -1;
+  }
+  .error-404::after {
+    color: #00e5ff;
+    animation: error-glitch-2 2.5s infinite;
+    z-index: -1;
+  }
+
+  @keyframes error-glitch {
+    0%, 85% { transform: translate(0); }
+    86% { transform: translate(-4px, 2px) skewX(2deg); }
+    88% { transform: translate(4px, -2px) skewX(-2deg); }
+    90% { transform: translate(-2px, 0) skewX(1deg); }
+    92% { transform: translate(0); }
+    93% { transform: translate(3px, -1px) skewX(-1deg); }
+    95% { transform: translate(0); }
+  }
+
+  @keyframes error-glitch-1 {
+    0%, 80% { clip-path: inset(0 0 0 0); transform: translate(0); opacity: 0; }
+    81% { clip-path: inset(20% 0 60% 0); transform: translate(-6px, 0); opacity: 0.7; }
+    83% { clip-path: inset(60% 0 10% 0); transform: translate(6px, 0); opacity: 0.7; }
+    85% { clip-path: inset(40% 0 30% 0); transform: translate(-4px, 0); opacity: 0.7; }
+    87% { clip-path: inset(10% 0 70% 0); transform: translate(8px, 0); opacity: 0.7; }
+    89%, 100% { clip-path: inset(0 0 0 0); transform: translate(0); opacity: 0; }
+  }
+
+  @keyframes error-glitch-2 {
+    0%, 75% { clip-path: inset(0 0 0 0); transform: translate(0); opacity: 0; }
+    76% { clip-path: inset(70% 0 5% 0); transform: translate(5px, 0); opacity: 0.6; }
+    78% { clip-path: inset(5% 0 70% 0); transform: translate(-5px, 0); opacity: 0.6; }
+    80% { clip-path: inset(30% 0 40% 0); transform: translate(3px, 0); opacity: 0.6; }
+    82% { clip-path: inset(50% 0 20% 0); transform: translate(-7px, 0); opacity: 0.6; }
+    84%, 100% { clip-path: inset(0 0 0 0); transform: translate(0); opacity: 0; }
+  }
+
+  /* Zero flicker */
+  .error-zero {
+    animation: zero-flicker 4s infinite;
+  }
+  @keyframes zero-flicker {
+    0%, 90% { opacity: 1; }
+    91% { opacity: 0.2; }
+    92% { opacity: 1; }
+    93% { opacity: 0.4; }
+    94% { opacity: 1; }
+    95% { opacity: 0.1; }
+    96% { opacity: 1; }
+  }
+
+  /* Error badge blink */
+  .error-blink {
+    animation: blink-red 1s infinite;
+  }
+  @keyframes blink-red {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0.2; }
+  }
+
+  /* Cursor blink */
+  .error-cursor {
+    animation: cursor-blink 0.6s infinite;
+    color: #f87171;
+  }
+  @keyframes cursor-blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+
+  /* Scanlines overlay */
+  .error-scanlines {
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.08) 2px,
+      rgba(0, 0, 0, 0.08) 4px
+    );
+  }
+
+  /* Screen flicker */
+  .error-flicker {
+    animation: screen-flicker 8s infinite;
+  }
+  @keyframes screen-flicker {
+    0%, 95% { opacity: 0; }
+    96% { opacity: 0.03; background: white; }
+    97% { opacity: 0; }
+    98% { opacity: 0.02; background: white; }
+    99% { opacity: 0; }
+  }
+
+  /* Terminal typing effect */
+  .error-terminal {
+    animation: terminal-appear 0.5s ease 1.5s both;
+  }
+  @keyframes terminal-appear {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Buttons delayed appearance */
+  .error-buttons {
+    animation: terminal-appear 0.4s ease 4s both;
+  }
+
+  /* Badge delayed appearance */
+  .error-badge {
+    animation: terminal-appear 0.3s ease 0.3s both;
+  }
+
+  .error-number-wrap {
+    animation: terminal-appear 0.4s ease 0.6s both;
+  }
+</style>
+
+<script>
+  function initError404() {
+    // Typewriter for error label
+    const typewriter = document.getElementById('error-typewriter');
+    if (!typewriter) return;
+
+    const text = 'PAGE_NOT_FOUND // ROUTE_INVALID';
+    let i = 0;
+    const typeInterval = setInterval(() => {
+      if (i < text.length) {
+        typewriter.textContent += text[i];
+        i++;
+      } else {
+        clearInterval(typeInterval);
+      }
+    }, 50);
+
+    // Terminal diagnostic lines
+    const terminal = document.getElementById('terminal-output');
+    if (!terminal) return;
+
+    const lines = [
+      { text: '> system@mission-control:~$ locate resource', color: '', delay: 2000 },
+      { text: 'Scanning filesystem...', color: 'text-text-dim', delay: 2500 },
+      { text: 'ERROR: Resource not found in /routes/*', color: 'text-red-400', delay: 3200 },
+      { text: 'WARN: No fallback route configured', color: 'text-yellow-500/70', delay: 3800 },
+      { text: '> Checking cache... MISS', color: 'text-text-dim', delay: 4200 },
+      { text: '> Checking CDN... MISS', color: 'text-text-dim', delay: 4600 },
+      { text: 'CRITICAL: All resolution strategies exhausted', color: 'text-red-400', delay: 5200 },
+      { text: '', color: '', delay: 5500 },
+      { text: 'RECOMMENDATION: Navigate to a valid route', color: 'text-cyan', delay: 5800 },
+      { text: '> Status: AWAITING_USER_INPUT...', color: 'text-text-dim', delay: 6300 },
+    ];
+
+    lines.forEach((line) => {
+      setTimeout(() => {
+        const el = document.createElement('div');
+        el.className = `mono text-[11px] sm:text-xs ${line.color}`;
+        el.style.animation = 'terminal-appear 0.2s ease both';
+
+        // Type each line character by character (fast)
+        let charIdx = 0;
+        el.textContent = '';
+        terminal.appendChild(el);
+
+        const charInterval = setInterval(() => {
+          if (charIdx < line.text.length) {
+            el.textContent += line.text[charIdx];
+            charIdx++;
+          } else {
+            clearInterval(charInterval);
+          }
+        }, 15);
+      }, line.delay);
+    });
+  }
+
+  document.addEventListener('astro:page-load', initError404);
+</script>

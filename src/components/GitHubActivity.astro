@@ -1,0 +1,111 @@
+---
+import { type Lang } from '../i18n';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'es' } = Astro.props;
+
+// Fetch GitHub data at build time
+let repos: any[] = [];
+let lastPush = '';
+let topRepo = '';
+let totalRepos = 0;
+let languages: Record<string, number> = {};
+
+try {
+  const res = await fetch('https://api.github.com/users/schormeikerlugo/repos?sort=pushed&per_page=10', {
+    headers: { 'Accept': 'application/vnd.github.v3+json' },
+  });
+  if (res.ok) {
+    repos = await res.json();
+    totalRepos = repos.length;
+
+    // Last push
+    if (repos[0]?.pushed_at) {
+      const pushDate = new Date(repos[0].pushed_at);
+      const now = new Date();
+      const diffMs = now.getTime() - pushDate.getTime();
+      const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
+      const diffDays = Math.floor(diffHours / 24);
+
+      if (diffDays > 0) {
+        lastPush = lang === 'en' ? `${diffDays}d ago` : `hace ${diffDays}d`;
+      } else if (diffHours > 0) {
+        lastPush = lang === 'en' ? `${diffHours}h ago` : `hace ${diffHours}h`;
+      } else {
+        lastPush = lang === 'en' ? 'just now' : 'ahora mismo';
+      }
+    }
+
+    // Top repo (most recently pushed, excluding portfolio)
+    const topRepoData = repos.find(r => r.name !== 'Portafolio' && r.name !== 'portafolio') || repos[0];
+    topRepo = topRepoData?.name || 'KEPLER';
+
+    // Language stats
+    repos.forEach(r => {
+      if (r.language) {
+        languages[r.language] = (languages[r.language] || 0) + 1;
+      }
+    });
+  }
+} catch (e) {
+  // Fallback
+  lastPush = lang === 'en' ? 'recently' : 'reciente';
+  topRepo = 'KEPLER';
+  totalRepos = 7;
+  languages = { JavaScript: 3, TypeScript: 1, HTML: 1, CSS: 1 };
+}
+
+const topLanguages = Object.entries(languages)
+  .sort((a, b) => b[1] - a[1])
+  .slice(0, 3)
+  .map(([name, count]) => ({ name, pct: Math.round((count / Math.max(totalRepos, 1)) * 100) }));
+---
+
+<div class="github-activity border border-border/30 bg-surface/30 px-4 sm:px-6 py-3 mb-8" data-animate>
+  <div class="flex flex-wrap items-center justify-center md:justify-between gap-x-6 gap-y-2">
+    <!-- Live indicator -->
+    <div class="flex items-center gap-2">
+      <div class="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse"></div>
+      <span class="mono text-[9px] text-text-dim uppercase tracking-widest">GitHub</span>
+    </div>
+
+    <!-- Last commit -->
+    <div class="flex items-center gap-2">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-cyan/50"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <span class="mono text-[9px] text-text-dim uppercase tracking-wider">
+        {lang === 'en' ? 'LAST COMMIT' : 'ÚLTIMO COMMIT'}:
+      </span>
+      <span class="mono text-[9px] text-cyan font-bold">{lastPush}</span>
+    </div>
+
+    <!-- Top repo -->
+    <div class="flex items-center gap-2">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-cyan/50"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      <span class="mono text-[9px] text-text-dim uppercase tracking-wider">
+        {lang === 'en' ? 'ACTIVE' : 'ACTIVO'}:
+      </span>
+      <a href={`https://github.com/schormeikerlugo/${topRepo}`} target="_blank" rel="noopener" class="mono text-[9px] text-cyan font-bold hover:text-white transition-colors">
+        {topRepo.toUpperCase()}
+      </a>
+    </div>
+
+    <!-- Repo count -->
+    <div class="flex items-center gap-2">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-cyan/50"><path d="M2 16V4a2 2 0 0 1 2-2h6l2 2h6a2 2 0 0 1 2 2v4"/><path d="M6 12l4 4 4-4"/></svg>
+      <span class="mono text-[9px] text-cyan font-bold">{totalRepos}</span>
+      <span class="mono text-[9px] text-text-dim uppercase tracking-wider">REPOS</span>
+    </div>
+
+    <!-- Languages -->
+    <div class="flex items-center gap-3 hidden sm:flex">
+      {topLanguages.map(l => (
+        <span class="mono text-[9px] text-text-dim">
+          <span class="text-text-secondary">{l.name}</span> <span class="text-cyan/60">{l.pct}%</span>
+        </span>
+      ))}
+    </div>
+  </div>
+</div>

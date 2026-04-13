@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import CardValorant from '../components/CardValorant.astro';
+import GitHubActivity from '../components/GitHubActivity.astro';
 import { projects } from '../data/content';
 import { breadcrumbSchema, collectionSchema } from '../lib/seo';
 import { t, type Lang } from '../i18n';
@@ -38,6 +39,9 @@ categories.forEach(cat => {
           {projects.length} proyectos de diseño y desarrollo. Cada uno resuelve un problema estructural específico.
         </p>
       </div>
+
+      <!-- GitHub Activity -->
+      <GitHubActivity lang={lang} />
 
       <!-- Main Filters -->
       <div class="mb-4 flex flex-wrap gap-3" data-animate>
