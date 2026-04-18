@@ -16,10 +16,10 @@ const featuredProjects = shuffled.slice(0, 6);
 
 <Base
   lang="es"
-  title="Home"
-  description="Schormeiker Lugo — Diseñador UI/UX y Desarrollador Frontend con +7 años de experiencia. Especializado en Design Systems, React, Astro e inteligencia artificial aplicada."
+  title={t(lang, 'seo.home.title')}
+  description={t(lang, 'seo.home.description')}
   keywords={['diseñador UI/UX', 'desarrollador frontend', 'React developer', 'Design Systems', 'Astro', 'portafolio', 'Venezuela', 'remoto', 'freelance']}
-  jsonLd={[personSchema(), organizationSchema(), websiteSchema(), siteNavigationSchema(lang), breadcrumbSchema([{ name: 'Home', url: 'https://schormeikerlugo.com' }])]}
+  jsonLd={[personSchema(), organizationSchema(), websiteSchema(), siteNavigationSchema(lang), breadcrumbSchema([{ name: 'Home', url: 'https://schormeiker.com' }])]}
 >
   <!-- ═══ HERO ═══ -->
   <section id="hero" class="relative min-h-screen flex items-center px-6 z-10 bg-transparent overflow-hidden">

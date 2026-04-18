@@ -241,14 +241,14 @@ export default {
   },
   seo: {
     home: {
-      title: 'Home',
+      title: 'Diseñador UI/UX & Desarrollador Frontend',
       description:
-        'Schormeiker Lugo — Diseñador UI/UX y Desarrollador Frontend con +7 años de experiencia. Especializado en Design Systems, React, Astro e inteligencia artificial aplicada.',
+        'Schormeiker Lugo — Diseñador UI/UX y Desarrollador Frontend con +7 años de experiencia y 37 proyectos completados en 6 países. Design Systems, React, Astro, Tailwind CSS e inteligencia artificial aplicada. Disponible para colaboración remota.',
     },
     about: {
-      title: 'About',
+      title: 'Sobre Mí — Experiencia y Trayectoria',
       description:
-        'Sobre Schormeiker Lugo — +7 años de experiencia en UI/UX y Frontend. Trayectoria desde diseño visual hasta ingeniería de sistemas interactivos con IA.',
+        'Conoce la trayectoria de Schormeiker Lugo — +7 años en UI/UX y Frontend. 7 empresas internacionales, certificaciones en Figma y arquitectura de información. De Venezuela al mundo.',
     },
     work: {
       title: 'Work',

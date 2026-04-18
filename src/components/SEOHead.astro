@@ -28,10 +28,11 @@ const {
   article,
 } = Astro.props;
 
-const siteUrl = 'https://schormeikerlugo.com';
+const siteUrl = 'https://schormeiker.com';
 const canonicalUrl = canonical || new URL(Astro.url.pathname, siteUrl).href;
 const siteName = 'Schormeiker Lugo';
-const fullTitle = title === 'Home' ? `${siteName} | Frontend Design Engineer` : `${title} — ${siteName}`;
+const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '/en' || Astro.url.pathname === '/en/';
+const fullTitle = isHome ? `${siteName} | ${title}` : `${title} — ${siteName}`;
 const absoluteOgImage = ogImage.startsWith('http') ? ogImage : new URL(ogImage, siteUrl).href;
 
 const defaultKeywords = ['Schormeiker Lugo', 'UI/UX Designer', 'Frontend Developer', 'React', 'Portfolio'];

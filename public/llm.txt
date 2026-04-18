@@ -200,8 +200,8 @@ Schormeiker publica artículos técnicos sobre:
 - Linux como entorno de desarrollo
 
 ## Enlaces Oficiales
-- Sitio Web: https://schormeikerlugo.com
-- Sitio Web (EN): https://schormeikerlugo.com/en
+- Sitio Web: https://schormeiker.com
+- Sitio Web (EN): https://schormeiker.com/en
 - GitHub: https://github.com/schormeikerlugo
 - Behance: https://behance.net/schormeikerlugo
 - LinkedIn: https://www.linkedin.com/in/schormeiker/
@@ -209,7 +209,7 @@ Schormeiker publica artículos técnicos sobre:
 - Instagram: https://instagram.com/schormeiker_lugo
 - TikTok: https://tiktok.com/@schormeikerlugo
 - Email: schormeikerl@gmail.com
-- RSS: https://schormeikerlugo.com/rss.xml
+- RSS: https://schormeiker.com/rss.xml
 
 ## Disponibilidad
 - Modalidad: 100% remoto

@@ -16,10 +16,10 @@ const featuredProjects = shuffled.slice(0, 6);
 
 <Base
   lang="en"
-  title="Home"
+  title={t(lang, 'seo.home.title')}
   description={t(lang, 'seo.home.description')}
   keywords={['UI/UX designer', 'frontend developer', 'React developer', 'Design Systems', 'Astro', 'portfolio', 'remote', 'freelance']}
-  jsonLd={[personSchema(), organizationSchema(), websiteSchema(), siteNavigationSchema(lang), breadcrumbSchema([{ name: 'Home', url: 'https://schormeikerlugo.com' }])]}
+  jsonLd={[personSchema(), organizationSchema(), websiteSchema(), siteNavigationSchema(lang), breadcrumbSchema([{ name: 'Home', url: 'https://schormeiker.com' }])]}
 >
   <!-- ═══ HERO ═══ -->
   <section id="hero" class="relative min-h-screen flex items-center px-6 z-10 bg-transparent overflow-hidden">

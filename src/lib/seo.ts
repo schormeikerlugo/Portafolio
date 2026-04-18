@@ -1,4 +1,4 @@
-const SITE = 'https://schormeikerlugo.com';
+const SITE = 'https://schormeiker.com';
 const AUTHOR = 'Schormeiker Lugo';
 
 export function personSchema() {
