@@ -28,21 +28,18 @@ export default function MatrixRain({ opacity = 0.35 }: MatrixRainProps) {
 
     const layers = isMobile
       ? [
-          { fontSize: 10, speed: 0.002, opacity: 0.20, tailLength: 22 },
-          { fontSize: 14, speed: 0.003, opacity: 0.30, tailLength: 28 },
-          { fontSize: 20, speed: 0.004, opacity: 0.40, tailLength: 34 },
-          { fontSize: 28, speed: 0.005, opacity: 0.25, tailLength: 18 },
+          { fontSize: 14, speed: 0.003, opacity: 0.30, tailLength: 24 },
+          { fontSize: 22, speed: 0.004, opacity: 0.40, tailLength: 30 },
         ]
       : [
-          { fontSize: 8, speed: 0.0015, opacity: 0.06, tailLength: 15 },
-          { fontSize: 14, speed: 0.002, opacity: 0.1, tailLength: 22 },
-          { fontSize: 24, speed: 0.004, opacity: 0.26, tailLength: 32 },
-          { fontSize: 42, speed: 0.006, opacity: 0.4, tailLength: 42 },
-          { fontSize: 56, speed: 0.008, opacity: 0.18, tailLength: 20 },
+          { fontSize: 10, speed: 0.0015, opacity: 0.08, tailLength: 18 },
+          { fontSize: 20, speed: 0.003, opacity: 0.18, tailLength: 26 },
+          { fontSize: 34, speed: 0.005, opacity: 0.35, tailLength: 36 },
+          { fontSize: 52, speed: 0.007, opacity: 0.25, tailLength: 22 },
         ];
 
     const drops = layers.map((layer) => {
-      const colSpacing = isMobile ? layer.fontSize * 1.8 : layer.fontSize * 2.5;
+      const colSpacing = isMobile ? layer.fontSize * 2.2 : layer.fontSize * 2.5;
       const columns = Math.ceil(width / colSpacing);
       return new Array(columns).fill(0).map(() => Math.random() * -100);
     });
@@ -119,8 +116,13 @@ export default function MatrixRain({ opacity = 0.35 }: MatrixRainProps) {
     );
     if (container) observer.observe(container);
 
+    // Throttle on mobile: render every other frame to save CPU
+    let frameCount = 0;
+    const skipFrames = isMobile ? 2 : 1;
+
     const tick = () => {
-      if (isInView) draw();
+      frameCount++;
+      if (isInView && frameCount % skipFrames === 0) draw();
       animId = requestAnimationFrame(tick);
     };
     animId = requestAnimationFrame(tick);

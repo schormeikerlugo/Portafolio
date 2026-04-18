@@ -32,7 +32,7 @@ const featuredProjects = shuffled.slice(0, 6);
     <div id="hero-backdrop" class="absolute inset-0 pointer-events-none z-[1] hero-backdrop opacity-0 transition-opacity duration-1000"></div>
 
     <!-- Vertical Labels (desktop) -->
-    <div class="absolute top-0 bottom-0 left-2 md:left-4 lg:left-6 z-20 pointer-events-none hidden md:flex items-center hero-element" data-hero-delay="2800">
+    <div class="absolute top-0 bottom-0 left-2 md:left-4 lg:left-6 z-20 pointer-events-none hidden md:flex items-center hero-element" data-hero-delay="1800">
       <div class="flex items-center gap-3" style="writing-mode: vertical-rl; text-orientation: mixed; transform: rotate(180deg)">
         <span class="w-1.5 h-1.5 rounded-full bg-cyan shadow-[0_0_6px_rgba(0,229,255,0.6)] animate-pulse"></span>
         <span class="mono text-[10px] text-cyan/40 tracking-[0.5em] uppercase font-bold whitespace-nowrap">
@@ -42,7 +42,7 @@ const featuredProjects = shuffled.slice(0, 6);
       </div>
     </div>
 
-    <div class="absolute top-0 bottom-0 right-2 md:right-4 lg:right-6 z-20 pointer-events-none hidden md:flex items-center hero-element" data-hero-delay="2800">
+    <div class="absolute top-0 bottom-0 right-2 md:right-4 lg:right-6 z-20 pointer-events-none hidden md:flex items-center hero-element" data-hero-delay="1800">
       <div class="flex items-center gap-3" style="writing-mode: vertical-rl; text-orientation: mixed">
         <span class="w-1.5 h-1.5 rounded-full bg-cyan shadow-[0_0_6px_rgba(0,229,255,0.6)] animate-pulse"></span>
         <span class="mono text-[10px] text-cyan/40 tracking-[0.5em] uppercase font-bold whitespace-nowrap">
@@ -55,25 +55,25 @@ const featuredProjects = shuffled.slice(0, 6);
     <!-- Main Content -->
     <div class="max-w-[1400px] mx-auto w-full flex flex-col items-center justify-center text-center relative z-10 px-4">
       <div class="flex flex-col items-center w-full">
-        <div class="mono text-xs tracking-[0.2em] text-cyan mb-6 hero-element" data-hero-delay="1200">
+        <div class="mono text-xs tracking-[0.2em] text-cyan mb-6 hero-element" data-hero-delay="400">
           {t(lang, 'hero.include')}
         </div>
 
-        <div class="min-h-[100px] sm:min-h-[120px] md:min-h-[140px] flex items-center justify-center w-full hero-element" data-hero-delay="1500">
+        <div class="min-h-[100px] sm:min-h-[120px] md:min-h-[140px] flex items-center justify-center w-full hero-element" data-hero-delay="600">
           <h1 class="relative text-[clamp(1.5rem,8vw,6rem)] font-sans text-text-primary font-bold leading-none tracking-tighter mix-blend-plus-lighter whitespace-nowrap">
-            <CipherText text="Schormeiker Lugo" delay={1.8} duration={1.0} />
+            <CipherText text="Schormeiker Lugo" delay={0.7} duration={0.8} />
           </h1>
         </div>
 
-        <h2 class="text-base sm:text-lg mono text-text-secondary uppercase tracking-widest mb-8 hero-element" data-hero-delay="2200">
+        <h2 class="text-base sm:text-lg mono text-text-secondary uppercase tracking-widest mb-8 hero-element" data-hero-delay="1200">
           {t(lang, 'hero.subtitle')}
         </h2>
 
-        <p class="font-sans text-base sm:text-xl text-text-secondary max-w-2xl leading-relaxed mb-12 mx-auto hero-element" data-hero-delay="2500">
+        <p class="font-sans text-base sm:text-xl text-text-secondary max-w-2xl leading-relaxed mb-12 mx-auto hero-element" data-hero-delay="1500">
           {t(lang, 'hero.description')}
         </p>
 
-        <div class="flex flex-wrap items-center justify-center gap-6 hero-element" data-hero-delay="2800">
+        <div class="flex flex-wrap items-center justify-center gap-6 hero-element" data-hero-delay="1800">
           <a href="/about" class="px-8 py-3 bg-cyan text-void mono text-[11px] tracking-[0.2em] font-bold uppercase btn-primary">
             {t(lang, 'hero.cta1')}
           </a>
@@ -88,7 +88,7 @@ const featuredProjects = shuffled.slice(0, 6);
     </div>
 
     <!-- Chevron -->
-    <div class="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 hero-element" data-hero-delay="3200">
+    <div class="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 hero-element" data-hero-delay="2200">
       <div class="flex flex-col items-center gap-1 animate-chevron-pulse">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-cyan/40"><polyline points="6 9 12 15 18 9"/></svg>
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-cyan/20"><polyline points="6 9 12 15 18 9"/></svg>
@@ -274,10 +274,10 @@ const featuredProjects = shuffled.slice(0, 6);
     const backdrop = document.getElementById('hero-backdrop');
     const elements = document.querySelectorAll('.hero-element');
 
-    // Fade in backdrop first
+    // Fade in backdrop immediately
     setTimeout(() => {
       if (backdrop) backdrop.style.opacity = '1';
-    }, 800);
+    }, 200);
 
     // Sequentially reveal each element based on data-hero-delay
     elements.forEach((el) => {

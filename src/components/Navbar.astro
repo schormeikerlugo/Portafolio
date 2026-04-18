@@ -25,7 +25,7 @@ const toggleLang = lang === 'es' ? 'en' : 'es';
 const logoHref = lang === 'en' ? '/en' : '/';
 ---
 
-<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 px-6 transition-all duration-300" style="background: transparent;">
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 px-6 transition-all duration-300 navbar-entry" style="background: transparent;">
   <div class="max-w-[1400px] mx-auto flex items-center justify-between h-14">
     <!-- Logo -->
     <a href={logoHref} class="flex items-center gap-1.5 group">
@@ -38,7 +38,8 @@ const logoHref = lang === 'en' ? '/en' : '/';
     <div class="hidden md:flex items-center">
       <div class="flex items-center gap-0 mr-6">
         {NAV_LINKS.map(({ label, path }) => {
-          const isActive = path === '/' ? currentPath === '/' : currentPath.startsWith(path);
+          const isWork = path.endsWith('/work') && (currentPath.startsWith(path) || currentPath.includes('/portfolio/'));
+          const isActive = path === '/' ? currentPath === '/' : (isWork || currentPath.startsWith(path));
           return (
             <a
               href={path}
@@ -89,7 +90,8 @@ const logoHref = lang === 'en' ? '/en' : '/';
   <div class="flex flex-col items-center justify-center h-full gap-8">
     {NAV_LINKS.map(({ label, path }) => {
       const homePath = lang === 'en' ? '/en' : '/';
-      const isActive = path === homePath ? (currentPath === '/' || currentPath === '/en' || currentPath === '/en/') : currentPath.startsWith(path);
+      const isWork = path.endsWith('/work') && (currentPath.startsWith(path) || currentPath.includes('/portfolio/'));
+      const isActive = path === homePath ? (currentPath === '/' || currentPath === '/en' || currentPath === '/en/') : (isWork || currentPath.startsWith(path));
       return (
         <a
           href={path}
@@ -120,6 +122,16 @@ const logoHref = lang === 'en' ? '/en' : '/';
     const navbar = document.getElementById('navbar');
     if (!navbar) return;
 
+    // Entry animation only on very first page load
+    if (sessionStorage.getItem('navbar-loaded')) {
+      navbar.classList.remove('navbar-entry');
+    } else {
+      navbar.addEventListener('animationend', () => {
+        navbar.classList.remove('navbar-entry');
+        sessionStorage.setItem('navbar-loaded', '1');
+      }, { once: true });
+    }
+
     let lastY = 0;
     let ticking = false;
 
@@ -129,18 +141,24 @@ const logoHref = lang === 'en' ? '/en' : '/';
           const currentY = window.scrollY;
           const atTop = currentY < 20;
 
+          // Blur: transparent at top, blurred anywhere else
           if (atTop) {
-            navbar.style.transform = 'translateY(0)';
             navbar.style.background = 'transparent';
             navbar.style.backdropFilter = 'none';
             navbar.style.webkitBackdropFilter = 'none';
             navbar.style.borderBottom = 'none';
-          } else if (currentY < lastY - 5) {
-            navbar.style.transform = 'translateY(0)';
+          } else {
             navbar.style.background = 'rgba(0, 0, 0, 0.65)';
             navbar.style.backdropFilter = 'blur(20px)';
             navbar.style.webkitBackdropFilter = 'blur(20px)';
             navbar.style.borderBottom = '1px solid rgba(255, 255, 255, 0.06)';
+          }
+
+          // Visibility: hide on scroll down, show on scroll up
+          if (atTop) {
+            navbar.style.transform = 'translateY(0)';
+          } else if (currentY < lastY - 5) {
+            navbar.style.transform = 'translateY(0)';
           } else if (currentY > lastY + 5) {
             navbar.style.transform = 'translateY(-100%)';
           }
