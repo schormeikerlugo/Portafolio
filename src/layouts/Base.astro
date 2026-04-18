@@ -154,6 +154,36 @@ const { title, description, lang = 'es', jsonLd, keywords, ogImage, ogType, arti
             }
           });
         });
+
+        // Terminal diagnostic typing
+        document.querySelectorAll('.terminal-text').forEach((el) => {
+          const pre = el as HTMLElement;
+          const fullText = pre.dataset.terminalText || '';
+          const cursor = pre.parentElement?.querySelector('.terminal-cursor');
+          if (!fullText) { pre.textContent = ''; return; }
+
+          pre.textContent = '';
+
+          const observer = new IntersectionObserver(([entry]) => {
+            if (entry.isIntersecting) {
+              observer.disconnect();
+              let i = 0;
+              const speed = Math.max(2, Math.min(8, 800 / fullText.length));
+              const type = () => {
+                if (i < fullText.length) {
+                  const chunk = Math.min(3, fullText.length - i);
+                  pre.textContent += fullText.substring(i, i + chunk);
+                  i += chunk;
+                  setTimeout(type, speed);
+                } else {
+                  cursor?.classList.add('done');
+                }
+              };
+              type();
+            }
+          }, { threshold: 0.2 });
+          observer.observe(pre);
+        });
       });
     </script>
 

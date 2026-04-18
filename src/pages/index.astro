@@ -6,7 +6,7 @@ import Skills from '../sections/Skills.astro';
 import Process from '../sections/Process.astro';
 import { projects, protocols, anomalies } from '../data/content';
 import { articles } from '../data/articles';
-import { personSchema, organizationSchema, websiteSchema, breadcrumbSchema } from '../lib/seo';
+import { personSchema, organizationSchema, websiteSchema, breadcrumbSchema, siteNavigationSchema } from '../lib/seo';
 import { t, type Lang } from '../i18n';
 
 const lang: Lang = 'es';
@@ -19,7 +19,7 @@ const featuredProjects = shuffled.slice(0, 6);
   title="Home"
   description="Schormeiker Lugo — Diseñador UI/UX y Desarrollador Frontend con +7 años de experiencia. Especializado en Design Systems, React, Astro e inteligencia artificial aplicada."
   keywords={['diseñador UI/UX', 'desarrollador frontend', 'React developer', 'Design Systems', 'Astro', 'portafolio', 'Venezuela', 'remoto', 'freelance']}
-  jsonLd={[personSchema(), organizationSchema(), websiteSchema(), breadcrumbSchema([{ name: 'Home', url: 'https://schormeikerlugo.com' }])]}
+  jsonLd={[personSchema(), organizationSchema(), websiteSchema(), siteNavigationSchema(lang), breadcrumbSchema([{ name: 'Home', url: 'https://schormeikerlugo.com' }])]}
 >
   <!-- ═══ HERO ═══ -->
   <section id="hero" class="relative min-h-screen flex items-center px-6 z-10 bg-transparent overflow-hidden">

@@ -1,0 +1,30 @@
+/* TEAM */
+
+Designer & Developer: Schormeiker Lugo
+Role: UI/UX Designer & Frontend Developer
+Location: Caracas, Venezuela
+Contact: schormeikerl [at] gmail.com
+LinkedIn: https://www.linkedin.com/in/schormeiker/
+GitHub: https://github.com/schormeikerlugo
+Behance: https://behance.net/schormeikerlugo
+
+/* SITE */
+
+Last update: 2026/04/17
+Language: Spanish / English
+Framework: Astro 5
+Styling: Tailwind CSS 4
+Hosting: Vercel
+Standards: HTML5, CSS3, ES6+
+Components: React (islands), Vanilla JS
+SEO: JSON-LD, Sitemap, RSS, llm.txt
+Performance: Static Site Generation (SSG)
+Accessibility: WCAG 2.1 AA
+
+/* THANKS */
+
+Fonts: Geist (Vercel), JetBrains Mono
+Icons: Inline SVG (hand-coded)
+Animations: CSS native + IntersectionObserver
+3D: Matrix Rain (Canvas API)
+Analytics: Vercel Analytics & Speed Insights

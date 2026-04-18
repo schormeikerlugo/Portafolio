@@ -81,6 +81,16 @@ const ogLocale = lang === 'en' ? 'en_US' : 'es_ES';
 <!-- RSS -->
 <link rel="alternate" type="application/rss+xml" title={`${siteName} Blog`} href="/rss.xml" />
 
+<!-- LLM & Humans -->
+<link rel="author" href="/humans.txt" />
+<link rel="help" href="/llm.txt" />
+
+<!-- Geo Tags -->
+<meta name="geo.region" content="VE-DC" />
+<meta name="geo.placename" content="Caracas, Venezuela" />
+<meta name="geo.position" content="10.4806;-66.9036" />
+<meta name="ICBM" content="10.4806, -66.9036" />
+
 {jsonLd && (
   <script type="application/ld+json" set:html={JSON.stringify(Array.isArray(jsonLd) ? jsonLd : [jsonLd])} />
 )}

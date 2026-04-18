@@ -3,6 +3,8 @@ import Base from '../../layouts/Base.astro';
 import { projects } from '../../data/content';
 import { projectSchema, breadcrumbSchema } from '../../lib/seo';
 import { t, type Lang } from '../../i18n';
+import ProjectWorkflow from '../../components/ProjectWorkflow.astro';
+import { getProjectMeta } from '../../data/projectMeta';
 
 const lang: Lang = 'es';
 
@@ -15,6 +17,8 @@ export function getStaticPaths() {
 
 const { project } = Astro.props;
 const idString = String(project.id).padStart(2, '0');
+const meta = getProjectMeta(project.id);
+const isEn = lang === 'en';
 const prevProject = projects.find(p => p.id === project.id - 1);
 const nextProject = projects.find(p => p.id === project.id + 1);
 ---
@@ -71,6 +75,33 @@ const nextProject = projects.find(p => p.id === project.id + 1);
         />
       </div>
 
+      <!-- Role -->
+      {meta && (
+        <div class="mb-8" data-animate>
+          <span class="mono text-[10px] text-cyan/60 tracking-widest uppercase">{isEn ? 'MY ROLE' : 'MI ROL'}</span>
+          <div class="flex flex-wrap gap-2 mt-3">
+            {(isEn ? meta.roleEn : meta.role).map((r) => (
+              <span class="mono text-[9px] px-3 py-1.5 border border-cyan/20 text-cyan bg-cyan/5 uppercase tracking-wider">{r}</span>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <!-- Impact metrics -->
+      {meta?.metrics && meta.metrics.length > 0 && (
+        <div class="mb-16" data-animate>
+          <span class="mono text-[10px] text-cyan/60 tracking-widest uppercase">{isEn ? 'IMPACT' : 'IMPACTO'}</span>
+          <div class="flex flex-wrap gap-4 mt-3">
+            {meta.metrics.map((m) => (
+              <div class="border border-border/30 bg-surface/30 px-4 py-3 text-center min-w-[80px]">
+                <span class="block text-xl font-sans font-black text-cyan">{m.value}</span>
+                <span class="mono text-[8px] text-text-dim uppercase tracking-wider mt-1 block">{isEn ? m.labelEn : m.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
       <!-- Content Grid -->
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-16">
         <!-- Mission -->
@@ -92,10 +123,20 @@ const nextProject = projects.find(p => p.id === project.id + 1);
         </div>
       </div>
 
-      <!-- Problem -->
-      <div class="mb-16 border border-border/30 bg-surface/20 p-8" data-animate>
-        <span class="mono text-[10px] text-red-400/80 tracking-widest uppercase">{t(lang, 'portfolio.diagnosisLabel')}</span>
-        <pre class="mono text-xs sm:text-sm text-text-secondary mt-4 whitespace-pre-wrap leading-relaxed overflow-x-auto">{project.problem}</pre>
+      <!-- Problem (terminal typing) -->
+      <div class="mb-16 terminal-diag border border-border/30 bg-surface/20 overflow-hidden" data-animate>
+        <div class="px-6 py-3 border-b border-border/20 flex items-center gap-3">
+          <div class="flex gap-1.5">
+            <div class="w-2 h-2 rounded-full bg-red-500/60 animate-pulse"></div>
+            <div class="w-2 h-2 rounded-full bg-yellow-500/40"></div>
+            <div class="w-2 h-2 rounded-full bg-white/10"></div>
+          </div>
+          <span class="mono text-[9px] text-red-400/50 tracking-widest uppercase">{t(lang, 'portfolio.diagnosisLabel')}</span>
+        </div>
+        <div class="p-6 sm:p-8">
+          <pre class="terminal-text mono text-xs sm:text-sm text-text-secondary whitespace-pre-wrap leading-relaxed overflow-x-auto" data-terminal-text={project.problem}></pre>
+          <span class="terminal-cursor mono text-red-400">_</span>
+        </div>
       </div>
 
       <!-- Solution -->
@@ -103,6 +144,9 @@ const nextProject = projects.find(p => p.id === project.id + 1);
         <span class="mono text-[10px] text-cyan/60 tracking-widest uppercase">{t(lang, 'portfolio.solutionLabel')}</span>
         <p class="text-text-secondary font-sans text-lg leading-relaxed mt-4">{project.solution}</p>
       </div>
+
+      <!-- Workflow -->
+      <ProjectWorkflow projectId={project.id} lang={lang} />
 
       <!-- Gallery -->
       {project.gallery.length > 0 && (

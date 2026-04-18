@@ -141,3 +141,20 @@ export function breadcrumbSchema(items: { name: string; url: string }[]) {
     })),
   };
 }
+
+export function siteNavigationSchema(lang: 'es' | 'en' = 'es') {
+  const prefix = lang === 'en' ? '/en' : '';
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'SiteNavigationElement',
+    name: ['Home', 'About', 'Work', 'Services', 'Writing', 'Contact'],
+    url: [
+      `${SITE}${prefix}/`,
+      `${SITE}${prefix}/about`,
+      `${SITE}${prefix}/work`,
+      `${SITE}${prefix}/services`,
+      `${SITE}${prefix}/writing`,
+      `${SITE}${prefix}/contact`,
+    ],
+  };
+}
