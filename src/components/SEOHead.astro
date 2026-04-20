@@ -35,13 +35,21 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '/en' || Ast
 const fullTitle = isHome ? `${siteName} | ${title}` : `${title} — ${siteName}`;
 const absoluteOgImage = ogImage.startsWith('http') ? ogImage : new URL(ogImage, siteUrl).href;
 
+// OG always in English for social sharing
+const ogTitle = isHome
+  ? `${siteName} | UI/UX Designer & Frontend Developer`
+  : fullTitle;
+const ogDescription = isHome
+  ? 'UI/UX Designer and Frontend Developer with 7+ years of experience and 37 projects across 6 countries. Design Systems, React, Astro, and applied AI. Available for remote collaboration.'
+  : description;
+
 const defaultKeywords = ['Schormeiker Lugo', 'UI/UX Designer', 'Frontend Developer', 'React', 'Portfolio'];
 const allKeywords = [...new Set([...keywords, ...defaultKeywords])];
 
 const currentPath = Astro.url.pathname;
 const esUrl = new URL(getAlternateUrl(currentPath, 'es'), siteUrl).href;
 const enUrl = new URL(getAlternateUrl(currentPath, 'en'), siteUrl).href;
-const ogLocale = lang === 'en' ? 'en_US' : 'es_ES';
+const ogLocale = 'en_US';
 ---
 
 <!-- Primary -->
@@ -54,8 +62,8 @@ const ogLocale = lang === 'en' ? 'en_US' : 'es_ES';
 
 <!-- Open Graph -->
 <meta property="og:type" content={ogType} />
-<meta property="og:title" content={fullTitle} />
-<meta property="og:description" content={description} />
+<meta property="og:title" content={ogTitle} />
+<meta property="og:description" content={ogDescription} />
 <meta property="og:image" content={absoluteOgImage} />
 <meta property="og:url" content={canonicalUrl} />
 <meta property="og:site_name" content={siteName} />
@@ -75,8 +83,8 @@ const ogLocale = lang === 'en' ? 'en_US' : 'es_ES';
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content={fullTitle} />
-<meta name="twitter:description" content={description} />
+<meta name="twitter:title" content={ogTitle} />
+<meta name="twitter:description" content={ogDescription} />
 <meta name="twitter:image" content={absoluteOgImage} />
 
 <!-- RSS -->
