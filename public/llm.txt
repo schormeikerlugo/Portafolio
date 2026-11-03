@@ -92,72 +92,182 @@ Schormeiker Lugo es un Diseñador UI/UX y Desarrollador Frontend con más de 7 a
 - Responsabilidades: Combinación de soporte técnico con diseño visual para modernizar imagen corporativa.
 - Tecnologías: Adobe Suite, HTML/CSS, Soporte Técnico
 
-## Proyectos Destacados (37 total)
+## Proyectos (48 total)
 
-### Proyectos de Desarrollo (8 proyectos)
+Caso de estudio de cada proyecto: https://schormeiker.com/portfolio/<slug>
 
-#### KEPLER — Plataforma de Exploración con IA
-- Tipo: AI / Computer Vision / React Native
-- Descripción: Plataforma operativa asistida por IA para exploración de campo. Centro de Control Desktop con backend Python para visión artificial (YOLOv11), Unidad de Campo Móvil nativa (React Native), mapas satelitales tácticos 3D, chat conversacional con LLMs locales (Llama 3/Mistral), base de datos distribuida con Supabase que opera offline.
-- Repositorio: https://github.com/schormeikerlugo/KEPLER
+### Desarrollo (19 proyectos)
 
-#### EXOTERRA — Explorador 3D de Exoplanetas
-- Tipo: React / Three.js / WebGL / Supabase
-- Descripción: Explorador 3D interactivo de exoplanetas reales de la NASA. React 19 + TypeScript, Three.js con shaders GLSL personalizados para generación procedural de superficies planetarias, catálogo con filtros de habitabilidad, scripts Python para procesar datos astronómicos CSV.
+#### ALSEYE LCD LINUX — Driver lcd para cooler en linux (2026)
+- Stack: Python, Linux, systemd, udev, HID, Wine
+- Descripción: Un daemon que hace funcionar en Linux la pantalla LCD del cooler ALSEYE MAX M120D-PLUS II, mostrando la temperatura del CPU en tiempo real. El fabricante solo ofrece software para Windows, así que obtuve el protocolo por ingeniería inversa y lo publiqué como proyecto de código abierto. La portada es una ilustración, no una captura.
+- Caso de estudio: https://schormeiker.com/portfolio/alseye-lcd-linux
+- Repositorio: https://github.com/schormeikerlugo/alseye-lcd-linux
+
+#### AQOMI STUDIO — Sitio web de agencia de branding (2026)
+- Stack: Astro, JavaScript, CSS, HTML, Vite, WebGL, Resend, Vercel
+- Descripción: Sitio web de AQOMI Studios, agencia de branding y diseño con la que trabajé entre 2023 y 2025. Lo construí en dos etapas: primero como una SPA en JavaScript puro con Vite y después como un sitio en Astro, con portafolio de casos de estudio y formulario de contacto.
+- Caso de estudio: https://schormeiker.com/portfolio/aqomi-studio
+- Live: https://aqomi-studio-v2.vercel.app
+- Repositorio: https://github.com/schormeikerlugo/AQOMI-STUDIO
+
+#### DESTINATION WEDDING — Landing editorial para fotógrafa de bodas (2026)
+- Stack: Astro, TypeScript, GSAP, ScrollTrigger, Lenis, CSS
+- Descripción: Landing editorial para Kathrin Ledwon, fotógrafa de bodas de destino. Diseñé y desarrollé una página de una sola vista que deja hablar a las fotografías: portafolio, presentación de la fotógrafa, paquetes por continente, preguntas frecuentes y una llamada final para reservar.
+- Caso de estudio: https://schormeiker.com/portfolio/destination-wedding
+- Live: https://destination-wedding-pi.vercel.app
+- Repositorio: https://github.com/schormeikerlugo/Destination-Wedding
+
+#### EJ PARRIS — Landing para coach olímpico (2026)
+- Stack: Vite, JavaScript, CSS Modules, GSAP, EmailJS, Sharp
+- Descripción: Landing de una sola página para EJ Parris (Coach POW), atleta olímpico, culturista natural profesional y entrenador. El objetivo es presentar su trayectoria y sus programas, y captar solicitudes de coaching 1 a 1. Diseñé la interfaz y la desarrollé con Vite, GSAP y EmailJS.
+- Caso de estudio: https://schormeiker.com/portfolio/ej-parris
+- Live: https://ej-parris.vercel.app
+- Repositorio: https://github.com/schormeikerlugo/EJ_Parris
+
+#### EXOTERRA — Explorador 3d de exoplanetas (2026)
+- Stack: React, TypeScript, Three.js, React Three Fiber, GLSL, Tailwind CSS, Supabase, Python
+- Descripción: ExoTerra es un explorador web en 3D de exoplanetas reales a partir del catálogo público de la NASA. Cada planeta se genera de forma procedural según sus datos físicos y se puede explorar, filtrar y comparar. Diseñé la interfaz y desarrollé el frontend, los shaders y la ingesta de datos.
+- Caso de estudio: https://schormeiker.com/portfolio/exoterra
+- Live: https://exo-terra-two.vercel.app
 - Repositorio: https://github.com/schormeikerlugo/ExoTerra
 
-#### AQOMI STUDIO — SPA de Agencia Creativa
-- Tipo: HTML / CSS / JavaScript / WebGL / Vite
-- Descripción: SPA de alto rendimiento para agencia #1 en Canadá. Sin frameworks — HTML5, CSS3 vanilla, JS ES6 puro. Router SPA custom, WebGL mesh gradients, compresión Gzip/Brotli.
-- Repositorio: https://github.com/schormeikerlugo/AQOMI-STUDIO
-- Live: https://aqomi-studio.vercel.app
+#### GRAFF CONSTRUCTION — Propuesta web para constructora (2026)
+- Stack: Astro, Tailwind CSS, JavaScript, Vercel
+- Descripción: Propuesta de sitio nuevo para Graff Construction, una empresa de construcción y reformas del área de Edmonton. El cliente ya tenía una web en GoDaddy en su dominio; yo diseñé y desarrollé esta alternativa como landing de una página y la publiqué en Vercel para presentársela.
+- Caso de estudio: https://schormeiker.com/portfolio/graff-construction
+- Live: https://graff-construction.vercel.app
+- Repositorio: https://github.com/schormeikerlugo/Graff-Construction
 
-#### METEGRITY — Plataforma Industrial AIM
-- Tipo: Astro / CSS / JavaScript / SVG
-- Descripción: Sitio corporativo para líder global en gestión de integridad de activos industriales (+1,350 instalaciones, 5 continentes). Astro v6 SSG, CSS3 vanilla, animaciones SVG con keyframes CSS.
-- Repositorio: https://github.com/schormeikerlugo/Metegrity
+#### KEPLER — Plataforma de exploración con ia (2026)
+- Stack: Rust, Slint, SwiftUI, Axum, Supabase, PostGIS, YOLO, Ollama
+- Descripción: KEPLER es una plataforma de exploración de campo que combina visión artificial, GPS, telemetría del explorador y un copiloto LLM local llamado Cortex. Tiene una app de iPhone que funciona sin conexión y un Centro de Control de escritorio que sigue la misión en vivo. La diseñé y la estoy reescribiendo en Rust como monorepo; sigue en desarrollo activo.
+- Caso de estudio: https://schormeiker.com/portfolio/kepler
+- Repositorio: https://github.com/schormeikerlugo/KEPLER
+
+#### METEGRITY — Rediseño web corporativo industrial (2026)
+- Stack: Astro, CSS, JavaScript, SVG, Vercel
+- Descripción: Rediseño del sitio corporativo de Metegrity, empresa de software para la gestión de integridad de activos industriales (AIM). No es el sitio oficial: es una versión propia que construí con Astro, desde la portada hasta productos, industrias, recursos y reserva de demo.
+- Caso de estudio: https://schormeiker.com/portfolio/metegrity
 - Live: https://metegrity.vercel.app
+- Repositorio: https://github.com/schormeikerlugo/Metegrity
 
-#### SYLVARAN RPG — RPG de Fantasía Oscura
-- Tipo: JavaScript / Phaser / Vite
-- Descripción: RPG de acción con Phaser 2D, mapas multicapa, animaciones reactivas, IA de enemigos con máquinas de estados, pixel art gótico japonés.
-- Repositorio: https://github.com/schormeikerlugo/sylvaran
+#### RITMIQ — Reproductor de música desktop + pwa (2026)
+- Stack: Electron, React, Vite, Supabase, yt-dlp, Zustand, SQLite, Dexie
+- Descripción: Ritmiq es mi reproductor de música personal: una app de escritorio en Electron y una PWA instalable en iPhone y Android que comparten biblioteca. Reproduce música de YouTube en streaming vía yt-dlp, permite descargarla para escucharla sin conexión y sincroniza playlists entre dispositivos con Supabase. Lo diseñé y programé de principio a fin.
+- Caso de estudio: https://schormeiker.com/portfolio/ritmiq
+- Live: https://ritmiq.app
+- Repositorio: https://github.com/schormeikerlugo/Ritmiq
 
-#### SNAKE CLASSIC — Juego Retro Reimaginado
-- Tipo: JavaScript / Canvas / Supabase / PWA
-- Descripción: Reimaginación del Snake clásico con multiplayer online (Supabase Realtime), 6 tipos de power-ups, PWA para Android, Web Audio API.
-- Repositorio: https://github.com/schormeikerlugo/Snake-Classic
+#### SOS VENEZUELA — Mapa de emergencia sísmica (2026)
+- Stack: Astro, React, TypeScript, MapLibre GL, Supabase, PostGIS, Dexie, PWA
+- Descripción: SOS Venezuela es una iniciativa ciudadana sin fines de lucro: un mapa unificado para localizar personas desaparecidas, encontradas u hospitalizadas, edificios afectados y sismos tras un terremoto. Diseñé y construí la PWA y su backend pensando en zonas con mala conexión. No está publicada en un dominio propio; las capturas son del build local, sin datos reales cargados.
+- Caso de estudio: https://schormeiker.com/portfolio/sos-venezuela
 
-#### RIFA ONLINE — Plataforma Fullstack de Rifas
-- Tipo: HTML / CSS / JavaScript / Supabase
-- Descripción: Plataforma de rifas online con Supabase como backend serverless. Interfaz de cliente + panel admin, Edge Functions, Row Level Security, sorteo aleatorio verificable.
-- Repositorio: https://github.com/schormeikerlugo/Rifa-Online
+#### TARAXA — Web de ingeniería de caucho a medida (2026)
+- Stack: Astro, TypeScript, CSS, SVG
+- Descripción: Sitio web de TARAXA, la marca de ingeniería de caucho a medida de GUMEX, un fabricante polaco de componentes moldeados. Diseñé y desarrollé una página de una sola vista que presenta sus capacidades, el proceso de fabricación, los materiales y las industrias a las que sirve, con un formulario para pedir presupuesto.
+- Caso de estudio: https://schormeiker.com/portfolio/taraxa
+- Live: https://taraxa-kappa.vercel.app
+- Repositorio: https://github.com/schormeikerlugo/TARAXA
 
-#### G2A REDESIGN — Frontend de Tienda Gaming
-- Tipo: HTML / CSS / Frontend
-- Descripción: Implementación frontend del rediseño de G2A. Proyecto de aprendizaje progresivo con CSS custom y responsive design.
+#### TCS — Sitio para consultora de permisos (2026)
+- Stack: Astro, Tailwind CSS, TypeScript, Resend, Vercel
+- Descripción: Sitio de una página para TCS, una consultora de Edmonton que gestiona permisos de construcción, rezonificación y apelaciones ante el SDAB. Diseñé y desarrollé la web a partir del brief del cliente, con un formulario de presupuesto que envía los contactos por correo. El sitio está terminado pero aún no se ha publicado.
+- Caso de estudio: https://schormeiker.com/portfolio/tcs
+- Repositorio: https://github.com/schormeikerlugo/TCS
+
+#### THE SABEAN GROUP — Sitio de consultora de medios (2026)
+- Stack: Astro, Tailwind CSS, TypeScript, Vite
+- Descripción: Sitio web de The Sabean Group, una consultora de estrategia de contenido, marca, podcast y plataformas digitales con trayectoria en radio y medios. Diseñé y desarrollé una página de una sola vista en negro profundo y dorado a partir de su one sheet, sus logotipos y su material de vídeo.
+- Caso de estudio: https://schormeiker.com/portfolio/sabean-group
+- Live: https://sabean-media.vercel.app
+- Repositorio: https://github.com/schormeikerlugo/Sabean-Media
+
+#### VILLA DOLCE VITA — Web y reservas para villa toscana (2026)
+- Stack: Astro, React, GSAP, Lenis, Supabase, Resend, Sharp
+- Descripción: Sitio web de Villa Dolce Vita, una finca privada en la Toscana que se alquila completa para estancias, bodas y eventos. Lo diseñé y desarrollé en dos etapas: una primera versión editorial centrada en la imagen y una segunda con nueva dirección de arte, modo oscuro y un sistema de reservas propio con panel de administración.
+- Caso de estudio: https://schormeiker.com/portfolio/villa-dolce-vita
+- Live: https://villadolcevita.eu
+
+#### XYVON — Sitio de marca de electrolitos (2026)
+- Stack: Astro, TypeScript, CSS, LightningCSS, Vite, JSON-LD
+- Descripción: Sitio de marketing de XYVON, una marca europea de electrolitos que se presenta desde la biología y no desde el estilo de vida. Diseñé y construí una home de una sola página con su línea de cinco productos, la ciencia de las fórmulas y la historia del fundador, siguiendo el manual de marca del cliente.
+- Caso de estudio: https://schormeiker.com/portfolio/xyvon
+- Live: https://xyvon.vercel.app
+- Repositorio: https://github.com/schormeikerlugo/XYVON
+
+#### G2A REDESIGN — Mi primera maquetación web (2025)
+- Stack: HTML, CSS, JavaScript, Adobe XD
+- Descripción: Rediseño no oficial de la tienda de videojuegos G2A y mi primer proyecto de maquetación. Primero diseñé la interfaz en Adobe XD y luego la llevé a código con HTML, CSS y JavaScript, sin frameworks, aprendiendo cada técnica a medida que la necesitaba.
+- Caso de estudio: https://schormeiker.com/portfolio/g2a-frontend
+- Live: https://schormeikerlugo.github.io/My-first-page/
 - Repositorio: https://github.com/schormeikerlugo/My-first-page
 
-### Proyectos de Diseño (29 proyectos)
-- Crypto/DeFi: TakoDeFi, BlackHole DeFi, CryptoGoal.io, Chumbi Valley, Cryptocurrency XD
-- Gaming: The Callisto Protocol, G2A Desktop App, League of Legends Dashboard, Steam Redesign, Florria Web IA, Death Stranding, Call of Duty BO3, PlayStation Ecommerce
-- Apps: Score Golf, Real Madrid App, Hotel System, GeoMap
-- Web: AITHR, Hactio Gym, Limbic, Gear Head Works, Guardian Redesign, G&G Capital, Salto Ángel, Streaming UI, Sparty Profile
-- Dashboard/Enterprise: Dashboard SacsCloud, Sistema de Cobranzas, Dashboard POS
+#### RIFA ONLINE — Plataforma de rifas online (2025)
+- Stack: HTML, CSS, JavaScript, Supabase, PostgreSQL, Deno, Resend
+- Descripción: Plataforma web para organizar rifas. Los participantes eligen sus números y suben el comprobante de pago; el organizador crea rifas y aprueba o rechaza reservas desde un panel propio. La construí con HTML, CSS y JavaScript sin frameworks, y usé Supabase como backend completo.
+- Caso de estudio: https://schormeiker.com/portfolio/rifa-online
+- Live: https://schormeikerlugo.github.io/Rifa-Online/
+- Repositorio: https://github.com/schormeikerlugo/Rifa-Online
+
+#### SNAKE CLASSIC — Snake retro con multijugador (2025)
+- Stack: JavaScript, HTML5 Canvas, Web Audio API, Supabase, PostgreSQL, PWA
+- Descripción: Versión propia del Snake clásico con estética retro, jugable en el navegador e instalable como PWA. Añadí power-ups, obstáculos, ranking global y multijugador online en tiempo real. Diseñé la interfaz y programé el juego completo, del canvas a la base de datos en Supabase.
+- Caso de estudio: https://schormeiker.com/portfolio/snake-classic
+- Live: https://schormeikerlugo.github.io/Snake-Classic/
+- Repositorio: https://github.com/schormeikerlugo/Snake-Classic
+
+#### SYLVARAN RPG — Action rpg en pixel art (2025)
+- Stack: Phaser, TypeScript, JavaScript, Vite, Tiled
+- Descripción: Sylvaran es un RPG de acción y fantasía oscura para navegador, hecho con Phaser 3 y Vite. Kael, el último de una orden extinta, debe purificar santuarios en un mundo corrompido por la diosa caída Nihzara. Diseñé la historia y las mecánicas, y programé todos los sistemas del juego; ya se puede jugar de principio a fin del Acto I, salvo el jefe final.
+- Caso de estudio: https://schormeiker.com/portfolio/sylvaran
+- Repositorio: https://github.com/schormeikerlugo/sylvaran
+
+### Diseño (29 proyectos)
+- AITHR (2025, trabajo profesional): https://schormeiker.com/portfolio/aithr
+- DASHBOARD POS (2023, trabajo profesional): https://schormeiker.com/portfolio/pos-dashboard
+- DASHBOARD SACSCLOUD (2023, trabajo profesional): https://schormeiker.com/portfolio/sacscloud-dashboard
+- FLORRIA WEB IA (2023, exploración de diseño): https://schormeiker.com/portfolio/florria
+- G2A DESKTOP APP (2023, exploración de diseño): https://schormeiker.com/portfolio/g2a-desktop-app
+- REAL MADRID APP (2023, exploración de diseño): https://schormeiker.com/portfolio/real-madrid-app
+- SCORE GOLF APP (2023, exploración de diseño): https://schormeiker.com/portfolio/score-golf
+- THE CALLISTO PROTOCOL (2022, exploración de diseño): https://schormeiker.com/portfolio/callisto-protocol
+- BLACKHOLE DEFI (2021, exploración de diseño): https://schormeiker.com/portfolio/blackhole-defi
+- CHUMBI VALLEY (2021, exploración de diseño): https://schormeiker.com/portfolio/chumbi-valley
+- TAKODEFI (2021, trabajo profesional): https://schormeiker.com/portfolio/takodefi
+- GUARDIAN REDESIGN (2020, exploración de diseño): https://schormeiker.com/portfolio/guardian-redesign
+- LEAGUE OF LEGENDS (2020, exploración de diseño): https://schormeiker.com/portfolio/league-of-legends-dashboard
+- PLAYSTATION ECOMMERCE (2020, exploración de diseño): https://schormeiker.com/portfolio/playstation-store
+- CALL OF DUTY (2019, exploración de diseño): https://schormeiker.com/portfolio/call-of-duty-black-ops-3
+- DEATH STRANDING (2019, exploración de diseño): https://schormeiker.com/portfolio/death-stranding
+- G&G CAPITAL GROUP (2019, exploración de diseño): https://schormeiker.com/portfolio/gg-capital-group
+- HACTIO GYM (2019, exploración de diseño): https://schormeiker.com/portfolio/hactio-gym
+- SALTO ÁNGEL (2019, exploración de diseño): https://schormeiker.com/portfolio/salto-angel
+- CRYPTOCURRENCY XD (2018, exploración de diseño): https://schormeiker.com/portfolio/cryptocurrency-xd
+- CRYPTOGOAL.IO (2018, exploración de diseño): https://schormeiker.com/portfolio/cryptogoal
+- GEAR HEAD WORKS (2018, exploración de diseño): https://schormeiker.com/portfolio/gear-head-works
+- GEOMAP UI/UX (2018, exploración de diseño): https://schormeiker.com/portfolio/geomap
+- LIMBIC (2018, trabajo profesional): https://schormeiker.com/portfolio/limbic
+- SISTEMA DE COBRANZAS (2018, exploración de diseño): https://schormeiker.com/portfolio/sistema-de-cobranzas
+- SPARTY PROFILE (2018, exploración de diseño): https://schormeiker.com/portfolio/sparty-profile
+- STREAMING UI (2018, exploración de diseño): https://schormeiker.com/portfolio/streaming-ui
+- HOTEL SYSTEM (2017, exploración de diseño): https://schormeiker.com/portfolio/hotel-system
+- STEAM REDESIGN (2017, exploración de diseño): https://schormeiker.com/portfolio/steam-redesign
 
 ## Servicios Profesionales
 
 ### 1. Design Systems
-Construcción de bibliotecas de componentes atómicos, user flows, wireframes, design tokens (CSS/JSON), componentes React documentados y guías de estilo interactivas. Garantiza consistencia visual del 100% entre diseño y código.
+Construcción de bibliotecas de componentes atómicos, user flows, wireframes, design tokens (CSS/JSON), componentes React documentados y guías de estilo interactivas. Un único origen de verdad entre diseño y código.
 
 ### 2. Interface Engineering
-Desarrollo frontend con React, Astro y Tailwind CSS. Fidelidad pixel-perfect con el diseño, rendimiento optimizado (Lighthouse 98+), micro-interacciones CSS/JS, y auditoría de accesibilidad WCAG AA.
+Desarrollo frontend con React, Astro y Tailwind CSS. Fidelidad pixel-perfect con el diseño, rendimiento como objetivo (Lighthouse 90+), micro-interacciones CSS/JS, y auditoría de accesibilidad WCAG AA.
 
 ### 3. Product Strategy
 Auditoría UX completa, research de usuarios, prototipado rápido y roadmap técnico priorizado. Puente funcional entre stakeholders de negocio y equipos de desarrollo.
 
 ### 4. Applied AI Integration
-Prompt engineering avanzado, despliegue de LLMs locales (Ollama), generación de assets con IA (Stable Diffusion), automatización de workflows. Velocidad de iteración +60%, costo por token $0 en local.
+Prompt engineering avanzado, despliegue de LLMs locales (Ollama), generación de assets con IA (Stable Diffusion), automatización de workflows. Modelos locales con costo por token $0.
 
 ## Educación & Certificaciones
 1. Figma: Técnicas Avanzadas de Diseño — Platzi (Nov. 2023)
@@ -180,7 +290,7 @@ Prompt engineering avanzado, despliegue de LLMs locales (Ollama), generación de
 
 ## Métricas Profesionales
 - +7 años de experiencia profesional
-- 37 proyectos completados (diseño y desarrollo)
+- 48 proyectos publicados en el portafolio (diseño y desarrollo)
 - 15+ tecnologías dominadas
 - 6 países colaborados (Polonia, México, USA, España, Colombia, Chile)
 - 99.9% de disponibilidad

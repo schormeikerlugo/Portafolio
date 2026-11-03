@@ -3,7 +3,7 @@ import '../styles/global.css';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import SEOHead from '../components/SEOHead.astro';
-import { ViewTransitions } from 'astro:transitions';
+import { ClientRouter } from 'astro:transitions';
 import { t, type Lang } from '../i18n';
 
 interface Props {
@@ -35,7 +35,7 @@ const { title, description, lang = 'es', jsonLd, keywords, ogImage, ogType, arti
     <link rel="manifest" href="/site.webmanifest" />
 
     <SEOHead title={title} description={description} lang={lang} jsonLd={jsonLd} keywords={keywords} ogImage={ogImage} ogType={ogType} article={article} />
-    <ViewTransitions />
+    <ClientRouter />
   </head>
   <body class="relative min-h-screen">
     <!-- Noise Overlay -->
