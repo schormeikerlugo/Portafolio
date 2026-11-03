@@ -6,6 +6,10 @@ export default {
     services: 'Services',
     writing: 'Writing',
     contact: 'Contact',
+    available: 'Available',
+    openMenu: 'Open menu',
+    closeMenu: 'Close menu',
+    skip: 'Skip to content',
   },
   hero: {
     include: '#include<iostream>',

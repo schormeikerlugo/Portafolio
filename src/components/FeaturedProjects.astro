@@ -1,5 +1,7 @@
 ---
 import { Image } from 'astro:assets';
+import HudCorners from './hud/HudCorners.astro';
+import TrackingCode from './hud/TrackingCode.astro';
 import { getFeatured, label, projectUrl } from '../lib/projects';
 import type { Lang } from '../i18n';
 
@@ -14,7 +16,9 @@ const featured = await getFeatured(lang);
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" data-animate-group>
   {featured.map((project, i) => (
     <a href={projectUrl(project.slug, lang)} class="featured-card group border border-border/50 bg-surface/20" data-category={project.category} data-animate-stagger>
-      <div class="relative aspect-video overflow-hidden">
+      <HudCorners mode="hover" size={16} />
+      <div class="relative aspect-video overflow-hidden" transition:name={`cover-${project.slug}`}>
+        <div class="scan-sweep"></div>
         <span class="featured-id font-sans text-white">{String(i + 1).padStart(2, '0')}</span>
         <Image
           src={project.cover}
@@ -22,7 +26,7 @@ const featured = await getFeatured(lang);
           widths={[480, 800]}
           sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
           loading="lazy"
-          class="w-full h-full object-cover object-top grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700"
+          class="hover-reveal w-full h-full object-cover object-top grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700"
         />
         <div class="absolute inset-0 bg-gradient-to-t from-void/80 to-transparent"></div>
         <div class="absolute bottom-4 left-4 right-4">
@@ -34,10 +38,13 @@ const featured = await getFeatured(lang);
       </div>
       <div class="p-6">
         <p class="text-text-secondary font-sans text-sm leading-relaxed line-clamp-2">{project.summary}</p>
-        <div class="flex flex-wrap gap-2 mt-4">
+        <div class="flex items-center justify-between gap-3 mt-4">
+        <div class="flex flex-wrap gap-2">
           {project.stack.slice(0, 3).map((tag) => (
             <span class="mono text-[11px] text-text-dim border border-border/50 px-2 py-1 uppercase tracking-wider">{tag}</span>
           ))}
+        </div>
+        <TrackingCode seed={project.slug} class="hidden sm:inline shrink-0" />
         </div>
       </div>
     </a>

@@ -1,0 +1,23 @@
+---
+import { hash } from '../../lib/hud';
+
+interface Props {
+  seed: string;
+  bars?: number;
+  class?: string;
+}
+const { seed, bars = 22, class: cls } = Astro.props;
+let h = hash(seed);
+let x = 0;
+const rects: { x: number; w: number }[] = [];
+for (let i = 0; i < bars; i++) {
+  h = Math.imul(h ^ (h >>> 13), 0x5bd1e995) >>> 0;
+  const w = (h % 3) + 1;
+  rects.push({ x, w });
+  x += w + ((h >>> 4) % 2) + 1;
+}
+---
+
+<svg class:list={['hud-barcode', cls]} viewBox={`0 0 ${x} 12`} width={x} height="12" aria-hidden="true">
+  {rects.map((r) => <rect x={r.x} y="0" width={r.w} height="12" fill="currentColor" />)}
+</svg>

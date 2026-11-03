@@ -81,7 +81,7 @@ const facts = [
           <span class="project-status mono text-[11px] uppercase tracking-[0.2em] px-2 py-0.5 border" data-status={project.status}>{label('status', project.status, lang)}</span>
         </div>
 
-        <h1 class="text-4xl sm:text-5xl lg:text-7xl font-sans font-black text-text-primary tracking-tight uppercase">{project.title}</h1>
+        <h1 class="text-4xl sm:text-5xl lg:text-7xl font-sans font-black text-text-primary tracking-tight uppercase" transition:name={`title-${slug}`}>{project.title}</h1>
         <p class="mono text-xs sm:text-sm text-text-secondary uppercase tracking-[0.2em] mt-4">{project.tagline}</p>
 
         {links.length > 0 && (
@@ -104,7 +104,7 @@ const facts = [
       </header>
 
       <!-- Cover -->
-      <div class="relative aspect-video w-full overflow-hidden border border-border/30 mb-16" data-animate>
+      <div class="relative aspect-video w-full overflow-hidden border border-border/30 mb-16" transition:name={`cover-${slug}`}>
         <Image
           src={project.cover}
           alt={project.title}

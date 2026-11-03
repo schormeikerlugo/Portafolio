@@ -3,6 +3,7 @@ import '../styles/global.css';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import SEOHead from '../components/SEOHead.astro';
+import SectionRail from '../components/hud/SectionRail.astro';
 import { ClientRouter } from 'astro:transitions';
 import { t, type Lang } from '../i18n';
 
@@ -46,13 +47,29 @@ const { title, description, lang = 'es', jsonLd, keywords, ogImage, ogType, arti
     <!-- Noise Overlay -->
     <div class="noise-overlay" aria-hidden="true"></div>
 
+    <div id="route-progress" aria-hidden="true"></div>
     <Navbar lang={lang} />
 
-    <main class="relative z-10">
+    <main id="main" tabindex="-1" class="relative z-10 outline-none">
       <slot />
     </main>
 
+    <SectionRail />
+
     <Footer lang={lang} />
+
+    <script>
+      // Thin top bar while ClientRouter fetches the next page
+      const bar = () => document.getElementById('route-progress');
+      document.addEventListener('astro:before-preparation', () => bar()?.classList.add('is-loading'));
+      document.addEventListener('astro:after-swap', () => {
+        const el = bar();
+        if (!el) return;
+        el.classList.remove('is-loading');
+        el.classList.add('is-done');
+        setTimeout(() => el.classList.remove('is-done'), 400);
+      });
+    </script>
 
     <!-- Vercel Analytics + Speed Insights (deferred) -->
     <script>

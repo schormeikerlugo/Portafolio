@@ -1,0 +1,42 @@
+---
+import { sparkline } from '../../lib/hud';
+import HudCorners from './HudCorners.astro';
+
+interface Props {
+  value: number | string;
+  label: string;
+  suffix?: string;
+  code?: string;
+  series?: number[];
+  live?: boolean;
+}
+const { value, label, suffix = '', code, series, live = false } = Astro.props;
+const numeric = typeof value === 'number';
+const spark = series ? sparkline(series) : null;
+---
+
+<div class="stat-card group" data-stat-card>
+  <HudCorners mode="hover" size={10} />
+  <div class="flex items-center justify-between mb-3">
+    <span class="mono text-[11px] text-text-dim uppercase tracking-[0.2em]">{label}</span>
+    {code && <span class="tracking-code">{code}</span>}
+    {live && <span class="live-led" aria-hidden="true"></span>}
+  </div>
+  <div class="flex items-end justify-between gap-4">
+    <span class="stat-value font-sans font-black text-4xl text-text-primary leading-none">
+      {numeric ? <span data-count-to={value}>{value}</span> : value}<span class="text-cyan">{suffix}</span>
+    </span>
+    {spark && (
+      <svg class="sparkline shrink-0" width="120" height="28" viewBox="0 0 120 28" aria-hidden="true">
+        <defs>
+          <linearGradient id="spark-fill" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="rgba(0,229,255,0.25)" />
+            <stop offset="1" stop-color="rgba(0,229,255,0)" />
+          </linearGradient>
+        </defs>
+        <path class="area" d={spark.area} />
+        <path d={spark.line} />
+      </svg>
+    )}
+  </div>
+</div>

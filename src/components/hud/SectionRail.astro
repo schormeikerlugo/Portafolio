@@ -1,0 +1,33 @@
+---
+/** Fixed right rail "03 / 06" that follows sections marked with data-section. */
+---
+
+<div class="section-rail" aria-hidden="true" data-section-rail>
+  <span class="rail-current">01</span>
+  <span class="rail-track"><span class="rail-fill"></span></span>
+  <span class="rail-total">01</span>
+</div>
+
+<script>
+  import { onPageLoad } from '../../lib/lifecycle';
+
+  onPageLoad((signal) => {
+    const rail = document.querySelector<HTMLElement>('[data-section-rail]');
+    const sections = [...document.querySelectorAll<HTMLElement>('[data-section]')];
+    if (!rail || sections.length < 2) { rail?.remove(); return; }
+    const current = rail.querySelector<HTMLElement>('.rail-current')!;
+    const fill = rail.querySelector<HTMLElement>('.rail-fill')!;
+    const pad = (n: number) => String(n).padStart(2, '0');
+    rail.querySelector<HTMLElement>('.rail-total')!.textContent = pad(sections.length);
+
+    const update = () => {
+      const mid = window.innerHeight * 0.45;
+      let idx = 0;
+      sections.forEach((s, i) => { if (s.getBoundingClientRect().top < mid) idx = i; });
+      current.textContent = pad(idx + 1);
+      fill.style.transform = `scaleY(${(idx + 1) / sections.length})`;
+    };
+    window.addEventListener('scroll', update, { passive: true, signal });
+    update();
+  });
+</script>

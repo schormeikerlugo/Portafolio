@@ -60,14 +60,14 @@ const { slug, title, tagline, cover, stack, category, subcategory, summary, year
 
     <!-- 3. Thumbnail -->
     <div class="w-full md:w-[20%] flex flex-col items-end justify-end self-stretch shrink-0">
-      <div class="relative w-full aspect-video md:max-w-[200px] rounded-sm overflow-hidden border border-border/30 group-hover:border-cyan/50 transition-colors mt-auto">
+      <div class="relative w-full aspect-video md:max-w-[200px] rounded-sm overflow-hidden border border-border/30 group-hover:border-cyan/50 transition-colors mt-auto" transition:name={`cover-${slug}`}>
         <Image
           src={cover}
           alt={title}
           widths={[400, 640]}
           sizes="(min-width: 768px) 200px, 100vw"
           loading="lazy"
-          class="absolute inset-0 h-full w-full object-cover object-top grayscale opacity-30 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
+          class="hover-reveal absolute inset-0 h-full w-full object-cover object-top grayscale opacity-30 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
         />
         <div class="absolute inset-0 bg-cyan/10 opacity-0 group-hover:opacity-100 mix-blend-overlay transition-opacity duration-500"></div>
       </div>

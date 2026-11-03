@@ -1,0 +1,11 @@
+---
+interface Props {
+  mode?: 'always' | 'hover';
+  size?: number;
+  color?: string;
+}
+const { mode = 'always', size = 14, color } = Astro.props;
+const style = [`--hud-size:${size}px`, color && `--hud-color:${color}`].filter(Boolean).join(';');
+---
+
+<span class="hud-corners" data-mode={mode} style={style} aria-hidden="true"><i></i><i></i><i></i><i></i></span>

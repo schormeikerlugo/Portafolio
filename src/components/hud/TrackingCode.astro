@@ -1,0 +1,12 @@
+---
+import { trackingCode } from '../../lib/hud';
+
+interface Props {
+  seed: string;
+  variant?: 'hex' | 'rec';
+  class?: string;
+}
+const { seed, variant = 'hex', class: cls } = Astro.props;
+---
+
+<span class:list={['tracking-code select-none', cls]} aria-hidden="true">{trackingCode(seed, variant)}</span>
