@@ -30,6 +30,8 @@ gallery:
   - ./exoterra/03.webp
   - ./exoterra/04.webp
   - ./exoterra/05.webp
+  - ./exoterra/06.webp
+  - ./exoterra/07.webp
 es:
   title: EXOTERRA
   tagline: EXPLORADOR 3D DE EXOPLANETAS
