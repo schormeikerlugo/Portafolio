@@ -39,12 +39,12 @@ const levelColors: Record<string, { bar: string }> = {
           <div class="absolute left-0 top-1/2 -translate-y-1/2 h-px w-1.5 bg-cyan/60"></div>
           <div class="absolute right-0 top-1/2 -translate-y-1/2 h-px w-1.5 bg-cyan/60"></div>
         </div>
-        <span class="mono text-[10px] sm:text-xs text-text-dim tracking-[0.4em] uppercase">
+        <span class="mono text-xs sm:text-xs text-text-dim tracking-[0.4em] uppercase">
           {t(lang, 'skills.tag')}
         </span>
       </div>
 
-      <h2 class="text-4xl sm:text-5xl lg:text-6xl font-sans font-black text-text-primary mb-6">{t(lang, 'skills.title')}</h2>
+      <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-text-primary mb-6">{t(lang, 'skills.title')}</h2>
 
       <p class="max-w-2xl text-text-secondary text-lg sm:text-xl leading-relaxed font-sans">
         {t(lang, 'skills.description')}
@@ -83,9 +83,9 @@ const levelColors: Record<string, { bar: string }> = {
                       <div class="w-2 h-2 rounded-full animate-pulse" style={`background: ${catColor}`}></div>
                       <h3 class="mono text-xs tracking-[0.15em] uppercase transition-colors duration-300" style={`color: ${catColor}`}>{category.title}</h3>
                     </div>
-                    <span class="mono text-[10px] text-text-dim">MK-IV</span>
+                    <span class="mono text-xs text-text-dim">MK-IV</span>
                   </div>
-                  <p class="text-[10px] text-text-dim uppercase tracking-wider">{category.category} MODULE</p>
+                  <p class="text-xs text-text-dim uppercase tracking-wider">{category.category} MODULE</p>
                 </div>
 
                 <!-- Skills List -->
@@ -106,7 +106,7 @@ const levelColors: Record<string, { bar: string }> = {
                             {skill.name}
                           </span>
                           <span
-                            class="mono text-[9px] px-2 py-0.5 rounded border transition-colors duration-200"
+                            class="mono text-[11px] px-2 py-0.5 rounded border transition-colors duration-200"
                             style={`border-color: ${barColor}40; color: ${barColor}; background: ${barColor}10`}
                           >
                             {skill.level}
@@ -130,7 +130,7 @@ const levelColors: Record<string, { bar: string }> = {
                 <div class="p-4 mt-auto border-t border-white/5 h-[72px] flex items-center overflow-hidden transition-colors duration-300" style={`background: ${catColor}05`}>
                   <p
                     id={`console-${key}`}
-                    class="mono text-[10px] uppercase tracking-wide leading-relaxed transition-colors duration-200"
+                    class="mono text-xs uppercase tracking-wide leading-relaxed transition-colors duration-200"
                     data-idle-text={t(lang, 'skills.consoleIdle')}
                     data-detected-text={t(lang, 'skills.consoleDetected')}
                     data-color={catColor}

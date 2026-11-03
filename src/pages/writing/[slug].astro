@@ -105,7 +105,7 @@ function colorize(segment: string): string {
     <div class="max-w-4xl mx-auto">
       <!-- Back -->
       <div class="flex justify-center md:justify-start mb-16">
-        <a href="/writing" class="inline-flex items-center gap-3 mono text-[10px] text-cyan uppercase tracking-[0.4em] hover:text-white transition-colors">
+        <a href="/writing" class="inline-flex items-center gap-3 mono text-xs text-cyan uppercase tracking-[0.4em] hover:text-white transition-colors">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
           {t(lang, 'writing.backToList')}
         </a>
@@ -115,14 +115,14 @@ function colorize(segment: string): string {
         <!-- Header -->
         <header class="space-y-6 text-center md:text-left" data-animate>
           <div class="flex items-center justify-center md:justify-start gap-4 opacity-40">
-            <time class="mono text-[10px] text-white uppercase tracking-widest" datetime={isoDate}>{article.date}</time>
+            <time class="mono text-xs text-white uppercase tracking-widest" datetime={isoDate}>{article.date}</time>
             <span class="text-cyan">//</span>
-            <span class="mono text-[10px] text-white uppercase tracking-widest">{article.read} {t(lang, 'writing.readSuffix')}</span>
+            <span class="mono text-xs text-white uppercase tracking-widest">{article.read} {t(lang, 'writing.readSuffix')}</span>
           </div>
-          <h1 class="text-4xl md:text-6xl font-sans font-black text-white uppercase tracking-tighter leading-tight">{article.title}</h1>
+          <h1 class="text-4xl md:text-6xl font-bold text-white uppercase tracking-tighter leading-tight">{article.title}</h1>
           <div class="flex flex-wrap justify-center md:justify-start gap-3">
             {article.tags.map(t => (
-              <span class="px-3 py-1 bg-white/5 border border-white/10 mono text-[9px] text-cyan uppercase">{t}</span>
+              <span class="px-3 py-1 bg-white/5 border border-white/10 mono text-[11px] text-cyan uppercase">{t}</span>
             ))}
           </div>
         </header>
@@ -142,7 +142,7 @@ function colorize(segment: string): string {
                     <img src={block.value} alt={block.caption || article.title} loading="lazy" class="w-full h-auto block" />
                   </div>
                   {block.caption && (
-                    <figcaption class="mono text-[9px] text-white/30 tracking-widest mt-3 text-center md:text-left">{block.caption}</figcaption>
+                    <figcaption class="mono text-xs text-white/30 tracking-widest mt-3 text-center md:text-left">{block.caption}</figcaption>
                   )}
                 </figure>
               );
@@ -150,7 +150,7 @@ function colorize(segment: string): string {
               return (
                 <div class="my-8 code-block-wrap" data-animate-stagger>
                   <button class="code-copy-btn" data-code={block.value}>COPY</button>
-                  <pre class="bg-white/[0.02] border border-white/10 p-4 sm:p-6 overflow-x-auto text-left" style="-webkit-overflow-scrolling:touch"><code class="mono text-[10px] sm:text-xs text-white/60 leading-relaxed whitespace-pre">{block.value}</code></pre>
+                  <pre class="bg-white/[0.02] border border-white/10 p-4 sm:p-6 overflow-x-auto text-left" style="-webkit-overflow-scrolling:touch"><code class="mono text-xs sm:text-xs text-white/60 leading-relaxed whitespace-pre">{block.value}</code></pre>
                 </div>
               );
             } else {
@@ -163,7 +163,7 @@ function colorize(segment: string): string {
 
         <!-- Footer -->
         <footer class="pt-16 border-t border-white/5">
-          <div class="mono text-[10px] text-white/20 uppercase tracking-[0.4em] mb-12 text-center md:text-left">
+          <div class="mono text-xs text-white/20 uppercase tracking-[0.4em] mb-12 text-center md:text-left">
             {t(lang, 'writing.docIdPrefix')} {article.id} {t(lang, 'writing.docIdSuffix')}
           </div>
 
@@ -173,20 +173,20 @@ function colorize(segment: string): string {
               <a href={`/writing/${prevArticle.id}`} class="group flex items-center gap-3 text-text-dim hover:text-cyan transition-colors">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
                 <div>
-                  <span class="mono text-[9px] uppercase tracking-widest block">{t(lang, 'writing.prev')}</span>
+                  <span class="mono text-xs uppercase tracking-widest block">{t(lang, 'writing.prev')}</span>
                   <span class="font-sans text-sm font-bold uppercase group-hover:text-cyan transition-colors line-clamp-1">{prevArticle.title}</span>
                 </div>
               </a>
             ) : <div />}
 
-            <a href="/writing" class="mono text-[10px] text-text-dim hover:text-cyan transition-colors uppercase tracking-widest hidden md:block">
+            <a href="/writing" class="mono text-xs text-text-dim hover:text-cyan transition-colors uppercase tracking-widest hidden md:block">
               {t(lang, 'writing.all')}
             </a>
 
             {nextArticle ? (
               <a href={`/writing/${nextArticle.id}`} class="group flex items-center gap-3 text-text-dim hover:text-cyan transition-colors text-right">
                 <div>
-                  <span class="mono text-[9px] uppercase tracking-widest block">{t(lang, 'writing.next')}</span>
+                  <span class="mono text-xs uppercase tracking-widest block">{t(lang, 'writing.next')}</span>
                   <span class="font-sans text-sm font-bold uppercase group-hover:text-cyan transition-colors line-clamp-1">{nextArticle.title}</span>
                 </div>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>

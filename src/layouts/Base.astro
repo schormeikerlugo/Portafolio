@@ -25,12 +25,7 @@ const { title, description, lang = 'es', jsonLd, keywords, ogImage, ogType, arti
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#050505" />
-
-    <!-- Preload critical fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;700;800;900&display=swap" as="style" />
+    <meta name="theme-color" content="#07060d" />
 
     <!-- Favicons -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -95,7 +90,7 @@ const { title, description, lang = 'es', jsonLd, keywords, ogImage, ogType, arti
         height="14"
         viewBox="0 0 14 14"
         fill="none"
-        class="text-cyan/70 group-hover:text-cyan group-hover:-translate-y-0.5 transition-all duration-300"
+        class="text-cyan group-hover:text-cyan group-hover:-translate-y-0.5 transition-all duration-300"
       >
         <path
           d="M7 12V2M7 2L2.5 6.5M7 2L11.5 6.5"
@@ -107,7 +102,7 @@ const { title, description, lang = 'es', jsonLd, keywords, ogImage, ogType, arti
       </svg>
 
       <!-- Label -->
-      <span class="mono text-[7px] text-cyan/50 group-hover:text-cyan tracking-[0.2em] uppercase transition-colors leading-none">
+      <span class="mono text-xs text-cyan/90 group-hover:text-cyan tracking-[0.14em] uppercase transition-colors leading-none">
         {t(lang, 'scrollTop.label')}
       </span>
     </button>
@@ -171,6 +166,11 @@ const { title, description, lang = 'es', jsonLd, keywords, ogImage, ogType, arti
           const cursor = pre.parentElement?.querySelector('.terminal-cursor');
           if (!fullText) { pre.textContent = ''; return; }
 
+          if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            pre.textContent = fullText;
+            cursor?.classList.add('done');
+            return;
+          }
           pre.textContent = '';
 
           const observer = new IntersectionObserver(([entry]) => {
