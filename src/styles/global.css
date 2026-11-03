@@ -1219,3 +1219,12 @@ h1, h2, h3, h4, h5, h6 {
 .lb-nav { position: fixed; top: 50%; transform: translateY(-50%); z-index: 2; }
 .lb-nav.left-3 { left: 12px; }
 .lb-nav.right-3 { right: 12px; }
+
+/* Contact */
+.field-error { min-height: 1em; margin-top: 6px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; color: #f87171; }
+.field[aria-invalid='true'] { border-color: rgba(248, 113, 113, 0.6) !important; }
+#submit-btn.is-sending { opacity: 0.7; cursor: progress; }
+.sent-ring { position: relative; width: 64px; height: 64px; border: 1px solid rgba(0, 229, 255, 0.4); transform: rotate(45deg); }
+.sent-ring span { position: absolute; inset: 10px; background: var(--color-cyan); box-shadow: 0 0 24px rgba(0, 229, 255, 0.7); animation: sentPulse 1.6s ease-out infinite; }
+@keyframes sentPulse { 0% { transform: scale(0.6); opacity: 1; } 100% { transform: scale(1.6); opacity: 0; } }
+#form-sent:not(.hidden) { animation: lbIn 0.4s ease; }

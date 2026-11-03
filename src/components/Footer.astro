@@ -43,20 +43,25 @@ const toggleLang = lang === 'es' ? 'en' : 'es';
       </div>
 
       <!-- Status & Nav -->
-      <div class="md:col-span-6 lg:col-span-4 flex flex-col md:items-end justify-between h-full space-y-12 md:space-y-0">
+      <div class="md:col-span-6 lg:col-span-4 flex flex-col md:items-end gap-8">
         <div class="flex flex-col md:items-end gap-3">
           <span class="mono text-[11px] text-text-dim tracking-[0.2em] uppercase font-bold">{t(lang, 'footer.statusLabel')}</span>
           <div class="flex items-center gap-3 px-4 py-2 border border-cyan/20 bg-cyan/5">
-            <div class="w-2 h-2 bg-cyan shadow-[0_0_10px_rgba(0,229,255,0.8)]"></div>
+            <span class="live-led" aria-hidden="true"></span>
             <span class="font-sans text-xs sm:text-sm font-semibold text-cyan uppercase tracking-wider">
               {t(lang, 'footer.statusValue')}
             </span>
           </div>
         </div>
 
+        <div class="flex flex-col md:items-end gap-1">
+          <span class="mono text-[11px] text-text-dim tracking-[0.2em] uppercase">{t(lang, 'contact.localTime')} · VET (UTC−4)</span>
+          <span id="local-clock" class="mono text-2xl text-text-primary tabular-nums tracking-wider">--:--:--</span>
+        </div>
+
         <div class="flex flex-col md:items-end gap-3 pt-8 md:pt-0">
           <button
-            onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+            onclick="window.scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' })"
             class="mono text-xs text-text-secondary hover:text-cyan transition-colors uppercase tracking-widest flex items-center gap-2 group cursor-pointer"
           >
             {t(lang, 'footer.backToTop')} <span class="group-hover:-translate-y-1 transition-transform">↑</span>
@@ -76,3 +81,17 @@ const toggleLang = lang === 'es' ? 'en' : 'es';
     </div>
   </div>
 </footer>
+
+<script>
+  import { onPageLoad } from '../lib/lifecycle';
+
+  onPageLoad((signal) => {
+    const el = document.getElementById('local-clock');
+    if (!el) return;
+    const fmt = new Intl.DateTimeFormat('es-VE', { timeZone: 'America/Caracas', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
+    const tick = () => (el.textContent = fmt.format(new Date()));
+    tick();
+    const id = setInterval(tick, 1000);
+    signal.addEventListener('abort', () => clearInterval(id));
+  });
+</script>
