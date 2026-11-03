@@ -26,6 +26,7 @@
       sections.forEach((s, i) => { if (s.getBoundingClientRect().top < mid) idx = i; });
       current.textContent = pad(idx + 1);
       fill.style.transform = `scaleY(${(idx + 1) / sections.length})`;
+      rail.classList.toggle('is-hero', idx === 0 && sections[0].id === 'hero');
     };
     window.addEventListener('scroll', update, { passive: true, signal });
     update();

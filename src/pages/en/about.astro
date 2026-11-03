@@ -1,4 +1,5 @@
 ---
+import Skills from '../../sections/Skills.astro';
 import Base from '../../layouts/Base.astro';
 import { telemetry } from '../../data/content';
 import Timeline from '../../sections/Timeline.astro';
@@ -103,6 +104,8 @@ const lang: Lang = 'en';
     missionPrefix={t(lang, 'about.missionPrefix')}
     jobs={t(lang, 'about.experience')}
   />
+
+  <Skills lang={lang} />
 
   <!-- ═══ EDUCACIÓN & CERTIFICACIONES ═══ -->
   <section class="py-24 px-6 border-t border-border">

@@ -1,4 +1,5 @@
 ---
+import Problems from '../sections/Problems.astro';
 import Base from '../layouts/Base.astro';
 import { breadcrumbSchema, serviceSchema, faqSchema } from '../lib/seo';
 import { t, type Lang } from '../i18n';
@@ -236,6 +237,7 @@ const faqs = [
       </div>
     </div>
   </section>
+  <Problems lang={lang} />
 </Base>
 
 <script>

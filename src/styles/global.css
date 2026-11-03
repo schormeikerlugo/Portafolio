@@ -256,9 +256,8 @@ h1, h2, h3, h4, h5, h6 {
   background: transparent;
 }
 .navbar-scrolled {
-  background: rgba(0, 0, 0, 0.65);
+  background: rgba(0, 0, 0, 0.78);
   backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
@@ -337,14 +336,10 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ── Hero backdrop: lighter on mobile ── */
 .hero-backdrop {
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
   background: rgba(0, 0, 0, 0.2);
 }
 @media (min-width: 768px) {
   .hero-backdrop {
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
     background: rgba(0, 0, 0, 0.4);
   }
 }
@@ -1127,7 +1122,7 @@ h1, h2, h3, h4, h5, h6 {
   color: rgba(255, 255, 255, 0.5);
   pointer-events: none;
 }
-@media (min-width: 1280px) { .section-rail { display: flex; } }
+@media (min-width: 1536px) { .section-rail { display: flex; } }
 .section-rail .rail-track { position: relative; width: 1px; height: 120px; background: rgba(255, 255, 255, 0.12); }
 .section-rail .rail-fill { position: absolute; top: 0; left: 0; width: 1px; height: 100%; background: var(--color-cyan); transform-origin: top; transform: scaleY(0); transition: transform 0.4s ease; }
 .section-rail .rail-current { color: #fff; }
@@ -1164,3 +1159,14 @@ h1, h2, h3, h4, h5, h6 {
   ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
   .live-led::after { display: none; }
 }
+
+/* Process pipeline */
+.process-line { position: absolute; left: 6px; right: 0; top: 5px; height: 1px; background: rgba(255, 255, 255, 0.12); }
+.process-line::after { content: ''; position: absolute; inset: 0; background: var(--color-cyan); transform: scaleX(0); transform-origin: left; transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1); box-shadow: 0 0 8px rgba(0, 229, 255, 0.6); }
+.process-track.visible .process-line::after { transform: scaleX(1); }
+.process-node { position: relative; z-index: 1; width: 11px; height: 11px; transform: rotate(45deg); border: 1px solid rgba(255, 255, 255, 0.4); background: #000; transition: border-color 0.3s ease var(--d), background 0.3s ease var(--d), box-shadow 0.3s ease var(--d); }
+.process-track.visible .process-node { border-color: var(--color-cyan); background: var(--color-cyan); box-shadow: 0 0 10px rgba(0, 229, 255, 0.7); }
+
+.process-track > div { flex-direction: column; align-items: flex-start; gap: 10px; }
+.section-rail { transition: opacity 0.3s ease; }
+.section-rail.is-hero { opacity: 0; }
