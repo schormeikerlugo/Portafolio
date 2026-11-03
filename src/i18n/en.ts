@@ -247,6 +247,11 @@ export default {
     description:
       '{count} design and development projects. Each one solves a specific structural problem.',
     filterAll: 'All',
+    searchPlaceholder: 'Search by name or technology…',
+    showing: 'Showing',
+    empty: 'No matches. Try another search or clear the filters.',
+    clear: 'Clear',
+    projectsLabel: 'projects',
   },
   contact: {
     tag: '// END.PROCESS',
@@ -308,6 +313,12 @@ export default {
     prev: 'Previous',
     next: 'Next',
     all: '[ ALL ]',
+    nextProject: 'Next project',
+    close: 'Close',
+    previousImage: 'Previous image',
+    nextImage: 'Next image',
+    openImage: 'Enlarge image',
+    skipTerminal: 'Click to skip',
   },
   portfolio: {
     backButton: 'BACK TO PROJECTS',

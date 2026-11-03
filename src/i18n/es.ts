@@ -157,6 +157,11 @@ export default {
     description:
       '{count} proyectos de diseño y desarrollo. Cada uno resuelve un problema estructural específico.',
     filterAll: 'Todos',
+    searchPlaceholder: 'Buscar por nombre o tecnología…',
+    showing: 'Mostrando',
+    empty: 'Sin coincidencias. Prueba otra búsqueda o limpia los filtros.',
+    clear: 'Limpiar',
+    projectsLabel: 'proyectos',
   },
   contact: {
     tag: '// END.PROCESS',
@@ -218,6 +223,12 @@ export default {
     prev: 'Anterior',
     next: 'Siguiente',
     all: '[ TODOS ]',
+    nextProject: 'Siguiente proyecto',
+    close: 'Cerrar',
+    previousImage: 'Imagen anterior',
+    nextImage: 'Imagen siguiente',
+    openImage: 'Ampliar imagen',
+    skipTerminal: 'Clic para saltar',
   },
   portfolio: {
     backButton: 'VOLVER A PROYECTOS',

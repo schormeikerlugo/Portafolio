@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import CardValorant from '../CardValorant.astro';
 import GitHubActivity from '../GitHubActivity.astro';
 import { breadcrumbSchema, collectionSchema } from '../../lib/seo';
+import { getImage } from 'astro:assets';
 import { getProjects, label } from '../../lib/projects';
 import { t, type Lang } from '../../i18n';
 
@@ -21,6 +22,12 @@ for (const cat of categories) {
   const keys = [...new Set(projects.filter((p) => p.category === cat).map((p) => p.subcategory))];
   subcategoryMap[cat] = keys.map((key) => ({ key, label: label('subcategory', key, lang) }));
 }
+
+// Cursor preview images (desktop hover) and year groups
+const previews = Object.fromEntries(
+  await Promise.all(projects.map(async (p) => [p.slug, (await getImage({ src: p.cover, width: 560, format: 'webp' })).src])),
+);
+const years = [...new Set(projects.map((p) => p.year))];
 ---
 
 <Base
@@ -61,13 +68,51 @@ for (const cat of categories) {
         ))}
       </div>
 
-      <div id="sub-filters" class="mb-8 flex flex-wrap gap-2 hidden"></div>
+      <div id="sub-filters" class="mb-6 flex flex-wrap gap-2 hidden"></div>
+
+      <!-- Search + live result count -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 py-4 border-y border-border">
+        <label class="relative flex items-center gap-3 flex-1 max-w-xl">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-text-dim shrink-0" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <span class="sr-only">{t(lang, 'work.searchPlaceholder')}</span>
+          <input
+            id="project-search"
+            type="search"
+            autocomplete="off"
+            placeholder={t(lang, 'work.searchPlaceholder')}
+            class="w-full bg-transparent mono text-xs text-text-primary placeholder:text-text-dim tracking-wider outline-none py-1"
+          />
+          <kbd class="hidden sm:inline mono text-[11px] text-text-dim border border-border px-1.5 py-0.5">/</kbd>
+        </label>
+        <p class="mono text-[11px] text-text-dim uppercase tracking-[0.2em]" aria-live="polite">
+          {t(lang, 'work.showing')} <span id="result-count" class="text-cyan">{projects.length}</span> / {projects.length}
+        </p>
+      </div>
 
       <div id="project-list" class="work-list-enter">
-        {projects.map((project) => <CardValorant project={project} lang={lang} />)}
+        {years.map((year) => {
+          const group = projects.filter((p) => p.year === year);
+          return (
+            <>
+              <div class="year-sep flex items-center gap-4 pt-10 pb-2" data-year-sep={year}>
+                <span class="mono text-xs text-cyan tracking-[0.2em]">{year}</span>
+                <span class="h-px flex-1 bg-border"></span>
+                <span class="mono text-[11px] text-text-dim tracking-[0.2em] uppercase"><span data-year-count>{group.length}</span> {t(lang, 'work.projectsLabel')}</span>
+              </div>
+              {group.map((project) => <CardValorant project={project} lang={lang} preview={previews[project.slug]} />)}
+            </>
+          );
+        })}
+      </div>
+
+      <div id="empty-state" class="hidden py-24 text-center">
+        <p class="mono text-xs text-text-dim uppercase tracking-[0.2em]">{t(lang, 'work.empty')}</p>
+        <button id="clear-filters" class="mt-6 px-6 py-2 border border-border mono text-[11px] uppercase tracking-[0.2em] text-text-primary hover:border-cyan/50 hover:text-cyan transition-colors">{t(lang, 'work.clear')}</button>
       </div>
     </div>
   </section>
+
+  <div id="cursor-preview" aria-hidden="true"><img alt="" /><span class="hud-corners" data-mode="always" style="--hud-size:10px;--hud-color:#00e5ff"><i></i><i></i><i></i><i></i></span></div>
 </Base>
 
 <script define:vars={{ subcategoryMap }}>
@@ -75,82 +120,154 @@ for (const cat of categories) {
 </script>
 
 <script>
+  import { onPageLoad, prefersReducedMotion } from '../../lib/lifecycle';
+
   const ACTIVE = ['active', 'text-cyan', 'border-cyan/30', 'bg-cyan/10'];
   const IDLE = ['text-text-dim', 'border-border/50'];
   const SUB_ACTIVE = ['text-cyan', 'border-cyan/20', 'bg-cyan/5'];
   const SUB_IDLE = ['text-text-dim', 'border-border/30'];
 
-  function initFilters() {
+  function initWork(signal: AbortSignal) {
     const filterBtns = document.querySelectorAll<HTMLElement>('.filter-btn');
     const subFilters = document.getElementById('sub-filters');
-    const cards = document.querySelectorAll<HTMLElement>('#project-list > a');
-    if (!filterBtns.length || !subFilters) return;
+    const list = document.getElementById('project-list');
+    const search = document.getElementById('project-search') as HTMLInputElement | null;
+    const countEl = document.getElementById('result-count');
+    const empty = document.getElementById('empty-state');
+    if (!filterBtns.length || !subFilters || !list) return;
+    const cards = [...list.querySelectorAll<HTMLElement>(':scope > a')];
+    const seps = [...list.querySelectorAll<HTMLElement>('[data-year-sep]')];
     const subcategoryMap: Record<string, { key: string; label: string }[]> = (window as any).__subcategoryMap || {};
 
     const params = new URLSearchParams(location.search);
     let category = params.get('cat') || 'all';
     let sub = params.get('sub') || 'all';
+    let query = params.get('q') || '';
     if (category !== 'all' && !subcategoryMap[category]) category = 'all';
+    if (search) search.value = query;
 
-    function syncUrl() {
+    const syncUrl = () => {
       const url = new URL(location.href);
-      category === 'all' ? url.searchParams.delete('cat') : url.searchParams.set('cat', category);
-      sub === 'all' ? url.searchParams.delete('sub') : url.searchParams.set('sub', sub);
+      const set = (k: string, v: string, none: string) => (v === none ? url.searchParams.delete(k) : url.searchParams.set(k, v));
+      set('cat', category, 'all');
+      set('sub', sub, 'all');
+      set('q', query, '');
       history.replaceState(history.state, '', url);
-    }
+    };
 
-    function apply() {
+    const render = () => {
+      const q = query.trim().toLowerCase();
+      let shown = 0;
       cards.forEach((card) => {
-        const okCat = category === 'all' || card.dataset.category === category;
-        const okSub = sub === 'all' || card.dataset.subcategory === sub;
-        card.style.display = okCat && okSub ? '' : 'none';
+        const ok = (category === 'all' || card.dataset.category === category)
+          && (sub === 'all' || card.dataset.subcategory === sub)
+          && (!q || (card.dataset.search || '').includes(q));
+        card.style.display = ok ? '' : 'none';
+        if (ok) shown++;
       });
+      seps.forEach((sep) => {
+        const n = cards.filter((c) => c.dataset.year === sep.dataset.yearSep && c.style.display !== 'none').length;
+        sep.style.display = n ? '' : 'none';
+        const c = sep.querySelector('[data-year-count]');
+        if (c) c.textContent = String(n);
+      });
+      if (countEl) countEl.textContent = String(shown);
+      empty?.classList.toggle('hidden', shown > 0);
       filterBtns.forEach((btn) => {
         const on = btn.dataset.filter === category;
         btn.classList.remove(...(on ? IDLE : ACTIVE));
         btn.classList.add(...(on ? ACTIVE : IDLE));
         btn.setAttribute('aria-pressed', String(on));
       });
-      subFilters!.querySelectorAll<HTMLElement>('.sub-filter-btn').forEach((btn) => {
+      subFilters.querySelectorAll<HTMLElement>('.sub-filter-btn').forEach((btn) => {
         const on = btn.dataset.subfilter === sub;
         btn.classList.remove(...(on ? SUB_IDLE : SUB_ACTIVE));
         btn.classList.add(...(on ? SUB_ACTIVE : SUB_IDLE));
         btn.setAttribute('aria-pressed', String(on));
       });
       syncUrl();
-    }
+    };
 
-    function renderSubFilters() {
+    // Smooth reflow between filter states where the View Transitions API exists
+    const apply = () => {
+      const doc = document as any;
+      if (doc.startViewTransition && !prefersReducedMotion()) doc.startViewTransition(render);
+      else render();
+    };
+
+    const renderSubFilters = () => {
       const subs = subcategoryMap[category] || [];
       if (category === 'all' || subs.length < 2) {
-        subFilters!.classList.add('hidden');
-        subFilters!.innerHTML = '';
+        subFilters.classList.add('hidden');
+        subFilters.innerHTML = '';
         return;
       }
-      subFilters!.innerHTML = subs
-        .map((s) => `<button class="sub-filter-btn mono text-[11px] uppercase tracking-widest px-3 py-1.5 border border-border/30 text-text-dim hover:border-cyan/20 hover:text-cyan/60 transition-all" data-subfilter="${s.key}" aria-pressed="false">${s.label}</button>`)
+      subFilters.innerHTML = subs
+        .map((s) => `<button class="sub-filter-btn mono text-[11px] uppercase tracking-widest px-3 py-1.5 border border-border/30 text-text-dim hover:border-cyan/20 hover:text-cyan/80 transition-all" data-subfilter="${s.key}" aria-pressed="false">${s.label}</button>`)
         .join('');
-      subFilters!.classList.remove('hidden');
-      subFilters!.querySelectorAll<HTMLElement>('.sub-filter-btn').forEach((btn) => {
+      subFilters.classList.remove('hidden');
+      subFilters.querySelectorAll<HTMLElement>('.sub-filter-btn').forEach((btn) => {
         btn.addEventListener('click', () => {
           sub = sub === btn.dataset.subfilter ? 'all' : btn.dataset.subfilter || 'all';
           apply();
         });
       });
-    }
+    };
 
-    filterBtns.forEach((btn) => {
-      btn.addEventListener('click', () => {
-        category = btn.dataset.filter || 'all';
-        sub = 'all';
-        renderSubFilters();
-        apply();
-      });
+    filterBtns.forEach((btn) => btn.addEventListener('click', () => {
+      category = btn.dataset.filter || 'all';
+      sub = 'all';
+      renderSubFilters();
+      apply();
+    }));
+
+    let t: number | undefined;
+    search?.addEventListener('input', () => {
+      clearTimeout(t);
+      t = window.setTimeout(() => { query = search.value; render(); }, 120);
+    });
+    search?.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') { search.value = ''; query = ''; render(); search.blur(); }
+    });
+    document.addEventListener('keydown', (e) => {
+      const target = e.target as HTMLElement;
+      if (e.key === '/' && !['INPUT', 'TEXTAREA'].includes(target.tagName)) { e.preventDefault(); search?.focus(); }
+    }, { signal });
+    document.getElementById('clear-filters')?.addEventListener('click', () => {
+      category = 'all'; sub = 'all'; query = '';
+      if (search) search.value = '';
+      renderSubFilters();
+      apply();
     });
 
     renderSubFilters();
-    apply();
+    render();
+
+    // Cursor-following preview (fine pointers only)
+    const preview = document.getElementById('cursor-preview');
+    const img = preview?.querySelector('img');
+    if (!preview || !img || !matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    let x = 0, y = 0, cx = 0, cy = 0, raf = 0, visible = false;
+    const loop = () => {
+      cx += (x - cx) * 0.18;
+      cy += (y - cy) * 0.18;
+      preview.style.transform = `translate3d(${cx + 24}px, ${cy - 90}px, 0)`;
+      raf = visible ? requestAnimationFrame(loop) : 0;
+    };
+    cards.forEach((card) => {
+      card.addEventListener('mouseenter', (e) => {
+        if (!card.dataset.preview) return;
+        img.src = card.dataset.preview;
+        x = cx = e.clientX; y = cy = e.clientY;
+        visible = true;
+        preview.classList.add('is-visible');
+        if (!raf) raf = requestAnimationFrame(loop);
+      });
+      card.addEventListener('mousemove', (e) => { x = e.clientX; y = e.clientY; });
+      card.addEventListener('mouseleave', () => { visible = false; preview.classList.remove('is-visible'); });
+    });
+    signal.addEventListener('abort', () => cancelAnimationFrame(raf));
   }
 
-  document.addEventListener('astro:page-load', initFilters);
+  onPageLoad(initWork);
 </script>

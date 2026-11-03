@@ -2,6 +2,9 @@
 import { Image, getImage } from 'astro:assets';
 import Base from '../../layouts/Base.astro';
 import ProjectWorkflow from '../ProjectWorkflow.astro';
+import HudCorners from '../hud/HudCorners.astro';
+import TrackingCode from '../hud/TrackingCode.astro';
+import Barcode from '../hud/Barcode.astro';
 import { projectSchema, breadcrumbSchema } from '../../lib/seo';
 import { getProjects, label, projectUrl, type Project } from '../../lib/projects';
 import { t, type Lang } from '../../i18n';
@@ -23,6 +26,7 @@ const related = all
   .sort((a, b) => Number(b.subcategory === project.subcategory) - Number(a.subcategory === project.subcategory))
   .slice(0, 3);
 
+const nextAny = next ?? all[0];
 const og = await getImage({ src: project.cover, width: 1200, format: 'jpg' });
 const base = isEn ? '/en' : '';
 const pageUrl = `https://schormeiker.com${projectUrl(slug, lang)}`;
@@ -40,10 +44,10 @@ const links = [
   project.links.dribbble && { href: project.links.dribbble, label: t(lang, 'portfolio.viewDribbble') },
 ].filter(Boolean) as { href: string; label: string; primary?: boolean }[];
 
-const facts = [
+const facts: { label: string; value: string; status?: boolean }[] = [
   { label: t(lang, 'portfolio.yearLabel'), value: String(project.year) },
   { label: t(lang, 'portfolio.typeLabel'), value: label('type', project.type, lang) },
-  { label: t(lang, 'portfolio.statusLabel'), value: label('status', project.status, lang) },
+  { label: t(lang, 'portfolio.statusLabel'), value: label('status', project.status, lang), status: true },
   { label: t(lang, 'portfolio.categoryLabel'), value: `${label('category', project.category, lang)} — ${label('subcategory', project.subcategory, lang)}` },
 ];
 ---
@@ -71,7 +75,7 @@ const facts = [
       </a>
 
       <!-- Header -->
-      <header class="mb-12" data-animate>
+      <header id="project-header" data-section class="mb-12" data-animate>
         <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mb-4">
           <span class="mono text-[11px] text-cyan uppercase tracking-[0.2em] font-bold">{project.year}</span>
           <span class="text-text-dim mono text-[11px]">//</span>
@@ -82,7 +86,10 @@ const facts = [
         </div>
 
         <h1 class="text-4xl sm:text-5xl lg:text-7xl font-sans font-black text-text-primary tracking-tight uppercase" transition:name={`title-${slug}`}>{project.title}</h1>
-        <p class="mono text-xs sm:text-sm text-text-secondary uppercase tracking-[0.2em] mt-4">{project.tagline}</p>
+        <div class="flex flex-wrap items-center gap-x-6 gap-y-2 mt-4">
+          <p class="mono text-xs sm:text-sm text-text-secondary uppercase tracking-[0.2em]">{project.tagline}</p>
+          <span class="flex items-center gap-3 text-white"><Barcode seed={slug} /><TrackingCode seed={slug} variant="rec" /></span>
+        </div>
 
         {links.length > 0 && (
           <div class="flex flex-wrap gap-4 mt-8">
@@ -114,21 +121,25 @@ const facts = [
           fetchpriority="high"
           class="w-full h-full object-cover object-top"
         />
+        <HudCorners size={18} color="rgba(255,255,255,0.7)" />
       </div>
 
       <!-- Overview + facts -->
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-16">
+      <div data-section class="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-16">
         <div class="lg:col-span-2" data-animate>
           <span class="mono text-[11px] text-cyan/60 tracking-widest uppercase">{t(lang, 'portfolio.overviewLabel')}</span>
           <p class="text-text-secondary font-sans text-lg leading-relaxed mt-4">{project.summary}</p>
         </div>
 
         <aside class="space-y-6" data-animate>
-          <dl class="grid grid-cols-2 gap-x-6 gap-y-5">
+          <dl class="grid grid-cols-2 border-l border-t border-border">
             {facts.map((f) => (
-              <div>
+              <div class="fact-cell group relative border-r border-b border-border p-4">
+                <HudCorners mode="hover" size={8} />
                 <dt class="mono text-[11px] text-text-dim tracking-widest uppercase">{f.label}</dt>
-                <dd class="text-text-primary font-sans mt-1">{f.value}</dd>
+                <dd class="text-text-primary font-sans mt-1 flex items-center gap-2">
+                  {f.status && <span class:list={['status-dot', `status-${project.status}`]} aria-hidden="true"></span>}{f.value}
+                </dd>
               </div>
             ))}
           </dl>
@@ -154,7 +165,7 @@ const facts = [
       </div>
 
       <!-- Challenge (terminal) -->
-      <div class="mb-16 terminal-diag border border-border/30 bg-surface/20 overflow-hidden" data-animate>
+      <div data-section class="mb-16 terminal-diag border border-border/30 bg-surface/20 overflow-hidden cursor-pointer" data-animate title={t(lang, 'portfolio.skipTerminal')}>
         <div class="px-6 py-3 border-b border-border/20 flex items-center gap-3">
           <div class="flex gap-1.5" aria-hidden="true">
             <div class="w-2 h-2 rounded-full bg-red-500/60 animate-pulse"></div>
@@ -170,7 +181,7 @@ const facts = [
       </div>
 
       <!-- Approach -->
-      <div class="mb-16" data-animate>
+      <div data-section class="mb-16" data-animate>
         <span class="mono text-[11px] text-cyan/60 tracking-widest uppercase">{t(lang, 'portfolio.approachLabel')}</span>
         <p class="text-text-secondary font-sans text-lg leading-relaxed mt-4">{project.approach}</p>
       </div>
@@ -185,11 +196,16 @@ const facts = [
       <ProjectWorkflow workflow={project.workflow} lang={lang} />
 
       {project.gallery.length > 0 && (
-        <div class="mb-16" data-animate>
-          <span class="mono text-[11px] text-cyan/60 tracking-widest uppercase mb-6 block">{t(lang, 'portfolio.galleryLabel')}</span>
+        <div data-section class="mb-16" data-animate>
+          <div class="flex items-center justify-between mb-6">
+            <span class="mono text-[11px] text-cyan tracking-widest uppercase">{t(lang, 'portfolio.galleryLabel')}</span>
+            <span class="mono text-[11px] text-text-dim tracking-widest">{String(project.gallery.length).padStart(2, '0')} {isEn ? 'FRAMES' : 'CAPTURAS'}</span>
+          </div>
           <div class="grid grid-cols-1 gap-4">
             {project.gallery.map((img, i) => (
-              <a href={img.src} target="_blank" rel="noopener" class="relative block overflow-hidden border border-border/30">
+              <a href={img.src} data-lightbox={i} aria-label={`${t(lang, 'portfolio.openImage')} ${i + 1}`} class="group relative block overflow-hidden border border-border/30 cursor-zoom-in">
+                <HudCorners mode="hover" size={14} />
+                <span class="absolute top-3 right-3 z-10 mono text-[11px] text-white/80 bg-black/60 px-2 py-1 tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">{String(i + 1).padStart(2, '0')} / {String(project.gallery.length).padStart(2, '0')}</span>
                 <Image
                   src={img}
                   alt={`${project.title} — ${isEn ? 'screen' : 'pantalla'} ${i + 1}`}
@@ -205,11 +221,12 @@ const facts = [
       )}
 
       {related.length > 0 && (
-        <div class="mb-16" data-animate>
+        <div data-section class="mb-16" data-animate>
           <span class="mono text-[11px] text-cyan/60 tracking-widest uppercase mb-6 block">{t(lang, 'portfolio.related')}</span>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             {related.map((r) => (
-              <a href={projectUrl(r.slug, lang)} class="group border border-border/50 bg-surface/20 block">
+              <a href={projectUrl(r.slug, lang)} class="group relative border border-border/50 bg-surface/20 block">
+                <HudCorners mode="hover" size={12} />
                 <div class="aspect-video overflow-hidden">
                   <Image src={r.cover} alt={r.title} widths={[400, 640]} sizes="(min-width: 768px) 33vw, 100vw" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" />
                 </div>
@@ -222,6 +239,17 @@ const facts = [
           </div>
         </div>
       )}
+
+      <a href={projectUrl(nextAny.slug, lang)} class="next-project group relative block mb-12 border border-border overflow-hidden">
+        <HudCorners mode="hover" size={18} />
+        <Image src={nextAny.cover} alt="" widths={[800, 1400]} sizes="(min-width: 1200px) 1200px, 100vw" loading="lazy" class="absolute inset-0 w-full h-full object-cover object-top grayscale opacity-25 group-hover:opacity-50 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 hover-reveal" />
+        <div class="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent"></div>
+        <div class="relative px-8 py-14 sm:px-12 sm:py-20">
+          <span class="mono text-[11px] text-cyan tracking-[0.2em] uppercase">{t(lang, 'portfolio.nextProject')} →</span>
+          <p class="font-sans font-black text-4xl sm:text-6xl text-text-primary uppercase tracking-tight mt-3 group-hover:text-cyan transition-colors">{nextAny.title}</p>
+          <p class="mono text-[11px] text-text-secondary uppercase tracking-[0.2em] mt-3">{nextAny.tagline} · {nextAny.year}</p>
+        </div>
+      </a>
 
       <nav class="flex items-center justify-between gap-4 pt-12 border-t border-border" data-animate aria-label={isEn ? 'Project navigation' : 'Navegación entre proyectos'}>
         {prev ? (
@@ -248,4 +276,84 @@ const facts = [
       </nav>
     </div>
   </section>
+
+  <!-- Sticky mini header (appears once the main header scrolls away) -->
+  <div id="project-sticky" class="fixed top-0 inset-x-0 z-40 border-b border-border bg-black/85 backdrop-blur-xl" aria-hidden="true">
+    <div class="max-w-[1200px] mx-auto px-6 h-12 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3 min-w-0">
+        <span class:list={['status-dot', `status-${project.status}`]}></span>
+        <span class="font-sans font-bold text-sm uppercase tracking-tight text-text-primary truncate">{project.title}</span>
+        <span class="hidden sm:inline mono text-[11px] text-text-dim tracking-[0.2em] uppercase truncate">{project.tagline}</span>
+      </div>
+      {links[0] && (
+        <a href={links[0].href} target="_blank" rel="noopener" tabindex="-1" class:list={['shrink-0 px-4 py-1.5 mono text-[11px] tracking-[0.2em] uppercase', links[0].primary ? 'bg-cyan text-void font-bold' : 'border border-border text-text-primary hover:text-cyan']}>{links[0].label} ↗</a>
+      )}
+    </div>
+  </div>
+
+  {project.gallery.length > 0 && (
+    <dialog id="lightbox" class="lightbox" aria-label={t(lang, 'portfolio.galleryLabel')}>
+      <div class="lightbox-inner">
+        <div class="lightbox-bar">
+          <span class="mono text-[11px] text-white/80 tracking-[0.2em]"><span id="lb-index">01</span> / {String(project.gallery.length).padStart(2, '0')}</span>
+          <span class="mono text-[11px] text-white/60 tracking-[0.2em] uppercase truncate">{project.title}</span>
+          <button type="button" data-lb="close" class="lb-btn" aria-label={t(lang, 'portfolio.close')}>✕</button>
+        </div>
+        <div class="lightbox-stage">
+          <button type="button" data-lb="prev" class="lb-btn lb-nav left-3" aria-label={t(lang, 'portfolio.previousImage')}>‹</button>
+          <img id="lb-img" alt="" />
+          <button type="button" data-lb="next" class="lb-btn lb-nav right-3" aria-label={t(lang, 'portfolio.nextImage')}>›</button>
+        </div>
+      </div>
+    </dialog>
+  )}
 </Base>
+
+<script>
+  import { onPageLoad } from '../../lib/lifecycle';
+
+  onPageLoad((signal) => {
+    // Sticky header
+    const header = document.getElementById('project-header');
+    const sticky = document.getElementById('project-sticky');
+    if (header && sticky) {
+      const io = new IntersectionObserver(([e]) => {
+        const show = !e.isIntersecting && e.boundingClientRect.top < 0;
+        sticky.classList.toggle('is-visible', show);
+        sticky.setAttribute('aria-hidden', String(!show));
+        sticky.querySelector('a')?.setAttribute('tabindex', show ? '0' : '-1');
+      });
+      io.observe(header);
+      signal.addEventListener('abort', () => io.disconnect());
+    }
+
+    // Lightbox
+    const dialog = document.getElementById('lightbox') as HTMLDialogElement | null;
+    const img = document.getElementById('lb-img') as HTMLImageElement | null;
+    const idxEl = document.getElementById('lb-index');
+    const items = [...document.querySelectorAll<HTMLAnchorElement>('[data-lightbox]')];
+    if (!dialog || !img || !items.length) return;
+    let idx = 0;
+    const show = (i: number) => {
+      idx = (i + items.length) % items.length;
+      img.src = items[idx].href;
+      img.alt = items[idx].querySelector('img')?.alt || '';
+      if (idxEl) idxEl.textContent = String(idx + 1).padStart(2, '0');
+    };
+    items.forEach((a, i) => a.addEventListener('click', (e) => {
+      e.preventDefault();
+      show(i);
+      dialog.showModal();
+    }));
+    dialog.querySelector('[data-lb="prev"]')?.addEventListener('click', () => show(idx - 1));
+    dialog.querySelector('[data-lb="next"]')?.addEventListener('click', () => show(idx + 1));
+    dialog.querySelector('[data-lb="close"]')?.addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', (e) => { if (e.target === dialog) dialog.close(); });
+    document.addEventListener('keydown', (e) => {
+      if (!dialog.open) return;
+      if (e.key === 'ArrowRight') show(idx + 1);
+      if (e.key === 'ArrowLeft') show(idx - 1);
+    }, { signal });
+    signal.addEventListener('abort', () => dialog.open && dialog.close());
+  });
+</script>
