@@ -1,0 +1,156 @@
+---
+import Base from '../../layouts/Base.astro';
+import CardValorant from '../CardValorant.astro';
+import GitHubActivity from '../GitHubActivity.astro';
+import { breadcrumbSchema, collectionSchema } from '../../lib/seo';
+import { getProjects, label } from '../../lib/projects';
+import { t, type Lang } from '../../i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const isEn = lang === 'en';
+const projects = await getProjects(lang);
+const count = String(projects.length);
+
+const categories = (['development', 'design'] as const).filter((c) => projects.some((p) => p.category === c));
+const subcategoryMap: Record<string, { key: string; label: string }[]> = {};
+for (const cat of categories) {
+  const keys = [...new Set(projects.filter((p) => p.category === cat).map((p) => p.subcategory))];
+  subcategoryMap[cat] = keys.map((key) => ({ key, label: label('subcategory', key, lang) }));
+}
+---
+
+<Base
+  lang={lang}
+  title="Work"
+  description={t(lang, 'seo.work.description').replace('{count}', count)}
+  keywords={isEn
+    ? ['portfolio', 'projects', 'UI design', 'UX', 'frontend', 'Astro', 'React', 'web design', 'dashboard']
+    : ['portafolio', 'proyectos', 'diseño UI', 'UX', 'frontend', 'Astro', 'React', 'diseño web', 'dashboard']}
+  jsonLd={[
+    collectionSchema(isEn ? 'Projects' : 'Proyectos', t(lang, 'seo.work.description').replace('{count}', count), projects.length),
+    breadcrumbSchema([
+      { name: 'Home', url: 'https://schormeiker.com' },
+      { name: 'Work', url: `https://schormeiker.com${isEn ? '/en' : ''}/work` },
+    ]),
+  ]}
+>
+  <section class="pt-28 pb-24 px-6 min-h-screen">
+    <div class="max-w-[1400px] mx-auto">
+      <div class="mb-12 section-header" data-animate>
+        <span class="mono text-[10px] text-cyan/60 tracking-[0.3em] uppercase">{t(lang, 'work.tag')}</span>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-sans font-black text-text-primary mt-4">{t(lang, 'work.title')}</h1>
+        <p class="text-text-secondary font-sans text-lg max-w-2xl mt-6 leading-relaxed">
+          {t(lang, 'work.description').replace('{count}', count)}
+        </p>
+      </div>
+
+      <GitHubActivity lang={lang} />
+
+      <div class="mb-4 flex flex-wrap gap-3" data-animate role="toolbar" aria-label={isEn ? 'Filter by category' : 'Filtrar por categoría'}>
+        <button class="filter-btn active mono text-[10px] uppercase tracking-widest px-4 py-2 border border-cyan/30 text-cyan bg-cyan/10 transition-all" data-filter="all" aria-pressed="true">
+          {t(lang, 'work.filterAll')} ({projects.length})
+        </button>
+        {categories.map((cat) => (
+          <button class="filter-btn mono text-[10px] uppercase tracking-widest px-4 py-2 border border-border/50 text-text-dim hover:border-cyan/30 hover:text-cyan transition-all" data-filter={cat} aria-pressed="false">
+            {label('category', cat, lang)} ({projects.filter((p) => p.category === cat).length})
+          </button>
+        ))}
+      </div>
+
+      <div id="sub-filters" class="mb-8 flex flex-wrap gap-2 hidden"></div>
+
+      <div id="project-list" class="work-list-enter">
+        {projects.map((project) => <CardValorant project={project} lang={lang} />)}
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script define:vars={{ subcategoryMap }}>
+  window.__subcategoryMap = subcategoryMap;
+</script>
+
+<script>
+  const ACTIVE = ['active', 'text-cyan', 'border-cyan/30', 'bg-cyan/10'];
+  const IDLE = ['text-text-dim', 'border-border/50'];
+  const SUB_ACTIVE = ['text-cyan', 'border-cyan/20', 'bg-cyan/5'];
+  const SUB_IDLE = ['text-text-dim', 'border-border/30'];
+
+  function initFilters() {
+    const filterBtns = document.querySelectorAll<HTMLElement>('.filter-btn');
+    const subFilters = document.getElementById('sub-filters');
+    const cards = document.querySelectorAll<HTMLElement>('#project-list > a');
+    if (!filterBtns.length || !subFilters) return;
+    const subcategoryMap: Record<string, { key: string; label: string }[]> = (window as any).__subcategoryMap || {};
+
+    const params = new URLSearchParams(location.search);
+    let category = params.get('cat') || 'all';
+    let sub = params.get('sub') || 'all';
+    if (category !== 'all' && !subcategoryMap[category]) category = 'all';
+
+    function syncUrl() {
+      const url = new URL(location.href);
+      category === 'all' ? url.searchParams.delete('cat') : url.searchParams.set('cat', category);
+      sub === 'all' ? url.searchParams.delete('sub') : url.searchParams.set('sub', sub);
+      history.replaceState(history.state, '', url);
+    }
+
+    function apply() {
+      cards.forEach((card) => {
+        const okCat = category === 'all' || card.dataset.category === category;
+        const okSub = sub === 'all' || card.dataset.subcategory === sub;
+        card.style.display = okCat && okSub ? '' : 'none';
+      });
+      filterBtns.forEach((btn) => {
+        const on = btn.dataset.filter === category;
+        btn.classList.remove(...(on ? IDLE : ACTIVE));
+        btn.classList.add(...(on ? ACTIVE : IDLE));
+        btn.setAttribute('aria-pressed', String(on));
+      });
+      subFilters!.querySelectorAll<HTMLElement>('.sub-filter-btn').forEach((btn) => {
+        const on = btn.dataset.subfilter === sub;
+        btn.classList.remove(...(on ? SUB_IDLE : SUB_ACTIVE));
+        btn.classList.add(...(on ? SUB_ACTIVE : SUB_IDLE));
+        btn.setAttribute('aria-pressed', String(on));
+      });
+      syncUrl();
+    }
+
+    function renderSubFilters() {
+      const subs = subcategoryMap[category] || [];
+      if (category === 'all' || subs.length < 2) {
+        subFilters!.classList.add('hidden');
+        subFilters!.innerHTML = '';
+        return;
+      }
+      subFilters!.innerHTML = subs
+        .map((s) => `<button class="sub-filter-btn mono text-[9px] uppercase tracking-widest px-3 py-1.5 border border-border/30 text-text-dim hover:border-cyan/20 hover:text-cyan/60 transition-all" data-subfilter="${s.key}" aria-pressed="false">${s.label}</button>`)
+        .join('');
+      subFilters!.classList.remove('hidden');
+      subFilters!.querySelectorAll<HTMLElement>('.sub-filter-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          sub = sub === btn.dataset.subfilter ? 'all' : btn.dataset.subfilter || 'all';
+          apply();
+        });
+      });
+    }
+
+    filterBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        category = btn.dataset.filter || 'all';
+        sub = 'all';
+        renderSubFilters();
+        apply();
+      });
+    });
+
+    renderSubFilters();
+    apply();
+  }
+
+  document.addEventListener('astro:page-load', initFilters);
+</script>

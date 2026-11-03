@@ -1,0 +1,73 @@
+legacyId: 29
+year: 2023
+status: concept
+type: concept
+category: design
+subcategory: dashboard
+workflow: design
+stack:
+  - UI
+  - POS
+  - DASHBOARD
+  - RETAIL
+role:
+  - POS Dashboard
+  - Retail UI
+  - Keyboard Shortcuts
+links:
+  dribbble: https://dribbble.com/shots/22996126-Dashboard-Punto-de-venta-UI
+cover: ./pos-dashboard/cover.webp
+gallery:
+  - ./pos-dashboard/01.webp
+es:
+  title: DASHBOARD POS
+  tagline: PUNTO DE VENTA UI
+  summary: >-
+    Dashboard POS es un sistema de punto de venta para retail que unifica las operaciones de caja,
+    gestión de inventario y generación de reportes en una sola interfaz. El diseño está optimizado
+    para dos contextos de uso opuestos: la velocidad extrema que exige la línea de caja en hora pico
+    y el análisis detallado que necesita el administrador al cierre del día. Su propuesta elimina la
+    necesidad de alternar entre sistemas separados que históricamente generaban datos
+    desincronizados.
+  challenge:
+    - >-
+      Los sistemas POS existentes presentan interfaces con más de 50 botones visibles que requieren
+      entre 12 y 20 horas de capacitación por cada nuevo cajero.
+    - >-
+      Los cajeros necesitan completar cada transacción en menos de 15 segundos durante las horas
+      pico; cada segundo adicional genera filas y pérdida de ventas.
+    - >-
+      La gestión de inventario y los reportes de ventas funcionaban en sistemas separados, causando
+      desincronización de stock y errores en el cierre diario.
+  approach: >-
+    El dashboard unifica dos modos de operación: el modo cajero presenta una interfaz simplificada
+    con botones grandes y flujos de cobro en 3 pasos, mientras el modo administrador ofrece gestión
+    completa de inventario, reportes y analytics. La búsqueda predictiva de productos permite
+    localizar cualquier artículo del catálogo con 2 o 3 caracteres. Los atajos de teclado cubren las
+    10 operaciones más frecuentes, y el sistema actualiza el inventario en tiempo real con cada
+    venta registrada.
+en:
+  title: DASHBOARD POS
+  tagline: POINT OF SALE UI
+  summary: >-
+    Dashboard POS is a retail point-of-sale system that unifies checkout operations, inventory
+    management, and report generation in a single interface. The design is optimized for two
+    opposite usage contexts: the extreme speed demanded by the checkout line during peak hours and
+    the detailed analysis the administrator needs at end of day. Its approach eliminates the need to
+    switch between separate systems that historically produced desynchronized data.
+  challenge:
+    - >-
+      Existing POS systems feature interfaces with over 50 visible buttons that require between 12
+      and 20 hours of training for each new cashier.
+    - >-
+      Cashiers need to complete each transaction in under 15 seconds during peak hours; every
+      additional second creates lines and lost sales.
+    - >-
+      Inventory management and sales reports operated in separate systems, causing stock
+      desynchronization and errors in daily closing.
+  approach: >-
+    The dashboard unifies two operation modes: cashier mode presents a simplified interface with
+    large buttons and a 3-step checkout flow, while admin mode offers complete inventory management,
+    reports, and analytics. Predictive product search locates any catalog item with 2 or 3
+    characters. Keyboard shortcuts cover the 10 most frequent operations, and the system updates
+    inventory in real time with each registered sale.

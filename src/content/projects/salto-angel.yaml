@@ -1,0 +1,73 @@
+legacyId: 24
+year: 2019
+status: concept
+type: concept
+category: design
+subcategory: web
+workflow: design
+stack:
+  - UI
+  - WEB
+  - VENEZUELA
+  - NATURE
+role:
+  - Promotional Web
+  - Tourism
+  - Parallax
+links:
+  dribbble: https://dribbble.com/shots/7100672-Salto-angel
+cover: ./salto-angel/cover.webp
+gallery:
+  - ./salto-angel/01.webp
+es:
+  title: SALTO ÁNGEL
+  tagline: VENEZUELA WEB
+  summary: >-
+    Salto Ángel es una web promocional dedicada a la cascada más alta del mundo, ubicada en el
+    Parque Nacional Canaima de Venezuela con sus 979 metros de caída libre. El sitio captura la
+    majestuosidad de este monumento natural Patrimonio de la Humanidad mediante una experiencia
+    visual inmersiva. Su objetivo es posicionar al Salto Ángel como destino turístico internacional
+    con una presencia digital a la altura de su relevancia geográfica y cultural.
+  challenge:
+    - >-
+      Venezuela carece de webs turísticas con estándares internacionales para sus destinos
+      naturales; los sitios existentes datan de los años 2010 y carecen de responsive.
+    - >-
+      El Salto Ángel es Patrimonio de la Humanidad desde 1994, pero su presencia digital no refleja
+      la importancia de un monumento visitado por 12,000 turistas anuales.
+    - >-
+      La web debe transmitir la experiencia del lugar con suficiente fuerza visual para motivar la
+      planificación de un viaje a una región de acceso remoto.
+  approach: >-
+    La landing page abre con fotografía aérea en alta resolución que ocupa el viewport completo,
+    generando un impacto visual inmediato. Las secciones informativas cubren la historia pemón del
+    Kerepakupai Vená, datos geográficos y rutas de acceso desde distintos puntos del país. Un efecto
+    parallax simula el descenso del agua a medida que el usuario hace scroll, reforzando la
+    sensación de escala. La integración con mapas interactivos de la Gran Sabana permite explorar el
+    contexto territorial y los tepuyes circundantes.
+en:
+  title: SALTO ÁNGEL
+  tagline: VENEZUELA WEB
+  summary: >-
+    Salto Angel is a promotional website dedicated to the world's tallest waterfall, located in
+    Venezuela's Canaima National Park with its 979 meters of freefall. The site captures the majesty
+    of this UNESCO World Heritage natural monument through an immersive visual experience. Its goal
+    is to position Angel Falls as an international tourist destination with a digital presence that
+    matches its geographical and cultural significance.
+  challenge:
+    - >-
+      Venezuela lacks tourism websites meeting international standards for its natural destinations;
+      existing sites date back to the 2010s and lack responsive design.
+    - >-
+      Angel Falls has been a UNESCO World Heritage Site since 1994, but its digital presence does
+      not reflect the importance of a monument visited by 12,000 tourists annually.
+    - >-
+      The website must convey the experience of the location with enough visual force to motivate
+      the planning of a trip to a remote-access region.
+  approach: >-
+    The landing page opens with high-resolution aerial photography that fills the entire viewport,
+    creating an immediate visual impact. Informative sections cover the Pemon history of Kerepakupai
+    Vena, geographical data, and access routes from various points across the country. A parallax
+    effect simulates the water descent as the user scrolls, reinforcing the sense of scale.
+    Integration with interactive maps of the Gran Sabana allows visitors to explore the surrounding
+    territory and tepuis.

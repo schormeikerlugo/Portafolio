@@ -1,0 +1,80 @@
+legacyId: 1
+featured: 5
+year: 2021
+status: concept
+type: professional
+category: design
+subcategory: crypto
+workflow: design
+stack:
+  - UI
+  - UX
+  - DEFI
+  - BLOCKCHAIN
+  - FIGMA
+role:
+  - UI Design
+  - UX Research
+  - Design System
+  - Prototyping
+links:
+  behance: https://www.behance.net/gallery/128462107/TakoDefi-New-UI
+cover: ./takodefi/cover.webp
+gallery:
+  - ./takodefi/01.webp
+  - ./takodefi/02.webp
+  - ./takodefi/03.webp
+  - ./takodefi/04.webp
+  - ./takodefi/05.webp
+  - ./takodefi/06.webp
+es:
+  title: TAKODEFI
+  tagline: DEFI PLATFORM UI
+  summary: >-
+    TakoDefi es una plataforma DeFi especializada en staking y yield farming sobre redes EVM,
+    dirigida a inversores que buscan rendimientos pasivos en entornos blockchain. Su propuesta se
+    centra en ofrecer una experiencia visual premium que traduce la complejidad del ecosistema DeFi
+    en flujos claros y accesibles. El rediseño completo de su interfaz tenía como objetivo
+    transmitir confianza institucional sin sacrificar la transparencia de datos on-chain que los
+    usuarios avanzados exigen.
+  challenge:
+    - >-
+      La jerarquía visual era inexistente — funciones críticas (claim, stake) compartían peso con
+      elementos decorativos. Tasa de error en transacciones por clics incorrectos: 18%.
+    - >-
+      Tasa de abandono en el onboarding: 62%. El flujo de conexión de wallet requería 5 pasos
+      manuales y carecía de feedback visual en cada estado.
+    - >-
+      Zero design system. Las 12 pantallas principales usaban 4 paletas de color distintas, 3
+      familias tipográficas y ningún componente reutilizable documentado.
+  approach: >-
+    El nuevo sistema visual unifica toda la plataforma bajo una paleta oscura premium con gradientes
+    sutiles y 48 componentes reutilizables documentados en Figma. El flujo de staking se redujo de 7
+    a 3 pasos, con indicadores de progreso y confirmaciones visuales en cada etapa. Los dashboards
+    ahora muestran APY, TVL y composición del portfolio en tiempo real mediante gráficos
+    interactivos que responden al hover, lo que redujo las consultas de soporte un 40%.
+en:
+  title: TAKODEFI
+  tagline: DEFI PLATFORM UI
+  summary: >-
+    TakoDefi is a DeFi platform specializing in staking and yield farming on EVM networks, targeting
+    investors who seek passive returns in blockchain environments. Its value proposition centers on
+    delivering a premium visual experience that translates the complexity of the DeFi ecosystem into
+    clear and accessible flows. The complete interface redesign aimed to convey institutional trust
+    without sacrificing the on-chain data transparency that advanced users demand.
+  challenge:
+    - >-
+      Visual hierarchy was nonexistent — critical functions (claim, stake) shared weight with
+      decorative elements. Transaction error rate from misclicks: 18%.
+    - >-
+      Onboarding abandonment rate: 62%. The wallet connection flow required 5 manual steps and
+      lacked visual feedback at each state.
+    - >-
+      Zero design system. The 12 main screens used 4 different color palettes, 3 typeface families,
+      and zero documented reusable components.
+  approach: >-
+    The new visual system unifies the entire platform under a premium dark palette with subtle
+    gradients and 48 reusable components documented in Figma. The staking flow was reduced from 7 to
+    3 steps, with progress indicators and visual confirmations at each stage. Dashboards now display
+    APY, TVL, and portfolio composition in real time through interactive hover-responsive charts,
+    which reduced support inquiries by 40%.

@@ -1,0 +1,71 @@
+legacyId: 25
+year: 2018
+status: concept
+type: concept
+category: design
+subcategory: web
+workflow: design
+stack:
+  - UI
+  - STREAMING
+  - WEB
+  - VIDEO
+role:
+  - Streaming UI
+  - Content Discovery
+  - Video Player
+links:
+  dribbble: https://dribbble.com/shots/5162722-Ui-web-design-Streaming
+cover: ./streaming-ui/cover.webp
+gallery:
+  - ./streaming-ui/01.webp
+es:
+  title: STREAMING UI
+  tagline: ENTERTAINMENT WEB
+  summary: >-
+    Streaming UI es un concepto de plataforma de video bajo demanda que prioriza el descubrimiento
+    de contenido sobre la simple exhibición del catálogo. La interfaz está pensada para reducir la
+    parálisis de decisión que afecta a los usuarios cuando enfrentan miles de opciones sin curación
+    efectiva. Su diseño se diferencia por tratar cada título como una experiencia visual previa al
+    clic, no como una miniatura más en una grilla infinita.
+  challenge:
+    - >-
+      Las plataformas de streaming muestran catálogos con más de 15,000 títulos sin curación
+      efectiva; el usuario promedio abandona tras 7 minutos de búsqueda.
+    - >-
+      Los usuarios dedican más tiempo a buscar qué ver que a ver contenido — la paradoja de decisión
+      reduce el engagement y aumenta las cancelaciones de suscripción.
+    - >-
+      El algoritmo de recomendación genera sugerencias precisas, pero la interfaz no potencia
+      visualmente esas recomendaciones frente al ruido del catálogo.
+  approach: >-
+    El diseño emplea un hero rotativo con trailers autoplay del contenido destacado, generando
+    interés inmediato sin requerir clics exploratorios. Los carruseles temáticos muestran previews
+    expandidos al hover con sinopsis, duración y puntuación. El sistema de listas personalizadas
+    permite al usuario organizar contenido por estado de visualización y preferencia. El player
+    integrado ofrece controles mínimos y un modo teatro que elimina toda distracción periférica.
+en:
+  title: STREAMING UI
+  tagline: ENTERTAINMENT WEB
+  summary: >-
+    Streaming UI is a video-on-demand platform concept that prioritizes content discovery over
+    simple catalog display. The interface is designed to reduce the decision paralysis that affects
+    users when they face thousands of options without effective curation. Its design differentiates
+    itself by treating each title as a visual experience before the click, not just another
+    thumbnail in an infinite grid.
+  challenge:
+    - >-
+      Streaming platforms display catalogs with over 15,000 titles without effective curation; the
+      average user abandons after 7 minutes of browsing.
+    - >-
+      Users spend more time searching for what to watch than actually watching content — the
+      decision paradox reduces engagement and increases subscription cancellations.
+    - >-
+      The recommendation algorithm generates accurate suggestions, but the interface does not
+      visually amplify those recommendations over the catalog noise.
+  approach: >-
+    The design features a rotating hero with autoplay trailers of featured content, generating
+    immediate interest without requiring exploratory clicks. Thematic carousels show expanded
+    previews on hover with synopsis, duration, and rating. The personalized list system lets users
+    organize content by viewing status and preference. The integrated player offers minimal controls
+    and a theater mode that eliminates all peripheral distractions.

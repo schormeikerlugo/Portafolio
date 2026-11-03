@@ -1,0 +1,78 @@
+legacyId: 21
+year: 2018
+status: concept
+type: concept
+category: design
+subcategory: web
+workflow: design
+stack:
+  - UI
+  - E-COMMERCE
+  - WEB
+  - DARK
+role:
+  - E-commerce UI
+  - Product Photography
+  - Dark Theme
+links:
+  behance: https://www.behance.net/gallery/73477999/E-commerce-UI-concept-Gear-Head-Works
+cover: ./gear-head-works/cover.webp
+gallery:
+  - ./gear-head-works/01.webp
+  - ./gear-head-works/02.webp
+  - ./gear-head-works/03.webp
+  - ./gear-head-works/04.webp
+es:
+  title: GEAR HEAD WORKS
+  tagline: E-COMMERCE UI CONCEPT
+  summary: >-
+    Gear Head Works es un concepto de e-commerce para una tienda de equipamiento táctico y outdoor
+    dirigida a profesionales y entusiastas que valoran la calidad del material. El diseño traslada
+    la robustez y durabilidad de los productos a la experiencia digital mediante una estética oscura
+    e industrial. Su diferenciador frente a competidores como 5.11 Tactical o Condor reside en una
+    presentación visual que eleva el producto a nivel aspiracional sin perder funcionalidad de
+    compra.
+  challenge:
+    - >-
+      Las tiendas de equipamiento táctico mantienen webs con diseños de hace una década, navegación
+      confusa y fotografía de producto sobre fondos blancos genéricos.
+    - >-
+      Los productos cuestan entre $80 y $400 USD, pero la presentación web no refleja ese nivel de
+      calidad; el packaging digital contradice la promesa de la marca.
+    - >-
+      La competencia directa (5.11 Tactical, Condor, Blackhawk) ofrece webs corporativas sin
+      personalidad que no conectan emocionalmente con el comprador.
+  approach: >-
+    El e-commerce emplea un tema oscuro con fotografía de producto de alta calidad sobre fondos
+    texturizados que evocan terreno y metal. El sistema de filtros permite buscar por categoría,
+    material y contexto de uso, reduciendo el tiempo de exploración del catálogo. Las páginas de
+    producto incluyen zoom de alta resolución, vistas desde múltiples ángulos y especificaciones
+    técnicas detalladas con comparativas entre modelos. La paleta cromática restringida y la
+    tipografía condensada refuerzan la identidad táctica sin comprometer la legibilidad.
+en:
+  title: GEAR HEAD WORKS
+  tagline: E-COMMERCE UI CONCEPT
+  summary: >-
+    Gear Head Works is an e-commerce concept for a tactical and outdoor equipment store aimed at
+    professionals and enthusiasts who value material quality. The design translates the robustness
+    and durability of the products into the digital experience through a dark, industrial aesthetic.
+    Its differentiator against competitors like 5.11 Tactical or Condor lies in a visual
+    presentation that elevates the product to an aspirational level without sacrificing purchasing
+    functionality.
+  challenge:
+    - >-
+      Tactical equipment stores maintain websites with decade-old designs, confusing navigation, and
+      product photography on generic white backgrounds.
+    - >-
+      Products are priced between $80 and $400 USD, but the web presentation does not reflect that
+      level of quality; the digital packaging contradicts the brand promise.
+    - >-
+      Direct competitors (5.11 Tactical, Condor, Blackhawk) offer corporate websites with no
+      personality that fail to connect emotionally with the buyer.
+  approach: >-
+    The e-commerce uses a dark theme with high-quality product photography on textured backgrounds
+    that evoke terrain and metal. The filter system allows searching by category, material, and
+    usage context, reducing catalog exploration time. Product pages include high-resolution zoom,
+    multi-angle views, and detailed technical specifications with model comparisons. A restrained
+    color palette and condensed typography reinforce the tactical identity without compromising
+    readability.

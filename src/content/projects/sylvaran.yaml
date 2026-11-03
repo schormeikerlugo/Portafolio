@@ -1,0 +1,78 @@
+legacyId: 30
+year: 2025
+status: archived
+type: personal
+category: development
+subcategory: games
+workflow: development
+stack:
+  - JAVASCRIPT
+  - PHASER
+  - VITE
+  - RPG
+  - PIXEL ART
+  - GAME DEV
+role:
+  - Game Development
+  - Engine Architecture
+  - Pixel Art
+links:
+  repo: https://github.com/schormeikerlugo/sylvaran
+cover: ./sylvaran/cover.webp
+gallery:
+  - ./sylvaran/01.webp
+  - ./sylvaran/02.webp
+  - ./sylvaran/03.webp
+es:
+  title: SYLVARAN RPG
+  tagline: DARK FANTASY RPG
+  summary: >-
+    Sylvaran es un RPG de acción y fantasía oscura donde el jugador controla a Kael, último miembro
+    de una orden extinta, en un mundo corrompido por la diosa caída Nihzara. Desarrollado con Phaser
+    como motor 2D y Vite como bundler, el proyecto implementa mapas navegables con múltiples capas,
+    animaciones ambientales reactivas, sistemas de control del jugador, diseño sonoro experimental y
+    transiciones narrativas. La estética combina pixel art gótico inspirado en RPGs clásicos
+    japoneses con paletas de colores apagados y tipografía retro.
+  challenge:
+    - >-
+      Crear un RPG completo sin engine comercial requiere una arquitectura que soporte combate,
+      inventario, diálogos y progresión en sincronía.
+    - >-
+      El diseño modular debe permitir cambios narrativos, nuevas mecánicas y expansión multi-región
+      sin ruptura estructural.
+    - >-
+      El mundo debe sentirse vivo con NPCs, enemigos con IA propia, eventos dinámicos y animaciones
+      ambientales con propiedades reactivas.
+  approach: >-
+    Arquitectura modular con Phaser donde cada sistema (combate, inventario, diálogos, progresión)
+    opera de forma independiente. Mapas navegables con múltiples capas y animaciones ambientales
+    reactivas. Sistema de santuarios elementales como eje de progresión. IA de enemigos basada en
+    máquinas de estados con detección de rango y patrullaje. Diseño sonoro ambiental integrado y
+    transiciones narrativas cinemáticas. Estructura de código que soporta expansión sin disrumpir la
+    arquitectura existente.
+en:
+  title: SYLVARAN RPG
+  tagline: DARK FANTASY RPG
+  summary: >-
+    Sylvaran is a dark fantasy action RPG where the player controls Kael, the last member of an
+    extinct order, in a world corrupted by the fallen goddess Nihzara. Built with Phaser as 2D
+    engine and Vite as bundler, the project implements navigable maps with multiple layers, reactive
+    environmental animations, player control systems, experimental sound design, and narrative
+    transitions. The aesthetic combines gothic pixel art inspired by classic Japanese RPGs with
+    muted color palettes and retro typography.
+  challenge:
+    - >-
+      Building a complete RPG without a commercial engine requires an architecture that supports
+      combat, inventory, dialogues, and progression in sync.
+    - >-
+      The modular design must allow narrative changes, new mechanics, and multi-region expansion
+      without structural disruption.
+    - >-
+      The world must feel alive with NPCs, enemies with their own AI, dynamic events, and
+      environmental animations with reactive properties.
+  approach: >-
+    Modular architecture with Phaser where each system (combat, inventory, dialogues, progression)
+    operates independently. Navigable maps with multiple layers and reactive environmental
+    animations. Elemental sanctuary system as progression axis. Enemy AI based on state machines
+    with range detection and patrolling. Integrated ambient sound design and cinematic narrative
+    transitions. Code structure that supports expansion without disrupting existing architecture.

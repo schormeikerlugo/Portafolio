@@ -1,0 +1,73 @@
+legacyId: 5
+year: 2018
+status: concept
+type: concept
+category: design
+subcategory: crypto
+workflow: design
+stack:
+  - UI
+  - XD
+  - CRYPTO
+  - FREEBIE
+role:
+  - UI Kit
+  - Dashboard Design
+  - Freebie
+links:
+  behance: https://www.behance.net/gallery/66111333/Cryptocurrency-free-download-for-Xd
+cover: ./cryptocurrency-xd/cover.webp
+gallery:
+  - ./cryptocurrency-xd/01.webp
+es:
+  title: CRYPTOCURRENCY XD
+  tagline: CRYPTO DASHBOARD FREEBIE
+  summary: >-
+    Cryptocurrency XD es un kit UI gratuito para dashboards de criptomonedas, diseñado en Adobe XD y
+    publicado como recurso open-source para la comunidad de diseño. El paquete cubre el flujo
+    completo de una plataforma crypto — desde el overview de portfolio hasta la vista de trading y
+    la gestión de wallets. Su objetivo era ofrecer un punto de partida profesional a diseñadores que
+    necesitaban prototipar productos crypto sin construir cada componente desde cero.
+  challenge:
+    - >-
+      Los freebies de crypto UI en Behance y Dribbble ofrecían 2-3 pantallas sueltas sin
+      consistencia visual. El 90% carecía de design tokens o estilos compartidos.
+    - >-
+      No existían templates que cubrieran el flujo completo: portfolio, trading, analytics y wallet.
+      Los diseñadores reconstruían cada pantalla manualmente.
+    - >-
+      Los proyectos crypto tenían deadlines de 2-3 semanas. Sin un kit base profesional, los equipos
+      perdían la primera semana solo en componentes básicos.
+  approach: >-
+    El kit incluye más de 15 pantallas completas de dashboard crypto: overview general, portfolio
+    detallado, trading view con gráficos de velas, analytics de rendimiento, wallet management y
+    settings de perfil. Todos los componentes siguen un sistema modular con estilos compartidos, lo
+    que permite intercambiar secciones entre pantallas sin perder coherencia visual. El recurso se
+    publicó como freebie en Behance, donde acumuló más de 5.000 descargas y se convirtió en
+    referencia recurrente en tutoriales de diseño crypto.
+en:
+  title: CRYPTOCURRENCY XD
+  tagline: CRYPTO DASHBOARD FREEBIE
+  summary: >-
+    Cryptocurrency XD is a free UI kit for cryptocurrency dashboards, designed in Adobe XD and
+    published as an open-source resource for the design community. The package covers the complete
+    flow of a crypto platform — from portfolio overview to the trading view and wallet management.
+    Its goal was to provide a professional starting point for designers who needed to prototype
+    crypto products without building every component from scratch.
+  challenge:
+    - >-
+      Crypto UI freebies on Behance and Dribbble offered 2-3 disconnected screens with no visual
+      consistency. 90% lacked design tokens or shared styles.
+    - >-
+      No templates covered the complete flow: portfolio, trading, analytics, and wallet. Designers
+      rebuilt every screen manually.
+    - >-
+      Crypto projects had 2-3 week deadlines. Without a professional base kit, teams lost the first
+      week on basic components alone.
+  approach: >-
+    The kit includes over 15 complete crypto dashboard screens: general overview, detailed
+    portfolio, trading view with candlestick charts, performance analytics, wallet management, and
+    profile settings. All components follow a modular system with shared styles, allowing sections
+    to be swapped between screens without losing visual coherence. The resource was published as a
+    freebie on Behance, where it accumulated over 5,000 downloads and became a recurring reference
+    in crypto design tutorials.

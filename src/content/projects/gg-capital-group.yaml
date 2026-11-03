@@ -1,0 +1,72 @@
+legacyId: 23
+year: 2019
+status: concept
+type: concept
+category: design
+subcategory: web
+workflow: design
+stack:
+  - UI
+  - WEB
+  - FINANCE
+  - CORPORATE
+role:
+  - Corporate Web
+  - Finance
+  - Data Visualization
+links:
+  dribbble: https://dribbble.com/shots/7568604-G-G-Capital-Group-Part-2
+cover: ./gg-capital-group/cover.webp
+gallery:
+  - ./gg-capital-group/01.webp
+es:
+  title: G&G CAPITAL GROUP
+  tagline: FINANCE CORPORATE WEB
+  summary: >-
+    G&G Capital Group es la web corporativa de una firma de inversiones que necesita proyectar
+    solidez financiera, confianza y sofisticación ante inversores de alto perfil. El sitio funciona
+    como carta de presentación institucional y canal principal de captación de capital. Su diseño se
+    distingue del sector financiero tradicional al combinar elegancia visual con transparencia de
+    datos de rendimiento.
+  challenge:
+    - >-
+      Las webs financieras corporativas tienden a ser monótonas, con paletas azules genéricas y
+      fotografía de stock de ejecutivos en salas de reuniones.
+    - >-
+      Los inversores potenciales juzgan la seriedad de una firma en los primeros 8 segundos de
+      visita; una web de baja calidad genera desconfianza inmediata.
+    - >-
+      El diseño debe inspirar confianza institucional sin caer en el conservadurismo visual que hace
+      al sitio indistinguible de cualquier otra firma financiera.
+  approach: >-
+    El diseño corporativo emplea una paleta oscura sofisticada con acentos dorados que transmiten
+    exclusividad sin ostentación. La hero section muestra datos de rendimiento del fondo en tiempo
+    real, demostrando transparencia desde el primer contacto. Las secciones del equipo directivo
+    presentan fotografía profesional con biografías concisas y trayectoria verificable. Los gráficos
+    interactivos del portfolio de inversión permiten explorar la composición por sector y
+    rendimiento histórico.
+en:
+  title: G&G CAPITAL GROUP
+  tagline: FINANCE CORPORATE WEB
+  summary: >-
+    G&G Capital Group is the corporate website for an investment firm that needs to project
+    financial solidity, trust, and sophistication to high-profile investors. The site serves as an
+    institutional introduction and the primary channel for capital acquisition. Its design stands
+    apart from the traditional financial sector by combining visual elegance with transparency in
+    performance data.
+  challenge:
+    - >-
+      Corporate financial websites tend to be monotonous, with generic blue palettes and stock
+      photography of executives in meeting rooms.
+    - >-
+      Potential investors judge the seriousness of a firm within the first 8 seconds of a visit; a
+      low-quality website generates immediate distrust.
+    - >-
+      The design must inspire institutional confidence without falling into the visual conservatism
+      that makes the site indistinguishable from any other financial firm.
+  approach: >-
+    The corporate design employs a sophisticated dark palette with gold accents that convey
+    exclusivity without ostentation. The hero section displays real-time fund performance data,
+    demonstrating transparency from the first contact. Team sections feature professional
+    photography with concise biographies and verifiable track records. Interactive portfolio charts
+    allow visitors to explore the investment composition by sector and historical performance.

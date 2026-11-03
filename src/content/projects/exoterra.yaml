@@ -1,0 +1,96 @@
+legacyId: 36
+featured: 2
+year: 2026
+status: archived
+type: personal
+category: development
+subcategory: web
+workflow: ai
+stack:
+  - REACT
+  - TYPESCRIPT
+  - THREE.JS
+  - SUPABASE
+  - PYTHON
+  - GLSL
+  - WEBGL
+role:
+  - Full-stack Dev
+  - Three.js
+  - GLSL Shaders
+  - Python
+links:
+  repo: https://github.com/schormeikerlugo/ExoTerra
+cover: ./exoterra/cover.webp
+gallery:
+  - ./exoterra/01.webp
+  - ./exoterra/02.webp
+  - ./exoterra/03.webp
+  - ./exoterra/04.webp
+  - ./exoterra/05.webp
+es:
+  title: EXOTERRA
+  tagline: 3D EXOPLANET EXPLORER
+  summary: >-
+    ExoTerra es un explorador 3D interactivo que visualiza y analiza exoplanetas reales descubiertos
+    por la NASA. El proyecto combina rigor astronómico con renderizado 3D inmersivo basado en web,
+    permitiendo a los usuarios interactuar gráficamente con mundos más allá de nuestro sistema
+    solar. El stack incluye React 19 con TypeScript, Three.js con react-three-fiber para renderizado
+    WebGL, shaders GLSL personalizados para generación procedural de superficies planetarias,
+    Tailwind CSS v4 para la interfaz glassmórfica, Zustand para gestión de estado, y Supabase con
+    PostgreSQL como backend. Los scripts de Python procesan y limpian datos CSV astronómicos de la
+    NASA, mientras que triggers PL/pgSQL calculan puntuaciones de habitabilidad e infieren colores
+    atmosféricos directamente en la base de datos.
+  challenge:
+    - >-
+      Los datos astronómicos de la NASA existen en formato tabular plano (CSV), sin representación
+      visual que permita comprender las propiedades físicas reales de cada exoplaneta descubierto.
+    - >-
+      La generación procedural de superficies planetarias requiere shaders GLSL custom que
+      diferencien entre planetas de hielo-roca, mundos habitables con agua y gigantes gaseosos
+      jovianos.
+    - >-
+      El cálculo de habitabilidad debe considerar radio, masa, insolación y temperatura de
+      equilibrio mediante algoritmos PL/pgSQL ejecutados directamente en la base de datos para
+      máximo rendimiento.
+  approach: >-
+    ExoTerra resuelve la visualización astronómica mediante renderizado WebGL con Three.js, donde
+    cada exoplaneta se genera proceduralmente usando shaders GLSL que simulan superficies realistas
+    según su tipo clasificado. El catálogo dinámico permite filtrar planetas por habitabilidad, con
+    datos termales detallados que incluyen temperatura de equilibrio, luminosidad estelar y
+    metalicidad. Los scripts de Python extraen y normalizan los datos CSV de las misiones Kepler y
+    TESS, mientras que los triggers de PostgreSQL en Supabase calculan automáticamente las
+    puntuaciones de habitabilidad al momento de la inserción. La seguridad se garantiza mediante Row
+    Level Security, y toda la computación intensiva se ejecuta del lado de la base de datos para
+    mantener la fluidez del renderizado 3D en el cliente.
+en:
+  title: EXOTERRA
+  tagline: 3D EXOPLANET EXPLORER
+  summary: >-
+    ExoTerra is an interactive 3D explorer that visualizes and analyzes real exoplanets discovered
+    by NASA. The project combines astronomical rigor with immersive web-based 3D rendering, allowing
+    users to graphically interact with worlds beyond our solar system. The stack includes React 19
+    with TypeScript, Three.js with react-three-fiber for WebGL rendering, custom GLSL shaders for
+    procedural planetary surface generation, Tailwind CSS v4 for the glassmorphic interface, Zustand
+    for state management, and Supabase with PostgreSQL as the backend. Python scripts process and
+    clean NASA astronomical CSV data, while PL/pgSQL triggers calculate habitability scores and
+    infer atmospheric colors directly in the database.
+  challenge:
+    - >-
+      NASA astronomical data exists in flat tabular format (CSV), with no visual representation that
+      allows understanding the actual physical properties of each discovered exoplanet.
+    - >-
+      Procedural generation of planetary surfaces requires custom GLSL shaders that differentiate
+      between ice-rock planets, habitable water worlds, and Jovian gas giants.
+    - >-
+      Habitability scoring must consider radius, mass, insolation, and equilibrium temperature
+      through PL/pgSQL algorithms executed directly in the database for maximum performance.
+  approach: >-
+    ExoTerra solves astronomical visualization through WebGL rendering with Three.js, where each
+    exoplanet is procedurally generated using GLSL shaders that simulate realistic surfaces based on
+    its classified type. The dynamic catalog allows filtering planets by habitability, with detailed
+    thermal data including equilibrium temperature, stellar luminosity, and metallicity. Python
+    scripts extract and normalize CSV data from the Kepler and TESS missions, while PostgreSQL
+    triggers in Supabase automatically calculate habitability scores at insertion time. Security is
+    ensured through Row Level Security, and all intensive computation runs on the database side to
+    maintain fluid 3D rendering on the client.

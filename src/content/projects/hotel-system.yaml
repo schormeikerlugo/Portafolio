@@ -1,0 +1,72 @@
+legacyId: 16
+year: 2017
+status: concept
+type: concept
+category: design
+subcategory: app
+workflow: design
+stack:
+  - UI
+  - UX
+  - APP
+  - SOFTWARE
+role:
+  - App UI/UX
+  - Dual Profile
+  - System Design
+links:
+  behance: https://www.behance.net/gallery/53684857/APP-UIUX-Design-Software-hotel-system-Paths
+cover: ./hotel-system/cover.webp
+gallery:
+  - ./hotel-system/01.webp
+es:
+  title: HOTEL SYSTEM
+  tagline: HOSPITALITY APP UI/UX
+  summary: >-
+    Hotel System es una aplicación de gestión hotelera que abarca el ciclo completo de la estancia,
+    desde la reserva hasta el check-out. Su propósito es servir tanto a huéspedes que buscan
+    autonomía digital como al personal operativo que gestiona decenas de habitaciones en simultáneo.
+    El diseño diferencia ambos perfiles con flujos independientes, de modo que cada usuario accede
+    solo a las funciones que necesita sin fricciones innecesarias.
+  challenge:
+    - >-
+      Los sistemas hoteleros legacy presentan interfaces con más de 15 años de antigüedad y curvas
+      de aprendizaje que superan las 8 horas de capacitación por empleado.
+    - >-
+      El personal de recepción necesita completar cada interacción en menos de 30 segundos durante
+      el check-in masivo de grupos turísticos.
+    - >-
+      Dos perfiles de usuario (huésped + staff) con flujos opuestos comparten la misma interfaz,
+      generando errores de navegación en el 40% de las tareas.
+  approach: >-
+    La solución plantea un diseño dual: una interfaz de huésped limpia y moderna para reservas,
+    solicitudes de room service y check-out exprés, junto a una interfaz de staff optimizada para
+    velocidad con shortcuts de teclado y vistas condensadas de ocupación. El sistema de
+    notificaciones push conecta ambos perfiles en tiempo real, reduciendo los tiempos de respuesta a
+    solicitudes. Además, el dashboard gerencial consolida métricas de ocupación, satisfacción y
+    revenue por habitación en una sola vista.
+en:
+  title: HOTEL SYSTEM
+  tagline: HOSPITALITY APP UI/UX
+  summary: >-
+    Hotel System is a hotel management application that covers the complete stay cycle, from booking
+    to check-out. Its purpose is to serve both guests who seek digital autonomy and operational
+    staff managing dozens of rooms simultaneously. The design differentiates both profiles with
+    independent flows, so each user accesses only the functions they need without unnecessary
+    friction.
+  challenge:
+    - >-
+      Legacy hotel systems feature interfaces over 15 years old with learning curves that exceed 8
+      hours of training per employee.
+    - >-
+      Front desk staff need to complete each interaction in under 30 seconds during mass check-in of
+      tour groups.
+    - >-
+      Two user profiles (guest + staff) with opposing flows share the same interface, causing
+      navigation errors in 40% of tasks.
+  approach: >-
+    The solution proposes a dual design: a clean and modern guest interface for reservations, room
+    service requests, and express check-out, paired with a staff interface optimized for speed
+    through keyboard shortcuts and condensed occupancy views. The push notification system connects
+    both profiles in real time, reducing response times to requests. Additionally, the management
+    dashboard consolidates occupancy, satisfaction, and per-room revenue metrics in a single view.

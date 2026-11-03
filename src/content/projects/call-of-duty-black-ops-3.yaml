@@ -1,0 +1,77 @@
+legacyId: 12
+year: 2019
+status: concept
+type: concept
+category: design
+subcategory: games
+workflow: design
+stack:
+  - UI
+  - GAME
+  - COD
+  - FPS
+role:
+  - Web UI Concept
+  - HUD Design
+  - Military Aesthetic
+links:
+  dribbble: https://dribbble.com/shots/7108119-UI-design-Call-of-duty-Black-Ops-3
+cover: ./call-of-duty-black-ops-3/cover.webp
+gallery:
+  - ./call-of-duty-black-ops-3/01.webp
+es:
+  title: CALL OF DUTY
+  tagline: BLACK OPS 3 UI
+  summary: >-
+    Call of Duty: Black Ops 3 es un shooter futurista que combina combate militar con tecnología de
+    aumento cibernético, y este concepto de interfaz web traduce esa intensidad en una experiencia
+    digital promocional. El diseño busca diferenciarse de las webs promocionales genéricas de la
+    franquicia COD, que suelen depender exclusivamente de trailers y screenshots. La propuesta
+    transforma la página en un briefing táctico interactivo donde el usuario descubre personajes,
+    armamento y modos de juego como si accediera a archivos clasificados.
+  challenge:
+    - >-
+      Las webs promocionales de COD repiten la misma estructura: hero con trailer, grid de
+      screenshots y formulario de pre-order. El tiempo medio de visita no supera los 30 segundos.
+    - >-
+      El estilo visual militar-futurista cae en clichés si depende solo de texturas metálicas y
+      tipografía bold. La diferencia entre "genérico" y "memorable" está en los detalles
+      interactivos.
+    - >-
+      La interfaz debe transmitir acción y velocidad sin sacrificar legibilidad. Los textos sobre
+      fondos oscuros con partículas pierden contraste rápidamente.
+  approach: >-
+    El diseño incorpora elementos HUD militares funcionales — esquinas tácticas, coordenadas
+    decorativas y datos de telemetría animados — que enmarcan cada sección como un visor de combate.
+    Las secciones de personajes emplean parallax de profundidad con transiciones rápidas y agresivas
+    que replican el ritmo frenético del gameplay. La tipografía condensada bold garantiza
+    legibilidad sobre el dark theme, mientras los acentos naranjas — el color insignia de Black Ops
+    3 — guían la jerarquía visual y resaltan CTAs y elementos interactivos en cada pantalla.
+en:
+  title: CALL OF DUTY
+  tagline: BLACK OPS 3 UI
+  summary: >-
+    Call of Duty: Black Ops 3 is a futuristic shooter that combines military combat with cybernetic
+    augmentation technology, and this web interface concept translates that intensity into a
+    promotional digital experience. The design seeks to differentiate itself from the generic
+    promotional websites of the COD franchise, which typically rely solely on trailers and
+    screenshots. The proposal transforms the page into an interactive tactical briefing where the
+    user discovers characters, weapons, and game modes as if accessing classified files.
+  challenge:
+    - >-
+      COD promotional websites repeat the same structure: hero with trailer, screenshot grid, and
+      pre-order form. Average visit time does not exceed 30 seconds.
+    - >-
+      The military-futuristic visual style falls into cliches if it relies solely on metallic
+      textures and bold type. The difference between "generic" and "memorable" lies in the
+      interactive details.
+    - >-
+      The interface must convey action and speed without sacrificing readability. Text over dark
+      backgrounds with particles loses contrast quickly.
+  approach: >-
+    The design incorporates functional military HUD elements — tactical corners, decorative
+    coordinates, and animated telemetry data — that frame each section like a combat visor.
+    Character sections employ depth parallax with fast, aggressive transitions that replicate the
+    frenetic pace of the gameplay. Condensed bold typography ensures readability over the dark
+    theme, while orange accents — Black Ops 3's signature color — guide the visual hierarchy and
+    highlight CTAs and interactive elements across every screen.

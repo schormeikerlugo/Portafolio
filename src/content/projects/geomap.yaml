@@ -1,0 +1,72 @@
+legacyId: 17
+year: 2018
+status: concept
+type: concept
+category: design
+subcategory: app
+workflow: design
+stack:
+  - UI
+  - UX
+  - MAP
+  - GEO
+role:
+  - App UI/UX
+  - Map Design
+  - AR Navigation
+links:
+  behance: https://www.behance.net/gallery/64755341/UIUX-GeoMap
+cover: ./geomap/cover.webp
+gallery:
+  - ./geomap/01.webp
+es:
+  title: GEOMAP UI/UX
+  tagline: GEOLOCATION APP
+  summary: >-
+    GeoMap es una aplicación de geolocalización que presenta mapas interactivos con capas de
+    información contextual sobre negocios, eventos y puntos de interés. La app está dirigida a
+    usuarios urbanos que necesitan descubrir lugares relevantes según su ubicación y preferencias.
+    Su diferenciador reside en un sistema de capas priorizadas que muestra solo la información
+    pertinente al contexto del momento, evitando la saturación visual típica de las apps de mapas.
+  challenge:
+    - >-
+      Las apps de mapas convencionales cargan hasta 200 marcadores simultáneos en una sola vista,
+      colapsando la legibilidad del mapa base.
+    - >-
+      La información contextual (negocios, eventos, transporte) se presenta sin jerarquía ni filtros
+      basados en la intención del usuario.
+    - >-
+      El mapa debe ser el elemento protagonista; cualquier control de interfaz que lo obstruya
+      derrota el propósito central de la aplicación.
+  approach: >-
+    La interfaz ocupa la pantalla completa con el mapa y superpone controles flotantes mínimos que
+    desaparecen durante la navegación activa. Un sistema de clusters inteligentes agrupa marcadores
+    según el nivel de zoom, y cada cluster revela sus elementos individuales solo al acercarse. El
+    panel lateral deslizable muestra detalles del punto seleccionado con fotografías, horarios y
+    reseñas sin abandonar la vista del mapa. También se integra un modo de realidad aumentada para
+    navegación peatonal en zonas densas.
+en:
+  title: GEOMAP UI/UX
+  tagline: GEOLOCATION APP
+  summary: >-
+    GeoMap is a geolocation application that presents interactive maps with contextual information
+    layers about businesses, events, and points of interest. The app targets urban users who need to
+    discover relevant places based on their location and preferences. Its differentiator lies in a
+    prioritized layer system that displays only the information relevant to the current context,
+    avoiding the visual overload typical of map applications.
+  challenge:
+    - >-
+      Conventional map apps load up to 200 simultaneous markers in a single view, collapsing the
+      base map's readability.
+    - >-
+      Contextual information (businesses, events, transit) is presented without hierarchy or filters
+      based on user intent.
+    - >-
+      The map must be the central element; any interface control that obstructs it defeats the
+      application's core purpose.
+  approach: >-
+    The interface occupies the full screen with the map and overlays minimal floating controls that
+    disappear during active navigation. A smart cluster system groups markers by zoom level,
+    revealing individual elements only when the user zooms in. The sliding side panel displays
+    details of the selected point with photographs, hours, and reviews without leaving the map view.
+    An augmented reality mode is also integrated for pedestrian navigation in dense areas.

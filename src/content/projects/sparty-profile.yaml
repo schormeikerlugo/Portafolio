@@ -1,0 +1,71 @@
+legacyId: 26
+year: 2018
+status: concept
+type: concept
+category: design
+subcategory: web
+workflow: design
+stack:
+  - UI
+  - SPORTS
+  - WEB
+  - PROFILE
+role:
+  - Sports Profile
+  - Athlete Brand
+  - Social Integration
+links:
+  behance: https://www.behance.net/gallery/73948417/sparty-Profile-Web-design
+cover: ./sparty-profile/cover.webp
+gallery: []
+es:
+  title: SPARTY PROFILE
+  tagline: SPORTS WEB DESIGN
+  summary: >-
+    Sparty Profile es el perfil web de un atleta profesional que funciona como carta de presentación
+    ante sponsors, medios de comunicación y aficionados. El diseño transmite energía competitiva
+    mediante composiciones dinámicas, tipografía bold y transiciones de alto impacto visual. Su
+    propósito va más allá de mostrar estadísticas: construye una narrativa visual de la carrera
+    deportiva que conecta emocionalmente con cada tipo de audiencia.
+  challenge:
+    - >-
+      Los perfiles deportivos web convencionales son páginas estáticas con biografías en texto plano
+      y fotografías genéricas sin narrativa visual.
+    - >-
+      Las estadísticas del atleta se presentan como tablas numéricas sin contexto visual ni
+      comparativas que permitan valorar el rendimiento real.
+    - >-
+      La web debe funcionar como herramienta de negociación ante sponsors que evalúan el valor
+      comercial del atleta en menos de 30 segundos.
+  approach: >-
+    Las secciones hero emplean fotografía deportiva de acción con composiciones dinámicas que
+    capturan la intensidad competitiva del atleta. Las estadísticas se visualizan con gráficos
+    radiales animados que permiten comparar rendimiento por temporada y categoría. Un timeline
+    interactivo recorre los hitos de la carrera con imágenes y logros verificables. La integración
+    con redes sociales muestra el alcance mediático en tiempo real, mientras la sección de
+    patrocinadores exhibe las marcas asociadas con enlaces directos.
+en:
+  title: SPARTY PROFILE
+  tagline: SPORTS WEB DESIGN
+  summary: >-
+    Sparty Profile is the web profile of a professional athlete that serves as a presentation card
+    for sponsors, media outlets, and fans. The design conveys competitive energy through dynamic
+    compositions, bold typography, and high-impact visual transitions. Its purpose goes beyond
+    displaying statistics: it builds a visual narrative of the sports career that connects
+    emotionally with each type of audience.
+  challenge:
+    - >-
+      Conventional sports web profiles are static pages with plain-text biographies and generic
+      photography without visual narrative.
+    - >-
+      Athlete statistics are presented as numerical tables without visual context or comparisons
+      that allow viewers to assess actual performance.
+    - >-
+      The website must function as a negotiation tool for sponsors who evaluate the athlete's
+      commercial value in under 30 seconds.
+  approach: >-
+    Hero sections feature action sports photography with dynamic compositions that capture the
+    athlete's competitive intensity. Statistics are visualized with animated radial charts that
+    allow comparison by season and category. An interactive timeline traces career milestones with
+    images and verifiable achievements. Social media integration displays real-time media reach,
+    while the sponsors section showcases associated brands with direct links.

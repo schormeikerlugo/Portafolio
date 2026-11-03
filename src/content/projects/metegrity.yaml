@@ -1,0 +1,98 @@
+legacyId: 37
+featured: 4
+year: 2026
+status: archived
+type: personal
+category: development
+subcategory: web
+workflow: development
+stack:
+  - ASTRO
+  - CSS
+  - JAVASCRIPT
+  - SVG
+  - SSG
+  - INDUSTRIAL
+role:
+  - Frontend Dev
+  - Astro SSG
+  - SVG Animation
+links:
+  repo: https://github.com/schormeikerlugo/Metegrity
+cover: ./metegrity/cover.webp
+gallery:
+  - ./metegrity/01.webp
+  - ./metegrity/02.webp
+  - ./metegrity/03.webp
+  - ./metegrity/04.webp
+  - ./metegrity/05.webp
+  - ./metegrity/06.webp
+  - ./metegrity/07.webp
+  - ./metegrity/08.webp
+es:
+  title: METEGRITY
+  tagline: INDUSTRIAL AIM PLATFORM
+  summary: >-
+    Metegrity es el sitio web corporativo de un líder global en software de gestión de integridad de
+    activos industriales, con presencia en más de 1,350 instalaciones en cinco continentes y activos
+    gestionados que superan el billón de dólares. La plataforma protege plantas industriales en los
+    sectores químico, petroquímico, oil & gas, generación energética y papel. El frontend se
+    construyó con Astro v6 como framework SSG, CSS3 vanilla con variables nativas y layouts
+    Grid/Flexbox, JavaScript puro para interacciones con IntersectionObserver, y animaciones SVG
+    avanzadas con keyframes CSS para diagramas y visualizaciones industriales. La arquitectura evita
+    deliberadamente Tailwind CSS y frameworks de componentes como React o Vue, priorizando
+    rendimiento máximo y control total del código.
+  challenge:
+    - >-
+      Una empresa que gestiona activos valorados en billones de dólares necesita un sitio web que
+      transmita solidez técnica y confiabilidad industrial al nivel de su operación global.
+    - >-
+      El sitio anterior no reflejaba la escala de la empresa. La experiencia de productos complejos
+      (Visions Enterprise, RBI, VisionsGo) requería presentaciones claras sin jerga innecesaria.
+    - >-
+      El rendimiento debía ser impecable para un público de ingenieros industriales y directivos que
+      evalúan proveedores en segundos. Cada diagrama SVG debía comunicar complejidad técnica con
+      elegancia.
+  approach: >-
+    Metegrity se construyó con Astro v6 para generar HTML estático con cero JavaScript del lado del
+    cliente en las páginas informativas. Los estilos se implementaron en CSS3 nativo usando
+    variables centralizadas en global.css, con layouts construidos exclusivamente con Grid y
+    Flexbox. Las interacciones de scroll se manejan con IntersectionObserver en JavaScript vanilla,
+    mientras que los diagramas industriales se animan mediante secuencias de keyframes CSS aplicadas
+    a elementos SVG. La arquitectura de páginas cubre productos, servicios, industrias, insights
+    (blogs, ebooks, casos de éxito), secciones legales y un flujo de reserva de demos. Cada
+    componente Astro utiliza estilos scoped que conviven con las variables globales, garantizando
+    consistencia visual sin conflictos de especificidad.
+en:
+  title: METEGRITY
+  tagline: INDUSTRIAL AIM PLATFORM
+  summary: >-
+    Metegrity is the corporate website of a global leader in industrial asset integrity management
+    software, with a presence in over 1,350 facilities across five continents and managed assets
+    exceeding one trillion dollars. The platform protects industrial plants in the chemical,
+    petrochemical, oil & gas, power generation, and pulp & paper sectors. The frontend was built
+    with Astro v6 as the SSG framework, vanilla CSS3 with native variables and Grid/Flexbox layouts,
+    pure JavaScript for IntersectionObserver-driven interactions, and advanced SVG animations with
+    CSS keyframes for industrial diagrams and visualizations. The architecture deliberately avoids
+    Tailwind CSS and component frameworks like React or Vue, prioritizing maximum performance and
+    total code control.
+  challenge:
+    - >-
+      A company managing assets valued in the trillions of dollars needs a website that conveys
+      technical solidity and industrial reliability at the level of its global operation.
+    - >-
+      The previous site did not reflect the company's scale. The experience of complex products
+      (Visions Enterprise, RBI, VisionsGo) required clear presentations without unnecessary jargon.
+    - >-
+      Performance had to be flawless for an audience of industrial engineers and executives who
+      evaluate vendors in seconds. Every SVG diagram had to communicate technical complexity with
+      elegance.
+  approach: >-
+    Metegrity was built with Astro v6 to generate static HTML with zero client-side JavaScript on
+    informational pages. Styles were implemented in native CSS3 using centralized variables in
+    global.css, with layouts built exclusively with Grid and Flexbox. Scroll interactions are
+    handled with IntersectionObserver in vanilla JavaScript, while industrial diagrams are animated
+    through CSS keyframe sequences applied to SVG elements. The page architecture covers products,
+    services, industries, insights (blogs, ebooks, case studies), legal sections, and a demo booking
+    flow. Each Astro component uses scoped styles that coexist with global variables, ensuring
+    visual consistency without specificity conflicts.

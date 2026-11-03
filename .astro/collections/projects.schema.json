@@ -1,0 +1,166 @@
+{
+  "$ref": "#/definitions/projects",
+  "definitions": {
+    "projects": {
+      "type": "object",
+      "properties": {
+        "legacyId": {
+          "type": "number"
+        },
+        "year": {
+          "type": "number"
+        },
+        "featured": {
+          "type": "number"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "live",
+            "unpublished",
+            "concept",
+            "archived",
+            "wip"
+          ]
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "personal",
+            "client",
+            "concept",
+            "professional",
+            "open-source"
+          ]
+        },
+        "category": {
+          "type": "string",
+          "enum": [
+            "design",
+            "development"
+          ]
+        },
+        "subcategory": {
+          "type": "string",
+          "enum": [
+            "crypto",
+            "games",
+            "app",
+            "web",
+            "dashboard",
+            "ai",
+            "tools"
+          ]
+        },
+        "workflow": {
+          "type": "string",
+          "enum": [
+            "design",
+            "development",
+            "ai"
+          ]
+        },
+        "stack": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "role": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "links": {
+          "type": "object",
+          "properties": {
+            "live": {
+              "type": "string",
+              "format": "uri"
+            },
+            "repo": {
+              "type": "string",
+              "format": "uri"
+            },
+            "behance": {
+              "type": "string",
+              "format": "uri"
+            },
+            "dribbble": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "additionalProperties": false,
+          "default": {}
+        },
+        "cover": {
+          "type": "string"
+        },
+        "gallery": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        },
+        "es": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "tagline": {
+              "type": "string"
+            },
+            "summary": {
+              "type": "string"
+            },
+            "challenge": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 1
+            },
+            "approach": {
+              "type": "string"
+            },
+            "outcome": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "title",
+            "tagline",
+            "summary",
+            "challenge",
+            "approach"
+          ],
+          "additionalProperties": false
+        },
+        "en": {
+          "$ref": "#/definitions/projects/properties/es"
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "year",
+        "status",
+        "type",
+        "category",
+        "subcategory",
+        "stack",
+        "role",
+        "cover",
+        "es",
+        "en"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

@@ -3,12 +3,12 @@ import { getWorkflow } from '../data/workflows';
 import { type Lang } from '../i18n';
 
 interface Props {
-  projectId: number;
+  workflow?: string;
   lang?: Lang;
 }
 
-const { projectId, lang = 'es' } = Astro.props;
-const workflow = getWorkflow(projectId);
+const { workflow: workflowKey, lang = 'es' } = Astro.props;
+const workflow = getWorkflow(workflowKey);
 if (!workflow) return;
 
 const isEn = lang === 'en';

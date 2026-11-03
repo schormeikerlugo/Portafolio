@@ -89,29 +89,9 @@ const templates: Record<string, WorkflowTemplate> = {
   ai: aiTemplate,
 };
 
-const projectWorkflowMap: Record<number, string> = {
-  // Diseño — Crypto
-  1: 'design', 2: 'design', 3: 'design', 4: 'design', 5: 'design',
-  // Diseño — Videojuegos
-  6: 'design', 7: 'design', 8: 'design', 9: 'design', 10: 'design',
-  11: 'design', 12: 'design', 13: 'design',
-  // Diseño — App
-  14: 'design', 15: 'design', 16: 'design', 17: 'design',
-  // Diseño — Web
-  18: 'design', 19: 'design', 20: 'design', 21: 'design',
-  22: 'design', 23: 'design', 24: 'design', 25: 'design', 26: 'design',
-  // Diseño — Dashboard
-  27: 'design', 28: 'design', 29: 'design',
-  // Desarrollo — Videojuegos
-  30: 'development', 31: 'development',
-  // Desarrollo — Web
-  32: 'development', 33: 'development', 35: 'development', 37: 'development',
-  // Desarrollo — IA
-  34: 'ai', 36: 'ai',
-};
+export type WorkflowKey = keyof typeof templates;
 
-export function getWorkflow(projectId: number): WorkflowTemplate | null {
-  const key = projectWorkflowMap[projectId];
+export function getWorkflow(key: string | undefined): WorkflowTemplate | null {
   if (!key) return null;
-  return templates[key] || null;
+  return templates[key] ?? null;
 }

@@ -1,0 +1,72 @@
+legacyId: 18
+year: 2025
+status: concept
+type: concept
+category: design
+subcategory: web
+workflow: design
+stack:
+  - UI
+  - WEB
+  - AI
+  - MODERN
+role:
+  - Web Design
+  - AI Platform
+  - Landing Page
+links:
+  behance: https://www.behance.net/gallery/226962441/AITHR
+cover: ./aithr/cover.webp
+gallery:
+  - ./aithr/01.webp
+es:
+  title: AITHR
+  tagline: AI PLATFORM WEB
+  summary: >-
+    AITHR es la web de una plataforma de inteligencia artificial orientada a empresas que buscan
+    integrar modelos predictivos en sus operaciones. El sitio comunica capacidades técnicas
+    avanzadas con un lenguaje visual accesible y profesional, alejándose del imaginario sci-fi que
+    domina el sector. Su enfoque diferenciador radica en presentar la IA como herramienta de negocio
+    concreta, no como concepto futurista abstracto.
+  challenge:
+    - >-
+      El mercado de IA acumula más de 500 landing pages con la misma fórmula: gradientes violetas,
+      ilustraciones de robots y promesas vagas de "transformación digital".
+    - >-
+      La audiencia objetivo (CTOs y directores de innovación) necesita ver casos de uso reales y ROI
+      proyectado, no ciencia ficción decorativa.
+    - >-
+      Sin diferenciación visual clara, la plataforma se confunde con docenas de competidores
+      genéricos en los primeros 5 segundos de visita.
+  approach: >-
+    El diseño apuesta por minimalismo estructurado con espacios amplios, tipografía geométrica
+    moderna y visualizaciones abstractas de flujos de datos en lugar de robots ilustrados. Cada
+    sección presenta un caso de uso específico con métricas reales de implementación y testimonios
+    verificables de clientes. Los CTAs conducen a un flujo de onboarding visible que permite al
+    visitante probar la plataforma en menos de 3 clics. La paleta neutra con acentos de color
+    estratégicos refuerza la percepción de confiabilidad corporativa.
+en:
+  title: AITHR
+  tagline: AI PLATFORM WEB
+  summary: >-
+    AITHR is the website for an artificial intelligence platform aimed at companies seeking to
+    integrate predictive models into their operations. The site communicates advanced technical
+    capabilities through an accessible and professional visual language, moving away from the sci-fi
+    imagery that dominates the sector. Its key differentiator lies in presenting AI as a concrete
+    business tool rather than an abstract futuristic concept.
+  challenge:
+    - >-
+      The AI market has accumulated over 500 landing pages following the same formula: purple
+      gradients, robot illustrations, and vague promises of "digital transformation."
+    - >-
+      The target audience (CTOs and innovation directors) needs to see real use cases and projected
+      ROI, not decorative science fiction.
+    - >-
+      Without clear visual differentiation, the platform blends in with dozens of generic
+      competitors within the first 5 seconds of a visit.
+  approach: >-
+    The design relies on structured minimalism with ample whitespace, modern geometric typography,
+    and abstract data flow visualizations instead of illustrated robots. Each section presents a
+    specific use case with real implementation metrics and verifiable client testimonials. CTAs lead
+    to a visible onboarding flow that lets visitors try the platform in fewer than 3 clicks. A
+    neutral palette with strategic color accents reinforces the perception of corporate reliability.

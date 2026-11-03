@@ -55,15 +55,16 @@ export function websiteSchema() {
   };
 }
 
-export function projectSchema(project: { title: string; mission: string; link: string; id: number; image: string; tags: string[] }) {
+export function projectSchema(project: { title: string; summary: string; url: string; image: string; keywords: string[]; year: number }) {
   return {
     '@context': 'https://schema.org',
     '@type': 'CreativeWork',
     name: project.title,
-    description: project.mission,
-    url: `${SITE}/portfolio/${project.id}`,
+    description: project.summary,
+    url: project.url,
     image: project.image.startsWith('http') ? project.image : `${SITE}${project.image}`,
-    keywords: project.tags.join(', '),
+    keywords: project.keywords.join(', '),
+    dateCreated: String(project.year),
     author: { '@type': 'Person', name: AUTHOR },
     creator: { '@type': 'Person', name: AUTHOR },
   };

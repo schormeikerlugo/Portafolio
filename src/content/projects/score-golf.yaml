@@ -1,0 +1,80 @@
+legacyId: 14
+year: 2023
+status: concept
+type: concept
+category: design
+subcategory: app
+workflow: design
+stack:
+  - UI
+  - APP
+  - SPORTS
+  - MOBILE
+role:
+  - Mobile UI
+  - Sports UX
+  - Real-time Input
+links:
+  behance: https://www.behance.net/gallery/184479833/Score-Golf-UI-APP
+cover: ./score-golf/cover.webp
+gallery:
+  - ./score-golf/01.webp
+  - ./score-golf/02.webp
+  - ./score-golf/03.webp
+  - ./score-golf/04.webp
+  - ./score-golf/05.webp
+es:
+  title: SCORE GOLF APP
+  tagline: SPORTS MOBILE UI
+  summary: >-
+    Score Golf es una aplicación móvil diseñada para registrar puntuaciones durante una ronda de
+    golf de forma rápida e intuitiva, sin interrumpir el ritmo de juego. La app se dirige a
+    golfistas amateur y semi-profesionales que necesitan una herramienta ligera frente a las
+    aplicaciones existentes sobrecargadas de funciones. Su filosofía de diseño responde a una
+    restricción real: el usuario opera la app entre hoyos, bajo sol directo, con una sola mano y en
+    menos de 5 segundos por interacción.
+  challenge:
+    - >-
+      Las apps de golf existentes incluyen GPS, coaching, video swing y red social en una sola
+      aplicación. El 73% de usuarios solo quiere registrar scores pero debe navegar 4+ pantallas
+      para llegar a esa función.
+    - >-
+      Los golfistas necesitan registrar puntuaciones en menos de 5 segundos entre hoyos. Las apps
+      actuales requieren un promedio de 15 segundos por registro.
+    - >-
+      La interfaz debe funcionar bajo sol directo (legibilidad con alto brillo) y con una sola mano
+      (zonas táctiles en la mitad inferior de la pantalla).
+  approach: >-
+    La interfaz minimalista emplea una paleta verde y blanca que evoca el campo de golf, con
+    contraste suficiente para lectura bajo luz solar directa. El input de score funciona con un solo
+    tap mediante un selector numérico sobredimensionado posicionado en la zona de alcance del
+    pulgar. El mapa del campo muestra la progresión hoyo a hoyo con indicadores de color (par,
+    birdie, bogey) que ofrecen feedback visual inmediato. Las estadísticas post-ronda presentan
+    gráficos de rendimiento por hoyo, promedios históricos y comparativas entre rondas.
+en:
+  title: SCORE GOLF APP
+  tagline: SPORTS MOBILE UI
+  summary: >-
+    Score Golf is a mobile application designed to record scores during a golf round quickly and
+    intuitively, without interrupting the pace of play. The app targets amateur and
+    semi-professional golfers who need a lightweight tool compared to the feature-bloated
+    alternatives on the market. Its design philosophy responds to a real constraint: the user
+    operates the app between holes, under direct sunlight, with one hand, and in under 5 seconds per
+    interaction.
+  challenge:
+    - >-
+      Existing golf apps pack GPS, coaching, video swing, and social networking into a single app.
+      73% of users only want to record scores but must navigate 4+ screens to reach that function.
+    - >-
+      Golfers need to record scores in under 5 seconds between holes. Current apps require an
+      average of 15 seconds per entry.
+    - >-
+      The interface must work under direct sunlight (readability at high brightness) and with one
+      hand (touch zones in the lower half of the screen).
+  approach: >-
+    The minimalist interface employs a green and white palette that evokes the golf course, with
+    enough contrast for readability under direct sunlight. Score input works with a single tap
+    through an oversized numeric selector positioned in the thumb's reach zone. The course map
+    displays hole-by-hole progression with color indicators (par, birdie, bogey) that provide
+    immediate visual feedback. Post-round statistics present per-hole performance charts, historical
+    averages, and cross-round comparisons.

@@ -2,9 +2,23 @@ import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
+import fs from 'node:fs';
+import yaml from 'js-yaml';
+
+// Legacy numeric project URLs (/portfolio/34) → slug URLs
+const projectsDir = new URL('./src/content/projects/', import.meta.url);
+const redirects = {};
+for (const file of fs.readdirSync(projectsDir).filter((f) => f.endsWith('.yaml'))) {
+  const slug = file.replace(/\.yaml$/, '');
+  const { legacyId } = yaml.load(fs.readFileSync(new URL(file, projectsDir), 'utf8'));
+  if (legacyId === undefined) continue;
+  redirects[`/portfolio/${legacyId}`] = `/portfolio/${slug}`;
+  redirects[`/en/portfolio/${legacyId}`] = `/en/portfolio/${slug}`;
+}
 
 export default defineConfig({
   site: 'https://schormeiker.com',
+  redirects,
   integrations: [
     react(),
     sitemap({

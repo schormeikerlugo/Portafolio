@@ -1,0 +1,76 @@
+legacyId: 33
+year: 2025
+status: archived
+type: personal
+category: development
+subcategory: web
+workflow: development
+stack:
+  - HTML
+  - CSS
+  - FRONTEND
+  - E-COMMERCE
+role:
+  - Frontend Dev
+  - CSS Architecture
+  - Responsive
+links:
+  repo: https://github.com/schormeikerlugo/My-first-page
+cover: ./g2a-frontend/cover.webp
+gallery:
+  - ./g2a-frontend/01.webp
+  - ./g2a-frontend/02.webp
+  - ./g2a-frontend/03.webp
+  - ./g2a-frontend/04.webp
+es:
+  title: G2A REDESIGN
+  tagline: GAMING STORE FRONTEND
+  summary: >-
+    G2A Redesign es una reimplementación frontend del sitio web de G2A, el marketplace de keys de
+    videojuegos más grande del mundo. El proyecto nació como ejercicio de aprendizaje progresivo y
+    evolucionó sección por sección, incorporando técnicas nuevas de HTML y CSS en cada iteración. Su
+    valor reside en la fidelidad pixel-perfect respecto al mockup diseñado previamente en Adobe XD,
+    demostrando la capacidad de trasladar un diseño visual a código funcional.
+  challenge:
+    - >-
+      El proyecto requería dominar HTML semántico y CSS moderno desde cero, sin frameworks ni
+      librerías externas que abstrajeran la complejidad del layout.
+    - >-
+      Cada nueva sección debía incorporar técnicas que no se habían practicado antes: flexbox, grid,
+      media queries, animaciones CSS y transiciones al hover.
+    - >-
+      La implementación debía ser pixel-perfect respecto al mockup de Adobe XD, con tolerancia
+      máxima de 2px de desviación en cada componente medido.
+  approach: >-
+    La implementación avanzó sección por sección: header con navegación responsive y menú
+    hamburguesa, hero section con carousel de imágenes promocionales, grilla de productos con hover
+    effects que revelan precio y descuento, y footer con enlaces organizados por categoría. Todo el
+    CSS se escribió sin preprocesadores ni frameworks, utilizando custom properties para mantener
+    consistencia cromática. Las media queries cubren tres breakpoints principales, garantizando
+    funcionalidad desde 320px hasta pantallas de escritorio.
+en:
+  title: G2A REDESIGN
+  tagline: GAMING STORE FRONTEND
+  summary: >-
+    G2A Redesign is a frontend reimplementation of the G2A website, the world's largest video game
+    key marketplace. The project started as a progressive learning exercise and evolved section by
+    section, incorporating new HTML and CSS techniques in each iteration. Its value lies in the
+    pixel-perfect fidelity to the mockup previously designed in Adobe XD, demonstrating the ability
+    to translate a visual design into functional code.
+  challenge:
+    - >-
+      The project required mastering semantic HTML and modern CSS from scratch, without frameworks
+      or external libraries to abstract away layout complexity.
+    - >-
+      Each new section had to incorporate techniques that had not been practiced before: flexbox,
+      grid, media queries, CSS animations, and hover transitions.
+    - >-
+      The implementation had to be pixel-perfect against the Adobe XD mockup, with a maximum
+      tolerance of 2px deviation in each measured component.
+  approach: >-
+    The implementation progressed section by section: header with responsive navigation and
+    hamburger menu, hero section with a promotional image carousel, product grid with hover effects
+    that reveal price and discount, and footer with links organized by category. All CSS was written
+    without preprocessors or frameworks, using custom properties to maintain color consistency.
+    Media queries cover three main breakpoints, ensuring functionality from 320px to desktop
+    screens.

@@ -1,0 +1,84 @@
+legacyId: 32
+year: 2025
+status: archived
+type: personal
+category: development
+subcategory: web
+workflow: development
+stack:
+  - HTML
+  - CSS
+  - JAVASCRIPT
+  - SUPABASE
+  - POSTGRESQL
+  - EDGE FUNCTIONS
+role:
+  - Full-stack Dev
+  - Supabase
+  - Edge Functions
+links:
+  repo: https://github.com/schormeikerlugo/Rifa-Online
+cover: ./rifa-online/cover.webp
+gallery:
+  - ./rifa-online/01.webp
+  - ./rifa-online/02.webp
+  - ./rifa-online/03.webp
+  - ./rifa-online/04.webp
+  - ./rifa-online/05.webp
+es:
+  title: RIFA ONLINE
+  tagline: FULLSTACK PLATFORM
+  summary: >-
+    Plataforma web de gestión de rifas online desarrollada con tecnologías frontend puras y Supabase
+    como backend serverless. Los usuarios participan seleccionando números y subiendo comprobantes
+    de pago, mientras los administradores gestionan rifas y validan reservaciones desde un panel
+    dedicado. El sistema incluye compra de tickets en tiempo real con actualización instantánea de
+    disponibilidad, dashboard administrativo completo, diseño responsive, arquitectura modular por
+    componentes funcionales, animaciones CSS y Edge Functions de Supabase para microservicios de
+    gestión y notificaciones por email.
+  challenge:
+    - >-
+      Las plataformas de rifas existentes carecen de transparencia en el proceso de sorteo. No hay
+      forma de verificar la aleatoriedad del resultado.
+    - >-
+      La gestión de pagos y verificación de participantes requiere flujos seguros y trazables. La
+      subida de comprobantes multimedia necesita validación visual.
+    - >-
+      Sin backend dedicado, toda la lógica de negocio (auth, storage, edge functions, RLS) debe
+      funcionar completamente con Supabase. Containerización con Docker y pagos automatizados
+      (MercadoPago, Stripe, Bitcoin) en desarrollo.
+  approach: >-
+    Plataforma fullstack con interfaz de cliente para navegación de rifas, selección de números y
+    subida de pagos, separada de un panel administrativo para creación de rifas, moderación de
+    reservaciones y analytics. Capa API con Supabase para autenticación y operaciones de datos con
+    Row Level Security. Edge Functions como microservicios para gestión de rifas y notificaciones
+    por email. Sistema de tokens de autenticación para admin. Loaders de subida multimedia. Sorteo
+    aleatorio verificable con registro público de resultados.
+en:
+  title: RIFA ONLINE
+  tagline: FULLSTACK PLATFORM
+  summary: >-
+    Online raffle management web platform built with pure frontend technologies and Supabase as
+    serverless backend. Users participate by selecting numbers and uploading payment proof, while
+    administrators manage raffles and validate reservations from a dedicated panel. The system
+    includes real-time ticket purchasing with instant availability updates, complete admin
+    dashboard, responsive design, modular architecture by functional components, CSS animations, and
+    Supabase Edge Functions for management microservices and email notifications.
+  challenge:
+    - >-
+      Existing raffle platforms lack transparency in the drawing process. There is no way to verify
+      the randomness of the result.
+    - >-
+      Payment management and participant verification require secure and traceable flows. Multimedia
+      proof uploading needs visual validation.
+    - >-
+      Without a dedicated backend, all business logic (auth, storage, edge functions, RLS) must work
+      entirely with Supabase. Docker containerization and automated payments (MercadoPago, Stripe,
+      Bitcoin) in development.
+  approach: >-
+    Fullstack platform with client interface for raffle browsing, number selection, and payment
+    uploading, separated from an admin panel for raffle creation, reservation moderation, and
+    analytics. API layer with Supabase for authentication and data operations with Row Level
+    Security. Edge Functions as microservices for raffle management and email notifications. Admin
+    authentication token system. Multimedia upload loaders. Verifiable random drawing with public
+    result logging.

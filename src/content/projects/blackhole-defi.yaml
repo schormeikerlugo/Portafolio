@@ -1,0 +1,73 @@
+legacyId: 2
+year: 2021
+status: concept
+type: concept
+category: design
+subcategory: crypto
+workflow: design
+stack:
+  - UI
+  - CRYPTO
+  - DEFI
+  - DARK UI
+role:
+  - UI Design
+  - Visual Identity
+  - Motion Concepts
+links:
+  behance: https://www.behance.net/gallery/129771565/BlackHole-Defi
+cover: ./blackhole-defi/cover.webp
+gallery:
+  - ./blackhole-defi/01.webp
+es:
+  title: BLACKHOLE DEFI
+  tagline: CRYPTO EXCHANGE UI
+  summary: >-
+    BlackHole DeFi es un exchange descentralizado con mecánicas de liquidez innovadoras que busca
+    diferenciarse en un mercado saturado de forks de Uniswap. La plataforma necesitaba una identidad
+    visual propia que tradujera su concepto cósmico — la idea de que la liquidez "absorbe" activos
+    hacia pools de alto rendimiento — en cada elemento de la interfaz. El proyecto abarcó desde el
+    branding hasta el diseño completo de la UI del DEX, orientado a traders DeFi con experiencia
+    intermedia a avanzada.
+  challenge:
+    - >-
+      El concepto de "agujero negro" no se traducía en la interfaz existente. Los swap forms y pool
+      views eran idénticos a Uniswap v2 sin ninguna adaptación visual.
+    - >-
+      Los competidores (Uniswap, PancakeSwap, SushiSwap) concentraban el 94% del volumen DEX.
+      BlackHole no tenía recordación de marca entre usuarios encuestados.
+    - >-
+      Sin diferenciación de marca. Los 3 evaluadores de UX confundieron la plataforma con un fork
+      genérico en pruebas de reconocimiento a ciegas.
+  approach: >-
+    La interfaz dark premium emplea efectos de gravedad visual donde los elementos "orbitan"
+    alrededor del punto focal de cada pantalla, reforzando la metáfora del agujero negro. La paleta
+    combina tonos profundos de azul y púrpura con acentos cyan que guían la mirada hacia las
+    acciones principales. Las animaciones de partículas simulan la absorción gravitacional durante
+    las transacciones, y cada confirmación de swap muestra un efecto de colapso visual que refuerza
+    la identidad de marca en cada interacción.
+en:
+  title: BLACKHOLE DEFI
+  tagline: CRYPTO EXCHANGE UI
+  summary: >-
+    BlackHole DeFi is a decentralized exchange with innovative liquidity mechanics that seeks to
+    stand out in a market saturated with Uniswap forks. The platform needed its own visual identity
+    that translated its cosmic concept — the idea that liquidity "absorbs" assets into high-yield
+    pools — into every interface element. The project spanned from branding to the complete DEX UI
+    design, targeting DeFi traders with intermediate to advanced experience.
+  challenge:
+    - >-
+      The "black hole" concept was not reflected in the existing interface. The swap forms and pool
+      views were identical to Uniswap v2 with no visual adaptation.
+    - >-
+      Competitors (Uniswap, PancakeSwap, SushiSwap) concentrated 94% of DEX volume. BlackHole had
+      zero brand recall among surveyed users.
+    - >-
+      No brand differentiation. All 3 UX evaluators confused the platform with a generic fork in
+      blind recognition tests.
+  approach: >-
+    The premium dark interface employs visual gravity effects where elements "orbit" around the
+    focal point of each screen, reinforcing the black hole metaphor. The palette combines deep blue
+    and purple tones with cyan accents that guide the eye toward primary actions. Particle
+    animations simulate gravitational absorption during transactions, and each swap confirmation
+    displays a visual collapse effect that reinforces the brand identity in every interaction.

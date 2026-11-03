@@ -1,0 +1,77 @@
+legacyId: 13
+year: 2020
+status: concept
+type: concept
+category: design
+subcategory: games
+workflow: design
+stack:
+  - UI
+  - E-COMMERCE
+  - PS4
+  - SONY
+role:
+  - E-commerce UI
+  - Product Design
+  - Checkout Flow
+links:
+  dribbble: https://dribbble.com/shots/8008999-Ecommerce-Playtation-Ui-Design
+cover: ./playstation-store/cover.webp
+gallery:
+  - ./playstation-store/01.webp
+es:
+  title: PLAYSTATION ECOMMERCE
+  tagline: GAMING STORE UI
+  summary: >-
+    PlayStation Ecommerce es un concepto de tienda online para hardware y accesorios PlayStation que
+    fusiona la identidad visual de Sony con una experiencia de compra verdaderamente premium. El
+    diseño va más allá del catálogo convencional: cada producto se presenta como una pieza de
+    ingeniería que merece ser explorada antes de ser comprada. El proyecto se dirige a jugadores que
+    valoran tanto la estética como la funcionalidad, y demuestra que una tienda de hardware gaming
+    puede sentirse tan sofisticada como la marca que representa.
+  challenge:
+    - >-
+      Las tiendas oficiales de hardware gaming presentan productos como fichas de inventario: foto
+      frontal, especificaciones en lista y botón de compra. La tasa de conversión promedio de estos
+      catálogos es del 1.2%.
+    - >-
+      El DualSense es un producto visualmente atractivo con texturas, colores y detalles que no se
+      aprecian en fotos estáticas de catálogo convencional.
+    - >-
+      La experiencia de compra debe sentirse tan premium como el producto. Un checkout genérico
+      devalúa la percepción de marca de un accesorio de 70 USD.
+  approach: >-
+    La tienda presenta product shots inmersivos sobre fondos oscuros con iluminación dramática que
+    resalta cada curva y textura del hardware, transformando la página de producto en una
+    experiencia visual comparable a un lanzamiento de Apple. El configurador visual permite al
+    usuario personalizar los colores del DualSense en tiempo real, rotando el modelo 3D para ver
+    cada combinación desde todos los ángulos. El checkout se simplifica a 2 pasos con animaciones de
+    transición fluidas que mantienen la sensación premium hasta la confirmación de compra.
+en:
+  title: PLAYSTATION ECOMMERCE
+  tagline: GAMING STORE UI
+  summary: >-
+    PlayStation Ecommerce is an online store concept for PlayStation hardware and accessories that
+    merges Sony's visual identity with a truly premium shopping experience. The design goes beyond
+    the conventional catalog: each product is presented as a piece of engineering that deserves to
+    be explored before being purchased. The project targets gamers who value aesthetics as much as
+    functionality, and demonstrates that a gaming hardware store can feel as sophisticated as the
+    brand it represents.
+  challenge:
+    - >-
+      Official gaming hardware stores present products as inventory cards: front photo,
+      specifications in a list, and a buy button. The average conversion rate for these catalogs is
+      1.2%.
+    - >-
+      The DualSense is a visually attractive product with textures, colors, and details that are not
+      appreciated in conventional static catalog photos.
+    - >-
+      The shopping experience must feel as premium as the product itself. A generic checkout
+      devalues the brand perception of a 70 USD accessory.
+  approach: >-
+    The store features immersive product shots on dark backgrounds with dramatic lighting that
+    highlights every curve and texture of the hardware, turning the product page into a visual
+    experience comparable to an Apple launch. The visual configurator lets users customize DualSense
+    colors in real time, rotating the 3D model to view each combination from every angle. The
+    checkout is simplified to 2 steps with fluid transition animations that maintain the premium
+    feel through to purchase confirmation.

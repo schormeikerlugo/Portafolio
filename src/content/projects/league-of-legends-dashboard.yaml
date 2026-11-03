@@ -1,0 +1,76 @@
+legacyId: 8
+year: 2020
+status: concept
+type: concept
+category: design
+subcategory: games
+workflow: design
+stack:
+  - UI
+  - DASHBOARD
+  - GAME
+  - LOL
+role:
+  - Dashboard UI
+  - Data Visualization
+  - Analytics
+links:
+  behance: https://www.behance.net/gallery/97122811/Dashboard-League-of-legends-UI-Design
+cover: ./league-of-legends-dashboard/cover.webp
+gallery:
+  - ./league-of-legends-dashboard/01.webp
+es:
+  title: LEAGUE OF LEGENDS
+  tagline: DASHBOARD UI
+  summary: >-
+    League of Legends Dashboard es un concepto de panel analítico que transforma las estadísticas de
+    rendimiento de los jugadores en visualizaciones intuitivas y atractivas. El diseño se dirige a
+    jugadores competitivos de rango Oro a Challenger que buscan insights accionables más allá de las
+    tablas numéricas que ofrecen herramientas como op.gg o u.gg. La propuesta diferenciadora
+    consiste en conectar visualmente cada dato con la identidad estética del juego, para que
+    analizar estadísticas se sienta como una extensión natural de la experiencia de LoL.
+  challenge:
+    - >-
+      Las herramientas existentes (op.gg, u.gg) presentan los datos en tablas densas con más de 50
+      columnas visibles. El tiempo medio para encontrar un insight útil supera los 45 segundos por
+      sesión.
+    - >-
+      Los jugadores quieren respuestas rápidas — "¿en qué rol rindo mejor?", "¿contra qué campeones
+      pierdo más?" — pero las herramientas actuales ofrecen hojas de cálculo.
+    - >-
+      No existe narrativa visual que conecte las estadísticas con la experiencia de juego. Los datos
+      flotan desconectados de campeones, partidas y progresión.
+  approach: >-
+    El dashboard integra la identidad visual de League of Legends en cada componente: los gráficos
+    radiales muestran el rendimiento por rol con los colores y la iconografía de cada posición,
+    mientras un timeline interactivo recorre las partidas recientes resaltando momentos clave como
+    first blood, dragones y barones. La comparativa visual contra el promedio del rango permite al
+    jugador identificar fortalezas y debilidades de un vistazo. Todo el diseño es responsive y
+    cuenta con dark mode nativo, optimizado para sesiones de análisis prolongadas entre partidas.
+en:
+  title: LEAGUE OF LEGENDS
+  tagline: DASHBOARD UI
+  summary: >-
+    League of Legends Dashboard is an analytical panel concept that transforms player performance
+    statistics into intuitive and visually engaging visualizations. The design targets competitive
+    players from Gold to Challenger rank who seek actionable insights beyond the numeric tables
+    offered by tools like op.gg or u.gg. Its differentiator is visually connecting every data point
+    to the game's aesthetic identity, so that analyzing statistics feels like a natural extension of
+    the LoL experience.
+  challenge:
+    - >-
+      Existing tools (op.gg, u.gg) present data in dense tables with over 50 visible columns.
+      Average time to find a useful insight exceeds 45 seconds per session.
+    - >-
+      Players want quick answers — "which role do I perform best in?", "which champions do I lose to
+      most?" — but current tools offer spreadsheets.
+    - >-
+      No visual narrative connects statistics to the gaming experience. Data floats disconnected
+      from champions, matches, and progression.
+  approach: >-
+    The dashboard integrates League of Legends' visual identity into every component: radial charts
+    display performance by role with each position's colors and iconography, while an interactive
+    timeline walks through recent matches highlighting key moments like first blood, dragons, and
+    barons. The visual comparison against rank average lets players identify strengths and
+    weaknesses at a glance. The entire design is responsive with native dark mode, optimized for
+    extended analysis sessions between matches.

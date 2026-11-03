@@ -1,0 +1,77 @@
+legacyId: 11
+year: 2019
+status: concept
+type: concept
+category: design
+subcategory: games
+workflow: design
+stack:
+  - UI
+  - GAME
+  - PS4
+  - CONCEPT
+role:
+  - Web UI Concept
+  - Art Direction
+  - Visual Effects
+links:
+  dribbble: https://dribbble.com/shots/7186912-Schormeiker-Lugo-UI-Design-Death-Stranding-par3
+cover: ./death-stranding/cover.webp
+gallery:
+  - ./death-stranding/01.webp
+es:
+  title: DEATH STRANDING
+  tagline: GAME UI CONCEPT
+  summary: >-
+    Death Stranding, el juego de Hideo Kojima, posee una estética única que mezcla ciencia ficción
+    con horror surrealista y paisajes desolados de belleza inquietante. Este concepto de interfaz
+    web captura esa atmósfera en un diseño promocional que funciona como experiencia narrativa por
+    sí mismo. El proyecto explora cómo traducir la sensación de aislamiento y misterio del juego a
+    un medio interactivo bidimensional, sin recurrir a capturas de pantalla convencionales ni a
+    estructuras de landing page genéricas.
+  challenge:
+    - >-
+      La estética de Kojima exige un nivel de detalle visual extremo — cada textura, partícula y
+      transición debe sentirse intencional y cargada de significado.
+    - >-
+      El juego mezcla ciencia ficción con horror surrealista y conexiones humanas. Esa combinación
+      no encaja en ningún template web convencional.
+    - >-
+      La identidad visual debe generar intriga y tensión emocional sin revelar spoilers narrativos.
+      Cada elemento visible es un potencial spoiler en un juego donde el misterio sostiene toda la
+      experiencia.
+  approach: >-
+    El diseño envuelve al usuario en una atmósfera nebulosa construida con capas de niebla animada y
+    tipografía minimalista que emerge del fondo como señales en un paisaje vacío. Los efectos de
+    glitch sutil en las transiciones entre secciones evocan las anomalías temporales del juego,
+    reforzando la tensión sin resultar intrusivos. Las secciones revelan información de forma
+    progresiva — igual que el gameplay — mediante scroll-triggered animations que dosifican lore,
+    personajes y mecánicas bajo una paleta desaturada con acentos dorados que anclan la mirada.
+en:
+  title: DEATH STRANDING
+  tagline: GAME UI CONCEPT
+  summary: >-
+    Death Stranding, Hideo Kojima's game, possesses a unique aesthetic that blends science fiction
+    with surreal horror and desolate landscapes of unsettling beauty. This web interface concept
+    captures that atmosphere in a promotional design that functions as a narrative experience in its
+    own right. The project explores how to translate the game's sense of isolation and mystery into
+    a two-dimensional interactive medium, without relying on conventional screenshots or generic
+    landing page structures.
+  challenge:
+    - >-
+      Kojima's aesthetic demands an extreme level of visual detail — every texture, particle, and
+      transition must feel intentional and loaded with meaning.
+    - >-
+      The game blends science fiction with surreal horror and human connections. That combination
+      does not fit any conventional web template.
+    - >-
+      The visual identity must generate intrigue and emotional tension without revealing narrative
+      spoilers. Every visible element is a potential spoiler in a game where mystery sustains the
+      entire experience.
+  approach: >-
+    The design envelops the user in a foggy atmosphere built with layers of animated mist and
+    minimalist typography that emerges from the background like signals in an empty landscape.
+    Subtle glitch effects on section transitions evoke the game's temporal anomalies, reinforcing
+    tension without being intrusive. Sections reveal information progressively — just like the
+    gameplay — through scroll-triggered animations that meter out lore, characters, and mechanics
+    under a desaturated palette with golden accents that anchor the gaze.

@@ -1,0 +1,78 @@
+legacyId: 7
+year: 2023
+status: concept
+type: concept
+category: design
+subcategory: games
+workflow: design
+stack:
+  - UI
+  - UX
+  - GAMING
+  - E-COMMERCE
+role:
+  - UI/UX Redesign
+  - Desktop App
+  - E-commerce
+links:
+  behance: https://www.behance.net/gallery/185060723/G2A-Desktop-App-Web-
+cover: ./g2a-desktop-app/cover.webp
+gallery:
+  - ./g2a-desktop-app/01.webp
+  - ./g2a-desktop-app/02.webp
+  - ./g2a-desktop-app/03.webp
+  - ./g2a-desktop-app/04.webp
+es:
+  title: G2A DESKTOP APP
+  tagline: GAMING STORE WEB APP
+  summary: >-
+    G2A es el marketplace de keys de videojuegos más grande del mundo, con millones de usuarios
+    activos y un catálogo de más de 75.000 productos digitales. Este rediseño de su app de
+    escritorio buscaba modernizar la experiencia de compra para competir visualmente con Steam, Epic
+    Games y GOG. El objetivo era transformar una interfaz web empaquetada en una experiencia nativa
+    que aprovechara las ventajas del formato desktop: navegación persistente, previsualizaciones
+    rápidas y gestión eficiente de biblioteca.
+  challenge:
+    - >-
+      La interfaz web de G2A no había recibido una actualización visual significativa en 3 años. Los
+      usuarios la describían como "una web de 2018 metida dentro de una ventana de escritorio".
+    - >-
+      La densidad de información — más de 30 elementos visibles por pantalla — dificultaba el
+      descubrimiento de ofertas y aumentaba el tiempo de decisión de compra.
+    - >-
+      La experiencia de compra no aprovechaba el formato desktop. Las funciones de sidebar,
+      shortcuts de teclado y previews al hover estaban completamente ausentes.
+  approach: >-
+    El rediseño adopta un enfoque desktop-first con sidebar de navegación persistente que organiza
+    las secciones en categorías colapsables, reduciendo los clics necesarios para llegar a cualquier
+    producto a un máximo de 2. Las cards de juegos incluyen previews al hover con screenshots,
+    precio, descuento y rating sin necesidad de abrir la página del producto. La búsqueda
+    inteligente filtra resultados en tiempo real por plataforma, rango de precio y género, mientras
+    el dark theme premium con acentos gaming mantiene coherencia con el ecosistema visual que los
+    jugadores esperan.
+en:
+  title: G2A DESKTOP APP
+  tagline: GAMING STORE WEB APP
+  summary: >-
+    G2A is the world's largest video game key marketplace, with millions of active users and a
+    catalog of over 75,000 digital products. This desktop app redesign sought to modernize the
+    shopping experience to compete visually with Steam, Epic Games, and GOG. The goal was to
+    transform a packaged web interface into a native experience that leveraged the desktop format:
+    persistent navigation, quick previews, and efficient library management.
+  challenge:
+    - >-
+      G2A's web interface had not received a significant visual update in 3 years. Users described
+      it as "a 2018 website stuffed inside a desktop window."
+    - >-
+      Information density — over 30 visible elements per screen — hindered deal discovery and
+      increased purchase decision time.
+    - >-
+      The shopping experience did not leverage the desktop format. Sidebar functions, keyboard
+      shortcuts, and hover previews were completely absent.
+  approach: >-
+    The redesign adopts a desktop-first approach with a persistent navigation sidebar that organizes
+    sections into collapsible categories, reducing the clicks needed to reach any product to a
+    maximum of 2. Game cards include hover previews with screenshots, price, discount, and rating
+    without opening the product page. Smart search filters results in real time by platform, price
+    range, and genre, while the premium dark theme with gaming accents maintains coherence with the
+    visual ecosystem that players expect.

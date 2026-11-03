@@ -1,10 +1,13 @@
 ---
 import Base from '../layouts/Base.astro';
-import { anomalies, metrics, skills } from '../data/content';
+import { anomalies, skills } from '../data/content';
 import { breadcrumbSchema } from '../lib/seo';
+import { getCollection } from 'astro:content';
 import { t, type Lang } from '../i18n';
 
 const lang: Lang = 'es';
+const projectCount = (await getCollection('projects')).length;
+const metricItems = (t(lang, 'metrics.items') as { value: number; suffix: string; label: string; desc: string }[]).map((m, i) => (i === 1 ? { ...m, value: projectCount } : m));
 const philosophySegments = t(lang, 'approach.segments');
 ---
 
@@ -68,7 +71,7 @@ const philosophySegments = t(lang, 'approach.segments');
       </div>
 
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8" data-animate-group>
-        {metrics.map((metric) => (
+        {metricItems.map((metric) => (
           <div class="text-center" data-animate-stagger>
             <span class="text-5xl sm:text-6xl font-sans font-black text-cyan">{metric.value}{metric.suffix}</span>
             <p class="mono text-[10px] text-text-primary uppercase tracking-widest mt-4">{metric.label}</p>

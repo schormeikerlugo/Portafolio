@@ -1,0 +1,95 @@
+legacyId: 31
+year: 2025
+status: archived
+type: personal
+category: development
+subcategory: games
+workflow: development
+stack:
+  - JAVASCRIPT
+  - CANVAS
+  - SUPABASE
+  - MULTIPLAYER
+  - PWA
+  - WEB AUDIO
+role:
+  - Full-stack Dev
+  - Game Design
+  - Multiplayer
+  - PWA
+links:
+  repo: https://github.com/schormeikerlugo/Snake-Classic
+cover: ./snake-classic/cover.webp
+gallery:
+  - ./snake-classic/01.webp
+  - ./snake-classic/02.webp
+  - ./snake-classic/03.webp
+  - ./snake-classic/04.webp
+  - ./snake-classic/05.webp
+  - ./snake-classic/06.webp
+  - ./snake-classic/07.webp
+  - ./snake-classic/08.webp
+  - ./snake-classic/09.webp
+  - ./snake-classic/10.webp
+  - ./snake-classic/11.webp
+  - ./snake-classic/12.webp
+  - ./snake-classic/13.webp
+  - ./snake-classic/14.webp
+  - ./snake-classic/15.webp
+  - ./snake-classic/16.webp
+es:
+  title: SNAKE CLASSIC
+  tagline: RETRO GAME REIMAGINED
+  summary: >-
+    Reimaginación contemporánea del Snake clásico de los 90s con tecnologías web modernas. La
+    serpiente cambia de color cada 10 puntos con efectos de brillo adaptativos. Sistema de power-ups
+    con 6 tipos (slow, double points, immunity, shrink, clear obstacles, penalty). Multijugador
+    online en beta con dos formatos competitivos: duelo 1v1 donde el último en pie gana, y
+    competencia por puntos en 2 minutos con modo fantasma. Salas privadas con códigos, chat en
+    tiempo real, ranking en vivo y funcionalidad de revancha. Optimizado como PWA para Android con
+    controles táctiles ampliados.
+  challenge:
+    - >-
+      El Snake clásico carece de rejugabilidad después de las primeras partidas. Sin variedad de
+      mecánicas ni progresión visual.
+    - >-
+      El multijugador en tiempo real requiere sincronización precisa de estados. La latencia >100ms
+      hace que el juego sea injugable en modo competitivo. El sistema de audio debe atenuar durante
+      eventos de bonus.
+    - >-
+      La arquitectura debe ser modular para soportar auth, chat, ranking, settings, sistema de
+      sonido e integraciones externas sin acoplar.
+  approach: >-
+    Arquitectura modular en JavaScript ES6+ organizada en módulos: core (estado y lógica), ui
+    (interfaz), features (auth, chat, ranking, settings), sound (Web Audio API) y lib (Supabase).
+    HTML5 Canvas para gráficos pixelados 2D con interpolación suave via requestAnimationFrame.
+    Multiplayer con Supabase Realtime para sincronización de estados. Persistencia de mejores
+    puntuaciones con localStorage. Sistema de power-ups con formas y colores distintos. PWA
+    optimizado para Android con controles táctiles de tamaño ampliado.
+en:
+  title: SNAKE CLASSIC
+  tagline: RETRO GAME REIMAGINED
+  summary: >-
+    Contemporary reimagining of the classic 90s Snake with modern web technologies. The snake
+    changes color every 10 points with adaptive glow effects. Power-up system with 6 types (slow,
+    double points, immunity, shrink, clear obstacles, penalty). Online multiplayer in beta with two
+    competitive formats: 1v1 duel where the last player standing wins, and a 2-minute points
+    competition with ghost mode. Private rooms with codes, real-time chat, live ranking, and rematch
+    functionality. Optimized as PWA for Android with enlarged touch controls.
+  challenge:
+    - >-
+      Classic Snake lacks replayability after the first few games. No variety in mechanics or visual
+      progression.
+    - >-
+      Real-time multiplayer requires precise state synchronization. Latency >100ms makes the game
+      unplayable in competitive mode. The audio system must attenuate during bonus events.
+    - >-
+      Architecture must be modular to support auth, chat, ranking, settings, sound system, and
+      external integrations without coupling.
+  approach: >-
+    Modular architecture in JavaScript ES6+ organized into modules: core (state and logic), ui
+    (interface), features (auth, chat, ranking, settings), sound (Web Audio API), and lib
+    (Supabase). HTML5 Canvas for 2D pixel graphics with smooth interpolation via
+    requestAnimationFrame. Multiplayer with Supabase Realtime for state synchronization. Best score
+    persistence with localStorage. Power-up system with distinct shapes and colors. PWA optimized
+    for Android with enlarged touch controls.

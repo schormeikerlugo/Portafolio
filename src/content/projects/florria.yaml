@@ -1,0 +1,79 @@
+legacyId: 10
+year: 2023
+status: concept
+type: concept
+category: design
+subcategory: games
+workflow: design
+stack:
+  - UI
+  - IA
+  - GAME
+  - WEB
+role:
+  - Web Design
+  - AI Assets Integration
+  - Parallax
+links:
+  behance: https://www.behance.net/gallery/184515697/Florria-web-Design-IA
+cover: ./florria/cover.webp
+gallery:
+  - ./florria/01.webp
+  - ./florria/02.webp
+  - ./florria/03.webp
+es:
+  title: FLORRIA WEB IA
+  tagline: GAME DESIGN + AI
+  summary: >-
+    Florria es un juego de fantasía cuyos assets visuales — personajes, escenarios y objetos —
+    fueron generados mediante inteligencia artificial, y este proyecto diseña su web de presentación
+    al público. La página funciona como puerta de entrada al universo del juego, comunicando su
+    concepto, estética y mecánicas sin disponer de gameplay footage real. El proyecto explora la
+    sinergia entre diseño UI artesanal e IA generativa, demostrando que ambas disciplinas pueden
+    coexistir para crear una experiencia visual cohesiva y creíble.
+  challenge:
+    - >-
+      Los assets generados por IA presentaban inconsistencias estilísticas entre sí — cada imagen
+      tenía su propia paleta, iluminación y nivel de detalle. Sin un marco visual unificador
+      parecían un collage.
+    - >-
+      La web debía comunicar el concepto de juego completo sin gameplay footage, trailers ni
+      capturas in-engine. Todo el storytelling recaía en el diseño de la página.
+    - >-
+      El público gaming desconfía de proyectos que usan IA generativa como atajo. La web debía
+      demostrar calidad de producción real, no un experimento técnico.
+  approach: >-
+    La landing page inmersiva utiliza parallax suave para guiar al usuario a través de las regiones
+    del mundo de Florria, donde cada sección temática presenta su propia atmósfera cromática y
+    narrativa. Los assets de IA se integran como fondos atmosféricos con overlays UI cuidadosamente
+    diseñados que unifican la iluminación y la paleta mediante gradientes y filtros de color
+    consistentes. Las cards de personajes revelan información progresiva al hover — lore,
+    habilidades y rareza — con animaciones que refuerzan la personalidad de cada criatura.
+en:
+  title: FLORRIA WEB IA
+  tagline: GAME DESIGN + AI
+  summary: >-
+    Florria is a fantasy game whose visual assets — characters, environments, and objects — were
+    generated through artificial intelligence, and this project designs its public-facing
+    presentation website. The page serves as the gateway to the game's universe, communicating its
+    concept, aesthetic, and mechanics without real gameplay footage. The project explores the
+    synergy between handcrafted UI design and generative AI, demonstrating that both disciplines can
+    coexist to create a cohesive and credible visual experience.
+  challenge:
+    - >-
+      AI-generated assets had stylistic inconsistencies among themselves — each image had its own
+      palette, lighting, and level of detail. Without a unifying visual framework they looked like a
+      collage.
+    - >-
+      The website had to communicate the full game concept without gameplay footage, trailers, or
+      in-engine captures. All storytelling fell on the page design alone.
+    - >-
+      The gaming audience distrusts projects that use generative AI as a shortcut. The website had
+      to demonstrate real production quality, not a tech experiment.
+  approach: >-
+    The immersive landing page uses smooth parallax to guide the user through the regions of
+    Florria's world, where each thematic section presents its own chromatic atmosphere and
+    narrative. AI assets integrate as atmospheric backgrounds with carefully designed UI overlays
+    that unify lighting and palette through consistent gradients and color filters. Character cards
+    reveal progressive information on hover — lore, abilities, and rarity — with animations that
+    reinforce each creature's personality.

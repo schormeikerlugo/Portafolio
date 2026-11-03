@@ -1,0 +1,71 @@
+legacyId: 20
+year: 2018
+status: concept
+type: concept
+category: design
+subcategory: web
+workflow: design
+stack:
+  - UI
+  - WEB
+  - CREATIVE
+  - AGENCY
+role:
+  - Web Design
+  - Agency Portfolio
+  - Case Studies
+links:
+  behance: https://www.behance.net/gallery/64106131/Web-design-Proyect-Limbic
+cover: ./limbic/cover.webp
+gallery:
+  - ./limbic/01.webp
+es:
+  title: LIMBIC
+  tagline: CREATIVE AGENCY WEB
+  summary: >-
+    Limbic es la web de una agencia creativa que funciona simultáneamente como portfolio de
+    proyectos y herramienta de captación de clientes. El diseño refleja la misma creatividad que la
+    agencia ofrece a sus clientes, demostrando capacidades técnicas y artísticas desde el primer
+    scroll. Su propuesta equilibra la experimentación visual con la claridad comercial necesaria
+    para convertir visitantes en leads cualificados.
+  challenge:
+    - >-
+      Las webs de agencias creativas caen en dos extremos: las experimentales confunden al visitante
+      con navegación no convencional, y las corporativas no demuestran talento.
+    - >-
+      Los clientes potenciales dedican menos de 20 segundos a evaluar si una agencia merece su
+      atención; necesitan ver resultados concretos, no solo experimentación visual.
+    - >-
+      La propia web es el primer proyecto que el cliente potencial juzga — si el diseño no convence,
+      la agencia pierde credibilidad antes de cualquier pitch.
+  approach: >-
+    El layout asimétrico mantiene la creatividad visual sin sacrificar la navegabilidad, con puntos
+    de anclaje claros en cada sección. El portfolio incluye filtros por industria y tipo de
+    proyecto, acompañado de case studies con métricas de impacto. Las animaciones sutiles demuestran
+    capacidad técnica sin ralentizar la carga ni distraer del contenido. Cada página conduce al
+    visitante hacia un CTA de contacto contextualizado según el tipo de proyecto que exploró.
+en:
+  title: LIMBIC
+  tagline: CREATIVE AGENCY WEB
+  summary: >-
+    Limbic is the website for a creative agency that functions simultaneously as a project portfolio
+    and a client acquisition tool. The design reflects the same creativity the agency offers its
+    clients, demonstrating technical and artistic capabilities from the first scroll. Its approach
+    balances visual experimentation with the commercial clarity needed to convert visitors into
+    qualified leads.
+  challenge:
+    - >-
+      Creative agency websites fall into two extremes: experimental ones confuse visitors with
+      unconventional navigation, and corporate ones fail to showcase talent.
+    - >-
+      Potential clients spend fewer than 20 seconds evaluating whether an agency deserves their
+      attention; they need to see concrete results, not just visual experimentation.
+    - >-
+      The website itself is the first project the potential client judges — if the design fails to
+      convince, the agency loses credibility before any pitch.
+  approach: >-
+    The asymmetric layout maintains visual creativity without sacrificing navigability, with clear
+    anchor points in every section. The portfolio includes filters by industry and project type,
+    accompanied by case studies with impact metrics. Subtle animations demonstrate technical
+    capability without slowing load times or distracting from the content. Each page guides the
+    visitor toward a contact CTA contextualized to the type of project they explored.

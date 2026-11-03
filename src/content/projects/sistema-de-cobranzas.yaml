@@ -1,0 +1,75 @@
+legacyId: 28
+year: 2018
+status: concept
+type: concept
+category: design
+subcategory: dashboard
+workflow: design
+stack:
+  - UI
+  - FINTECH
+  - DASHBOARD
+  - ENTERPRISE
+role:
+  - Fintech UI
+  - CRM Pipeline
+  - Enterprise
+links:
+  behance: https://www.behance.net/gallery/64107099/IU-Sistema-de-Cobranzas
+cover: ./sistema-de-cobranzas/cover.webp
+gallery:
+  - ./sistema-de-cobranzas/01.webp
+es:
+  title: SISTEMA DE COBRANZAS
+  tagline: FINTECH ENTERPRISE UI
+  summary: >-
+    Sistema de Cobranzas es una interfaz empresarial de gestión de cuentas por cobrar que permite a
+    los agentes rastrear deudas, comunicarse con clientes morosos y registrar pagos desde un solo
+    panel. El sistema sustituye flujos manuales basados en hojas de cálculo compartidas por una
+    plataforma centralizada con análisis de morosidad en tiempo real. Su diseño está orientado a
+    equipos de cobranza que gestionan carteras con cientos de cuentas activas y necesitan priorizar
+    acciones según antigüedad y monto de la deuda.
+  challenge:
+    - >-
+      El sistema legacy funcionaba sobre un Excel compartido con macros inestables que corrompían
+      datos al ser editado simultáneamente por más de 3 usuarios.
+    - >-
+      Los agentes de cobranza perdían un promedio de 3 horas diarias buscando información dispersa
+      entre correos, archivos y notas manuales de cada cliente.
+    - >-
+      Sin dashboards de seguimiento, los gerentes no podían medir la tasa de recuperación por agente
+      ni identificar cuellos de botella en el proceso.
+  approach: >-
+    La interfaz organiza las cuentas en un pipeline visual similar a un CRM, con columnas por estado
+    de gestión (pendiente, en negociación, compromiso de pago, recuperada). Las fichas de cliente
+    consolidan el historial completo de pagos, comunicaciones y promesas en una sola vista. El
+    dashboard gerencial muestra métricas de recuperación desglosadas por agente, antigüedad de
+    cartera y tasa de cumplimiento de acuerdos. Los filtros avanzados permiten segmentar la cartera
+    por monto, días de mora y prioridad asignada.
+en:
+  title: SISTEMA DE COBRANZAS
+  tagline: FINTECH ENTERPRISE UI
+  summary: >-
+    Collections Management System is an enterprise interface for accounts receivable management that
+    enables agents to track debts, communicate with delinquent clients, and record payments from a
+    single panel. The system replaces manual workflows based on shared spreadsheets with a
+    centralized platform featuring real-time delinquency analysis. Its design targets collections
+    teams that manage portfolios with hundreds of active accounts and need to prioritize actions
+    based on debt age and amount.
+  challenge:
+    - >-
+      The legacy system ran on a shared Excel file with unstable macros that corrupted data when
+      edited simultaneously by more than 3 users.
+    - >-
+      Collections agents wasted an average of 3 hours per day searching for information scattered
+      across emails, files, and handwritten notes for each client.
+    - >-
+      Without tracking dashboards, managers could not measure the recovery rate per agent or
+      identify bottlenecks in the process.
+  approach: >-
+    The interface organizes accounts in a visual pipeline similar to a CRM, with columns by
+    management status (pending, in negotiation, payment commitment, recovered). Client cards
+    consolidate the complete history of payments, communications, and promises in a single view. The
+    managerial dashboard displays recovery metrics broken down by agent, portfolio age, and
+    agreement compliance rate. Advanced filters allow segmentation by amount, days overdue, and
+    assigned priority.

@@ -1,0 +1,75 @@
+legacyId: 9
+year: 2017
+status: concept
+type: concept
+category: design
+subcategory: games
+workflow: design
+stack:
+  - UI
+  - UX
+  - STEAM
+  - SOFTWARE
+role:
+  - UI/UX Redesign
+  - Prototype
+  - User Research
+links:
+  behance: https://www.behance.net/gallery/58598399/UI-UX-Software-Prototipo-Steam-Rediseno-de-interfaz
+cover: ./steam-redesign/cover.webp
+gallery:
+  - ./steam-redesign/01.webp
+es:
+  title: STEAM REDESIGN
+  tagline: GAMING PLATFORM UI/UX
+  summary: >-
+    Steam es la plataforma de distribución digital de Valve con más de 120 millones de usuarios
+    activos mensuales, y este proyecto propone un rediseño integral de su interfaz de escritorio. La
+    propuesta aborda la tienda, la biblioteca y los perfiles de usuario, tres áreas que no habían
+    recibido una revisión visual profunda en años. El desafío principal consistía en modernizar la
+    experiencia sin romper los patrones de navegación que millones de usuarios ya habían
+    interiorizado.
+  challenge:
+    - >-
+      Steam mantuvo el mismo framework visual durante más de 5 años sin iteraciones significativas.
+      La interfaz utiliza patrones de diseño pre-2015 que contrastan con los estándares actuales.
+    - >-
+      Epic Games Store y GOG ofrecen experiencias visuales más modernas con mejor uso del espacio,
+      tipografía contemporánea y transiciones fluidas.
+    - >-
+      La navegación de la biblioteca con más de 500 juegos depende de una lista vertical sin
+      agrupación visual. Los usuarios tardan 12+ segundos en encontrar un título específico sin
+      recurrir al buscador.
+  approach: >-
+    La biblioteca adopta un sistema de grid dinámico que agrupa los juegos por categorías, última
+    sesión y estado de instalación, reduciendo el tiempo de búsqueda visual a menos de 3 segundos.
+    Los perfiles de usuario incorporan un feed de actividad social con logros recientes, capturas de
+    pantalla y horas jugadas, transformando cada perfil en una vitrina personal. La store presenta
+    previews expandidos con trailers inline y recomendaciones visuales basadas en el historial de
+    juego, todo validado mediante un prototipo interactivo funcional en Figma.
+en:
+  title: STEAM REDESIGN
+  tagline: GAMING PLATFORM UI/UX
+  summary: >-
+    Steam is Valve's digital distribution platform with over 120 million monthly active users, and
+    this project proposes a comprehensive redesign of its desktop interface. The proposal addresses
+    the store, library, and user profiles — three areas that had not received a deep visual revision
+    in years. The main challenge was modernizing the experience without breaking the navigation
+    patterns that millions of users had already internalized.
+  challenge:
+    - >-
+      Steam maintained the same visual framework for over 5 years without significant iterations.
+      The interface uses pre-2015 design patterns that contrast with current standards.
+    - >-
+      Epic Games Store and GOG offer more modern visual experiences with better use of space,
+      contemporary typography, and fluid transitions.
+    - >-
+      Library navigation with 500+ games relies on a vertical list with no visual grouping. Users
+      take 12+ seconds to find a specific title without resorting to the search bar.
+  approach: >-
+    The library adopts a dynamic grid system that groups games by category, last session, and
+    installation status, reducing visual search time to under 3 seconds. User profiles incorporate a
+    social activity feed with recent achievements, screenshots, and hours played, turning each
+    profile into a personal showcase. The store features expanded previews with inline trailers and
+    visual recommendations based on play history, all validated through a functional interactive
+    prototype in Figma.

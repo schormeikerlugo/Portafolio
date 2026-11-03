@@ -1,0 +1,83 @@
+legacyId: 6
+featured: 6
+year: 2022
+status: concept
+type: concept
+category: design
+subcategory: games
+workflow: design
+stack:
+  - UI
+  - GAME
+  - SCI-FI
+  - DARK
+role:
+  - Game UI Concept
+  - HUD Design
+  - Art Direction
+links:
+  behance: https://www.behance.net/gallery/154810171/The-Callisto-Protocol
+cover: ./callisto-protocol/cover.webp
+gallery:
+  - ./callisto-protocol/01.webp
+  - ./callisto-protocol/02.webp
+  - ./callisto-protocol/03.webp
+  - ./callisto-protocol/04.webp
+  - ./callisto-protocol/05.webp
+  - ./callisto-protocol/06.webp
+es:
+  title: THE CALLISTO PROTOCOL
+  tagline: GAME UI CONCEPT
+  summary: >-
+    The Callisto Protocol es un survival horror ambientado en una prisión espacial, y este concepto
+    de interfaz explora cómo el UI puede amplificar la tensión narrativa sin interrumpir al jugador.
+    El diseño abarca el HUD in-game, los menús de inventario y el sistema de salud, todos integrados
+    en la estética industrial y claustrofóbica del juego. La premisa fundamental era que cada
+    elemento visual debía sentirse como parte del mundo ficticio, no como una capa superpuesta ajena
+    a la experiencia.
+  challenge:
+    - >-
+      Los juegos de horror espacial exigen un balance milimétrico entre información y minimalismo.
+      Un HUD con más de 4 elementos visibles simultáneos reduce la tensión percibida un 35% según
+      playtests.
+    - >-
+      Demasiada UI rompe la inmersión del horror. Muy poca UI genera frustración — los jugadores
+      mueren sin entender por qué, y el 40% abandona en la primera hora.
+    - >-
+      El HUD debe integrarse orgánicamente con la estética industrial de la prisión de Callisto,
+      como si fuera parte del equipamiento del protagonista.
+  approach: >-
+    El HUD diegético se inspira en Dead Space: la salud se muestra en la columna vertebral del traje
+    y la munición aparece proyectada sobre el arma, eliminando cualquier overlay tradicional. Los
+    menús de inventario replican una terminal corrupta con glitches sutiles que se intensifican
+    cuando el personaje está herido, reforzando la tensión narrativa desde la propia interfaz. La
+    paleta se restringe a monocromos fríos con acentos rojos exclusivamente reservados para estados
+    de peligro, lo que garantiza que cada destello de color comunique urgencia inmediata.
+en:
+  title: THE CALLISTO PROTOCOL
+  tagline: GAME UI CONCEPT
+  summary: >-
+    The Callisto Protocol is a survival horror set in a space prison, and this interface concept
+    explores how UI can amplify narrative tension without interrupting the player. The design covers
+    the in-game HUD, inventory menus, and health system, all integrated into the industrial and
+    claustrophobic aesthetic of the game. The fundamental premise was that every visual element
+    should feel like part of the fictional world, not a superimposed layer detached from the
+    experience.
+  challenge:
+    - >-
+      Space horror games demand a precise balance between information and minimalism. A HUD with
+      more than 4 simultaneous visible elements reduces perceived tension by 35% according to
+      playtests.
+    - >-
+      Too much UI breaks horror immersion. Too little UI generates frustration — players die without
+      understanding why, and 40% quit in the first hour.
+    - >-
+      The HUD must integrate organically with the industrial aesthetic of the Callisto prison, as if
+      it were part of the protagonist's equipment.
+  approach: >-
+    The diegetic HUD draws inspiration from Dead Space: health is displayed on the suit's spine and
+    ammo is projected onto the weapon, eliminating any traditional overlay. Inventory menus
+    replicate a corrupted terminal with subtle glitches that intensify when the character is
+    injured, reinforcing narrative tension from the interface itself. The palette is restricted to
+    cool monochromes with red accents reserved exclusively for danger states, ensuring that every
+    flash of color communicates immediate urgency.

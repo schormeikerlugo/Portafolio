@@ -1,0 +1,72 @@
+legacyId: 19
+year: 2019
+status: concept
+type: concept
+category: design
+subcategory: web
+workflow: design
+stack:
+  - UI
+  - WEB
+  - GYM
+  - FITNESS
+role:
+  - Web Design
+  - Fitness Brand
+  - Community
+links:
+  behance: https://www.behance.net/gallery/77510849/Hactio-Web-design-UI-GYM
+cover: ./hactio-gym/cover.webp
+gallery:
+  - ./hactio-gym/01.webp
+  - ./hactio-gym/02.webp
+  - ./hactio-gym/03.webp
+es:
+  title: HACTIO GYM
+  tagline: FITNESS WEB UI
+  summary: >-
+    Hactio Gym es la web de una comunidad de fitness que busca atraer nuevos miembros con una
+    propuesta visual energética y accesible. El sitio representa a personas de todos los niveles,
+    desde principiantes hasta atletas avanzados, reflejando la filosofía inclusiva del gimnasio. Su
+    diseño rompe con los estereotipos del sector al priorizar la comunidad real sobre las imágenes
+    aspiracionales inalcanzables.
+  challenge:
+    - >-
+      El 78% de las webs de gimnasios reutilizan fotos de stock con modelos fitness profesionales y
+      CTAs agresivos tipo "TRANSFORMA TU CUERPO HOY".
+    - >-
+      Los usuarios potenciales sin experiencia previa se sienten intimidados por webs que solo
+      muestran cuerpos idealizados, lo cual aumenta la tasa de rebote.
+    - >-
+      La web debe motivar a todos los niveles de fitness sin alienar a quienes dan su primer paso,
+      que representan el 60% del público objetivo.
+  approach: >-
+    El diseño emplea fotografía auténtica de miembros reales del gimnasio en lugar de imágenes de
+    stock. Las secciones de programas presentan niveles progresivos con descripciones claras de qué
+    esperar en cada etapa. La hero section reproduce un video corto de la comunidad entrenando,
+    generando identificación inmediata. El pricing transparente y el sistema de reservas integrado
+    eliminan las barreras de conversión habituales en el sector.
+en:
+  title: HACTIO GYM
+  tagline: FITNESS WEB UI
+  summary: >-
+    Hactio Gym is the website for a fitness community that seeks to attract new members with an
+    energetic and accessible visual approach. The site represents people of all levels, from
+    beginners to advanced athletes, reflecting the gym's inclusive philosophy. Its design breaks
+    industry stereotypes by prioritizing real community over unattainable aspirational imagery.
+  challenge:
+    - >-
+      78% of gym websites reuse stock photos of professional fitness models and aggressive CTAs like
+      "TRANSFORM YOUR BODY TODAY."
+    - >-
+      Potential users with no prior experience feel intimidated by websites that only showcase
+      idealized bodies, which increases the bounce rate.
+    - >-
+      The website must motivate all fitness levels without alienating those taking their first step,
+      who represent 60% of the target audience.
+  approach: >-
+    The design uses authentic photography of real gym members instead of stock images. Program
+    sections present progressive levels with clear descriptions of what to expect at each stage. The
+    hero section plays a short video of the community training, generating immediate identification.
+    Transparent pricing and an integrated booking system remove the conversion barriers that are
+    common in the industry.

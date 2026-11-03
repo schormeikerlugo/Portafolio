@@ -1,0 +1,92 @@
+legacyId: 35
+featured: 3
+year: 2026
+status: archived
+type: personal
+category: development
+subcategory: web
+workflow: development
+stack:
+  - HTML
+  - CSS
+  - JAVASCRIPT
+  - VITE
+  - WEBGL
+  - SPA
+role:
+  - Frontend Dev
+  - SPA Architecture
+  - WebGL
+links:
+  repo: https://github.com/schormeikerlugo/AQOMI-STUDIO
+cover: ./aqomi-studio/cover.webp
+gallery:
+  - ./aqomi-studio/01.webp
+  - ./aqomi-studio/02.webp
+  - ./aqomi-studio/03.webp
+  - ./aqomi-studio/04.webp
+  - ./aqomi-studio/05.webp
+  - ./aqomi-studio/06.webp
+  - ./aqomi-studio/07.webp
+  - ./aqomi-studio/08.webp
+es:
+  title: AQOMI STUDIO
+  tagline: CREATIVE AGENCY SPA
+  summary: >-
+    AQOMI Studios es el sitio web de una agencia creativa de branding de élite, clasificada como la
+    #1 en Canadá y #8 en Norteamérica en Clutch, con más de 3,500 identidades de marca entregadas en
+    40 países. El proyecto consiste en una Single Page Application de alto rendimiento construida
+    sin frameworks pesados — solo HTML5 semántico, CSS3 vanilla con design tokens y JavaScript ES6
+    puro. La arquitectura implementa un router SPA custom con lifecycle hooks, sistema de inyección
+    dinámica de HTML parciales, fondos de gradientes mesh con WebGL, lógica de cursor interactivo y
+    scroll reveals basados en IntersectionObserver. El build de producción se optimiza con Vite y
+    compresión Gzip/Brotli.
+  challenge:
+    - >-
+      La agencia necesitaba un sitio web que reflejara su posición como líder global en branding,
+      pero los frameworks convencionales añadían peso innecesario para un sitio esencialmente de
+      contenido.
+    - >-
+      El rendimiento debía ser excepcional para una agencia que juzga calidad visual. Cada
+      milisegundo de carga afecta la percepción del cliente potencial.
+    - >-
+      La experiencia SPA debía sentirse fluida con transiciones entre secciones sin recarga
+      completa, mientras mantenía un bundle mínimo sin React ni Vue.
+  approach: >-
+    La solución fue una arquitectura SPA completamente vanilla que elimina la dependencia de
+    frameworks. El router custom maneja navegación con métodos onPageActivate y registerCleanup para
+    gestionar el ciclo de vida de cada vista. Los HTML parciales se inyectan dinámicamente según la
+    ruta, lo que permite separar concerns sin sacrificar rendimiento. Los fondos con gradientes mesh
+    se renderizan mediante WebGL para crear una atmósfera visual premium. El cursor interactivo con
+    lógica de visibilidad contextual refuerza la experiencia inmersiva. Vite compila el bundle final
+    con compresión Gzip y Brotli, resultando en tiempos de carga inferiores a 1 segundo.
+en:
+  title: AQOMI STUDIO
+  tagline: CREATIVE AGENCY SPA
+  summary: >-
+    AQOMI Studios is the website of an elite creative branding agency, ranked #1 in Canada and #8 in
+    North America on Clutch, with over 3,500 brand identities delivered across 40 countries. The
+    project is a high-performance Single Page Application built without heavy frameworks — only
+    semantic HTML5, vanilla CSS3 with design tokens, and pure ES6 JavaScript. The architecture
+    implements a custom SPA router with lifecycle hooks, a dynamic HTML partial injection system,
+    WebGL mesh gradient backgrounds, interactive cursor logic, and scroll reveals powered by
+    IntersectionObserver. The production build is optimized with Vite and Gzip/Brotli compression.
+  challenge:
+    - >-
+      The agency needed a website that reflected its position as a global branding leader, but
+      conventional frameworks added unnecessary weight for what was essentially a content-driven
+      site.
+    - >-
+      Performance had to be exceptional for an agency that judges visual quality. Every millisecond
+      of load time affects the potential client's perception.
+    - >-
+      The SPA experience had to feel fluid with seamless transitions between sections without full
+      page reloads, while maintaining a minimal bundle without React or Vue.
+  approach: >-
+    The solution was a fully vanilla SPA architecture that eliminates framework dependencies. The
+    custom router handles navigation with onPageActivate and registerCleanup methods to manage each
+    view's lifecycle. HTML partials are dynamically injected based on the route, enabling separation
+    of concerns without sacrificing performance. Mesh gradient backgrounds are rendered via WebGL to
+    create a premium visual atmosphere. The interactive cursor with contextual visibility logic
+    reinforces the immersive experience. Vite compiles the final bundle with Gzip and Brotli
+    compression, resulting in load times under 1 second.

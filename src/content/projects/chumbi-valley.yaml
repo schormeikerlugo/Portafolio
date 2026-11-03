@@ -1,0 +1,76 @@
+legacyId: 4
+year: 2021
+status: concept
+type: concept
+category: design
+subcategory: crypto
+workflow: design
+stack:
+  - UI
+  - NFT
+  - GAME
+  - BLOCKCHAIN
+role:
+  - UI Concept
+  - Game UI
+  - NFT Interface
+links:
+  behance: https://www.behance.net/gallery/129267155/Ui-Concept-Chumbi-Valley
+cover: ./chumbi-valley/cover.webp
+gallery:
+  - ./chumbi-valley/01.webp
+es:
+  title: CHUMBI VALLEY
+  tagline: NFT GAME UI
+  summary: >-
+    Chumbi Valley es un juego Play-to-Earn con criaturas coleccionables NFT que combina mecánicas de
+    farming con un ecosistema de tokens propios. El concepto de UI buscaba resolver un problema
+    común en el sector: los juegos NFT suelen priorizar la interfaz financiera sobre la experiencia
+    lúdica. Este diseño se dirigía a jugadores casuales que desconocen blockchain, sin perder la
+    profundidad que los coleccionistas e inversores demandan para gestionar sus activos digitales.
+  challenge:
+    - >-
+      Los juegos NFT del mercado mostraban wallets, tokens y gráficos de precio antes que el
+      gameplay. El 65% de gamers casuales abandonaba estos juegos en los primeros 10 minutos por
+      "sentirse como un exchange".
+    - >-
+      La audiencia target (gamers casuales de 18-30 años) rechazaba interfaces con terminología
+      crypto visible. Las palabras "NFT" y "token" generaban desconfianza.
+    - >-
+      El ecosistema económico del juego requería transparencia financiera para inversores, pero esa
+      misma información ahuyentaba al 70% del público casual.
+  approach: >-
+    La interfaz adopta una estética kawaii con colores vibrantes que sitúa la experiencia de juego
+    en primer plano, relegando la capa financiera a un menú secundario accesible solo cuando el
+    usuario lo solicita. Las cards de criaturas muestran estadísticas de combate y rareza con
+    iconografía lúdica, sin mencionar "NFT" en ningún momento del flujo principal. El marketplace se
+    integra como una "tienda del pueblo" dentro de la narrativa del juego, lo que permite comprar y
+    vender activos digitales sin romper la inmersión ni exponer la complejidad blockchain
+    subyacente.
+en:
+  title: CHUMBI VALLEY
+  tagline: NFT GAME UI
+  summary: >-
+    Chumbi Valley is a Play-to-Earn game with collectible NFT creatures that combines farming
+    mechanics with a proprietary token ecosystem. The UI concept aimed to solve a common problem in
+    the sector: NFT games tend to prioritize financial interfaces over the gaming experience. This
+    design targeted casual gamers unfamiliar with blockchain, without losing the depth that
+    collectors and investors need to manage their digital assets.
+  challenge:
+    - >-
+      NFT games on the market displayed wallets, tokens, and price charts before gameplay. 65% of
+      casual gamers abandoned these games within the first 10 minutes for "feeling like an
+      exchange."
+    - >-
+      The target audience (casual gamers aged 18-30) rejected interfaces with visible crypto
+      terminology. The words "NFT" and "token" generated distrust.
+    - >-
+      The in-game economic ecosystem required financial transparency for investors, but that same
+      information drove away 70% of the casual audience.
+  approach: >-
+    The interface adopts a kawaii aesthetic with vibrant colors that places the gaming experience
+    front and center, relegating the financial layer to a secondary menu accessible only on demand.
+    Creature cards display combat stats and rarity with playful iconography, without mentioning
+    "NFT" at any point in the main flow. The marketplace integrates as a "village shop" within the
+    game narrative, enabling users to buy and sell digital assets without breaking immersion or
+    exposing the underlying blockchain complexity.
