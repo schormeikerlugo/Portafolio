@@ -4,7 +4,6 @@ import CipherText from '../CipherText.astro';
 import MatrixRain from '../react/MatrixRain';
 import FeaturedProjects from '../FeaturedProjects.astro';
 import Process from '../../sections/Process.astro';
-import HudCorners from '../hud/HudCorners.astro';
 import TrackingCode from '../hud/TrackingCode.astro';
 import StatCard from '../hud/StatCard.astro';
 import { protocols } from '../../data/content';
@@ -29,27 +28,8 @@ const years = projects.map((x) => x.year);
 const firstYear = Math.min(...years);
 const lastYear = Math.max(...years);
 const perYear = Array.from({ length: lastYear - firstYear + 1 }, (_, i) => projects.filter((x) => x.year === firstYear + i).length);
-const latest = projects[0];
 const devCount = projects.filter((x) => x.category === 'development').length;
 
-const telemetry = {
-  tl: [
-    { k: isEn ? 'ARCHIVE' : 'ARCHIVO', v: `${projects.length} ${isEn ? 'PROJECTS' : 'PROYECTOS'}` },
-    { k: isEn ? 'ONLINE' : 'EN LÍNEA', v: `${liveCount} ${isEn ? 'SITES' : 'SITIOS'}` },
-  ],
-  tr: [
-    { k: isEn ? 'LATEST' : 'ÚLTIMO', v: latest?.title ?? '' },
-    { k: 'STACK', v: 'ASTRO · REACT · FIGMA' },
-  ],
-  bl: [
-    { k: isEn ? 'EXPERIENCE' : 'EXPERIENCIA', v: isEn ? '7+ YEARS' : '7+ AÑOS' },
-    { k: isEn ? 'RANGE' : 'RANGO', v: `${firstYear} — ${lastYear}` },
-  ],
-  br: [
-    { k: isEn ? 'LOCATION' : 'UBICACIÓN', v: isEn ? 'VE · REMOTE' : 'VE · REMOTO' },
-    { k: isEn ? 'LANGUAGES' : 'IDIOMAS', v: 'ES · EN' },
-  ],
-};
 ---
 
 
@@ -89,22 +69,6 @@ const telemetry = {
         </span>
         <span class="block w-px h-16 bg-gradient-to-b from-cyan/30 to-transparent" style="writing-mode: horizontal-tb"></span>
       </div>
-    </div>
-
-    <!-- HUD frame + telemetry (desktop) -->
-    <div class="hero-element absolute inset-6 lg:inset-10 pointer-events-none z-20 hidden md:block" data-hero-delay="600">
-      <HudCorners size={22} color="rgba(255,255,255,0.55)" />
-      {Object.entries(telemetry).map(([pos, rows]) => (
-        <dl class:list={['hero-telemetry absolute space-y-3', pos === 'tl' && 'top-8 left-10', pos === 'tr' && 'top-8 right-10 text-right', pos === 'bl' && 'bottom-8 left-10', pos === 'br' && 'bottom-8 right-10 text-right']}>
-          {rows.map((r) => (
-            <div>
-              <dt class="mono text-[11px] text-text-dim tracking-[0.25em] uppercase">{r.k}</dt>
-              <dd class="mono text-xs text-text-primary tracking-[0.12em] uppercase mt-0.5">{r.v}</dd>
-            </div>
-          ))}
-          <TrackingCode seed={`hero-${pos}`} variant={pos.endsWith('r') ? 'rec' : 'hex'} class="block pt-1" />
-        </dl>
-      ))}
     </div>
 
     <!-- Main Content -->
