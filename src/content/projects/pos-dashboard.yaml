@@ -1,19 +1,18 @@
 legacyId: 29
 year: 2023
 status: concept
-type: concept
+type: professional
 category: design
 subcategory: dashboard
 workflow: design
 stack:
-  - UI
-  - POS
-  - DASHBOARD
-  - RETAIL
+  - Figma
+  - UI Design
+  - Dashboard Design
+  - Data Visualization
 role:
-  - POS Dashboard
-  - Retail UI
-  - Keyboard Shortcuts
+  - UI Design
+  - UX Design
 links:
   dribbble: https://dribbble.com/shots/22996126-Dashboard-Punto-de-venta-UI
 cover: ./pos-dashboard/cover.webp
@@ -21,53 +20,48 @@ gallery:
   - ./pos-dashboard/01.webp
 es:
   title: DASHBOARD POS
-  tagline: PUNTO DE VENTA UI
+  tagline: PANEL DE INICIO PARA PUNTO DE VENTA
   summary: >-
-    Dashboard POS es un sistema de punto de venta para retail que unifica las operaciones de caja,
-    gestión de inventario y generación de reportes en una sola interfaz. El diseño está optimizado
-    para dos contextos de uso opuestos: la velocidad extrema que exige la línea de caja en hora pico
-    y el análisis detallado que necesita el administrador al cierre del día. Su propuesta elimina la
-    necesidad de alternar entre sistemas separados que históricamente generaban datos
-    desincronizados.
+    Pantalla de inicio de un dashboard para negocios que venden en tienda física y canales online.
+    La diseñé como shot para Dribbble, enfocada en que el dueño del negocio vea qué necesita
+    atención apenas entra.
   challenge:
     - >-
-      Los sistemas POS existentes presentan interfaces con más de 50 botones visibles que requieren
-      entre 12 y 20 horas de capacitación por cada nuevo cajero.
+      Al abrir el panel, el usuario debe saber en segundos qué tareas tiene pendientes, sin leer
+      tablas.
     - >-
-      Los cajeros necesitan completar cada transacción en menos de 15 segundos durante las horas
-      pico; cada segundo adicional genera filas y pérdida de ventas.
+      Las ventas de varios canales y sucursales tenían que resumirse en una sola vista filtrable.
     - >-
-      La gestión de inventario y los reportes de ventas funcionaban en sistemas separados, causando
-      desincronización de stock y errores en el cierre diario.
+      Un tema oscuro con muchos datos corre el riesgo de perder contraste y jerarquía.
   approach: >-
-    El dashboard unifica dos modos de operación: el modo cajero presenta una interfaz simplificada
-    con botones grandes y flujos de cobro en 3 pasos, mientras el modo administrador ofrece gestión
-    completa de inventario, reportes y analytics. La búsqueda predictiva de productos permite
-    localizar cualquier artículo del catálogo con 2 o 3 caracteres. Los atajos de teclado cubren las
-    10 operaciones más frecuentes, y el sistema actualiza el inventario en tiempo real con cada
-    venta registrada.
+    Abrí la pantalla con un saludo personal y filtros de sucursal y rango de fechas, para que todo
+    lo de abajo responda a ese contexto. El primer bloque es un aviso con tres acciones
+    pendientes (pedidos por preparar, pagos por capturar, productos por agotarse), cada una con su
+    icono y acceso directo. La columna derecha resume el total de ventas en MXN, el número de
+    pedidos y una gráfica de barras apiladas por día. Usé el azul solo para datos clave y enlaces,
+    sobre superficies grises escalonadas que separan cada bloque.
+  outcome: >-
+    Shot publicado en Dribbble con la pantalla de inicio del dashboard.
 en:
   title: DASHBOARD POS
-  tagline: POINT OF SALE UI
+  tagline: POINT OF SALE HOME DASHBOARD
   summary: >-
-    Dashboard POS is a retail point-of-sale system that unifies checkout operations, inventory
-    management, and report generation in a single interface. The design is optimized for two
-    opposite usage contexts: the extreme speed demanded by the checkout line during peak hours and
-    the detailed analysis the administrator needs at end of day. Its approach eliminates the need to
-    switch between separate systems that historically produced desynchronized data.
+    The home screen of a dashboard for businesses selling in physical stores and online channels. I
+    designed it as a Dribbble shot, focused on letting the business owner see what needs attention
+    as soon as they log in.
   challenge:
     - >-
-      Existing POS systems feature interfaces with over 50 visible buttons that require between 12
-      and 20 hours of training for each new cashier.
+      On opening the panel, users should know within seconds what tasks are pending, without
+      reading tables.
     - >-
-      Cashiers need to complete each transaction in under 15 seconds during peak hours; every
-      additional second creates lines and lost sales.
+      Sales from several channels and branches had to be summarized in a single filterable view.
     - >-
-      Inventory management and sales reports operated in separate systems, causing stock
-      desynchronization and errors in daily closing.
+      A dark theme with lots of data risks losing contrast and hierarchy.
   approach: >-
-    The dashboard unifies two operation modes: cashier mode presents a simplified interface with
-    large buttons and a 3-step checkout flow, while admin mode offers complete inventory management,
-    reports, and analytics. Predictive product search locates any catalog item with 2 or 3
-    characters. Keyboard shortcuts cover the 10 most frequent operations, and the system updates
-    inventory in real time with each registered sale.
+    I opened the screen with a personal greeting and branch and date-range filters, so everything
+    below responds to that context. The first block is an alert with three pending actions (orders
+    to prepare, payments to capture, products running low), each with its own icon and shortcut.
+    The right column summarizes total sales in MXN, the order count and a stacked daily bar chart. I
+    kept blue for key figures and links only, over stepped gray surfaces that separate each block.
+  outcome: >-
+    Shot published on Dribbble showing the dashboard home screen.

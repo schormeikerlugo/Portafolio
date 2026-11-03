@@ -6,14 +6,15 @@ category: design
 subcategory: app
 workflow: design
 stack:
-  - UI
-  - UX
-  - MAP
-  - GEO
+  - UI Design
+  - UX Design
+  - Dashboard Design
+  - Data Visualization
+  - Prototyping
 role:
-  - App UI/UX
-  - Map Design
-  - AR Navigation
+  - UI Design
+  - UX Design
+  - Branding
 links:
   behance: https://www.behance.net/gallery/64755341/UIUX-GeoMap
 cover: ./geomap/cover.webp
@@ -21,52 +22,54 @@ gallery:
   - ./geomap/01.webp
 es:
   title: GEOMAP UI/UX
-  tagline: GEOLOCATION APP
+  tagline: PLATAFORMA DE GESTIÓN DE FLOTAS
   summary: >-
-    GeoMap es una aplicación de geolocalización que presenta mapas interactivos con capas de
-    información contextual sobre negocios, eventos y puntos de interés. La app está dirigida a
-    usuarios urbanos que necesitan descubrir lugares relevantes según su ubicación y preferencias.
-    Su diferenciador reside en un sistema de capas priorizadas que muestra solo la información
-    pertinente al contexto del momento, evitando la saturación visual típica de las apps de mapas.
+    GeoMap es un concepto de software web para monitorear flotas de vehículos en tiempo real:
+    ubicación, estado, conductores, combustible y mensajería. Diseñé la marca, el panel principal y
+    los módulos de detalle, y preparé un prototipo navegable.
   challenge:
     - >-
-      Las apps de mapas convencionales cargan hasta 200 marcadores simultáneos en una sola vista,
-      colapsando la legibilidad del mapa base.
+      Un gestor de flota necesita ver el estado de muchos vehículos a la vez y, al mismo tiempo,
+      entrar al detalle de uno sin perder el contexto del mapa.
     - >-
-      La información contextual (negocios, eventos, transporte) se presenta sin jerarquía ni filtros
-      basados en la intención del usuario.
+      Los datos del vehículo (encendido, velocidad, combustible, CAN bus) son técnicos; había que
+      convertirlos en indicadores legibles.
     - >-
-      El mapa debe ser el elemento protagonista; cualquier control de interfaz que lo obstruya
-      derrota el propósito central de la aplicación.
+      La comunicación con los conductores debía estar dentro de la misma herramienta, no en una app
+      aparte.
   approach: >-
-    La interfaz ocupa la pantalla completa con el mapa y superpone controles flotantes mínimos que
-    desaparecen durante la navegación activa. Un sistema de clusters inteligentes agrupa marcadores
-    según el nivel de zoom, y cada cluster revela sus elementos individuales solo al acercarse. El
-    panel lateral deslizable muestra detalles del punto seleccionado con fotografías, horarios y
-    reseñas sin abandonar la vista del mapa. También se integra un modo de realidad aumentada para
-    navegación peatonal en zonas densas.
+    Diseñé un tema oscuro sobre un mapa base apagado, con cian como color de rutas, marcadores y
+    acciones, para que el mapa siga siendo el fondo de todo. El panel "Estado de la flota" combina
+    una lista de vehículos con indicador de color y una gráfica por días. Cada vehículo abre una
+    ficha con pestañas (resumen, historial, eventos, combustible, mantenimiento) y una barra de
+    estado con plan, encendido, combustible y gastos. Añadí módulos de conductores, mensajería tipo
+    chat y monitoreo de combustible con cargas y descargas marcadas en la gráfica.
+  outcome: >-
+    Presentación publicada en Behance con la identidad, el dashboard y 6 módulos de detalle, más un
+    prototipo del flujo.
 en:
   title: GEOMAP UI/UX
-  tagline: GEOLOCATION APP
+  tagline: FLEET MANAGEMENT PLATFORM
   summary: >-
-    GeoMap is a geolocation application that presents interactive maps with contextual information
-    layers about businesses, events, and points of interest. The app targets urban users who need to
-    discover relevant places based on their location and preferences. Its differentiator lies in a
-    prioritized layer system that displays only the information relevant to the current context,
-    avoiding the visual overload typical of map applications.
+    GeoMap is a web software concept for monitoring vehicle fleets in real time: location, status,
+    drivers, fuel and messaging. I designed the brand, the main dashboard and the detail modules, and
+    built a clickable prototype.
   challenge:
     - >-
-      Conventional map apps load up to 200 simultaneous markers in a single view, collapsing the
-      base map's readability.
+      A fleet manager needs to see the status of many vehicles at once and drill into a single one
+      without losing the map context.
     - >-
-      Contextual information (businesses, events, transit) is presented without hierarchy or filters
-      based on user intent.
+      Vehicle data (ignition, speed, fuel, CAN bus) is technical; it had to become readable
+      indicators.
     - >-
-      The map must be the central element; any interface control that obstructs it defeats the
-      application's core purpose.
+      Communication with drivers had to live inside the same tool, not in a separate app.
   approach: >-
-    The interface occupies the full screen with the map and overlays minimal floating controls that
-    disappear during active navigation. A smart cluster system groups markers by zoom level,
-    revealing individual elements only when the user zooms in. The sliding side panel displays
-    details of the selected point with photographs, hours, and reviews without leaving the map view.
-    An augmented reality mode is also integrated for pedestrian navigation in dense areas.
+    I designed a dark theme over a muted base map, with cyan for routes, markers and actions, so the
+    map remains the backdrop for everything. The "Fleet status" panel pairs a vehicle list with
+    color status dots and a day-by-day chart. Each vehicle opens a tabbed card (summary, history,
+    events, fuel, maintenance) with a status bar for plan, ignition, fuel and costs. I added modules
+    for drivers, chat-style messaging and fuel monitoring, with refills and drops marked on the
+    chart.
+  outcome: >-
+    Case study published on Behance with the identity, the dashboard and 6 detail modules, plus a
+    prototype of the flow.

@@ -1,0 +1,78 @@
+year: 2026
+status: unpublished
+type: client
+category: development
+subcategory: web
+workflow: development
+stack:
+  - Astro
+  - Tailwind CSS
+  - TypeScript
+  - Resend
+  - Vercel
+role:
+  - UI Design
+  - Frontend Development
+  - Backend Integration
+  - SEO
+links:
+  repo: https://github.com/schormeikerlugo/TCS
+cover: ./tcs/cover.webp
+gallery:
+  - ./tcs/01.webp
+  - ./tcs/02.webp
+  - ./tcs/03.webp
+  - ./tcs/04.webp
+  - ./tcs/05.webp
+es:
+  title: TCS
+  tagline: SITIO PARA CONSULTORA DE PERMISOS
+  summary: >-
+    Sitio de una página para TCS, una consultora de Edmonton que gestiona permisos de
+    construcción, rezonificación y apelaciones ante el SDAB. Diseñé y desarrollé la web a partir del
+    brief del cliente, con un formulario de presupuesto que envía los contactos por correo. El
+    sitio está terminado pero aún no se ha publicado.
+  challenge:
+    - >-
+      Hacer comprensible un servicio burocrático (permisos, zonificación, apelaciones, permisos de
+      incendios) para propietarios y negocios que no conocen el proceso.
+    - >-
+      Dar un aire arquitectónico y moderno a una empresa de trámites sin perder claridad en los
+      servicios y en la llamada a pedir presupuesto.
+    - >-
+      Recibir solicitudes reales desde un sitio estático, validando datos canadienses como teléfono
+      y código postal.
+  approach: >-
+    Partí de un sistema visual documentado (estilo.md) y lo adapté a una variante oscura con azul
+    como acento: titulares en mayúsculas que mezclan Inter fina y gruesa con Playfair Display en
+    cursiva, tarjetas glass y figuras 3D en CSS puro. Construí el sitio con Astro 6 y Tailwind CSS 4,
+    en modo estático, y un único endpoint bajo demanda en Vercel que valida el formulario y usa
+    Resend para avisar al equipo y enviar una respuesta automática al cliente. Algunas tarjetas se
+    inclinan con requestAnimationFrame para dar profundidad.
+  outcome: >-
+    Sitio completo de 10 secciones con formulario conectado a Resend, pendiente de publicación.
+en:
+  title: TCS
+  tagline: PERMIT CONSULTANCY WEBSITE
+  summary: >-
+    One-page website for TCS, an Edmonton consultancy that handles building permits, rezoning and
+    SDAB appeals. I designed and built it from the client's brief, including a quote form that
+    delivers leads by email. The site is finished but not yet published.
+  challenge:
+    - >-
+      Making a bureaucratic service (permits, zoning, appeals, fire permits) understandable for
+      homeowners and businesses unfamiliar with the process.
+    - >-
+      Giving a paperwork-driven company a modern, architectural feel without losing clarity in the
+      services and the quote call to action.
+    - >-
+      Receiving real enquiries from a static site while validating Canadian data such as phone
+      numbers and postal codes.
+  approach: >-
+    I started from a documented visual system (estilo.md) and adapted it into a dark variant with a
+    blue accent: uppercase headlines mixing thin and heavy Inter with italic Playfair Display, glass
+    cards and pure-CSS 3D shapes. The site runs on Astro 6 and Tailwind CSS 4 as a static build,
+    with a single on-demand Vercel endpoint that validates the form and uses Resend to notify the
+    team and send the client an auto-reply. Some cards tilt via requestAnimationFrame to add depth.
+  outcome: >-
+    Complete 10-section site with a Resend-connected form, awaiting publication.

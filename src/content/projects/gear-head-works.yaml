@@ -6,14 +6,14 @@ category: design
 subcategory: web
 workflow: design
 stack:
-  - UI
-  - E-COMMERCE
-  - WEB
-  - DARK
+  - Web Design
+  - E-commerce Design
+  - UI Design
+  - Visual Design
 role:
-  - E-commerce UI
-  - Product Photography
-  - Dark Theme
+  - UI Design
+  - Web Design
+  - Art Direction
 links:
   behance: https://www.behance.net/gallery/73477999/E-commerce-UI-concept-Gear-Head-Works
 cover: ./gear-head-works/cover.webp
@@ -24,55 +24,54 @@ gallery:
   - ./gear-head-works/04.webp
 es:
   title: GEAR HEAD WORKS
-  tagline: E-COMMERCE UI CONCEPT
+  tagline: CONCEPTO DE E-COMMERCE TÁCTICO
   summary: >-
-    Gear Head Works es un concepto de e-commerce para una tienda de equipamiento táctico y outdoor
-    dirigida a profesionales y entusiastas que valoran la calidad del material. El diseño traslada
-    la robustez y durabilidad de los productos a la experiencia digital mediante una estética oscura
-    e industrial. Su diferenciador frente a competidores como 5.11 Tactical o Condor reside en una
-    presentación visual que eleva el producto a nivel aspiracional sin perder funcionalidad de
-    compra.
+    Concepto de tienda online para Gear Head Works, una marca de accesorios y equipamiento táctico.
+    Rediseñé de forma no oficial la home, la ficha de producto y la vista rápida, con un tema oscuro
+    pensado para el tipo de producto.
   challenge:
     - >-
-      Las tiendas de equipamiento táctico mantienen webs con diseños de hace una década, navegación
-      confusa y fotografía de producto sobre fondos blancos genéricos.
+      El catálogo mezcla piezas pequeñas, mochilas y equipo completo; había que mostrarlo con un
+      formato común sin que los productos se perdieran.
     - >-
-      Los productos cuestan entre $80 y $400 USD, pero la presentación web no refleja ese nivel de
-      calidad; el packaging digital contradice la promesa de la marca.
+      Un tema oscuro con fotos de producto muy distintas entre sí corría el riesgo de verse
+      desordenado.
     - >-
-      La competencia directa (5.11 Tactical, Condor, Blackhawk) ofrece webs corporativas sin
-      personalidad que no conectan emocionalmente con el comprador.
+      Las fichas técnicas son largas y debían convivir con precio, galería y compra sin saturar la
+      página.
   approach: >-
-    El e-commerce emplea un tema oscuro con fotografía de producto de alta calidad sobre fondos
-    texturizados que evocan terreno y metal. El sistema de filtros permite buscar por categoría,
-    material y contexto de uso, reduciendo el tiempo de exploración del catálogo. Las páginas de
-    producto incluyen zoom de alta resolución, vistas desde múltiples ángulos y especificaciones
-    técnicas detalladas con comparativas entre modelos. La paleta cromática restringida y la
-    tipografía condensada refuerzan la identidad táctica sin comprometer la legibilidad.
+    Usé un fondo gris oscuro con el naranja como único color de acento para precios, etiquetas de
+    "New" y botones. Los productos destacados se muestran en tarjetas blancas con esquinas
+    redondeadas, que unifican fotos de distinto origen, y cada una lleva accesos directos a
+    carrito, favorito y vista rápida. La vista rápida es un modal con galería de miniaturas,
+    precio y botón de compra para no salir del listado. En la ficha completa separé la compra arriba
+    y las especificaciones y materiales abajo, junto a banners de promociones y productos
+    relacionados.
+  outcome: >-
+    Concepto publicado en Behance con la home, la ficha de producto, el modal de vista rápida y el
+    footer.
 en:
   title: GEAR HEAD WORKS
-  tagline: E-COMMERCE UI CONCEPT
+  tagline: TACTICAL E-COMMERCE CONCEPT
   summary: >-
-    Gear Head Works is an e-commerce concept for a tactical and outdoor equipment store aimed at
-    professionals and enthusiasts who value material quality. The design translates the robustness
-    and durability of the products into the digital experience through a dark, industrial aesthetic.
-    Its differentiator against competitors like 5.11 Tactical or Condor lies in a visual
-    presentation that elevates the product to an aspirational level without sacrificing purchasing
-    functionality.
+    An online store concept for Gear Head Works, a tactical gear and accessories brand. I created an
+    unofficial redesign of the home page, product page and quick view, with a dark theme suited to
+    the product category.
   challenge:
     - >-
-      Tactical equipment stores maintain websites with decade-old designs, confusing navigation, and
-      product photography on generic white backgrounds.
+      The catalog mixes small parts, backpacks and full kits; they needed a shared format without
+      individual products getting lost.
     - >-
-      Products are priced between $80 and $400 USD, but the web presentation does not reflect that
-      level of quality; the digital packaging contradicts the brand promise.
+      A dark theme with very different product photos risked looking messy.
     - >-
-      Direct competitors (5.11 Tactical, Condor, Blackhawk) offer corporate websites with no
-      personality that fail to connect emotionally with the buyer.
+      Technical specs are long and had to sit alongside price, gallery and checkout without
+      cluttering the page.
   approach: >-
-    The e-commerce uses a dark theme with high-quality product photography on textured backgrounds
-    that evoke terrain and metal. The filter system allows searching by category, material, and
-    usage context, reducing catalog exploration time. Product pages include high-resolution zoom,
-    multi-angle views, and detailed technical specifications with model comparisons. A restrained
-    color palette and condensed typography reinforce the tactical identity without compromising
-    readability.
+    I used a dark gray background with orange as the only accent color for prices, "New" tags and
+    buttons. Featured products sit on rounded white cards that unify photos from different sources,
+    each with shortcuts to cart, wishlist and quick view. Quick view is a modal with a thumbnail
+    gallery, price and buy button so users stay on the listing. On the full product page I placed
+    the purchase block at the top and specs and materials below, alongside promo banners and related
+    products.
+  outcome: >-
+    Concept published on Behance with the home page, product page, quick-view modal and footer.

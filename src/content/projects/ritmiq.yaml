@@ -1,0 +1,84 @@
+featured: 2
+year: 2026
+status: live
+type: personal
+category: development
+subcategory: app
+workflow: development
+stack:
+  - Electron
+  - React
+  - Vite
+  - Supabase
+  - yt-dlp
+  - Zustand
+  - SQLite
+  - Dexie
+role:
+  - Product Design
+  - UI Design
+  - Full-stack Development
+links:
+  live: https://ritmiq.app
+  repo: https://github.com/schormeikerlugo/Ritmiq
+cover: ./ritmiq/cover.webp
+gallery:
+  - ./ritmiq/01.webp
+  - ./ritmiq/02.webp
+es:
+  title: RITMIQ
+  tagline: REPRODUCTOR DE MÚSICA DESKTOP + PWA
+  summary: >-
+    Ritmiq es mi reproductor de música personal: una app de escritorio en Electron y una PWA
+    instalable en iPhone y Android que comparten biblioteca. Reproduce música de YouTube en streaming
+    vía yt-dlp, permite descargarla para escucharla sin conexión y sincroniza playlists entre
+    dispositivos con Supabase. Lo diseñé y programé de principio a fin.
+  challenge:
+    - >-
+      El audio no podía depender de una sola fuente: tenía que sonar desde el disco, desde el PC de
+      casa por la red local o desde la nube, según lo que estuviera disponible.
+    - >-
+      Escritorio y móvil guardan datos de forma distinta (SQLite frente a IndexedDB), pero playlists y
+      metadatos debían mantenerse sincronizados y funcionar también sin conexión.
+    - >-
+      Abrir el PC como servidor para otros dispositivos exigía controlar quién accede, sin exponer
+      credenciales ni dejar el streaming abierto a cualquiera.
+  approach: >-
+    Organicé el proyecto como monorepo con pnpm y Turborepo: apps de escritorio, PWA y servidor
+    headless, más paquetes compartidos de UI, lógica del reproductor, base de datos, cliente de API y
+    wrapper de yt-dlp. La fuente de audio se resuelve en cascada: archivo local, servidor LAN o
+    Cloudflare Tunnel del PC, y como último recurso una Edge Function de Supabase. La sincronización
+    es offline-first, con una cola de cambios persistida y resolución last-write-wins. Los móviles se
+    emparejan con el PC mediante un PIN y reciben un token propio. La interfaz usa React, CSS Modules
+    y MediaSession para los controles de pantalla de bloqueo.
+  outcome: >-
+    PWA publicada en ritmiq.app y app de escritorio empaquetada con electron-builder, con el código
+    abierto en GitHub y documentación técnica propia en un vault de Obsidian.
+en:
+  title: RITMIQ
+  tagline: DESKTOP + PWA MUSIC PLAYER
+  summary: >-
+    Ritmiq is my personal music player: an Electron desktop app and an installable PWA for iPhone and
+    Android that share one library. It streams music from YouTube through yt-dlp, lets you download
+    tracks for offline listening and syncs playlists across devices with Supabase. I designed and
+    built it end to end.
+  challenge:
+    - >-
+      Audio couldn't rely on a single source: it had to play from disk, from the home PC over the
+      local network or from the cloud, depending on what was available.
+    - >-
+      Desktop and mobile store data differently (SQLite vs. IndexedDB), yet playlists and metadata
+      had to stay in sync and keep working offline.
+    - >-
+      Turning the PC into a server for other devices meant controlling who gets access without
+      exposing credentials or leaving the stream open to anyone.
+  approach: >-
+    I structured the project as a pnpm and Turborepo monorepo: desktop, PWA and headless server apps,
+    plus shared packages for UI, player logic, database, API client and a yt-dlp wrapper. Audio is
+    resolved as a cascade: local file, the PC's LAN server or Cloudflare Tunnel, and a Supabase Edge
+    Function as the last resort. Sync is offline-first, with a persisted mutation queue and
+    last-write-wins conflict handling. Phones pair with the PC through a PIN and receive their own
+    token. The interface uses React, CSS Modules and the MediaSession API for lock-screen controls.
+  outcome: >-
+    PWA live at ritmiq.app and a desktop app packaged with electron-builder, with open-source code on
+    GitHub and its own technical documentation in an Obsidian vault.

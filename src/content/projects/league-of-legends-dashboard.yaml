@@ -6,14 +6,13 @@ category: design
 subcategory: games
 workflow: design
 stack:
-  - UI
-  - DASHBOARD
-  - GAME
-  - LOL
-role:
-  - Dashboard UI
+  - Adobe XD
+  - UI Design
+  - Dashboard Design
   - Data Visualization
-  - Analytics
+role:
+  - UI Design
+  - Data Visualization
 links:
   behance: https://www.behance.net/gallery/97122811/Dashboard-League-of-legends-UI-Design
 cover: ./league-of-legends-dashboard/cover.webp
@@ -21,56 +20,53 @@ gallery:
   - ./league-of-legends-dashboard/01.webp
 es:
   title: LEAGUE OF LEGENDS
-  tagline: DASHBOARD UI
+  tagline: DASHBOARD DE ESTADÍSTICAS
   summary: >-
-    League of Legends Dashboard es un concepto de panel analítico que transforma las estadísticas de
-    rendimiento de los jugadores en visualizaciones intuitivas y atractivas. El diseño se dirige a
-    jugadores competitivos de rango Oro a Challenger que buscan insights accionables más allá de las
-    tablas numéricas que ofrecen herramientas como op.gg o u.gg. La propuesta diferenciadora
-    consiste en conectar visualmente cada dato con la identidad estética del juego, para que
-    analizar estadísticas se sienta como una extensión natural de la experiencia de LoL.
+    Concepto de panel de estadísticas para jugadores de League of Legends. En una sola pantalla
+    reúne el perfil del invocador, sus campeones más jugados, la clasificatoria, el historial de
+    partidas y un análisis de estilo de juego. Lo diseñé en Adobe XD y lo publiqué como archivo
+    descargable.
   challenge:
     - >-
-      Las herramientas existentes (op.gg, u.gg) presentan los datos en tablas densas con más de 50
-      columnas visibles. El tiempo medio para encontrar un insight útil supera los 45 segundos por
-      sesión.
+      Un jugador acumula muchísimos datos por partida. El panel tenía que mostrar los importantes
+      sin parecer una hoja de cálculo.
     - >-
-      Los jugadores quieren respuestas rápidas — "¿en qué rol rindo mejor?", "¿contra qué campeones
-      pierdo más?" — pero las herramientas actuales ofrecen hojas de cálculo.
+      Cada tipo de dato pedía un gráfico distinto (comparación entre campeones, ranking, historial,
+      perfil de habilidades) y todos debían convivir en la misma vista.
     - >-
-      No existe narrativa visual que conecte las estadísticas con la experiencia de juego. Los datos
-      flotan desconectados de campeones, partidas y progresión.
+      El panel tenía que sentirse parte del universo del juego y no una herramienta genérica.
   approach: >-
-    El dashboard integra la identidad visual de League of Legends en cada componente: los gráficos
-    radiales muestran el rendimiento por rol con los colores y la iconografía de cada posición,
-    mientras un timeline interactivo recorre las partidas recientes resaltando momentos clave como
-    first blood, dragones y barones. La comparativa visual contra el promedio del rango permite al
-    jugador identificar fortalezas y debilidades de un vistazo. Todo el diseño es responsive y
-    cuenta con dark mode nativo, optimizado para sesiones de análisis prolongadas entre partidas.
+    Ordené la pantalla de lo general a lo particular: perfil y rango arriba, luego campeones y
+    clasificatoria, después historial de partidas y al final las estadísticas detalladas. Los cinco
+    campeones principales se comparan con barras agrupadas de partidas, victorias y derrotas. El
+    historial muestra cada partida en una fila con campeón, build, KDA, duración y resultado en verde
+    o rojo. Un gráfico radial resume ocho rasgos del jugador (combate, farmeo, visión, agresividad…)
+    junto a barras con los valores exactos. Paneles oscuros y semitransparentes dejan ver el arte
+    del juego de fondo.
+  outcome: >-
+    Dashboard de una pantalla publicado en Behance como descarga gratuita para Adobe XD.
 en:
   title: LEAGUE OF LEGENDS
-  tagline: DASHBOARD UI
+  tagline: PLAYER STATS DASHBOARD
   summary: >-
-    League of Legends Dashboard is an analytical panel concept that transforms player performance
-    statistics into intuitive and visually engaging visualizations. The design targets competitive
-    players from Gold to Challenger rank who seek actionable insights beyond the numeric tables
-    offered by tools like op.gg or u.gg. Its differentiator is visually connecting every data point
-    to the game's aesthetic identity, so that analyzing statistics feels like a natural extension of
-    the LoL experience.
+    A stats dashboard concept for League of Legends players. A single screen brings together the
+    summoner profile, most-played champions, ranked standings, match history, and a play-style
+    breakdown. I designed it in Adobe XD and published it as a downloadable file.
   challenge:
     - >-
-      Existing tools (op.gg, u.gg) present data in dense tables with over 50 visible columns.
-      Average time to find a useful insight exceeds 45 seconds per session.
+      Players pile up huge amounts of data per match. The dashboard had to surface what matters
+      without looking like a spreadsheet.
     - >-
-      Players want quick answers — "which role do I perform best in?", "which champions do I lose to
-      most?" — but current tools offer spreadsheets.
+      Each kind of data called for a different chart (champion comparison, ranking, history, skill
+      profile), and they all had to live in one view.
     - >-
-      No visual narrative connects statistics to the gaming experience. Data floats disconnected
-      from champions, matches, and progression.
+      The dashboard needed to feel part of the game's world rather than a generic tool.
   approach: >-
-    The dashboard integrates League of Legends' visual identity into every component: radial charts
-    display performance by role with each position's colors and iconography, while an interactive
-    timeline walks through recent matches highlighting key moments like first blood, dragons, and
-    barons. The visual comparison against rank average lets players identify strengths and
-    weaknesses at a glance. The entire design is responsive with native dark mode, optimized for
-    extended analysis sessions between matches.
+    I ordered the screen from general to specific: profile and rank at the top, then champions and
+    ranked standings, then match history, and detailed stats at the bottom. The top five champions
+    are compared with grouped bars for games, wins, and losses. Match history shows one row per game
+    with champion, build, KDA, duration, and a green or red result. A radar chart sums up eight
+    player traits (fighting, farming, vision, aggression…) next to bars with the exact values. Dark,
+    semi-transparent panels let the game's artwork show through in the background.
+  outcome: >-
+    Single-screen dashboard published on Behance as a free Adobe XD download.

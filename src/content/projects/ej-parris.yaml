@@ -1,0 +1,79 @@
+year: 2026
+status: live
+type: client
+category: development
+subcategory: web
+workflow: development
+stack:
+  - Vite
+  - JavaScript
+  - CSS Modules
+  - GSAP
+  - EmailJS
+  - Sharp
+role:
+  - UI Design
+  - Frontend Development
+  - Motion Design
+links:
+  live: https://ej-parris.vercel.app
+  repo: https://github.com/schormeikerlugo/EJ_Parris
+cover: ./ej-parris/cover.webp
+gallery:
+  - ./ej-parris/01.webp
+  - ./ej-parris/02.webp
+  - ./ej-parris/03.webp
+  - ./ej-parris/04.webp
+  - ./ej-parris/05.webp
+es:
+  title: EJ PARRIS
+  tagline: LANDING PARA COACH OLÍMPICO
+  summary: >-
+    Landing de una sola página para EJ Parris (Coach POW), atleta olímpico, culturista natural
+    profesional y entrenador. El objetivo es presentar su trayectoria y sus programas, y captar
+    solicitudes de coaching 1 a 1. Diseñé la interfaz y la desarrollé con Vite, GSAP y EmailJS.
+  challenge:
+    - >-
+      Había mucho contenido (trayectoria, método, clientes, ofertas, FAQ) y tenía que leerse como una
+      historia continua, no como una lista de bloques.
+    - >-
+      Las animaciones con scroll debían funcionar bien en escritorio y móvil, y respetar a quien
+      prefiere reducir el movimiento.
+    - >-
+      El formulario de solicitud necesitaba enviar correos sin un backend propio en un despliegue
+      estático.
+  approach: >-
+    Construí la página con Vite en JavaScript sin framework, organizada en módulos y componentes con
+    CSS Modules y tokens en variables CSS. El contenido variable (método, clientes, FAQ) vive en
+    archivos JSON. Las animaciones usan GSAP con ScrollTrigger y Flip; con gsap.matchMedia la línea
+    de tiempo se convierte en un carril horizontal fijado en escritorio y en una pila vertical en
+    móvil, y se desactiva con prefers-reduced-motion. El formulario envía la solicitud con EmailJS, y
+    un script con Sharp genera las imágenes en WebP a tres tamaños. La tipografía combina Shuttle-X
+    como display con Montserrat.
+  outcome: >-
+    Landing publicada en Vercel con 12 secciones y formulario de solicitud conectado a EmailJS.
+en:
+  title: EJ PARRIS
+  tagline: OLYMPIAN COACH LANDING PAGE
+  summary: >-
+    One-page landing site for EJ Parris (Coach POW), an Olympian, pro drug-free bodybuilder and
+    coach. It presents his track record and programs and collects 1-on-1 coaching applications. I
+    designed the interface and built it with Vite, GSAP and EmailJS.
+  challenge:
+    - >-
+      There was a lot of content (track record, method, clients, offers, FAQ) and it had to read as
+      one continuous story rather than a stack of blocks.
+    - >-
+      Scroll animations had to work well on desktop and mobile and respect users who prefer reduced
+      motion.
+    - >-
+      The application form needed to send emails without a custom backend on a static deployment.
+  approach: >-
+    I built the page with Vite and framework-free JavaScript, organized into modules and components
+    with CSS Modules and CSS-variable tokens. Variable content (method, clients, FAQ) lives in JSON
+    files. Animations use GSAP with ScrollTrigger and Flip; through gsap.matchMedia the timeline
+    becomes a pinned horizontal rail on desktop and a vertical stack on mobile, and it switches off
+    under prefers-reduced-motion. The form sends applications via EmailJS, and a Sharp script outputs
+    WebP images in three sizes. Typography pairs Shuttle-X for display with Montserrat.
+  outcome: >-
+    Landing page live on Vercel with 12 sections and an application form connected to EmailJS.

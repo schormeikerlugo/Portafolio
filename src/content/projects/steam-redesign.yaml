@@ -6,14 +6,14 @@ category: design
 subcategory: games
 workflow: design
 stack:
-  - UI
-  - UX
-  - STEAM
-  - SOFTWARE
+  - UI Design
+  - UX Design
+  - Desktop App
+  - Prototyping
 role:
-  - UI/UX Redesign
-  - Prototype
-  - User Research
+  - UI Design
+  - UX Design
+  - Prototyping
 links:
   behance: https://www.behance.net/gallery/58598399/UI-UX-Software-Prototipo-Steam-Rediseno-de-interfaz
 cover: ./steam-redesign/cover.webp
@@ -21,55 +21,49 @@ gallery:
   - ./steam-redesign/01.webp
 es:
   title: STEAM REDESIGN
-  tagline: GAMING PLATFORM UI/UX
+  tagline: REDISEÑO NO OFICIAL DE STEAM
   summary: >-
-    Steam es la plataforma de distribución digital de Valve con más de 120 millones de usuarios
-    activos mensuales, y este proyecto propone un rediseño integral de su interfaz de escritorio. La
-    propuesta aborda la tienda, la biblioteca y los perfiles de usuario, tres áreas que no habían
-    recibido una revisión visual profunda en años. El desafío principal consistía en modernizar la
-    experiencia sin romper los patrones de navegación que millones de usuarios ya habían
-    interiorizado.
+    Ejercicio personal de rediseño del cliente de escritorio de Steam. Propuse una nueva interfaz
+    para las funciones principales del programa: acceso, tienda, biblioteca, pagos, amigos, grupos,
+    inventario, intercambios, capturas, guías y Workshop, presentadas como un prototipo de software.
   challenge:
     - >-
-      Steam mantuvo el mismo framework visual durante más de 5 años sin iteraciones significativas.
-      La interfaz utiliza patrones de diseño pre-2015 que contrastan con los estándares actuales.
+      Steam reúne en un mismo programa tienda, biblioteca, red social y mercado de objetos. La
+      navegación tenía que dar acceso a todo sin abrumar.
     - >-
-      Epic Games Store y GOG ofrecen experiencias visuales más modernas con mejor uso del espacio,
-      tipografía contemporánea y transiciones fluidas.
+      Las funciones secundarias (intercambios, guías, Workshop) suelen quedar escondidas. Quería
+      darles un lugar claro dentro de la estructura.
     - >-
-      La navegación de la biblioteca con más de 500 juegos depende de una lista vertical sin
-      agrupación visual. Los usuarios tardan 12+ segundos en encontrar un título específico sin
-      recurrir al buscador.
+      La biblioteca y la tienda debían mostrar muchos juegos sin perder orden visual.
   approach: >-
-    La biblioteca adopta un sistema de grid dinámico que agrupa los juegos por categorías, última
-    sesión y estado de instalación, reduciendo el tiempo de búsqueda visual a menos de 3 segundos.
-    Los perfiles de usuario incorporan un feed de actividad social con logros recientes, capturas de
-    pantalla y horas jugadas, transformando cada perfil en una vitrina personal. La store presenta
-    previews expandidos con trailers inline y recomendaciones visuales basadas en el historial de
-    juego, todo validado mediante un prototipo interactivo funcional en Figma.
+    Estructuré la aplicación con un menú principal fijo a la izquierda, un menú secundario por
+    sección y un menú de personalización para el perfil. La biblioteca ofrece tres vistas
+    intercambiables para que cada usuario elija cómo recorrer su colección. Todas las pantallas comparten una base oscura y translúcida sobre arte de los juegos,
+    con acentos de color solo en las acciones. El proceso de compra incluye un paso de facturación
+    con varios métodos de pago visibles de entrada.
+  outcome: >-
+    Prototipo de interfaz con más de diez pantallas, desde el acceso hasta Workshop, publicado en
+    Behance.
 en:
   title: STEAM REDESIGN
-  tagline: GAMING PLATFORM UI/UX
+  tagline: UNOFFICIAL STEAM REDESIGN
   summary: >-
-    Steam is Valve's digital distribution platform with over 120 million monthly active users, and
-    this project proposes a comprehensive redesign of its desktop interface. The proposal addresses
-    the store, library, and user profiles — three areas that had not received a deep visual revision
-    in years. The main challenge was modernizing the experience without breaking the navigation
-    patterns that millions of users had already internalized.
+    A personal redesign exercise for the Steam desktop client. I proposed a new interface for the
+    app's core features: sign-in, store, library, payments, friends, groups, inventory, trading,
+    screenshots, guides, and Workshop, presented as a software prototype.
   challenge:
     - >-
-      Steam maintained the same visual framework for over 5 years without significant iterations.
-      The interface uses pre-2015 design patterns that contrast with current standards.
+      Steam combines a store, a library, a social network, and an item market in one app.
+      Navigation had to reach all of it without overwhelming the user.
     - >-
-      Epic Games Store and GOG offer more modern visual experiences with better use of space,
-      contemporary typography, and fluid transitions.
+      Secondary features (trading, guides, Workshop) tend to get buried. I wanted to give them a
+      clear place in the structure.
     - >-
-      Library navigation with 500+ games relies on a vertical list with no visual grouping. Users
-      take 12+ seconds to find a specific title without resorting to the search bar.
+      The library and the store had to display many games without losing visual order.
   approach: >-
-    The library adopts a dynamic grid system that groups games by category, last session, and
-    installation status, reducing visual search time to under 3 seconds. User profiles incorporate a
-    social activity feed with recent achievements, screenshots, and hours played, turning each
-    profile into a personal showcase. The store features expanded previews with inline trailers and
-    visual recommendations based on play history, all validated through a functional interactive
-    prototype in Figma.
+    I structured the app around a fixed main menu on the left, a secondary menu per section, and a
+    customization menu for the profile. The library offers three switchable views so each user can browse their collection their own way. Every screen shares a dark,
+    translucent base over game artwork, with color accents reserved for actions. Checkout includes a
+    billing step with several payment methods visible upfront.
+  outcome: >-
+    Interface prototype with more than ten screens, from sign-in to Workshop, published on Behance.

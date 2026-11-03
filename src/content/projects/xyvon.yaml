@@ -1,0 +1,85 @@
+year: 2026
+status: live
+type: client
+category: development
+subcategory: web
+workflow: development
+stack:
+  - Astro
+  - TypeScript
+  - CSS
+  - LightningCSS
+  - Vite
+  - JSON-LD
+role:
+  - UI Design
+  - Frontend Development
+  - Design System
+  - SEO
+links:
+  live: https://xyvon.vercel.app
+  repo: https://github.com/schormeikerlugo/XYVON
+cover: ./xyvon/cover.webp
+gallery:
+  - ./xyvon/01.webp
+  - ./xyvon/02.webp
+  - ./xyvon/03.webp
+  - ./xyvon/04.webp
+  - ./xyvon/05.webp
+es:
+  title: XYVON
+  tagline: SITIO DE MARCA DE ELECTROLITOS
+  summary: >-
+    Sitio de marketing de XYVON, una marca europea de electrolitos que se presenta desde la
+    biología y no desde el estilo de vida. Diseñé y construí una home de una sola página con su
+    línea de cinco productos, la ciencia de las fórmulas y la historia del fundador, siguiendo el
+    manual de marca del cliente.
+  challenge:
+    - >-
+      Traducir un manual de marca estricto (sin blanco puro, sin negro puro, cobre solo como acento
+      del 10–20 %) a un sistema de tokens que se respetara en todo el código.
+    - >-
+      Explicar cinco productos con necesidades distintas (ciclo menstrual, menopausia,
+      entrenamiento, recuperación, uso diario masculino) sin que la página se convirtiera en un
+      catálogo plano.
+    - >-
+      Mantener un hero cinematográfico con vídeo, grano y movimiento sin cargar JavaScript
+      innecesario ni ignorar a quien prefiere menos animación.
+  approach: >-
+    Usé Astro 4 con CSS puro y tokens de diseño (colores, tipografía fluida, espaciado y motion),
+    sin Tailwind ni preprocesadores; LightningCSS se encarga de minificar y prefijar. La página se
+    divide en componentes por sección: hero con vídeo y título partido por palabras, rejilla
+    asimétrica de productos con un sobre simulado por SKU, registro de ingredientes con sello COA
+    giratorio, galería y bloque del fundador. Los datos de marca viven en un único archivo
+    TypeScript. Las animaciones usan IntersectionObserver y respetan prefers-reduced-motion, y el
+    SEO incluye Open Graph, hreflang y cuatro bloques JSON-LD.
+  outcome: >-
+    Sitio estático publicado en Vercel, con 9 secciones en la home y datos estructurados de
+    producto para los 5 SKU.
+en:
+  title: XYVON
+  tagline: ELECTROLYTE BRAND WEBSITE
+  summary: >-
+    Marketing site for XYVON, a European electrolyte brand that positions itself around biology
+    rather than lifestyle. I designed and built a single-page home covering its five-product line,
+    the science behind the formulas and the founder's story, following the client's brand manual.
+  challenge:
+    - >-
+      Turning a strict brand manual (no pure white, no pure black, copper only as a 10–20% accent)
+      into a token system enforced across the whole codebase.
+    - >-
+      Explaining five products with different needs (menstrual cycle, menopause, training, recovery,
+      men's daily use) without the page reading like a flat catalogue.
+    - >-
+      Keeping a cinematic hero with video, grain and motion without shipping unnecessary JavaScript
+      or ignoring users who prefer reduced motion.
+  approach: >-
+    I used Astro 4 with plain CSS and design tokens (colour, fluid type, spacing and motion), no
+    Tailwind or preprocessors; LightningCSS handles minification and prefixing. The page is split
+    into section components: a video hero with a word-by-word split title, an asymmetric product
+    grid with a mock sachet per SKU, an ingredient ledger with a rotating COA stamp, a gallery and a
+    founder block. Brand data lives in a single TypeScript file. Animations rely on
+    IntersectionObserver and honour prefers-reduced-motion, and SEO covers Open Graph, hreflang and
+    four JSON-LD blocks.
+  outcome: >-
+    Static site live on Vercel, with 9 home sections and structured product data for all 5 SKUs.

@@ -1,19 +1,19 @@
 legacyId: 18
 year: 2025
 status: concept
-type: concept
+type: professional
 category: design
 subcategory: web
 workflow: design
 stack:
-  - UI
-  - WEB
-  - AI
-  - MODERN
+  - Web Design
+  - Brand Identity
+  - Typography
+  - UI Design
 role:
   - Web Design
-  - AI Platform
-  - Landing Page
+  - Branding
+  - Art Direction
 links:
   behance: https://www.behance.net/gallery/226962441/AITHR
 cover: ./aithr/cover.webp
@@ -21,52 +21,53 @@ gallery:
   - ./aithr/01.webp
 es:
   title: AITHR
-  tagline: AI PLATFORM WEB
+  tagline: MARCA Y WEB PARA SOFTWARE AUTOMOTRIZ
   summary: >-
-    AITHR es la web de una plataforma de inteligencia artificial orientada a empresas que buscan
-    integrar modelos predictivos en sus operaciones. El sitio comunica capacidades técnicas
-    avanzadas con un lenguaje visual accesible y profesional, alejándose del imaginario sci-fi que
-    domina el sector. Su enfoque diferenciador radica en presentar la IA como herramienta de negocio
-    concreta, no como concepto futurista abstracto.
+    AITHR es una propuesta de identidad y sitio web para una plataforma de software automotriz que
+    ayuda a concesionarios a gestionar inventario y financiamiento subprime. Diseñé la guía de
+    estilo, el logotipo y la landing completa.
   challenge:
     - >-
-      El mercado de IA acumula más de 500 landing pages con la misma fórmula: gradientes violetas,
-      ilustraciones de robots y promesas vagas de "transformación digital".
+      Explicar un producto financiero B2B bastante técnico a dueños de concesionarios sin llenar la
+      página de jerga.
     - >-
-      La audiencia objetivo (CTOs y directores de innovación) necesita ver casos de uso reales y ROI
-      proyectado, no ciencia ficción decorativa.
+      Hacer que una marca de software se sintiera cercana al mundo del motor, no a una fintech
+      genérica.
     - >-
-      Sin diferenciación visual clara, la plataforma se confunde con docenas de competidores
-      genéricos en los primeros 5 segundos de visita.
+      Mantener coherencia entre el logo, las fotos de vehículos y las capturas del propio software.
   approach: >-
-    El diseño apuesta por minimalismo estructurado con espacios amplios, tipografía geométrica
-    moderna y visualizaciones abstractas de flujos de datos en lugar de robots ilustrados. Cada
-    sección presenta un caso de uso específico con métricas reales de implementación y testimonios
-    verificables de clientes. Los CTAs conducen a un flujo de onboarding visible que permite al
-    visitante probar la plataforma en menos de 3 clics. La paleta neutra con acentos de color
-    estratégicos refuerza la percepción de confiabilidad corporativa.
+    Definí una paleta casi monocroma (#000000, #0D0D0D, #D9D9D9, #FFFFFF) para que el color lo
+    pongan las fotografías de coches, y probé Poppins, Lato y Roboto antes de fijar la jerarquía
+    tipográfica. El logotipo en minúsculas itálicas se acompaña de un isotipo en forma de flecha
+    hacia abajo y de chevrones que se repiten como recurso gráfico. En la web, las imágenes se
+    recortan en franjas diagonales redondeadas que dan movimiento a cada bloque. La landing recorre
+    propuesta de valor, casos de estudio, vista del software, AITHR Hub, formulario de contacto y
+    FAQ.
+  outcome: >-
+    Presentación publicada en Behance con guía de estilo, variantes del logo, mockups y la landing
+    page completa.
 en:
   title: AITHR
-  tagline: AI PLATFORM WEB
+  tagline: AUTOMOTIVE SOFTWARE BRAND + WEB
   summary: >-
-    AITHR is the website for an artificial intelligence platform aimed at companies seeking to
-    integrate predictive models into their operations. The site communicates advanced technical
-    capabilities through an accessible and professional visual language, moving away from the sci-fi
-    imagery that dominates the sector. Its key differentiator lies in presenting AI as a concrete
-    business tool rather than an abstract futuristic concept.
+    AITHR is an identity and website proposal for an automotive software platform that helps
+    dealerships manage inventory and subprime financing. I designed the style guide, the logo and the
+    full landing page.
   challenge:
     - >-
-      The AI market has accumulated over 500 landing pages following the same formula: purple
-      gradients, robot illustrations, and vague promises of "digital transformation."
+      Explaining a fairly technical B2B financial product to dealership owners without flooding the
+      page with jargon.
     - >-
-      The target audience (CTOs and innovation directors) needs to see real use cases and projected
-      ROI, not decorative science fiction.
+      Making a software brand feel close to car culture rather than a generic fintech.
     - >-
-      Without clear visual differentiation, the platform blends in with dozens of generic
-      competitors within the first 5 seconds of a visit.
+      Keeping the logo, vehicle photography and product screenshots visually consistent.
   approach: >-
-    The design relies on structured minimalism with ample whitespace, modern geometric typography,
-    and abstract data flow visualizations instead of illustrated robots. Each section presents a
-    specific use case with real implementation metrics and verifiable client testimonials. CTAs lead
-    to a visible onboarding flow that lets visitors try the platform in fewer than 3 clicks. A
-    neutral palette with strategic color accents reinforces the perception of corporate reliability.
+    I set an almost monochrome palette (#000000, #0D0D0D, #D9D9D9, #FFFFFF) so the car photography
+    brings the color, and tested Poppins, Lato and Roboto before locking the type hierarchy. The
+    lowercase italic wordmark pairs with a downward-arrow symbol and chevrons that repeat as a
+    graphic device. On the site, images are cropped into rounded diagonal strips that give each
+    block a sense of motion. The landing page flows through the value proposition, case studies, a
+    software preview, AITHR Hub, a contact form and an FAQ.
+  outcome: >-
+    Case study published on Behance with the style guide, logo variations, mockups and the full
+    landing page.

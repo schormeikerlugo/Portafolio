@@ -6,14 +6,13 @@ category: design
 subcategory: crypto
 workflow: design
 stack:
-  - UI
-  - XD
-  - CRYPTO
-  - FREEBIE
-role:
-  - UI Kit
-  - Dashboard Design
+  - Adobe XD
+  - UI Design
+  - Web Design
   - Freebie
+role:
+  - UI Design
+  - Landing Page
 links:
   behance: https://www.behance.net/gallery/66111333/Cryptocurrency-free-download-for-Xd
 cover: ./cryptocurrency-xd/cover.webp
@@ -21,53 +20,50 @@ gallery:
   - ./cryptocurrency-xd/01.webp
 es:
   title: CRYPTOCURRENCY XD
-  tagline: CRYPTO DASHBOARD FREEBIE
+  tagline: LANDING CRYPTO GRATIS PARA XD
   summary: >-
-    Cryptocurrency XD es un kit UI gratuito para dashboards de criptomonedas, diseñado en Adobe XD y
-    publicado como recurso open-source para la comunidad de diseño. El paquete cubre el flujo
-    completo de una plataforma crypto — desde el overview de portfolio hasta la vista de trading y
-    la gestión de wallets. Su objetivo era ofrecer un punto de partida profesional a diseñadores que
-    necesitaban prototipar productos crypto sin construir cada componente desde cero.
+    Plantilla gratuita en Adobe XD de una landing para Bullex, un exchange de criptomonedas
+    ficticio. La publiqué en Behance como archivo descargable para que otros diseñadores la usaran
+    de base. Incluye dos variantes de la misma página.
   challenge:
     - >-
-      Los freebies de crypto UI en Behance y Dribbble ofrecían 2-3 pantallas sueltas sin
-      consistencia visual. El 90% carecía de design tokens o estilos compartidos.
+      Un exchange tiene que inspirar confianza y, al mismo tiempo, mostrar muchos datos: precios,
+      variaciones, noticias y saldos.
     - >-
-      No existían templates que cubrieran el flujo completo: portfolio, trading, analytics y wallet.
-      Los diseñadores reconstruían cada pantalla manualmente.
+      Al ser un recurso para descargar, el archivo debía ser fácil de entender y de modificar por
+      otra persona.
     - >-
-      Los proyectos crypto tenían deadlines de 2-3 semanas. Sin un kit base profesional, los equipos
-      perdían la primera semana solo en componentes básicos.
+      Las tablas de monedas y saldos tenían que leerse bien incluso con muchas filas.
   approach: >-
-    El kit incluye más de 15 pantallas completas de dashboard crypto: overview general, portfolio
-    detallado, trading view con gráficos de velas, analytics de rendimiento, wallet management y
-    settings de perfil. Todos los componentes siguen un sistema modular con estilos compartidos, lo
-    que permite intercambiar secciones entre pantallas sin perder coherencia visual. El recurso se
-    publicó como freebie en Behance, donde acumuló más de 5.000 descargas y se convirtió en
-    referencia recurrente en tutoriales de diseño crypto.
+    La página alterna fondos azul marino y blanco separados por curvas, con secciones claras: hero,
+    por qué operar con Bullex, selección de monedas, noticias, activos y un bloque social. Las
+    monedas aparecen como tarjetas compactas con precio de compra y venta y variación en verde o
+    rojo. La sección de activos usa una tabla con buscador y columnas de saldo total, disponible y en
+    orden. Las dos variantes muestran la selección de monedas como carrusel y como rejilla, para que
+    quien descargue el archivo elija la que le sirva.
+  outcome: >-
+    Archivo de Adobe XD con dos variantes de landing, publicado como descarga gratuita en Behance.
 en:
   title: CRYPTOCURRENCY XD
-  tagline: CRYPTO DASHBOARD FREEBIE
+  tagline: FREE CRYPTO LANDING FOR XD
   summary: >-
-    Cryptocurrency XD is a free UI kit for cryptocurrency dashboards, designed in Adobe XD and
-    published as an open-source resource for the design community. The package covers the complete
-    flow of a crypto platform — from portfolio overview to the trading view and wallet management.
-    Its goal was to provide a professional starting point for designers who needed to prototype
-    crypto products without building every component from scratch.
+    A free Adobe XD template for a landing page of Bullex, a fictional cryptocurrency exchange. I
+    published it on Behance as a downloadable file so other designers could use it as a starting
+    point. It includes two variants of the same page.
   challenge:
     - >-
-      Crypto UI freebies on Behance and Dribbble offered 2-3 disconnected screens with no visual
-      consistency. 90% lacked design tokens or shared styles.
+      An exchange has to feel trustworthy while showing a lot of data: prices, changes, news, and
+      balances.
     - >-
-      No templates covered the complete flow: portfolio, trading, analytics, and wallet. Designers
-      rebuilt every screen manually.
+      As a downloadable resource, the file had to be easy for someone else to understand and edit.
     - >-
-      Crypto projects had 2-3 week deadlines. Without a professional base kit, teams lost the first
-      week on basic components alone.
+      Coin and balance tables had to stay readable even with many rows.
   approach: >-
-    The kit includes over 15 complete crypto dashboard screens: general overview, detailed
-    portfolio, trading view with candlestick charts, performance analytics, wallet management, and
-    profile settings. All components follow a modular system with shared styles, allowing sections
-    to be swapped between screens without losing visual coherence. The resource was published as a
-    freebie on Behance, where it accumulated over 5,000 downloads and became a recurring reference
-    in crypto design tutorials.
+    The page alternates navy and white backgrounds split by curves, with clear sections: hero, why
+    trade with Bullex, currency selection, news, assets, and a social block. Coins appear as compact
+    cards with buy and sell prices and a green or red change indicator. The assets section uses a
+    searchable table with total, available, and in-order balance columns. The two variants show the
+    currency selection as a carousel and as a grid, so whoever downloads the file can pick the one
+    that fits.
+  outcome: >-
+    Adobe XD file with two landing page variants, published as a free download on Behance.

@@ -1,24 +1,25 @@
 legacyId: 34
 featured: 1
 year: 2026
-status: archived
+status: wip
 type: personal
 category: development
 subcategory: ai
 workflow: ai
 stack:
-  - JAVASCRIPT
-  - IA
-  - VISION
+  - Rust
+  - Slint
+  - SwiftUI
+  - Axum
+  - Supabase
+  - PostGIS
   - YOLO
-  - LLM
-  - REACT NATIVE
-  - SUPABASE
+  - Ollama
 role:
-  - Full-stack Dev
-  - AI/ML
-  - React Native
-  - Computer Vision
+  - UI Design
+  - Systems Architecture
+  - Full-stack Development
+  - AI Integration
 links:
   repo: https://github.com/schormeikerlugo/KEPLER
 cover: ./kepler/cover.webp
@@ -33,75 +34,59 @@ gallery:
   - ./kepler/08.webp
 es:
   title: KEPLER
-  tagline: AI EXPLORATION PLATFORM
+  tagline: PLATAFORMA DE EXPLORACIÓN CON IA
   summary: >-
-    KEPLER es una plataforma operativa real asistida por Inteligencia Artificial, diseñada para la
-    exploración de campo. Inspirada en sistemas de telemetría y HUDs espaciales, funciona como
-    herramienta para la búsqueda de recursos y análisis geológico. El ecosistema comprende un Centro
-    de Control (Desktop) ultra-ligero conectado a un backend de Python para visión artificial
-    (YOLOv11), una Unidad de Campo Móvil nativa (React Native) para exploración en terreno real,
-    widgets de mapas satelitales tácticos 3D, chat conversacional con LLMs locales (Llama 3/Mistral)
-    para asistencia científica, y un sistema de bases de datos distribuidas (Supabase) que opera
-    incluso sin conexión a internet.
+    KEPLER es una plataforma de exploración de campo que combina visión artificial, GPS, telemetría
+    del explorador y un copiloto LLM local llamado Cortex. Tiene una app de iPhone que funciona sin
+    conexión y un Centro de Control de escritorio que sigue la misión en vivo. La diseñé y la estoy
+    reescribiendo en Rust como monorepo; sigue en desarrollo activo.
   challenge:
     - >-
-      La exploración de entornos desconocidos enfrenta una brecha entre percepción humana e
-      inteligencia analítica. Datos crudos sin contexto: el ojo humano observa pero no puede
-      identificar ni clasificar en tiempo real.
+      En terreno no siempre hay señal: misiones, rastro GPS, capturas y datos de salud tenían que
+      guardarse en el teléfono y sincronizarse solos al volver, sin conflictos.
     - >-
-      Conectividad intermitente o nula en zonas remotas. Enviar datos a la nube significa esperar
-      horas o no tener respuesta. Herramientas fragmentadas: GPS en una app, cámara en otra, notas
-      en papel.
+      El escritorio, el iPhone y el servidor comparten modelos, reglas y estilo de mapa. Mantener
+      tres bases de código separadas multiplicaba los errores.
     - >-
-      Sin registro estructurado e inmediato, los hallazgos se pierden y nunca se correlacionan con
-      observaciones anteriores. Tecnología del siglo XXI con flujos de trabajo del siglo XX.
+      Los datos son personales y la IA debía ayudar sin enviarlos a la nube. Los reportes
+      compartidos entre exploradores no podían exponer lo privado.
   approach: >-
-    KEPLER resuelve la brecha entre percepción humana e inteligencia de campo mediante una
-    plataforma que ejecuta modelos YOLOv11 directamente en el dispositivo del explorador, capaz de
-    identificar y clasificar minerales en milisegundos sin depender de conexión a internet. Su
-    módulo Cortex AI, impulsado por Mistral 7B en ejecución local, va más allá de la detección:
-    analiza cada hallazgo en contexto con el historial completo de exploración, permitiendo al
-    usuario consultar relaciones entre muestras de distintas misiones mediante lenguaje natural.
-    Cada descubrimiento se geolocaliza automáticamente sobre mapas tácticos 3D que combinan
-    coordenadas GPS, imágenes satelitales y descripciones de terreno generadas por IA, revelando
-    patrones de distribución que el ojo humano no puede detectar por sí solo. Todo el ecosistema
-    opera en dos modalidades complementarias — el Centro de Control Desktop para planificación de
-    misiones y la Unidad de Campo Móvil con realidad aumentada para ejecución en terreno — con
-    sincronización en tiempo real cuando existe conectividad y funcionamiento offline completo
-    cuando no la hay, garantizando que ningún hallazgo se pierda independientemente de las
-    condiciones del entorno.
+    Reescribí la v0.7 (Electron, React Native y FastAPI) como un workspace de Cargo con crates
+    compartidos: dominio, cliente HTTP, protocolo protobuf, estilo de mapa, visión e IA. El Centro
+    de Control usa Slint con MapLibre Native, y la app de iPhone es SwiftUI sobre el mismo núcleo
+    Rust vía UniFFI, con YOLO en CoreML y almacenamiento offline en SQLite. El servidor en axum
+    aplica las políticas RLS de Supabase autoalojado (Postgres, PostGIS y pgvector) en cada
+    petición. Cortex corre sobre Ollama local. Un único archivo de tokens define colores,
+    tipografía Jura y espaciado para ambas apps.
+  outcome: >-
+    Versión 0.8 en desarrollo, con 24 pantallas de referencia del Centro de Control: dashboard,
+    misión en vivo, mapa, archivos, bitácora y Cortex.
 en:
   title: KEPLER
-  tagline: AI EXPLORATION PLATFORM
+  tagline: AI FIELD EXPLORATION PLATFORM
   summary: >-
-    KEPLER is a real operational platform powered by Artificial Intelligence, designed for field
-    exploration. Inspired by telemetry systems and space HUDs, it serves as a tool for resource
-    discovery and geological analysis. The ecosystem comprises an ultra-lightweight Control Center
-    (Desktop) connected to a Python backend for computer vision (YOLOv11), a native Mobile Field
-    Unit (React Native) for real-terrain exploration, tactical 3D satellite map widgets,
-    conversational chat with local LLMs (Llama 3/Mistral) for scientific assistance, and a
-    distributed database system (Supabase) that operates even without internet connectivity.
+    KEPLER is a field exploration platform that combines computer vision, GPS, explorer telemetry
+    and a local LLM copilot called Cortex. It has an iPhone app that works offline and a desktop
+    Control Center that follows missions live. I designed it and am rewriting it in Rust as a
+    monorepo; it is still in active development.
   challenge:
     - >-
-      Exploration of unknown environments faces a gap between human perception and available
-      analytical intelligence in the field. Raw data without context: the human eye observes but
-      cannot identify or classify in real time.
+      There is often no signal in the field: missions, GPS tracks, captures and health data had to
+      be stored on the phone and sync automatically on return, without conflicts.
     - >-
-      Intermittent or no connectivity in remote areas. Sending data to the cloud means waiting hours
-      or getting no response. Fragmented tools: GPS in one app, camera in another, notes on paper.
+      Desktop, iPhone and server share models, rules and map style. Keeping three separate codebases
+      multiplied bugs.
     - >-
-      Without structured and immediate recording, findings are lost and never correlated with
-      previous observations. 21st century technology with 20th century workflows.
+      The data is personal, and the AI had to help without sending it to the cloud. Reports shared
+      between explorers could not expose anything private.
   approach: >-
-    KEPLER bridges the gap between human perception and field intelligence through a platform that
-    runs YOLOv11 models directly on the explorer's device, capable of identifying and classifying
-    minerals in milliseconds without relying on internet connectivity. Its Cortex AI module, powered
-    by Mistral 7B running locally, goes beyond detection: it analyzes each finding in context with
-    the complete exploration history, enabling the user to query relationships between samples from
-    different missions through natural language. Every discovery is automatically geolocalized on
-    tactical 3D maps that combine GPS coordinates, satellite imagery, and AI-generated terrain
-    descriptions, revealing distribution patterns that the human eye cannot detect on its own. The
-    entire ecosystem operates in two complementary modes — the Desktop Control Center for mission
-    planning and the Mobile Field Unit with augmented reality for terrain execution — with real-time
-    synchronization when connectivity exists and full offline operation when it does not, ensuring
-    no finding is ever lost regardless of environmental conditions.
+    I rewrote v0.7 (Electron, React Native and FastAPI) as a Cargo workspace with shared crates for
+    the domain, HTTP client, protobuf protocol, map style, vision and AI. The Control Center uses
+    Slint with MapLibre Native, and the iPhone app is SwiftUI on top of the same Rust core via
+    UniFFI, with YOLO on CoreML and offline storage in SQLite. The axum server enforces the RLS
+    policies of a self-hosted Supabase stack (Postgres, PostGIS and pgvector) on every request.
+    Cortex runs on local Ollama. A single token file defines colors, Jura typography and spacing
+    for both apps.
+  outcome: >-
+    Version 0.8 in progress, with 24 Control Center reference screens: dashboard, live mission, map,
+    archives, logbook and Cortex.

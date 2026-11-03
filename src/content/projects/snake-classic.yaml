@@ -1,23 +1,23 @@
 legacyId: 31
 year: 2025
-status: archived
+status: live
 type: personal
 category: development
 subcategory: games
 workflow: development
 stack:
-  - JAVASCRIPT
-  - CANVAS
-  - SUPABASE
-  - MULTIPLAYER
+  - JavaScript
+  - HTML5 Canvas
+  - Web Audio API
+  - Supabase
+  - PostgreSQL
   - PWA
-  - WEB AUDIO
 role:
-  - Full-stack Dev
   - Game Design
-  - Multiplayer
-  - PWA
+  - UI Design
+  - Full-stack Development
 links:
+  live: https://schormeikerlugo.github.io/Snake-Classic/
   repo: https://github.com/schormeikerlugo/Snake-Classic
 cover: ./snake-classic/cover.webp
 gallery:
@@ -39,57 +39,56 @@ gallery:
   - ./snake-classic/16.webp
 es:
   title: SNAKE CLASSIC
-  tagline: RETRO GAME REIMAGINED
+  tagline: SNAKE RETRO CON MULTIJUGADOR
   summary: >-
-    Reimaginación contemporánea del Snake clásico de los 90s con tecnologías web modernas. La
-    serpiente cambia de color cada 10 puntos con efectos de brillo adaptativos. Sistema de power-ups
-    con 6 tipos (slow, double points, immunity, shrink, clear obstacles, penalty). Multijugador
-    online en beta con dos formatos competitivos: duelo 1v1 donde el último en pie gana, y
-    competencia por puntos en 2 minutos con modo fantasma. Salas privadas con códigos, chat en
-    tiempo real, ranking en vivo y funcionalidad de revancha. Optimizado como PWA para Android con
-    controles táctiles ampliados.
+    Versión propia del Snake clásico con estética retro, jugable en el navegador e instalable como
+    PWA. Añadí power-ups, obstáculos, ranking global y multijugador online en tiempo real. Diseñé la
+    interfaz y programé el juego completo, del canvas a la base de datos en Supabase.
   challenge:
     - >-
-      El Snake clásico carece de rejugabilidad después de las primeras partidas. Sin variedad de
-      mecánicas ni progresión visual.
+      El Snake original se agota rápido. Necesitaba mecánicas nuevas que dieran variedad sin perder
+      la simplicidad de controlar una serpiente que crece.
     - >-
-      El multijugador en tiempo real requiere sincronización precisa de estados. La latencia >100ms
-      hace que el juego sea injugable en modo competitivo. El sistema de audio debe atenuar durante
-      eventos de bonus.
+      En multijugador, dos jugadores en dispositivos distintos tenían que ver los mismos movimientos,
+      la misma comida y el mismo marcador al mismo tiempo.
     - >-
-      La arquitectura debe ser modular para soportar auth, chat, ranking, settings, sistema de
-      sonido e integraciones externas sin acoplar.
+      El juego debía sentirse bien en móvil: controles táctiles precisos, pantalla completa y
+      respuesta háptica, igual de cómodo que con teclado.
   approach: >-
-    Arquitectura modular en JavaScript ES6+ organizada en módulos: core (estado y lógica), ui
-    (interfaz), features (auth, chat, ranking, settings), sound (Web Audio API) y lib (Supabase).
-    HTML5 Canvas para gráficos pixelados 2D con interpolación suave via requestAnimationFrame.
-    Multiplayer con Supabase Realtime para sincronización de estados. Persistencia de mejores
-    puntuaciones con localStorage. Sistema de power-ups con formas y colores distintos. PWA
-    optimizado para Android con controles táctiles de tamaño ampliado.
+    Separé el código en módulos de JavaScript por responsabilidad: núcleo del juego, render, UI,
+    sonido y funciones como auth, chat, ranking y multijugador. El juego se dibuja en HTML5 Canvas
+    con movimiento interpolado por requestAnimationFrame, y la serpiente cambia de color cada 10
+    puntos. Hay 6 power-ups, cada uno con forma y color propios para reconocerlos de un vistazo. El
+    multijugador usa canales de Supabase Realtime por sala, con dos modos: duelo 1v1 y competencia
+    por puntos de 2 minutos con modo fantasma. El esquema y las políticas RLS viven en migraciones
+    SQL.
+  outcome: >-
+    Juego publicado en GitHub Pages, instalable como PWA, con interfaz en español e inglés, salas
+    privadas con código, chat, revancha y ranking global.
 en:
   title: SNAKE CLASSIC
-  tagline: RETRO GAME REIMAGINED
+  tagline: RETRO SNAKE WITH MULTIPLAYER
   summary: >-
-    Contemporary reimagining of the classic 90s Snake with modern web technologies. The snake
-    changes color every 10 points with adaptive glow effects. Power-up system with 6 types (slow,
-    double points, immunity, shrink, clear obstacles, penalty). Online multiplayer in beta with two
-    competitive formats: 1v1 duel where the last player standing wins, and a 2-minute points
-    competition with ghost mode. Private rooms with codes, real-time chat, live ranking, and rematch
-    functionality. Optimized as PWA for Android with enlarged touch controls.
+    My own take on classic Snake with a retro look, playable in the browser and installable as a
+    PWA. I added power-ups, obstacles, a global leaderboard and real-time online multiplayer. I
+    designed the interface and built the whole game, from the canvas to the Supabase database.
   challenge:
     - >-
-      Classic Snake lacks replayability after the first few games. No variety in mechanics or visual
-      progression.
+      Original Snake wears thin quickly. It needed new mechanics that added variety without losing
+      the simplicity of steering a growing snake.
     - >-
-      Real-time multiplayer requires precise state synchronization. Latency >100ms makes the game
-      unplayable in competitive mode. The audio system must attenuate during bonus events.
+      In multiplayer, two players on different devices had to see the same moves, the same food and
+      the same score at the same time.
     - >-
-      Architecture must be modular to support auth, chat, ranking, settings, sound system, and
-      external integrations without coupling.
+      The game had to feel right on mobile: precise touch controls, full screen and haptic feedback,
+      as comfortable as playing with a keyboard.
   approach: >-
-    Modular architecture in JavaScript ES6+ organized into modules: core (state and logic), ui
-    (interface), features (auth, chat, ranking, settings), sound (Web Audio API), and lib
-    (Supabase). HTML5 Canvas for 2D pixel graphics with smooth interpolation via
-    requestAnimationFrame. Multiplayer with Supabase Realtime for state synchronization. Best score
-    persistence with localStorage. Power-up system with distinct shapes and colors. PWA optimized
-    for Android with enlarged touch controls.
+    I split the code into JavaScript modules by responsibility: game core, rendering, UI, sound, and
+    features such as auth, chat, leaderboard and multiplayer. The game is drawn on HTML5 Canvas with
+    movement interpolated through requestAnimationFrame, and the snake changes color every 10
+    points. There are 6 power-ups, each with its own shape and color so they read at a glance.
+    Multiplayer runs on per-room Supabase Realtime channels with two modes: a 1v1 duel and a
+    2-minute points race with ghost mode. The schema and RLS policies live in SQL migrations.
+  outcome: >-
+    Game published on GitHub Pages, installable as a PWA, with a Spanish and English interface,
+    private rooms with codes, chat, rematches and a global leaderboard.

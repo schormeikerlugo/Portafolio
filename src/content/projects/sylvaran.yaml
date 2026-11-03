@@ -1,21 +1,20 @@
 legacyId: 30
 year: 2025
-status: archived
+status: released
 type: personal
 category: development
 subcategory: games
 workflow: development
 stack:
-  - JAVASCRIPT
-  - PHASER
-  - VITE
-  - RPG
-  - PIXEL ART
-  - GAME DEV
+  - Phaser
+  - TypeScript
+  - JavaScript
+  - Vite
+  - Tiled
 role:
   - Game Development
-  - Engine Architecture
-  - Pixel Art
+  - Game Design
+  - Systems Architecture
 links:
   repo: https://github.com/schormeikerlugo/sylvaran
 cover: ./sylvaran/cover.webp
@@ -25,54 +24,58 @@ gallery:
   - ./sylvaran/03.webp
 es:
   title: SYLVARAN RPG
-  tagline: DARK FANTASY RPG
+  tagline: ACTION RPG EN PIXEL ART
   summary: >-
-    Sylvaran es un RPG de acción y fantasía oscura donde el jugador controla a Kael, último miembro
-    de una orden extinta, en un mundo corrompido por la diosa caída Nihzara. Desarrollado con Phaser
-    como motor 2D y Vite como bundler, el proyecto implementa mapas navegables con múltiples capas,
-    animaciones ambientales reactivas, sistemas de control del jugador, diseño sonoro experimental y
-    transiciones narrativas. La estética combina pixel art gótico inspirado en RPGs clásicos
-    japoneses con paletas de colores apagados y tipografía retro.
+    Sylvaran es un RPG de acción y fantasía oscura para navegador, hecho con Phaser 3 y Vite. Kael,
+    el último de una orden extinta, debe purificar santuarios en un mundo corrompido por la diosa
+    caída Nihzara. Diseñé la historia y las mecánicas, y programé todos los sistemas del juego; ya
+    se puede jugar de principio a fin del Acto I, salvo el jefe final.
   challenge:
     - >-
-      Crear un RPG completo sin engine comercial requiere una arquitectura que soporte combate,
-      inventario, diálogos y progresión en sincronía.
+      Combate, diálogos, misiones, inventario y guardado tenían que funcionar juntos sin acoplarse
+      entre sí, para poder añadir mecánicas y regiones sin reescribir lo que ya existía.
     - >-
-      El diseño modular debe permitir cambios narrativos, nuevas mecánicas y expansión multi-región
-      sin ruptura estructural.
+      El combate en tiempo real debía sentirse con peso: hitbox, stamina, retroceso, screenshake y
+      sonido tenían que estar sincronizados en cada golpe.
     - >-
-      El mundo debe sentirse vivo con NPCs, enemigos con IA propia, eventos dinámicos y animaciones
-      ambientales con propiedades reactivas.
+      Los mapas debían crecer sin editarlos a mano tile por tile, y el estado de la partida tenía
+      que sobrevivir a los cambios de escena y a recargar el juego.
   approach: >-
-    Arquitectura modular con Phaser donde cada sistema (combate, inventario, diálogos, progresión)
-    opera de forma independiente. Mapas navegables con múltiples capas y animaciones ambientales
-    reactivas. Sistema de santuarios elementales como eje de progresión. IA de enemigos basada en
-    máquinas de estados con detección de rango y patrullaje. Diseño sonoro ambiental integrado y
-    transiciones narrativas cinemáticas. Estructura de código que soporta expansión sin disrumpir la
-    arquitectura existente.
+    Organicé el juego en escenas de Phaser (Boot, Preload, Menu, mundo, HUD, diálogo, inventario,
+    Game Over) que se comunican por un EventBus y un Registry tipados, para que ningún sistema
+    dependa directamente de otro. Migré el código a TypeScript de forma gradual y añadí ESLint y
+    Prettier. Los diálogos son árboles declarativos con opciones que activan flags y avanzan
+    misiones. Los mapas se cargan desde Tiled con capas de portales, enemigos y zonas de daño, y el
+    de Silentia lo genero con un script reproducible. Los enemigos tienen IA propia y sueltan orbes
+    de XP con atracción magnética.
+  outcome: >-
+    Versión 0.4.0 publicada en GitHub: 2 mapas conectados, 3 tipos de enemigo, 2 NPC con diálogo,
+    sistema de misiones, inventario y guardado con autosave y 3 ranuras manuales.
 en:
   title: SYLVARAN RPG
-  tagline: DARK FANTASY RPG
+  tagline: PIXEL ART ACTION RPG
   summary: >-
-    Sylvaran is a dark fantasy action RPG where the player controls Kael, the last member of an
-    extinct order, in a world corrupted by the fallen goddess Nihzara. Built with Phaser as 2D
-    engine and Vite as bundler, the project implements navigable maps with multiple layers, reactive
-    environmental animations, player control systems, experimental sound design, and narrative
-    transitions. The aesthetic combines gothic pixel art inspired by classic Japanese RPGs with
-    muted color palettes and retro typography.
+    Sylvaran is a dark fantasy action RPG for the browser, built with Phaser 3 and Vite. Kael, the
+    last member of an extinct order, must purify sanctuaries in a world corrupted by the fallen
+    goddess Nihzara. I designed the story and mechanics and programmed every game system; Act I is
+    playable end to end, except for the final boss.
   challenge:
     - >-
-      Building a complete RPG without a commercial engine requires an architecture that supports
-      combat, inventory, dialogues, and progression in sync.
+      Combat, dialogue, quests, inventory and saving had to work together without being coupled, so
+      new mechanics and regions could be added without rewriting what already existed.
     - >-
-      The modular design must allow narrative changes, new mechanics, and multi-region expansion
-      without structural disruption.
+      Real-time combat needed weight: hitbox, stamina, knockback, screen shake and sound had to stay
+      in sync on every hit.
     - >-
-      The world must feel alive with NPCs, enemies with their own AI, dynamic events, and
-      environmental animations with reactive properties.
+      Maps had to grow without hand-editing every tile, and game state had to survive scene changes
+      and page reloads.
   approach: >-
-    Modular architecture with Phaser where each system (combat, inventory, dialogues, progression)
-    operates independently. Navigable maps with multiple layers and reactive environmental
-    animations. Elemental sanctuary system as progression axis. Enemy AI based on state machines
-    with range detection and patrolling. Integrated ambient sound design and cinematic narrative
-    transitions. Code structure that supports expansion without disrupting existing architecture.
+    I split the game into Phaser scenes (Boot, Preload, Menu, world, HUD, dialogue, inventory, Game
+    Over) that talk through a typed EventBus and Registry, so no system depends directly on another.
+    I migrated the code to TypeScript gradually and added ESLint and Prettier. Dialogue lives in
+    declarative trees whose choices set flags and advance quests. Maps load from Tiled with layers
+    for portals, enemies and damage zones, and the Silentia map is produced by a reproducible
+    generator script. Enemies have their own AI and drop XP orbs that drift toward the player.
+  outcome: >-
+    Version 0.4.0 on GitHub: 2 connected maps, 3 enemy types, 2 NPCs with dialogue, a quest system,
+    inventory, and saving with autosave plus 3 manual slots.

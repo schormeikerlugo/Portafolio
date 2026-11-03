@@ -17,7 +17,7 @@ const projects = defineCollection({
       legacyId: z.number().optional(),
       year: z.number(),
       featured: z.number().optional(),
-      status: z.enum(['live', 'unpublished', 'concept', 'archived', 'wip']),
+      status: z.enum(['live', 'released', 'unpublished', 'concept', 'wip']),
       type: z.enum(['personal', 'client', 'concept', 'professional', 'open-source']),
       category: z.enum(['design', 'development']),
       subcategory: z.enum(['crypto', 'games', 'app', 'web', 'dashboard', 'ai', 'tools']),

@@ -6,14 +6,12 @@ category: design
 subcategory: web
 workflow: design
 stack:
-  - UI
-  - WEB
-  - VENEZUELA
-  - NATURE
+  - Web Design
+  - UI Design
+  - Visual Design
 role:
-  - Promotional Web
-  - Tourism
-  - Parallax
+  - Web Design
+  - UI Design
 links:
   dribbble: https://dribbble.com/shots/7100672-Salto-angel
 cover: ./salto-angel/cover.webp
@@ -21,53 +19,50 @@ gallery:
   - ./salto-angel/01.webp
 es:
   title: SALTO ÁNGEL
-  tagline: VENEZUELA WEB
+  tagline: WEB TURÍSTICA DE VENEZUELA
   summary: >-
-    Salto Ángel es una web promocional dedicada a la cascada más alta del mundo, ubicada en el
-    Parque Nacional Canaima de Venezuela con sus 979 metros de caída libre. El sitio captura la
-    majestuosidad de este monumento natural Patrimonio de la Humanidad mediante una experiencia
-    visual inmersiva. Su objetivo es posicionar al Salto Ángel como destino turístico internacional
-    con una presencia digital a la altura de su relevancia geográfica y cultural.
+    Concepto de landing turística dedicada al Salto Ángel (Kerepakupai Vená), en el Parque Nacional
+    Canaima. Diseñé la pantalla principal como un ejercicio personal para mostrar un destino de mi
+    país con una presentación más cuidada.
   challenge:
     - >-
-      Venezuela carece de webs turísticas con estándares internacionales para sus destinos
-      naturales; los sitios existentes datan de los años 2010 y carecen de responsive.
+      La fotografía de la cascada es el gran atractivo; el texto y los controles no podían taparla.
     - >-
-      El Salto Ángel es Patrimonio de la Humanidad desde 1994, pero su presencia digital no refleja
-      la importancia de un monumento visitado por 12,000 turistas anuales.
+      La pantalla debía dar el dato esencial del lugar y, a la vez, invitar a explorar otros
+      destinos cercanos.
     - >-
-      La web debe transmitir la experiencia del lugar con suficiente fuerza visual para motivar la
-      planificación de un viaje a una región de acceso remoto.
+      Mantener legible el texto blanco sobre una foto con zonas muy claras (nubes) y muy oscuras
+      (selva).
   approach: >-
-    La landing page abre con fotografía aérea en alta resolución que ocupa el viewport completo,
-    generando un impacto visual inmediato. Las secciones informativas cubren la historia pemón del
-    Kerepakupai Vená, datos geográficos y rutas de acceso desde distintos puntos del país. Un efecto
-    parallax simula el descenso del agua a medida que el usuario hace scroll, reforzando la
-    sensación de escala. La integración con mapas interactivos de la Gran Sabana permite explorar el
-    contexto territorial y los tepuyes circundantes.
+    Usé la foto de la cascada a pantalla completa con un degradado oscuro en la parte inferior e
+    izquierda, donde se concentra el texto. El bloque principal muestra valoración con estrellas,
+    nombre, nombre pemón, ubicación, una descripción breve y un botón "Saber más" con borde verde.
+    A la derecha, un carrusel de tarjetas con foto y valoración propone otros destinos, controlado
+    por flechas y una barra de progreso verde. Una barra lateral vertical con puntos sirve de
+    navegación entre secciones.
+  outcome: >-
+    Shot publicado en Dribbble con la pantalla principal del sitio.
 en:
   title: SALTO ÁNGEL
-  tagline: VENEZUELA WEB
+  tagline: VENEZUELA TOURISM WEBSITE
   summary: >-
-    Salto Angel is a promotional website dedicated to the world's tallest waterfall, located in
-    Venezuela's Canaima National Park with its 979 meters of freefall. The site captures the majesty
-    of this UNESCO World Heritage natural monument through an immersive visual experience. Its goal
-    is to position Angel Falls as an international tourist destination with a digital presence that
-    matches its geographical and cultural significance.
+    A tourism landing page concept for Angel Falls (Kerepakupai Vená) in Canaima National Park. I
+    designed the main screen as a personal exercise to showcase a destination from my country with a
+    more polished presentation.
   challenge:
     - >-
-      Venezuela lacks tourism websites meeting international standards for its natural destinations;
-      existing sites date back to the 2010s and lack responsive design.
+      The waterfall photo is the main draw; text and controls couldn't cover it.
     - >-
-      Angel Falls has been a UNESCO World Heritage Site since 1994, but its digital presence does
-      not reflect the importance of a monument visited by 12,000 tourists annually.
+      The screen had to give the essential facts about the place while inviting visitors to explore
+      nearby destinations.
     - >-
-      The website must convey the experience of the location with enough visual force to motivate
-      the planning of a trip to a remote-access region.
+      Keeping white text readable over a photo with very bright areas (clouds) and very dark ones
+      (jungle).
   approach: >-
-    The landing page opens with high-resolution aerial photography that fills the entire viewport,
-    creating an immediate visual impact. Informative sections cover the Pemon history of Kerepakupai
-    Vena, geographical data, and access routes from various points across the country. A parallax
-    effect simulates the water descent as the user scrolls, reinforcing the sense of scale.
-    Integration with interactive maps of the Gran Sabana allows visitors to explore the surrounding
-    territory and tepuis.
+    I used the waterfall photo full-screen with a dark gradient along the bottom and left, where the
+    text lives. The main block shows a star rating, the name, its Pemón name, location, a short
+    description and a green-outlined "Learn more" button. On the right, a carousel of photo cards
+    with ratings suggests other destinations, driven by arrows and a green progress bar. A vertical
+    dotted sidebar acts as section navigation.
+  outcome: >-
+    Shot published on Dribbble showing the site's main screen.

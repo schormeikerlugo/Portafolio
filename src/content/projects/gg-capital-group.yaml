@@ -6,14 +6,12 @@ category: design
 subcategory: web
 workflow: design
 stack:
-  - UI
-  - WEB
-  - FINANCE
-  - CORPORATE
+  - Web Design
+  - UI Design
+  - Visual Design
 role:
-  - Corporate Web
-  - Finance
-  - Data Visualization
+  - Web Design
+  - UI Design
 links:
   dribbble: https://dribbble.com/shots/7568604-G-G-Capital-Group-Part-2
 cover: ./gg-capital-group/cover.webp
@@ -21,52 +19,51 @@ gallery:
   - ./gg-capital-group/01.webp
 es:
   title: G&G CAPITAL GROUP
-  tagline: FINANCE CORPORATE WEB
+  tagline: WEB CORPORATIVA FINANCIERA
   summary: >-
-    G&G Capital Group es la web corporativa de una firma de inversiones que necesita proyectar
-    solidez financiera, confianza y sofisticación ante inversores de alto perfil. El sitio funciona
-    como carta de presentación institucional y canal principal de captación de capital. Su diseño se
-    distingue del sector financiero tradicional al combinar elegancia visual con transparencia de
-    datos de rendimiento.
+    Concepto de web corporativa para G&G Capital Group, una firma de asesoría financiera
+    internacional. Diseñé la estructura de navegación y la sección "Quiénes somos", publicada como
+    segunda parte de una serie en Dribbble.
   challenge:
     - >-
-      Las webs financieras corporativas tienden a ser monótonas, con paletas azules genéricas y
-      fotografía de stock de ejecutivos en salas de reuniones.
+      Una firma financiera necesita transmitir seriedad, pero la página no debía verse como otra
+      plantilla corporativa azul.
     - >-
-      Los inversores potenciales juzgan la seriedad de una firma en los primeros 8 segundos de
-      visita; una web de baja calidad genera desconfianza inmediata.
+      El texto institucional es largo; había que presentarlo sin que la sección se convirtiera en
+      un bloque de párrafos.
     - >-
-      El diseño debe inspirar confianza institucional sin caer en el conservadurismo visual que hace
-      al sitio indistinguible de cualquier otra firma financiera.
+      El logo dorado y el azul corporativo tenían que convivir sin competir entre sí.
   approach: >-
-    El diseño corporativo emplea una paleta oscura sofisticada con acentos dorados que transmiten
-    exclusividad sin ostentación. La hero section muestra datos de rendimiento del fondo en tiempo
-    real, demostrando transparencia desde el primer contacto. Las secciones del equipo directivo
-    presentan fotografía profesional con biografías concisas y trayectoria verificable. Los gráficos
-    interactivos del portfolio de inversión permiten explorar la composición por sector y
-    rendimiento histórico.
+    Encerré el contenido en una tarjeta clara con borde dorado fino, flotando sobre un fondo
+    dividido en diagonal entre blanco y gris carbón. La sección combina una foto de rascacielos con
+    marco azul, una etiqueta "Quiénes somos" en bloque azul sesgado y el texto en un panel con
+    scroll propio para no alargar la página. Usé el dorado solo para el logo, el ítem activo del
+    menú y los bordes, y el azul para títulos y acciones. Los accesos secundarios (compartir,
+    redes, idioma) quedan en los márgenes laterales en vertical.
+  outcome: >-
+    Shot publicado en Dribbble con la sección "Quiénes somos".
 en:
   title: G&G CAPITAL GROUP
-  tagline: FINANCE CORPORATE WEB
+  tagline: FINANCIAL CORPORATE WEBSITE
   summary: >-
-    G&G Capital Group is the corporate website for an investment firm that needs to project
-    financial solidity, trust, and sophistication to high-profile investors. The site serves as an
-    institutional introduction and the primary channel for capital acquisition. Its design stands
-    apart from the traditional financial sector by combining visual elegance with transparency in
-    performance data.
+    A corporate website concept for G&G Capital Group, an international financial advisory firm. I
+    designed the navigation structure and the "About us" section, published as the second part of a
+    Dribbble series.
   challenge:
     - >-
-      Corporate financial websites tend to be monotonous, with generic blue palettes and stock
-      photography of executives in meeting rooms.
+      A financial firm needs to come across as serious, yet the page shouldn't look like yet another
+      blue corporate template.
     - >-
-      Potential investors judge the seriousness of a firm within the first 8 seconds of a visit; a
-      low-quality website generates immediate distrust.
+      The institutional copy is long; it had to be presented without the section turning into a
+      block of paragraphs.
     - >-
-      The design must inspire institutional confidence without falling into the visual conservatism
-      that makes the site indistinguishable from any other financial firm.
+      The gold logo and the corporate blue had to coexist without competing.
   approach: >-
-    The corporate design employs a sophisticated dark palette with gold accents that convey
-    exclusivity without ostentation. The hero section displays real-time fund performance data,
-    demonstrating transparency from the first contact. Team sections feature professional
-    photography with concise biographies and verifiable track records. Interactive portfolio charts
-    allow visitors to explore the investment composition by sector and historical performance.
+    I placed the content on a light card with a thin gold border, floating over a background split
+    diagonally between white and charcoal. The section pairs a skyscraper photo with a blue frame,
+    an "About us" label on a slanted blue block, and the copy in a panel with its own scroll so the
+    page doesn't grow. Gold is reserved for the logo, the active menu item and the borders, while
+    blue handles headings and actions. Secondary links (share, social, language) sit vertically in
+    the side margins.
+  outcome: >-
+    Shot published on Dribbble showing the "About us" section.

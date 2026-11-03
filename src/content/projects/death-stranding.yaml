@@ -6,14 +6,12 @@ category: design
 subcategory: games
 workflow: design
 stack:
-  - UI
-  - GAME
-  - PS4
-  - CONCEPT
-role:
-  - Web UI Concept
+  - UI Design
+  - Web Design
   - Art Direction
-  - Visual Effects
+role:
+  - UI Design
+  - Art Direction
 links:
   dribbble: https://dribbble.com/shots/7186912-Schormeiker-Lugo-UI-Design-Death-Stranding-par3
 cover: ./death-stranding/cover.webp
@@ -21,57 +19,50 @@ gallery:
   - ./death-stranding/01.webp
 es:
   title: DEATH STRANDING
-  tagline: GAME UI CONCEPT
+  tagline: WEB CONCEPTUAL DE VIDEOJUEGO
   summary: >-
-    Death Stranding, el juego de Hideo Kojima, posee una estética única que mezcla ciencia ficción
-    con horror surrealista y paisajes desolados de belleza inquietante. Este concepto de interfaz
-    web captura esa atmósfera en un diseño promocional que funciona como experiencia narrativa por
-    sí mismo. El proyecto explora cómo traducir la sensación de aislamiento y misterio del juego a
-    un medio interactivo bidimensional, sin recurrir a capturas de pantalla convencionales ni a
-    estructuras de landing page genéricas.
+    Concepto no oficial de web promocional para Death Stranding. Esta pieza muestra la sección de
+    historia: un hero a pantalla completa con la premisa del juego, navegación entre capítulos y una
+    tira de imágenes de escenas clave. La publiqué en Dribbble como parte de una serie.
   challenge:
     - >-
-      La estética de Kojima exige un nivel de detalle visual extremo — cada textura, partícula y
-      transición debe sentirse intencional y cargada de significado.
+      El juego tiene una estética muy reconocible. La web debía evocarla sin copiar sus menús ni
+      saturar la pantalla.
     - >-
-      El juego mezcla ciencia ficción con horror surrealista y conexiones humanas. Esa combinación
-      no encaja en ningún template web convencional.
+      Una sola vista tenía que dar acceso a varios capítulos de la historia sin que el texto
+      compitiera con las imágenes.
     - >-
-      La identidad visual debe generar intriga y tensión emocional sin revelar spoilers narrativos.
-      Cada elemento visible es un potencial spoiler en un juego donde el misterio sostiene toda la
-      experiencia.
+      El texto blanco tenía que leerse sobre una escena de fuego y tonos muy cálidos.
   approach: >-
-    El diseño envuelve al usuario en una atmósfera nebulosa construida con capas de niebla animada y
-    tipografía minimalista que emerge del fondo como señales en un paisaje vacío. Los efectos de
-    glitch sutil en las transiciones entre secciones evocan las anomalías temporales del juego,
-    reforzando la tensión sin resultar intrusivos. Las secciones revelan información de forma
-    progresiva — igual que el gameplay — mediante scroll-triggered animations que dosifican lore,
-    personajes y mecánicas bajo una paleta desaturada con acentos dorados que anclan la mirada.
+    Dividí la pantalla en tres zonas: a la izquierda una barra con redes sociales e idioma, en el
+    centro el titular y la sinopsis sobre la escena, y a la derecha una columna numerada de
+    capítulos con miniaturas. Un velo oscuro en el lado del texto asegura el contraste sin apagar la
+    imagen. Los iconos de manos y los trazos finos remiten al imaginario del juego sin usar sus
+    elementos literales. La navegación superior se reduce a tres opciones: inicio, reserva e
+    historia.
+  outcome: >-
+    Pantalla de la sección de historia publicada en Dribbble.
 en:
   title: DEATH STRANDING
-  tagline: GAME UI CONCEPT
+  tagline: GAME WEBSITE CONCEPT
   summary: >-
-    Death Stranding, Hideo Kojima's game, possesses a unique aesthetic that blends science fiction
-    with surreal horror and desolate landscapes of unsettling beauty. This web interface concept
-    captures that atmosphere in a promotional design that functions as a narrative experience in its
-    own right. The project explores how to translate the game's sense of isolation and mystery into
-    a two-dimensional interactive medium, without relying on conventional screenshots or generic
-    landing page structures.
+    An unofficial promotional website concept for Death Stranding. This piece shows the story
+    section: a full-screen hero with the game's premise, chapter navigation, and a strip of key
+    scene images. I published it on Dribbble as part of a series.
   challenge:
     - >-
-      Kojima's aesthetic demands an extreme level of visual detail — every texture, particle, and
-      transition must feel intentional and loaded with meaning.
+      The game has a very recognizable look. The site had to evoke it without copying its menus or
+      cluttering the screen.
     - >-
-      The game blends science fiction with surreal horror and human connections. That combination
-      does not fit any conventional web template.
+      A single view had to give access to several story chapters without the text fighting the
+      imagery.
     - >-
-      The visual identity must generate intrigue and emotional tension without revealing narrative
-      spoilers. Every visible element is a potential spoiler in a game where mystery sustains the
-      entire experience.
+      White text had to stay readable over a fiery, very warm scene.
   approach: >-
-    The design envelops the user in a foggy atmosphere built with layers of animated mist and
-    minimalist typography that emerges from the background like signals in an empty landscape.
-    Subtle glitch effects on section transitions evoke the game's temporal anomalies, reinforcing
-    tension without being intrusive. Sections reveal information progressively — just like the
-    gameplay — through scroll-triggered animations that meter out lore, characters, and mechanics
-    under a desaturated palette with golden accents that anchor the gaze.
+    I split the screen into three zones: a left rail with social links and language, the headline
+    and synopsis in the center over the scene, and a numbered chapter column with thumbnails on the
+    right. A dark overlay on the text side keeps contrast without dulling the image. Hand icons and
+    thin strokes nod to the game's imagery without using its literal elements. Top navigation is
+    reduced to three options: home, pre-order, and story.
+  outcome: >-
+    Story section screen published on Dribbble.

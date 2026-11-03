@@ -1,0 +1,80 @@
+featured: 5
+year: 2026
+status: live
+type: client
+category: development
+subcategory: web
+workflow: development
+stack:
+  - Astro
+  - TypeScript
+  - GSAP
+  - ScrollTrigger
+  - Lenis
+  - CSS
+role:
+  - UI Design
+  - Frontend Development
+  - Motion Design
+links:
+  live: https://destination-wedding-pi.vercel.app
+  repo: https://github.com/schormeikerlugo/Destination-Wedding
+cover: ./destination-wedding/cover.webp
+gallery:
+  - ./destination-wedding/01.webp
+  - ./destination-wedding/02.webp
+  - ./destination-wedding/03.webp
+  - ./destination-wedding/04.webp
+  - ./destination-wedding/05.webp
+es:
+  title: DESTINATION WEDDING
+  tagline: LANDING EDITORIAL PARA FOTÓGRAFA DE BODAS
+  summary: >-
+    Landing editorial para Kathrin Ledwon, fotógrafa de bodas de destino. Diseñé y desarrollé una
+    página de una sola vista que deja hablar a las fotografías: portafolio, presentación de la
+    fotógrafa, paquetes por continente, preguntas frecuentes y una llamada final para reservar.
+  challenge:
+    - >-
+      Mostrar decenas de fotografías a gran tamaño sin que el peso de las imágenes arruinara la
+      carga ni la fluidez del scroll.
+    - >-
+      Dar ritmo editorial a una página larga, con tipografía enorme y movimiento, sin que la
+      interfaz compitiera con las fotos.
+    - >-
+      Presentar seis paquetes regionales con precios y destinos de forma clara, dentro del mismo
+      tono visual.
+  approach: >-
+    Construí el sitio con Astro 5 y TypeScript, con cada sección como trío de archivos: marcado
+    .astro, estilos .css y movimiento .client.ts, más tokens de diseño compartidos. El scroll suave
+    va con Lenis y las animaciones con GSAP y ScrollTrigger; todo se desactiva con
+    prefers-reduced-motion. Las imágenes pasan por astro:assets y por scripts propios de
+    optimización en Node. La tipografía es Inter Tight con JetBrains Mono para metadatos, y la
+    navegación lateral numerada indica en qué sección estás.
+  outcome: >-
+    Sitio publicado en Vercel con 9 secciones, dos bandas de vídeo y contacto por correo.
+en:
+  title: DESTINATION WEDDING
+  tagline: EDITORIAL WEDDING PHOTOGRAPHER LANDING
+  summary: >-
+    Editorial landing page for Kathrin Ledwon, a destination wedding photographer. I designed and
+    built a single-page site that lets the photography lead: portfolio, an introduction to the
+    photographer, packages by continent, FAQs and a closing booking call to action.
+  challenge:
+    - >-
+      Showing dozens of large photographs without image weight ruining load time or scroll
+      smoothness.
+    - >-
+      Giving a long page an editorial rhythm, with oversized type and motion, without the interface
+      competing with the photos.
+    - >-
+      Presenting six regional packages with prices and destinations clearly while keeping the same
+      visual tone.
+  approach: >-
+    I built the site with Astro 5 and TypeScript, treating each section as a trio of files: .astro
+    markup, .css styles and .client.ts motion, on top of shared design tokens. Lenis handles smooth
+    scrolling and GSAP with ScrollTrigger drives the animations; all of it switches off under
+    prefers-reduced-motion. Images go through astro:assets and custom Node optimisation scripts.
+    Typography pairs Inter Tight with JetBrains Mono for metadata, and a numbered side index shows
+    which section you are in.
+  outcome: >-
+    Site live on Vercel with 9 sections, two video bands and email-based contact.

@@ -6,66 +6,69 @@ category: design
 subcategory: dashboard
 workflow: design
 stack:
-  - UI
-  - UX
-  - DASHBOARD
-  - SAAS
+  - Figma
+  - UI Design
+  - UX Design
+  - Design System
+  - Dashboard Design
 role:
-  - SaaS Dashboard
-  - Data Visualization
-  - Role-based UI
+  - UI/UX Design
+  - Design System
+  - Product Design
 links:
   behance: https://www.behance.net/gallery/184064537/Dashboard-Sacscloud
 cover: ./sacscloud-dashboard/cover.webp
 gallery: []
 es:
   title: DASHBOARD SACSCLOUD
-  tagline: SAAS ENTERPRISE
+  tagline: DASHBOARD SAAS DE COMERCIO
   summary: >-
-    Dashboard SacsCloud es el panel principal de una plataforma SaaS de gestión empresarial
-    utilizada por más de 200 empresas en México. El rediseño optimiza la visualización de KPIs y
-    flujos de trabajo diarios para tres perfiles de usuario distintos: gerentes, operadores y
-    administradores. Su enfoque modular permite que cada rol acceda a una vista personalizada de los
-    mismos datos, eliminando el ruido informativo que generaba el diseño anterior.
+    SacsCloud es una plataforma SaaS mexicana para gestionar ventas en punto de venta, marketplaces,
+    e-commerce y redes sociales. Entre 2020 y 2023 trabajé en su equipo rediseñando los dashboards
+    del producto y estableciendo sistemas de diseño reutilizables.
   challenge:
     - >-
-      El dashboard anterior mostraba más de 40 métricas en una sola vista sin priorización ni
-      agrupación lógica, forzando al usuario a buscar manualmente cada dato.
+      El panel de inicio debía resumir el estado de un negocio que vende por varios canales a la
+      vez, sin convertirse en una pared de métricas.
     - >-
-      Los usuarios reportaban fatiga visual después de 2 horas de uso continuado; el contraste
-      insuficiente y la densidad de información agravaban el problema.
+      Había que separar lo que requiere acción inmediata (pedidos, pagos, stock) de la información
+      de consulta.
     - >-
-      Cada rol (gerente, operador, admin) necesitaba vistas completamente diferentes, pero el
-      sistema mostraba los mismos 40+ widgets a todos los perfiles por igual.
+      Con muchas pantallas y módulos en evolución, hacían falta componentes reutilizables para
+      mantener la coherencia del producto.
   approach: >-
-    El dashboard modular permite que cada rol configure sus widgets visibles y su disposición en la
-    grilla. El sistema de alertas codifica por color la prioridad de cada notificación, reduciendo
-    el tiempo de reacción ante incidencias críticas. Los gráficos interactivos soportan drill-down
-    de tres niveles para explorar datos desde la vista general hasta el detalle granular. El modo
-    oscuro, diseñado para jornadas laborales extensas, reduce la fatiga visual y el consumo
-    energético en pantallas OLED.
+    Organicé el dashboard en tres columnas: navegación lateral agrupada por módulos y canales
+    (catálogo, inventario, punto de venta, marketplaces, e-commerce, social commerce), contenido
+    principal y una columna de resumen de ventas. Arriba, un saludo personalizado y filtros por
+    sucursal y fechas; debajo, un bloque de avisos con las acciones pendientes y luego los
+    indicadores de desempeño. El total de ventas se muestra con importe en MXN, número de pedidos y
+    una gráfica de barras apiladas. Todo se construye sobre un tema oscuro y componentes
+    compartidos (tarjetas, selectores, listas de acción) que reutilicé en otras vistas.
+  outcome: >-
+    Dashboard presentado en Behance como parte de mi trabajo en SacsCloud.
 en:
   title: DASHBOARD SACSCLOUD
-  tagline: SAAS ENTERPRISE
+  tagline: COMMERCE SAAS DASHBOARD
   summary: >-
-    Dashboard SacsCloud is the main panel of a SaaS enterprise management platform used by over 200
-    companies in Mexico. The redesign optimizes KPI visualization and daily workflows for three
-    distinct user profiles: managers, operators, and administrators. Its modular approach allows
-    each role to access a customized view of the same data, eliminating the information noise that
-    the previous design generated.
+    SacsCloud is a Mexican SaaS platform for managing sales across point of sale, marketplaces,
+    e-commerce and social channels. From 2020 to 2023 I worked on its team, redesigning the
+    product's dashboards and establishing reusable design systems.
   challenge:
     - >-
-      The previous dashboard displayed over 40 metrics in a single view without prioritization or
-      logical grouping, forcing users to search manually for each data point.
+      The home panel had to summarize a business selling across several channels at once without
+      becoming a wall of metrics.
     - >-
-      Users reported visual fatigue after 2 hours of continuous use; insufficient contrast and
-      information density worsened the problem.
+      Items needing immediate action (orders, payments, stock) had to be separated from reference
+      information.
     - >-
-      Each role (manager, operator, admin) needed completely different views, but the system
-      displayed the same 40+ widgets to all profiles equally.
+      With many screens and evolving modules, the product needed reusable components to stay
+      consistent.
   approach: >-
-    The modular dashboard allows each role to configure its visible widgets and their grid
-    arrangement. The alert system color-codes the priority of each notification, reducing reaction
-    time to critical incidents. Interactive charts support three-level drill-down to explore data
-    from the general overview to granular detail. Dark mode, designed for extended work sessions,
-    reduces visual fatigue and energy consumption on OLED screens.
+    I organized the dashboard into three columns: side navigation grouped by modules and channels
+    (catalog, inventory, point of sale, marketplaces, e-commerce, social commerce), main content, and
+    a sales summary column. At the top sit a personalized greeting and filters by branch and date;
+    below, an alerts block with pending actions, followed by performance indicators. Total sales show
+    the amount in MXN, the order count and a stacked bar chart. Everything is built on a dark theme
+    and shared components (cards, selectors, action lists) that I reused across other views.
+  outcome: >-
+    Dashboard showcased on Behance as part of my work at SacsCloud.

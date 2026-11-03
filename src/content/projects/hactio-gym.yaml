@@ -6,14 +6,14 @@ category: design
 subcategory: web
 workflow: design
 stack:
-  - UI
-  - WEB
-  - GYM
-  - FITNESS
+  - Web Design
+  - UI Design
+  - Branding
+  - Icon Design
 role:
   - Web Design
-  - Fitness Brand
-  - Community
+  - Branding
+  - Visual Design
 links:
   behance: https://www.behance.net/gallery/77510849/Hactio-Web-design-UI-GYM
 cover: ./hactio-gym/cover.webp
@@ -23,50 +23,51 @@ gallery:
   - ./hactio-gym/03.webp
 es:
   title: HACTIO GYM
-  tagline: FITNESS WEB UI
+  tagline: PLATAFORMA WEB DE FITNESS
   summary: >-
-    Hactio Gym es la web de una comunidad de fitness que busca atraer nuevos miembros con una
-    propuesta visual energética y accesible. El sitio representa a personas de todos los niveles,
-    desde principiantes hasta atletas avanzados, reflejando la filosofía inclusiva del gimnasio. Su
-    diseño rompe con los estereotipos del sector al priorizar la comunidad real sobre las imágenes
-    aspiracionales inalcanzables.
+    Hactio es un concepto de plataforma web que conecta entrenadores personales, clientes y
+    gimnasios. Diseñé la marca y la home como un carrusel de cinco pantallas, una por cada propuesta
+    del servicio.
   challenge:
     - >-
-      El 78% de las webs de gimnasios reutilizan fotos de stock con modelos fitness profesionales y
-      CTAs agresivos tipo "TRANSFORMA TU CUERPO HOY".
+      La plataforma habla a dos públicos a la vez, entrenadores que buscan clientes y personas que
+      buscan entrenador, y ninguno debía sentirse secundario.
     - >-
-      Los usuarios potenciales sin experiencia previa se sienten intimidados por webs que solo
-      muestran cuerpos idealizados, lo cual aumenta la tasa de rebote.
+      Había varias propuestas (contratar entrenador, clases online, encontrar gimnasio) que
+      explicar sin convertir la home en un muro de texto.
     - >-
-      La web debe motivar a todos los niveles de fitness sin alienar a quienes dan su primer paso,
-      que representan el 60% del público objetivo.
+      La marca necesitaba un símbolo reconocible que funcionara tanto en logo grande como en el
+      header.
   approach: >-
-    El diseño emplea fotografía auténtica de miembros reales del gimnasio en lugar de imágenes de
-    stock. Las secciones de programas presentan niveles progresivos con descripciones claras de qué
-    esperar en cada etapa. La hero section reproduce un video corto de la comunidad entrenando,
-    generando identificación inmediata. El pricing transparente y el sistema de reservas integrado
-    eliminan las barreras de conversión habituales en el sector.
+    La primera pantalla divide el hero en dos llamadas, "Ser entrenador" y "Ser cliente", cada una
+    con su botón de registro. El resto de la home es un slider vertical de cinco pantallas con
+    paginación numerada; cada una presenta un beneficio con un titular corto, un campo de email y un
+    CTA. Construí el logo como una H formada por dos mancuernas y la apliqué en rojo degradado sobre
+    fondos oscuros. Las formas orgánicas rojas recortan las fotografías y dan ritmo entre
+    pantallas, y un set de iconos de línea acompaña cada perfil.
+  outcome: >-
+    Presentación publicada en Behance con el logo y 5 pantallas de la home.
 en:
   title: HACTIO GYM
-  tagline: FITNESS WEB UI
+  tagline: FITNESS WEB PLATFORM
   summary: >-
-    Hactio Gym is the website for a fitness community that seeks to attract new members with an
-    energetic and accessible visual approach. The site represents people of all levels, from
-    beginners to advanced athletes, reflecting the gym's inclusive philosophy. Its design breaks
-    industry stereotypes by prioritizing real community over unattainable aspirational imagery.
+    Hactio is a web platform concept that connects personal trainers, clients and gyms. I designed
+    the brand and the home page as a five-screen carousel, one per service proposition.
   challenge:
     - >-
-      78% of gym websites reuse stock photos of professional fitness models and aggressive CTAs like
-      "TRANSFORM YOUR BODY TODAY."
+      The platform speaks to two audiences at once, trainers looking for clients and people looking
+      for a trainer, and neither should feel secondary.
     - >-
-      Potential users with no prior experience feel intimidated by websites that only showcase
-      idealized bodies, which increases the bounce rate.
+      Several propositions (hiring a trainer, online classes, finding a gym) had to be explained
+      without turning the home page into a wall of text.
     - >-
-      The website must motivate all fitness levels without alienating those taking their first step,
-      who represent 60% of the target audience.
+      The brand needed a recognizable symbol that worked both as a large logo and in the header.
   approach: >-
-    The design uses authentic photography of real gym members instead of stock images. Program
-    sections present progressive levels with clear descriptions of what to expect at each stage. The
-    hero section plays a short video of the community training, generating immediate identification.
-    Transparent pricing and an integrated booking system remove the conversion barriers that are
-    common in the industry.
+    The first screen splits the hero into two calls, "Be a trainer" and "Be a client", each with its
+    own sign-up button. The rest of the home page is a five-screen vertical slider with numbered
+    pagination; each screen presents one benefit with a short headline, an email field and a CTA. I
+    built the logo as an H made of two dumbbells and applied it in a red gradient over dark
+    backgrounds. Organic red shapes crop the photography and set the rhythm between screens, and a
+    line icon set supports each profile.
+  outcome: >-
+    Case study published on Behance with the logo and 5 home page screens.

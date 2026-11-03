@@ -1,0 +1,86 @@
+year: 2026
+status: live
+type: client
+category: development
+subcategory: web
+workflow: development
+stack:
+  - Astro
+  - React
+  - GSAP
+  - Lenis
+  - Supabase
+  - Resend
+  - Sharp
+role:
+  - Art Direction
+  - UI Design
+  - Frontend Development
+  - Backend Development
+links:
+  live: https://villadolcevita.eu
+cover: ./villa-dolce-vita/cover.webp
+gallery:
+  - ./villa-dolce-vita/01.webp
+  - ./villa-dolce-vita/02.webp
+  - ./villa-dolce-vita/03.webp
+  - ./villa-dolce-vita/04.webp
+  - ./villa-dolce-vita/05.webp
+es:
+  title: VILLA DOLCE VITA
+  tagline: WEB Y RESERVAS PARA VILLA TOSCANA
+  summary: >-
+    Sitio web de Villa Dolce Vita, una finca privada en la Toscana que se alquila completa para
+    estancias, bodas y eventos. Lo diseñé y desarrollé en dos etapas: una primera versión editorial
+    centrada en la imagen y una segunda con nueva dirección de arte, modo oscuro y un sistema de
+    reservas propio con panel de administración.
+  challenge:
+    - >-
+      Una propiedad de alquiler de lujo se vende con fotografía, así que había que mostrar muchas
+      imágenes grandes sin que la web se volviera lenta.
+    - >-
+      Las reservas llegaban por canales sueltos. El dueño necesitaba recibir solicitudes con fechas y
+      precio calculado, y confirmarlas sin riesgo de dobles reservas.
+    - >-
+      El sitio evolucionó con el feedback continuo del cliente: cambios de modelo de reserva,
+      páginas, textos e imágenes sin romper enlaces ya compartidos.
+  approach: >-
+    La v1 nació en Astro con React, GSAP y Lenis: scroll cinematográfico, transiciones de vista y una
+    dirección de arte inspirada en viñedos. En la v2 rediseñé todo con un estilo editorial toscano
+    sobre fondo negro, una galería en mosaico con filtros y lightbox, un journal con artículos y
+    redirecciones para conservar las URL antiguas. Construí el sistema de reservas sobre Supabase:
+    precios por día de la semana, mínimo de noches, restricción en Postgres contra solapamientos y
+    funciones RPC que calculan el precio en el servidor. Un panel /admin con calendario gestiona las
+    solicitudes y una Edge Function envía los emails con Resend. Sharp genera imágenes AVIF/WebP
+    responsivas.
+  outcome: >-
+    Sitio publicado en villadolcevita.eu con 9 páginas públicas, flujo de reserva en /book, panel de
+    administración, sitemap y consentimiento de cookies.
+en:
+  title: VILLA DOLCE VITA
+  tagline: TUSCAN VILLA WEBSITE + BOOKINGS
+  summary: >-
+    Website for Villa Dolce Vita, a private Tuscan estate rented as a whole for stays, weddings and
+    events. I designed and built it in two stages: a first image-led editorial version, then a second
+    one with new art direction, a dark theme and a custom booking system with an admin panel.
+  challenge:
+    - >-
+      A luxury rental sells through photography, so the site had to show many large images without
+      becoming slow.
+    - >-
+      Booking requests came through scattered channels. The owner needed requests with dates and a
+      calculated price, and a way to confirm them with no risk of double bookings.
+    - >-
+      The site evolved with ongoing client feedback: changes to the booking model, pages, copy and
+      imagery, without breaking links that were already shared.
+  approach: >-
+    v1 started in Astro with React, GSAP and Lenis: cinematic scrolling, view transitions and a
+    vineyard-inspired art direction. For v2 I redesigned everything in a Tuscan editorial style on
+    black, added a masonry gallery with filters and a lightbox, a journal with articles, and redirects
+    to keep old URLs alive. I built the booking system on Supabase: weekday pricing, minimum stays, a
+    Postgres constraint against overlapping bookings and RPC functions that compute prices
+    server-side. An /admin panel with a calendar manages requests, and an Edge Function sends emails
+    through Resend. Sharp generates responsive AVIF/WebP images.
+  outcome: >-
+    Site live at villadolcevita.eu with 9 public pages, a booking flow at /book, an admin panel,
+    sitemap and cookie consent.

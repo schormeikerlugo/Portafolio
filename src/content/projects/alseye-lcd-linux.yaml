@@ -1,0 +1,78 @@
+year: 2026
+status: released
+type: open-source
+category: development
+subcategory: tools
+workflow: development
+stack:
+  - Python
+  - Linux
+  - systemd
+  - udev
+  - HID
+  - Wine
+role:
+  - Reverse Engineering
+  - Systems Development
+links:
+  repo: https://github.com/schormeikerlugo/alseye-lcd-linux
+cover: ./alseye-lcd-linux/cover.webp
+gallery: []
+es:
+  title: ALSEYE LCD LINUX
+  tagline: DRIVER LCD PARA COOLER EN LINUX
+  summary: >-
+    Un daemon que hace funcionar en Linux la pantalla LCD del cooler ALSEYE MAX M120D-PLUS II,
+    mostrando la temperatura del CPU en tiempo real. El fabricante solo ofrece software para
+    Windows, así que obtuve el protocolo por ingeniería inversa y lo publiqué como proyecto de código
+    abierto. La portada es una ilustración, no una captura.
+  challenge:
+    - >-
+      El cooler no tenía soporte en Linux ni en herramientas como liquidctl, y el protocolo de la
+      pantalla no estaba documentado en ningún sitio.
+    - >-
+      El servicio debía leer el sensor correcto en CPUs AMD e Intel sin configuración manual y
+      sobrevivir a desconexiones del dispositivo USB.
+    - >-
+      Había que dar acceso al dispositivo HID sin ejecutar el daemon como root y que arrancara solo
+      con el sistema en distintas distros.
+  approach: >-
+    Extraje el instalador oficial con innoextract, localicé en el binario las llamadas a hidapi y el
+    VID/PID 5131:2007, y ejecuté el software bajo Wine capturando sus escrituras con strace. Así
+    obtuve el paquete que envía la temperatura y validé el offset con valores de prueba en la
+    pantalla física. El daemon está escrito en Python usando solo la librería estándar: detecta el
+    sensor en hwmon, escribe en /dev/hidraw cada segundo y se reconecta si el dispositivo
+    desaparece. Una regla udev concede el acceso y un servicio systemd lo arranca al iniciar, todo
+    instalable con un script.
+  outcome: >-
+    Repositorio público en GitHub con licencia MIT, instalador y desinstalador, compatible con Arch,
+    Ubuntu/Debian y Fedora.
+en:
+  title: ALSEYE LCD LINUX
+  tagline: COOLER LCD DRIVER FOR LINUX
+  summary: >-
+    A daemon that brings the LCD screen of the ALSEYE MAX M120D-PLUS II cooler to life on Linux,
+    showing CPU temperature in real time. The vendor only ships Windows software, so I
+    reverse-engineered the protocol and released it as an open-source project. The cover is an
+    illustration, not a screenshot.
+  challenge:
+    - >-
+      The cooler had no Linux support, wasn't covered by tools like liquidctl, and the display
+      protocol wasn't documented anywhere.
+    - >-
+      The service had to pick the right sensor on both AMD and Intel CPUs without manual setup and
+      survive USB disconnects.
+    - >-
+      The HID device needed to be accessible without running the daemon as root, and it had to start
+      automatically across different distros.
+  approach: >-
+    I unpacked the official installer with innoextract, found the hidapi calls and the 5131:2007
+    VID/PID in the binary, and ran the software under Wine while capturing its writes with strace.
+    That revealed the packet carrying the temperature, and I confirmed the offset by sending test
+    values to the physical display. The daemon is written in Python using only the standard library:
+    it detects the hwmon sensor, writes to /dev/hidraw every second and reconnects if the device
+    drops. A udev rule grants access and a systemd service starts it at boot, all set up by a single
+    install script.
+  outcome: >-
+    Public GitHub repository under the MIT license, with install and uninstall scripts, supporting
+    Arch, Ubuntu/Debian and Fedora.

@@ -6,66 +6,62 @@ category: design
 subcategory: web
 workflow: design
 stack:
-  - UI
-  - SPORTS
-  - WEB
-  - PROFILE
+  - Web Design
+  - UI Design
+  - Visual Design
 role:
-  - Sports Profile
-  - Athlete Brand
-  - Social Integration
+  - Web Design
+  - UI Design
 links:
   behance: https://www.behance.net/gallery/73948417/sparty-Profile-Web-design
 cover: ./sparty-profile/cover.webp
 gallery: []
 es:
   title: SPARTY PROFILE
-  tagline: SPORTS WEB DESIGN
+  tagline: PLANTILLA DE PERFIL DE ATLETA
   summary: >-
-    Sparty Profile es el perfil web de un atleta profesional que funciona como carta de presentación
-    ante sponsors, medios de comunicación y aficionados. El diseño transmite energía competitiva
-    mediante composiciones dinámicas, tipografía bold y transiciones de alto impacto visual. Su
-    propósito va más allá de mostrar estadísticas: construye una narrativa visual de la carrera
-    deportiva que conecta emocionalmente con cada tipo de audiencia.
+    Concepto de plantilla web para perfiles de deportistas, probada con dos atletas de disciplinas
+    distintas (fútbol y fútbol americano). Diseñé el hero y la navegación del perfil como ejercicio
+    personal publicado en Behance.
   challenge:
     - >-
-      Los perfiles deportivos web convencionales son páginas estáticas con biografías en texto plano
-      y fotografías genéricas sin narrativa visual.
+      La misma plantilla debía funcionar para deportes y fotografías muy diferentes sin
+      rediseñarse cada vez.
     - >-
-      Las estadísticas del atleta se presentan como tablas numéricas sin contexto visual ni
-      comparativas que permitan valorar el rendimiento real.
+      El nombre del atleta y su disciplina tenían que leerse bien sobre fotos de acción con mucho
+      detalle.
     - >-
-      La web debe funcionar como herramienta de negociación ante sponsors que evalúan el valor
-      comercial del atleta en menos de 30 segundos.
+      El perfil necesitaba dar acceso a varias secciones (estadísticas, equipo, calendario) sin
+      cargar el hero.
   approach: >-
-    Las secciones hero emplean fotografía deportiva de acción con composiciones dinámicas que
-    capturan la intensidad competitiva del atleta. Las estadísticas se visualizan con gráficos
-    radiales animados que permiten comparar rendimiento por temporada y categoría. Un timeline
-    interactivo recorre los hitos de la carrera con imágenes y logros verificables. La integración
-    con redes sociales muestra el alcance mediático en tiempo real, mientras la sección de
-    patrocinadores exhibe las marcas asociadas con enlaces directos.
+    Fijé una estructura común: header con escudo del equipo, buscador y redes, una barra de
+    pestañas para las secciones del perfil y un hero con el nombre completo, la disciplina, iconos
+    sociales y un botón verde. Cada atleta solo cambia la fotografía de fondo, que oscurezco con
+    un degradado para mantener el texto legible. Usé un tema oscuro con el verde como único color
+    de acento, un borde luminoso en las tarjetas y tipografía redondeada para el nombre.
+  outcome: >-
+    Concepto publicado en Behance con dos variantes de perfil.
 en:
   title: SPARTY PROFILE
-  tagline: SPORTS WEB DESIGN
+  tagline: ATHLETE PROFILE TEMPLATE
   summary: >-
-    Sparty Profile is the web profile of a professional athlete that serves as a presentation card
-    for sponsors, media outlets, and fans. The design conveys competitive energy through dynamic
-    compositions, bold typography, and high-impact visual transitions. Its purpose goes beyond
-    displaying statistics: it builds a visual narrative of the sports career that connects
-    emotionally with each type of audience.
+    A web template concept for athlete profiles, tested with two athletes from different sports
+    (soccer and American football). I designed the hero and profile navigation as a personal
+    exercise published on Behance.
   challenge:
     - >-
-      Conventional sports web profiles are static pages with plain-text biographies and generic
-      photography without visual narrative.
+      The same template had to work for very different sports and photography without being
+      redesigned each time.
     - >-
-      Athlete statistics are presented as numerical tables without visual context or comparisons
-      that allow viewers to assess actual performance.
+      The athlete's name and sport had to read well over detailed action photos.
     - >-
-      The website must function as a negotiation tool for sponsors who evaluate the athlete's
-      commercial value in under 30 seconds.
+      The profile needed access to several sections (stats, team, schedule) without crowding the
+      hero.
   approach: >-
-    Hero sections feature action sports photography with dynamic compositions that capture the
-    athlete's competitive intensity. Statistics are visualized with animated radial charts that
-    allow comparison by season and category. An interactive timeline traces career milestones with
-    images and verifiable achievements. Social media integration displays real-time media reach,
-    while the sponsors section showcases associated brands with direct links.
+    I set a shared structure: a header with the team crest, search and social links, a tab bar for
+    the profile sections, and a hero with the full name, sport, social icons and a green button.
+    Each athlete only swaps the background photo, darkened with a gradient to keep the text
+    readable. I used a dark theme with green as the single accent color, a soft glowing border on
+    the cards and a rounded typeface for the name.
+  outcome: >-
+    Concept published on Behance with two profile variants.

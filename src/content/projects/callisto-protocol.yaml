@@ -1,5 +1,4 @@
 legacyId: 6
-featured: 6
 year: 2022
 status: concept
 type: concept
@@ -7,14 +6,15 @@ category: design
 subcategory: games
 workflow: design
 stack:
-  - UI
-  - GAME
-  - SCI-FI
-  - DARK
-role:
-  - Game UI Concept
-  - HUD Design
+  - UI Design
+  - Web Design
+  - Responsive Design
+  - Prototyping
   - Art Direction
+role:
+  - UI Design
+  - Art Direction
+  - Prototyping
 links:
   behance: https://www.behance.net/gallery/154810171/The-Callisto-Protocol
 cover: ./callisto-protocol/cover.webp
@@ -27,57 +27,52 @@ gallery:
   - ./callisto-protocol/06.webp
 es:
   title: THE CALLISTO PROTOCOL
-  tagline: GAME UI CONCEPT
+  tagline: WEB CONCEPTUAL DE VIDEOJUEGO
   summary: >-
-    The Callisto Protocol es un survival horror ambientado en una prisión espacial, y este concepto
-    de interfaz explora cómo el UI puede amplificar la tensión narrativa sin interrumpir al jugador.
-    El diseño abarca el HUD in-game, los menús de inventario y el sistema de salud, todos integrados
-    en la estética industrial y claustrofóbica del juego. La premisa fundamental era que cada
-    elemento visual debía sentirse como parte del mundo ficticio, no como una capa superpuesta ajena
-    a la experiencia.
+    Concepto no oficial de sitio web promocional para The Callisto Protocol, un survival horror
+    ambientado en una prisión de la luna Callisto. Diseñé tres páginas (inicio, historia y galería
+    de medios) en escritorio y móvil, con su guía de estilo y un prototipo navegable.
   challenge:
     - >-
-      Los juegos de horror espacial exigen un balance milimétrico entre información y minimalismo.
-      Un HUD con más de 4 elementos visibles simultáneos reduce la tensión percibida un 35% según
-      playtests.
+      La web tenía que transmitir el tono opresivo del juego sin que el contenido promocional
+      (reserva, plataformas, registro) quedara escondido en la oscuridad.
     - >-
-      Demasiada UI rompe la inmersión del horror. Muy poca UI genera frustración — los jugadores
-      mueren sin entender por qué, y el 40% abandona en la primera hora.
+      Las páginas de historia tienen bloques largos de texto que debían leerse bien sobre imágenes
+      muy oscuras.
     - >-
-      El HUD debe integrarse orgánicamente con la estética industrial de la prisión de Callisto,
-      como si fuera parte del equipamiento del protagonista.
+      La composición de escritorio, con mucho aire y elementos laterales, tenía que adaptarse a una
+      sola columna en móvil.
   approach: >-
-    El HUD diegético se inspira en Dead Space: la salud se muestra en la columna vertebral del traje
-    y la munición aparece proyectada sobre el arma, eliminando cualquier overlay tradicional. Los
-    menús de inventario replican una terminal corrupta con glitches sutiles que se intensifican
-    cuando el personaje está herido, reforzando la tensión narrativa desde la propia interfaz. La
-    paleta se restringe a monocromos fríos con acentos rojos exclusivamente reservados para estados
-    de peligro, lo que garantiza que cada destello de color comunique urgencia inmediata.
+    Definí un sistema corto: Infield Rough para titulares, Silka Mono para texto y una paleta de
+    blanco, cian (#79ECEE) y ámbar (#F1C858) sobre negro, todo en una retícula de 1920×1080. Los
+    detalles tipo interfaz de nave (marcas de medición, coordenadas y esquinas de mira) enmarcan el
+    contenido y lo conectan con el mundo del juego. Los bordes rasgados en azul separan secciones y
+    dan textura sin tapar el texto. La galería usa una rejilla de seis miniaturas con barra de
+    progreso, que en móvil pasa a un carrusel de una imagen.
+  outcome: >-
+    Tres páginas en escritorio y móvil, guía de estilo y prototipo publicados en Behance.
 en:
   title: THE CALLISTO PROTOCOL
-  tagline: GAME UI CONCEPT
+  tagline: GAME WEBSITE CONCEPT
   summary: >-
-    The Callisto Protocol is a survival horror set in a space prison, and this interface concept
-    explores how UI can amplify narrative tension without interrupting the player. The design covers
-    the in-game HUD, inventory menus, and health system, all integrated into the industrial and
-    claustrophobic aesthetic of the game. The fundamental premise was that every visual element
-    should feel like part of the fictional world, not a superimposed layer detached from the
-    experience.
+    An unofficial promotional website concept for The Callisto Protocol, a survival horror game set
+    in a prison on the moon Callisto. I designed three pages (home, story, and media gallery) for
+    desktop and mobile, along with a style guide and a clickable prototype.
   challenge:
     - >-
-      Space horror games demand a precise balance between information and minimalism. A HUD with
-      more than 4 simultaneous visible elements reduces perceived tension by 35% according to
-      playtests.
+      The site had to convey the game's oppressive tone without burying the promotional content
+      (pre-order, platforms, sign-up) in darkness.
     - >-
-      Too much UI breaks horror immersion. Too little UI generates frustration — players die without
-      understanding why, and 40% quit in the first hour.
+      The story pages carry long blocks of text that had to stay readable over very dark imagery.
     - >-
-      The HUD must integrate organically with the industrial aesthetic of the Callisto prison, as if
-      it were part of the protagonist's equipment.
+      The airy desktop layout, with elements along the edges, had to collapse into a single mobile
+      column.
   approach: >-
-    The diegetic HUD draws inspiration from Dead Space: health is displayed on the suit's spine and
-    ammo is projected onto the weapon, eliminating any traditional overlay. Inventory menus
-    replicate a corrupted terminal with subtle glitches that intensify when the character is
-    injured, reinforcing narrative tension from the interface itself. The palette is restricted to
-    cool monochromes with red accents reserved exclusively for danger states, ensuring that every
-    flash of color communicates immediate urgency.
+    I set up a compact system: Infield Rough for headlines, Silka Mono for body text, and a palette
+    of white, cyan (#79ECEE), and amber (#F1C858) on black, all on a 1920×1080 grid. Spaceship-style
+    UI details (measurement ticks, coordinates, and targeting corners) frame the content and tie it
+    to the game world. Torn blue edges separate sections and add texture without covering the text.
+    The gallery uses a six-thumbnail grid with a progress bar, which becomes a single-image carousel
+    on mobile.
+  outcome: >-
+    Three pages for desktop and mobile, a style guide, and a prototype published on Behance.

@@ -1,6 +1,6 @@
 legacyId: 32
 year: 2025
-status: archived
+status: live
 type: personal
 category: development
 subcategory: web
@@ -8,15 +8,17 @@ workflow: development
 stack:
   - HTML
   - CSS
-  - JAVASCRIPT
-  - SUPABASE
-  - POSTGRESQL
-  - EDGE FUNCTIONS
-role:
-  - Full-stack Dev
+  - JavaScript
   - Supabase
-  - Edge Functions
+  - PostgreSQL
+  - Deno
+  - Resend
+role:
+  - UI Design
+  - Frontend Development
+  - Backend Development
 links:
+  live: https://schormeikerlugo.github.io/Rifa-Online/
   repo: https://github.com/schormeikerlugo/Rifa-Online
 cover: ./rifa-online/cover.webp
 gallery:
@@ -27,58 +29,56 @@ gallery:
   - ./rifa-online/05.webp
 es:
   title: RIFA ONLINE
-  tagline: FULLSTACK PLATFORM
+  tagline: PLATAFORMA DE RIFAS ONLINE
   summary: >-
-    Plataforma web de gestión de rifas online desarrollada con tecnologías frontend puras y Supabase
-    como backend serverless. Los usuarios participan seleccionando números y subiendo comprobantes
-    de pago, mientras los administradores gestionan rifas y validan reservaciones desde un panel
-    dedicado. El sistema incluye compra de tickets en tiempo real con actualización instantánea de
-    disponibilidad, dashboard administrativo completo, diseño responsive, arquitectura modular por
-    componentes funcionales, animaciones CSS y Edge Functions de Supabase para microservicios de
-    gestión y notificaciones por email.
+    Plataforma web para organizar rifas. Los participantes eligen sus números y suben el comprobante
+    de pago; el organizador crea rifas y aprueba o rechaza reservas desde un panel propio. La
+    construí con HTML, CSS y JavaScript sin frameworks, y usé Supabase como backend completo.
   challenge:
     - >-
-      Las plataformas de rifas existentes carecen de transparencia en el proceso de sorteo. No hay
-      forma de verificar la aleatoriedad del resultado.
+      Dos personas no podían reservar el mismo número, y cada participante tenía que ver qué números
+      quedaban libres sin recargar la página.
     - >-
-      La gestión de pagos y verificación de participantes requiere flujos seguros y trazables. La
-      subida de comprobantes multimedia necesita validación visual.
+      Las operaciones sensibles, como crear rifas o moderar reservas, no podían depender de código
+      del navegador que cualquiera puede modificar.
     - >-
-      Sin backend dedicado, toda la lógica de negocio (auth, storage, edge functions, RLS) debe
-      funcionar completamente con Supabase. Containerización con Docker y pagos automatizados
-      (MercadoPago, Stripe, Bitcoin) en desarrollo.
+      Sin servidor propio, la autenticación, el almacenamiento de comprobantes, los correos y la
+      lógica de negocio tenían que resolverse con servicios gestionados.
   approach: >-
-    Plataforma fullstack con interfaz de cliente para navegación de rifas, selección de números y
-    subida de pagos, separada de un panel administrativo para creación de rifas, moderación de
-    reservaciones y analytics. Capa API con Supabase para autenticación y operaciones de datos con
-    Row Level Security. Edge Functions como microservicios para gestión de rifas y notificaciones
-    por email. Sistema de tokens de autenticación para admin. Loaders de subida multimedia. Sorteo
-    aleatorio verificable con registro público de resultados.
+    Dividí el proyecto en dos aplicaciones, cliente y panel de administración, cada una organizada
+    por funciones y con su propio CSS modular basado en variables. Las acciones críticas pasan por
+    Edge Functions de Supabase escritas en TypeScript sobre Deno: crear, editar y eliminar rifas,
+    reservar números y moderar reservas. Los comprobantes se guardan en Supabase Storage y el panel
+    recibe avisos de nuevas reservas por Supabase Realtime. Los correos al participante salen por
+    una función que llama a la API de Resend.
+  outcome: >-
+    Sitio publicado en GitHub Pages con vista de cliente, panel de administración y 7 Edge Functions
+    en Supabase.
 en:
   title: RIFA ONLINE
-  tagline: FULLSTACK PLATFORM
+  tagline: ONLINE RAFFLE PLATFORM
   summary: >-
-    Online raffle management web platform built with pure frontend technologies and Supabase as
-    serverless backend. Users participate by selecting numbers and uploading payment proof, while
-    administrators manage raffles and validate reservations from a dedicated panel. The system
-    includes real-time ticket purchasing with instant availability updates, complete admin
-    dashboard, responsive design, modular architecture by functional components, CSS animations, and
-    Supabase Edge Functions for management microservices and email notifications.
+    A web platform for running raffles. Participants pick their numbers and upload proof of
+    payment; the organizer creates raffles and approves or rejects reservations from a dedicated
+    panel. I built it with framework-free HTML, CSS and JavaScript, using Supabase as the entire
+    backend.
   challenge:
     - >-
-      Existing raffle platforms lack transparency in the drawing process. There is no way to verify
-      the randomness of the result.
+      Two people could not reserve the same number, and every participant had to see which numbers
+      were still free without reloading the page.
     - >-
-      Payment management and participant verification require secure and traceable flows. Multimedia
-      proof uploading needs visual validation.
+      Sensitive operations, like creating raffles or moderating reservations, could not rely on
+      browser code that anyone can tamper with.
     - >-
-      Without a dedicated backend, all business logic (auth, storage, edge functions, RLS) must work
-      entirely with Supabase. Docker containerization and automated payments (MercadoPago, Stripe,
-      Bitcoin) in development.
+      With no server of my own, authentication, receipt storage, emails and business logic had to
+      run on managed services.
   approach: >-
-    Fullstack platform with client interface for raffle browsing, number selection, and payment
-    uploading, separated from an admin panel for raffle creation, reservation moderation, and
-    analytics. API layer with Supabase for authentication and data operations with Row Level
-    Security. Edge Functions as microservices for raffle management and email notifications. Admin
-    authentication token system. Multimedia upload loaders. Verifiable random drawing with public
-    result logging.
+    I split the project into two apps, the client and the admin panel, each organized by feature
+    with its own modular, variable-based CSS. Critical actions go through Supabase Edge Functions
+    written in TypeScript on Deno: creating, editing and deleting raffles, reserving numbers and
+    moderating reservations. Receipts are stored in Supabase Storage, and the panel gets notified of
+    new reservations through Supabase Realtime. Emails to participants are sent by a function that
+    calls the Resend API.
+  outcome: >-
+    Site published on GitHub Pages with a client view, an admin panel and 7 Supabase Edge
+    Functions.

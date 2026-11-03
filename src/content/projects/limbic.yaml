@@ -1,19 +1,18 @@
 legacyId: 20
 year: 2018
 status: concept
-type: concept
+type: professional
 category: design
 subcategory: web
 workflow: design
 stack:
-  - UI
-  - WEB
-  - CREATIVE
-  - AGENCY
+  - Web Design
+  - UI Design
+  - Visual Design
+  - Responsive Design
 role:
   - Web Design
-  - Agency Portfolio
-  - Case Studies
+  - UI Design
 links:
   behance: https://www.behance.net/gallery/64106131/Web-design-Proyect-Limbic
 cover: ./limbic/cover.webp
@@ -21,51 +20,47 @@ gallery:
   - ./limbic/01.webp
 es:
   title: LIMBIC
-  tagline: CREATIVE AGENCY WEB
+  tagline: WEB INSTITUCIONAL DE AGENCIA TECH
   summary: >-
-    Limbic es la web de una agencia creativa que funciona simultáneamente como portfolio de
-    proyectos y herramienta de captación de clientes. El diseño refleja la misma creatividad que la
-    agencia ofrece a sus clientes, demostrando capacidades técnicas y artísticas desde el primer
-    scroll. Su propuesta equilibra la experimentación visual con la claridad comercial necesaria
-    para convertir visitantes en leads cualificados.
+    Limbic es una empresa chilena de desarrollo tecnológico (inteligencia artificial, blockchain,
+    chatbots, apps). Como Web Designer en Limbic diseñé su sitio institucional de una sola página,
+    desde el hero hasta el formulario de contacto.
   challenge:
     - >-
-      Las webs de agencias creativas caen en dos extremos: las experimentales confunden al visitante
-      con navegación no convencional, y las corporativas no demuestran talento.
+      La empresa ofrece servicios muy técnicos y variados; el sitio debía presentarlos de forma
+      comprensible para clientes no técnicos.
     - >-
-      Los clientes potenciales dedican menos de 20 segundos a evaluar si una agencia merece su
-      atención; necesitan ver resultados concretos, no solo experimentación visual.
+      En una sola página convivían misión y visión, servicios, portafolio, testimonios, equipo,
+      blog y contacto, y cada bloque tenía que distinguirse del anterior.
     - >-
-      La propia web es el primer proyecto que el cliente potencial juzga — si el diseño no convence,
-      la agencia pierde credibilidad antes de cualquier pitch.
+      La identidad necesitaba sentirse tecnológica sin caer en un sitio frío y corporativo.
   approach: >-
-    El layout asimétrico mantiene la creatividad visual sin sacrificar la navegabilidad, con puntos
-    de anclaje claros en cada sección. El portfolio incluye filtros por industria y tipo de
-    proyecto, acompañado de case studies con métricas de impacto. Las animaciones sutiles demuestran
-    capacidad técnica sin ralentizar la carga ni distraer del contenido. Cada página conduce al
-    visitante hacia un CTA de contacto contextualizado según el tipo de proyecto que exploró.
+    Partí del isotipo hexagonal y su degradado magenta-violeta-azul y lo convertí en el hilo de toda
+    la página. Alterné secciones oscuras y claras separadas por curvas, de modo que cada bloque se
+    lee como una pantalla propia. Los servicios se presentan en una cuadrícula de iconos con título
+    corto, y el portafolio en un carrusel filtrable por categoría y orden alfabético. Para la parte
+    humana diseñé un slider de testimonios, fichas del equipo con foto y biografía, contadores y un
+    blog con vídeo destacado, cerrando con un formulario de contacto sobre fotografía.
 en:
   title: LIMBIC
-  tagline: CREATIVE AGENCY WEB
+  tagline: TECH AGENCY CORPORATE SITE
   summary: >-
-    Limbic is the website for a creative agency that functions simultaneously as a project portfolio
-    and a client acquisition tool. The design reflects the same creativity the agency offers its
-    clients, demonstrating technical and artistic capabilities from the first scroll. Its approach
-    balances visual experimentation with the commercial clarity needed to convert visitors into
-    qualified leads.
+    Limbic is a Chilean technology company (artificial intelligence, blockchain, chatbots, apps). As
+    Web Designer at Limbic I designed its one-page corporate website, from the hero to the contact
+    form.
   challenge:
     - >-
-      Creative agency websites fall into two extremes: experimental ones confuse visitors with
-      unconventional navigation, and corporate ones fail to showcase talent.
+      The company offers highly technical and varied services; the site had to present them in a way
+      non-technical clients could follow.
     - >-
-      Potential clients spend fewer than 20 seconds evaluating whether an agency deserves their
-      attention; they need to see concrete results, not just visual experimentation.
+      A single page held mission and vision, services, portfolio, testimonials, team, blog and
+      contact, and each block needed to stand apart from the previous one.
     - >-
-      The website itself is the first project the potential client judges — if the design fails to
-      convince, the agency loses credibility before any pitch.
+      The identity had to feel technological without becoming a cold, corporate site.
   approach: >-
-    The asymmetric layout maintains visual creativity without sacrificing navigability, with clear
-    anchor points in every section. The portfolio includes filters by industry and project type,
-    accompanied by case studies with impact metrics. Subtle animations demonstrate technical
-    capability without slowing load times or distracting from the content. Each page guides the
-    visitor toward a contact CTA contextualized to the type of project they explored.
+    I started from the hexagonal mark and its magenta-violet-blue gradient and made it the thread
+    running through the whole page. Dark and light sections alternate, separated by curves, so each
+    block reads as its own screen. Services sit in an icon grid with short titles, and the portfolio
+    in a carousel filterable by category and alphabetical order. For the human side I designed a
+    testimonial slider, team cards with photo and bio, counters and a blog with a featured video,
+    closing with a contact form over photography.

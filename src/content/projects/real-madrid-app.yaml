@@ -6,14 +6,14 @@ category: design
 subcategory: app
 workflow: design
 stack:
-  - UI
-  - APP
-  - SPORTS
-  - FIGMA
+  - Figma
+  - UI Design
+  - Mobile Design
+  - Prototyping
 role:
-  - Mobile UI Concept
-  - Fan Engagement
-  - Sports
+  - UI Design
+  - UX Design
+  - Visual Design
 links:
   behance: https://www.behance.net/gallery/184060603/Real-madrid-APP
 cover: ./real-madrid-app/cover.webp
@@ -23,58 +23,54 @@ gallery:
   - ./real-madrid-app/03.webp
 es:
   title: REAL MADRID APP
-  tagline: SPORTS MOBILE CONCEPT
+  tagline: CONCEPTO DE APP PARA AFICIONADOS
   summary: >-
-    Real Madrid App es un concepto de aplicación móvil oficial para el club más laureado del fútbol
-    europeo, diseñada para centralizar noticias, estadísticas de jugadores, calendario de partidos y
-    experiencias de fan engagement en una sola plataforma. La app se dirige a una base global de más
-    de 500 millones de aficionados que consumen contenido del club desde múltiples fuentes
-    dispersas. Su identidad visual debía reflejar la elegancia y el prestigio histórico de la marca
-    Real Madrid, diferenciándose de las apps deportivas genéricas que priorizan la cantidad de
-    contenido sobre la calidad de la experiencia.
+    Concepto no oficial de app móvil para el Real Madrid que reúne noticias, resultados de partidos y
+    la tienda del club en un mismo lugar. Lo diseñé como ejercicio personal en Figma: navegación,
+    pantallas clave y sistema visual, publicados en Behance.
   challenge:
     - >-
-      Las apps deportivas oficiales priorizan volumen de contenido sobre experiencia del usuario. La
-      app actual muestra 6 banners, 3 carruseles y 12 enlaces en la home sin jerarquía clara de
-      lectura.
+      Unir tres usos muy distintos (leer noticias, seguir un partido y comprar una camiseta) sin que
+      la app se sienta como tres productos pegados.
     - >-
-      Los fans quieren acceso a resultados en vivo en menos de 2 toques durante los partidos. Las
-      apps actuales requieren 4+ pasos para llegar al marcador.
+      Dar protagonismo a la fotografía de jugadores y equipaciones sin perder legibilidad en
+      marcadores, tallas o precios.
     - >-
-      La app debe reflejar la elegancia y el prestigio histórico del Real Madrid. Una interfaz
-      genérica devalúa la percepción de un club con 15 Champions League.
+      Reflejar la identidad del club con una interfaz limpia, lejos de las portadas saturadas de
+      banners habituales en apps deportivas.
   approach: >-
-    El diseño premium adopta los tonos blancos y dorados de la identidad del club, con tipografía
-    serif para títulos que evoca la tradición institucional del Real Madrid. El feed de noticias
-    presenta cards visuales con fotografía editorial de alta calidad, mientras los perfiles de
-    jugadores despliegan estadísticas interactivas con gráficos radiales de rendimiento por
-    competición. El calendario incluye cuenta regresiva para el próximo partido y acceso directo al
-    modo en vivo, que transforma la interfaz en un dashboard de seguimiento con marcador, alineación
-    y eventos minuto a minuto.
+    Organicé la app con una barra inferior de cinco accesos (noticias, tienda, resultados,
+    multimedia y búsqueda) y un menú lateral con las secciones secundarias como Competiciones o Mi
+    Madrid. Sobre fondos claros usé el azul como color de acción y el escudo y el logo de Adidas como
+    únicos acentos de marca. La pantalla de partido muestra el marcador grande y debajo pestañas de
+    cronología, alineación y estadísticas, con tarjetas por gol. La tienda filtra por Hombre, Mujer y
+    Niños y la ficha de producto prioriza la foto, el selector de talla y el botón de carrito.
+  outcome: >-
+    Concepto publicado en Behance con 3 composiciones que muestran 6 pantallas: menú, noticias,
+    partido, tienda, ficha de producto y jugador destacado.
 en:
   title: REAL MADRID APP
-  tagline: SPORTS MOBILE CONCEPT
+  tagline: FAN APP CONCEPT
   summary: >-
-    Real Madrid App is an official mobile application concept for Europe's most decorated football
-    club, designed to centralize news, player statistics, match calendar, and fan engagement
-    experiences in a single platform. The app targets a global base of over 500 million fans who
-    consume club content from multiple scattered sources. Its visual identity had to reflect the
-    elegance and historic prestige of the Real Madrid brand, setting itself apart from generic
-    sports apps that prioritize content volume over experience quality.
+    An unofficial mobile app concept for Real Madrid that brings news, match results and the club
+    store into one place. I designed it in Figma as a personal exercise: navigation, key screens and
+    visual system, published on Behance.
   challenge:
     - >-
-      Official sports apps prioritize content volume over user experience. The current app displays
-      6 banners, 3 carousels, and 12 links on the home screen with no clear reading hierarchy.
+      Combining three very different uses (reading news, following a match and buying a shirt)
+      without the app feeling like three products stitched together.
     - >-
-      Fans want access to live results in under 2 taps during matches. Current apps require 4+ steps
-      to reach the scoreboard.
+      Letting player and kit photography lead while keeping scores, sizes and prices easy to read.
     - >-
-      The app must reflect the elegance and historic prestige of Real Madrid. A generic interface
-      devalues the perception of a club with 15 Champions League titles.
+      Reflecting the club's identity through a clean interface, away from the banner-heavy home
+      screens common in sports apps.
   approach: >-
-    The premium design adopts the white and gold tones of the club's identity, with serif typography
-    for titles that evokes Real Madrid's institutional tradition. The news feed presents visual
-    cards with high-quality editorial photography, while player profiles display interactive
-    statistics with radial performance charts by competition. The calendar includes a countdown to
-    the next match and direct access to live mode, which transforms the interface into a tracking
-    dashboard with scoreboard, lineup, and minute-by-minute events.
+    I structured the app around a five-item bottom bar (news, store, results, media and search) and
+    a side menu for secondary sections such as Competitions or Mi Madrid. On light backgrounds, blue
+    is the action color and the crest and Adidas logo are the only brand accents. The match screen
+    shows a large scoreline followed by tabs for timeline, lineup and stats, with a card per goal.
+    The store filters by Men, Women and Kids, and the product page puts the photo, size picker and
+    add-to-cart button first.
+  outcome: >-
+    Concept published on Behance as 3 compositions covering 6 screens: menu, news, match, store,
+    product page and featured player.

@@ -1,0 +1,75 @@
+year: 2026
+status: live
+type: client
+category: development
+subcategory: web
+workflow: development
+stack:
+  - Astro
+  - Tailwind CSS
+  - JavaScript
+  - Vercel
+role:
+  - UI Design
+  - Frontend Development
+links:
+  live: https://graff-construction.vercel.app
+  repo: https://github.com/schormeikerlugo/Graff-Construction
+cover: ./graff-construction/cover.webp
+gallery:
+  - ./graff-construction/01.webp
+  - ./graff-construction/02.webp
+  - ./graff-construction/03.webp
+  - ./graff-construction/04.webp
+  - ./graff-construction/05.webp
+es:
+  title: GRAFF CONSTRUCTION
+  tagline: PROPUESTA WEB PARA CONSTRUCTORA
+  summary: >-
+    Propuesta de sitio nuevo para Graff Construction, una empresa de construcción y reformas del área
+    de Edmonton. El cliente ya tenía una web en GoDaddy en su dominio; yo diseñé y desarrollé esta
+    alternativa como landing de una página y la publiqué en Vercel para presentársela.
+  challenge:
+    - >-
+      Una constructora necesita transmitir solidez y confianza; la propuesta tenía que verse más
+      actual y cuidada que una plantilla genérica.
+    - >-
+      Servicios, proceso de trabajo, zonas de cobertura y contacto debían caber en una sola página
+      sin volverse densos.
+    - >-
+      Los efectos visuales no podían penalizar la carga en un sitio pensado para captar clientes
+      desde el móvil.
+  approach: >-
+    Construí el sitio con Astro como página estática, dividido en componentes (hero, empresa,
+    servicios, proceso, áreas y contacto), y Tailwind CSS v4 para un sistema visual consistente y
+    adaptable. La estética combina tarjetas con efecto glassmorphism, rejillas técnicas y formas
+    geométricas que remiten a planos de obra. La sección de proceso usa JavaScript ligero para
+    abrir en abanico cuatro tarjetas al hacer scroll en escritorio, y pasa a una rejilla estática en
+    pantallas pequeñas. Añadí sitemap con la integración oficial de Astro.
+  outcome: >-
+    Propuesta publicada en Vercel como landing de una página con 6 secciones de contenido.
+en:
+  title: GRAFF CONSTRUCTION
+  tagline: CONSTRUCTION WEBSITE PROPOSAL
+  summary: >-
+    A proposed new website for Graff Construction, a construction and renovation company in the
+    Edmonton area. The client already had a GoDaddy site on their domain; I designed and built this
+    alternative as a one-page landing and deployed it on Vercel to pitch it.
+  challenge:
+    - >-
+      A construction company has to convey solidity and trust; the proposal needed to look more
+      current and refined than a generic template.
+    - >-
+      Services, work process, service areas and contact had to fit on a single page without feeling
+      dense.
+    - >-
+      Visual effects couldn't hurt load times on a site meant to win clients from mobile.
+  approach: >-
+    I built the site with Astro as a static page split into components (hero, about, services,
+    process, areas and contact), with Tailwind CSS v4 for a consistent, responsive visual system. The
+    look combines glassmorphism cards, technical grids and geometric shapes that echo construction
+    blueprints. The process section uses lightweight JavaScript to fan out four cards on scroll on
+    desktop, falling back to a static grid on small screens. I added a sitemap through Astro's
+    official integration.
+  outcome: >-
+    Proposal live on Vercel as a one-page landing with 6 content sections.

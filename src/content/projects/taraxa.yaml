@@ -1,0 +1,78 @@
+year: 2026
+status: live
+type: client
+category: development
+subcategory: web
+workflow: development
+stack:
+  - Astro
+  - TypeScript
+  - CSS
+  - SVG
+role:
+  - UI Design
+  - Frontend Development
+  - Art Direction
+links:
+  live: https://taraxa-kappa.vercel.app
+  repo: https://github.com/schormeikerlugo/TARAXA
+cover: ./taraxa/cover.webp
+gallery:
+  - ./taraxa/01.webp
+  - ./taraxa/02.webp
+  - ./taraxa/03.webp
+  - ./taraxa/04.webp
+  - ./taraxa/05.webp
+es:
+  title: TARAXA
+  tagline: WEB DE INGENIERÍA DE CAUCHO A MEDIDA
+  summary: >-
+    Sitio web de TARAXA, la marca de ingeniería de caucho a medida de GUMEX, un fabricante polaco
+    de componentes moldeados. Diseñé y desarrollé una página de una sola vista que presenta sus
+    capacidades, el proceso de fabricación, los materiales y las industrias a las que sirve, con
+    un formulario para pedir presupuesto.
+  challenge:
+    - >-
+      Presentar un negocio industrial y técnico (moldeo, unión caucho-metal, formulación de
+      compuestos) con una estética cuidada sin perder credibilidad de ingeniería.
+    - >-
+      Explicar siete materiales elastoméricos y sus usos de forma que un comprador técnico pueda
+      compararlos rápido.
+    - >-
+      Comunicar que la producción está en Polonia pero el envío es mundial, sin depender solo de
+      texto.
+  approach: >-
+    Construí el sitio con Astro 4, componentes por sección y CSS propio con tokens, sin frameworks
+    de estilos. El sistema visual combina Cormorant Garamond en los titulares, DM Sans en el texto y
+    JetBrains Mono para coordenadas y etiquetas, sobre fondo oscuro con acentos dorado y óxido. El
+    hero divide la pantalla entre texto y un vídeo de fabricación, y un diente de león en SVG
+    animado con CSS hace de símbolo de marca. La sección de industrias incluye un mapa SVG con
+    líneas desde Polonia hacia los mercados clave, y los revelados usan IntersectionObserver.
+  outcome: >-
+    Sitio publicado en Vercel con 8 secciones, seis capacidades y siete fichas de materiales.
+en:
+  title: TARAXA
+  tagline: CUSTOM RUBBER ENGINEERING WEBSITE
+  summary: >-
+    Website for TARAXA, the custom rubber engineering brand of GUMEX, a Polish manufacturer of
+    moulded components. I designed and built a single-page site covering its capabilities,
+    manufacturing process, materials and the industries it serves, with a quote request form.
+  challenge:
+    - >-
+      Presenting a technical, industrial business (moulding, rubber-to-metal bonding, compound
+      formulation) with a refined look without losing engineering credibility.
+    - >-
+      Explaining seven elastomer materials and their uses so a technical buyer can compare them
+      quickly.
+    - >-
+      Showing that production happens in Poland while shipping is worldwide, without relying on
+      text alone.
+  approach: >-
+    I built the site with Astro 4, per-section components and hand-written CSS with tokens, no
+    styling framework. The visual system pairs Cormorant Garamond headlines with DM Sans body copy
+    and JetBrains Mono for coordinates and labels, on a dark background with gold and rust accents.
+    The hero splits the screen between copy and manufacturing footage, and a CSS-animated SVG
+    dandelion serves as the brand symbol. The industries section includes an SVG map with lines
+    from Poland to key markets, and reveals run on IntersectionObserver.
+  outcome: >-
+    Site live on Vercel with 8 sections, six capabilities and seven material profiles.

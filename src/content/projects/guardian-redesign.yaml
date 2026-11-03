@@ -6,14 +6,12 @@ category: design
 subcategory: web
 workflow: design
 stack:
-  - UI
-  - REDESIGN
-  - WEB
-  - NEWS
+  - Web Design
+  - UI Design
+  - E-commerce Design
 role:
-  - News Redesign
-  - Accessibility
-  - COVID Response
+  - UI Design
+  - Web Design
 links:
   dribbble: https://dribbble.com/shots/11470263-Guardian-Website-Redesign
 cover: ./guardian-redesign/cover.webp
@@ -21,52 +19,48 @@ gallery:
   - ./guardian-redesign/01.webp
 es:
   title: GUARDIAN REDESIGN
-  tagline: NEWS WEB REDESIGN
+  tagline: TIENDA WEB DE MASCARILLAS
   summary: >-
-    Guardian Redesign es una propuesta de rediseño del sitio web de The Guardian concebida durante
-    la pandemia de COVID-19. El proyecto prioriza la legibilidad y accesibilidad de información de
-    salud pública en un contexto de saturación informativa. Su enfoque diferenciador se centra en la
-    jerarquización visual de noticias verificadas frente al flujo constante de información no
-    contrastada que dominaba los medios digitales.
+    Rediseño no oficial de la web de Guardian, una marca de mascarillas de neopreno, hecho en 2020
+    como shot para Dribbble. Diseñé la pantalla principal de producto con su carrusel y la
+    navegación de la tienda.
   challenge:
     - >-
-      Durante la pandemia, los sitios de noticias publicaban más de 200 artículos diarios sin
-      jerarquización visual, imposibilitando distinguir actualizaciones críticas de opinión.
+      Presentar un producto simple, una mascarilla negra, con suficiente interés visual para
+      sostener toda la pantalla.
     - >-
-      Los usuarios necesitaban localizar datos de COVID específicos de su región en menos de 10
-      segundos, pero la estructura del sitio no lo facilitaba.
+      Combinar en una sola vista la foto de producto, la foto de uso y la explicación de materiales.
     - >-
-      La desinformación se propagaba 6 veces más rápido que las noticias verificadas; el diseño
-      debía reforzar visualmente la credibilidad de las fuentes.
+      Comunicar confianza en un producto sanitario sin que la página pareciera clínica.
   approach: >-
-    El rediseño incorpora una sección dedicada a COVID-19 con visualización de datos en tiempo real
-    segmentados por región y nivel de alerta. Las cards de noticias incluyen indicadores de
-    verificación con sellos de fuente y fecha de última actualización. La tipografía se amplió un
-    15% respecto al diseño original para facilitar sesiones de lectura prolongada. Además, un modo
-    de lectura simplificada elimina elementos decorativos y reduce la interfaz al contenido
-    esencial.
+    Dividí el hero en dos: a la izquierda la mascarilla recortada sobre una forma azul ondulada con
+    cruces como patrón, y a la derecha una foto grande de una persona usándola con miniatura de
+    otro ángulo. Debajo del producto van el nombre, una línea de beneficios y la descripción, con
+    indicadores del carrusel. Mantuve el azul como color de marca y acción, el header con
+    Productos, Colección y Afiliado, y redes sociales en vertical a la izquierda. El footer oscuro
+    reúne los medios de pago aceptados y el selector de idioma.
+  outcome: >-
+    Shot publicado en Dribbble con la pantalla principal de producto.
 en:
   title: GUARDIAN REDESIGN
-  tagline: NEWS WEB REDESIGN
+  tagline: FACE MASK ONLINE STORE
   summary: >-
-    Guardian Redesign is a redesign proposal for The Guardian's website conceived during the
-    COVID-19 pandemic. The project prioritizes the readability and accessibility of public health
-    information in a context of information overload. Its differentiating approach focuses on the
-    visual hierarchy of verified news over the constant flow of unverified information that
-    dominated digital media.
+    An unofficial redesign of the website for Guardian, a neoprene face mask brand, made in 2020 as
+    a Dribbble shot. I designed the main product screen with its carousel and the store navigation.
   challenge:
     - >-
-      During the pandemic, news sites published over 200 articles daily without visual hierarchy,
-      making it impossible to distinguish critical updates from opinion.
+      Presenting a simple product, a black face mask, with enough visual interest to carry the whole
+      screen.
     - >-
-      Users needed to locate region-specific COVID data in under 10 seconds, but the site structure
-      did not facilitate that.
+      Combining product photo, in-use photo and material description in a single view.
     - >-
-      Misinformation spread 6 times faster than verified news; the design had to visually reinforce
-      the credibility of sources.
+      Conveying trust for a health product without the page feeling clinical.
   approach: >-
-    The redesign incorporates a dedicated COVID-19 section with real-time data visualization
-    segmented by region and alert level. News cards include verification indicators with source
-    badges and last-updated timestamps. Typography was enlarged by 15% compared to the original
-    design to support extended reading sessions. Additionally, a simplified reading mode strips away
-    decorative elements and reduces the interface to essential content.
+    I split the hero in two: on the left the cut-out mask over a wavy blue shape with a cross
+    pattern, and on the right a large photo of someone wearing it with a thumbnail from another
+    angle. Below the product sit the name, a benefit line and the description, with carousel
+    indicators. Blue stays as the brand and action color, the header holds Products, Collection and
+    Affiliate, and social links run vertically on the left. The dark footer groups accepted payment
+    methods and the language selector.
+  outcome: >-
+    Shot published on Dribbble showing the main product screen.

@@ -6,14 +6,12 @@ category: design
 subcategory: games
 workflow: design
 stack:
-  - UI
-  - E-COMMERCE
-  - PS4
-  - SONY
+  - UI Design
+  - Web Design
+  - E-commerce
 role:
-  - E-commerce UI
-  - Product Design
-  - Checkout Flow
+  - UI Design
+  - E-commerce Design
 links:
   dribbble: https://dribbble.com/shots/8008999-Ecommerce-Playtation-Ui-Design
 cover: ./playstation-store/cover.webp
@@ -21,57 +19,50 @@ gallery:
   - ./playstation-store/01.webp
 es:
   title: PLAYSTATION ECOMMERCE
-  tagline: GAMING STORE UI
+  tagline: PÁGINA DE PRODUCTO PLAYSTATION
   summary: >-
-    PlayStation Ecommerce es un concepto de tienda online para hardware y accesorios PlayStation que
-    fusiona la identidad visual de Sony con una experiencia de compra verdaderamente premium. El
-    diseño va más allá del catálogo convencional: cada producto se presenta como una pieza de
-    ingeniería que merece ser explorada antes de ser comprada. El proyecto se dirige a jugadores que
-    valoran tanto la estética como la funcionalidad, y demuestra que una tienda de hardware gaming
-    puede sentirse tan sofisticada como la marca que representa.
+    Concepto no oficial de página de producto para una tienda de PlayStation, centrado en el mando
+    DualShock 4. En una pantalla reúne descripción, selector de color, cantidad, precio, compra,
+    vistas del producto y acceso al tráiler.
   challenge:
     - >-
-      Las tiendas oficiales de hardware gaming presentan productos como fichas de inventario: foto
-      frontal, especificaciones en lista y botón de compra. La tasa de conversión promedio de estos
-      catálogos es del 1.2%.
+      Una página de producto tiene que poner el foco en el objeto y, a la vez, tener a mano todo lo
+      necesario para comprarlo.
     - >-
-      El DualSense es un producto visualmente atractivo con texturas, colores y detalles que no se
-      aprecian en fotos estáticas de catálogo convencional.
+      La identidad de PlayStation es muy reconocible. Quería usarla sin que la página pareciera un
+      anuncio y no una tienda.
     - >-
-      La experiencia de compra debe sentirse tan premium como el producto. Un checkout genérico
-      devalúa la percepción de marca de un accesorio de 70 USD.
+      Opciones como color y cantidad tenían que poder cambiarse sin salir de la vista principal.
   approach: >-
-    La tienda presenta product shots inmersivos sobre fondos oscuros con iluminación dramática que
-    resalta cada curva y textura del hardware, transformando la página de producto en una
-    experiencia visual comparable a un lanzamiento de Apple. El configurador visual permite al
-    usuario personalizar los colores del DualSense en tiempo real, rotando el modelo 3D para ver
-    cada combinación desde todos los ángulos. El checkout se simplifica a 2 pasos con animaciones de
-    transición fluidas que mantienen la sensación premium hasta la confirmación de compra.
+    Dividí la pantalla en diagonal: a la izquierda, sobre blanco, el texto y los controles de compra;
+    a la derecha, sobre el azul de la marca, la foto grande del mando con tres miniaturas de otros
+    ángulos. Los símbolos de PlayStation (triángulo, círculo, cruz y cuadrado) flotan como textura de
+    fondo. El color se elige con pastillas, la cantidad con un selector numérico y el precio va
+    junto al botón de compra para leerse en un solo vistazo. El carrito y las notificaciones quedan
+    en la cabecera.
+  outcome: >-
+    Pantalla de producto publicada en Dribbble.
 en:
   title: PLAYSTATION ECOMMERCE
-  tagline: GAMING STORE UI
+  tagline: PLAYSTATION PRODUCT PAGE
   summary: >-
-    PlayStation Ecommerce is an online store concept for PlayStation hardware and accessories that
-    merges Sony's visual identity with a truly premium shopping experience. The design goes beyond
-    the conventional catalog: each product is presented as a piece of engineering that deserves to
-    be explored before being purchased. The project targets gamers who value aesthetics as much as
-    functionality, and demonstrates that a gaming hardware store can feel as sophisticated as the
-    brand it represents.
+    An unofficial product page concept for a PlayStation store, focused on the DualShock 4
+    controller. One screen brings together description, color picker, quantity, price, purchase,
+    product views, and a trailer link.
   challenge:
     - >-
-      Official gaming hardware stores present products as inventory cards: front photo,
-      specifications in a list, and a buy button. The average conversion rate for these catalogs is
-      1.2%.
+      A product page has to keep the focus on the object while keeping everything needed to buy it
+      within reach.
     - >-
-      The DualSense is a visually attractive product with textures, colors, and details that are not
-      appreciated in conventional static catalog photos.
+      PlayStation's identity is highly recognizable. I wanted to use it without the page feeling
+      like an ad instead of a store.
     - >-
-      The shopping experience must feel as premium as the product itself. A generic checkout
-      devalues the brand perception of a 70 USD accessory.
+      Options such as color and quantity had to be adjustable without leaving the main view.
   approach: >-
-    The store features immersive product shots on dark backgrounds with dramatic lighting that
-    highlights every curve and texture of the hardware, turning the product page into a visual
-    experience comparable to an Apple launch. The visual configurator lets users customize DualSense
-    colors in real time, rotating the 3D model to view each combination from every angle. The
-    checkout is simplified to 2 steps with fluid transition animations that maintain the premium
-    feel through to purchase confirmation.
+    I split the screen diagonally: text and purchase controls on white to the left, and a large
+    photo of the controller on brand blue to the right, with three thumbnails of other angles. The
+    PlayStation symbols (triangle, circle, cross, and square) float as background texture. Color is
+    picked with swatches, quantity with a stepper, and the price sits next to the buy button so it
+    reads at a glance. Cart and notifications live in the header.
+  outcome: >-
+    Product screen published on Dribbble.

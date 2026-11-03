@@ -17,9 +17,9 @@
           "type": "string",
           "enum": [
             "live",
+            "released",
             "unpublished",
             "concept",
-            "archived",
             "wip"
           ]
         },

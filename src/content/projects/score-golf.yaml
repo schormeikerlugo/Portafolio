@@ -6,14 +6,13 @@ category: design
 subcategory: app
 workflow: design
 stack:
-  - UI
-  - APP
-  - SPORTS
-  - MOBILE
+  - UI Design
+  - UX Design
+  - Mobile Design
+  - Prototyping
 role:
-  - Mobile UI
-  - Sports UX
-  - Real-time Input
+  - UI Design
+  - UX Design
 links:
   behance: https://www.behance.net/gallery/184479833/Score-Golf-UI-APP
 cover: ./score-golf/cover.webp
@@ -25,56 +24,54 @@ gallery:
   - ./score-golf/05.webp
 es:
   title: SCORE GOLF APP
-  tagline: SPORTS MOBILE UI
+  tagline: APP MÓVIL DE PUNTUACIÓN DE GOLF
   summary: >-
-    Score Golf es una aplicación móvil diseñada para registrar puntuaciones durante una ronda de
-    golf de forma rápida e intuitiva, sin interrumpir el ritmo de juego. La app se dirige a
-    golfistas amateur y semi-profesionales que necesitan una herramienta ligera frente a las
-    aplicaciones existentes sobrecargadas de funciones. Su filosofía de diseño responde a una
-    restricción real: el usuario opera la app entre hoyos, bajo sol directo, con una sola mano y en
-    menos de 5 segundos por interacción.
+    Concepto de app móvil para llevar la puntuación de una ronda de golf, analizar el juego y
+    competir con amigos. Diseñé el flujo completo: registro y acceso, configuración de la partida,
+    registro hoyo a hoyo, tabla de puntuación, pantalla de victoria, historial, estadísticas y
+    amigos.
   challenge:
     - >-
-      Las apps de golf existentes incluyen GPS, coaching, video swing y red social en una sola
-      aplicación. El 73% de usuarios solo quiere registrar scores pero debe navegar 4+ pantallas
-      para llegar a esa función.
+      Registrar cada hoyo implica varios datos (golpes, putts, penalizaciones, dirección en la
+      calle) y se hace de pie en el campo. Tenía que ser rápido y con el pulgar.
     - >-
-      Los golfistas necesitan registrar puntuaciones en menos de 5 segundos entre hoyos. Las apps
-      actuales requieren un promedio de 15 segundos por registro.
+      Una partida puede tener varios jugadores, y la tabla de puntuación debía comparar a todos sin
+      volverse ilegible en una pantalla pequeña.
     - >-
-      La interfaz debe funcionar bajo sol directo (legibilidad con alto brillo) y con una sola mano
-      (zonas táctiles en la mitad inferior de la pantalla).
+      Además de registrar, la app ofrece estadísticas, historial y amigos. Todo eso no podía
+      entorpecer la acción principal: jugar.
   approach: >-
-    La interfaz minimalista emplea una paleta verde y blanca que evoca el campo de golf, con
-    contraste suficiente para lectura bajo luz solar directa. El input de score funciona con un solo
-    tap mediante un selector numérico sobredimensionado posicionado en la zona de alcance del
-    pulgar. El mapa del campo muestra la progresión hoyo a hoyo con indicadores de color (par,
-    birdie, bogey) que ofrecen feedback visual inmediato. Las estadísticas post-ronda presentan
-    gráficos de rendimiento por hoyo, promedios históricos y comparativas entre rondas.
+    En la pantalla de hoyo, cada dato tiene su fila con botones de menos y más, y la dirección del
+    tiro se marca con iconos de flecha; abajo, el botón Guardar queda entre las flechas para cambiar
+    de hoyo. La tabla de puntuación fija la fila de par arriba y la columna de total a la derecha,
+    con puntos de color para marcar cada tipo de golpe. La navegación inferior tiene tres pestañas y
+    el botón central hexagonal de «Jugar» destaca sobre estadísticas y amigos. La paleta verde y
+    blanca usa el verde intenso solo en acciones.
+  outcome: >-
+    Flujo de app móvil de más de una docena de pantallas publicado en Behance.
 en:
   title: SCORE GOLF APP
-  tagline: SPORTS MOBILE UI
+  tagline: GOLF SCORING MOBILE APP
   summary: >-
-    Score Golf is a mobile application designed to record scores during a golf round quickly and
-    intuitively, without interrupting the pace of play. The app targets amateur and
-    semi-professional golfers who need a lightweight tool compared to the feature-bloated
-    alternatives on the market. Its design philosophy responds to a real constraint: the user
-    operates the app between holes, under direct sunlight, with one hand, and in under 5 seconds per
-    interaction.
+    A mobile app concept for keeping score during a round of golf, analyzing your game, and
+    competing with friends. I designed the full flow: sign-up and login, match setup, hole-by-hole
+    entry, scorecard, win screen, history, stats, and friends.
   challenge:
     - >-
-      Existing golf apps pack GPS, coaching, video swing, and social networking into a single app.
-      73% of users only want to record scores but must navigate 4+ screens to reach that function.
+      Logging each hole involves several inputs (strokes, putts, penalties, fairway direction) and
+      happens standing on the course. It had to be quick and thumb-friendly.
     - >-
-      Golfers need to record scores in under 5 seconds between holes. Current apps require an
-      average of 15 seconds per entry.
+      A match can have several players, and the scorecard had to compare them all without becoming
+      unreadable on a small screen.
     - >-
-      The interface must work under direct sunlight (readability at high brightness) and with one
-      hand (touch zones in the lower half of the screen).
+      Beyond scoring, the app offers stats, history, and friends. None of that could get in the way
+      of the main action: playing.
   approach: >-
-    The minimalist interface employs a green and white palette that evokes the golf course, with
-    enough contrast for readability under direct sunlight. Score input works with a single tap
-    through an oversized numeric selector positioned in the thumb's reach zone. The course map
-    displays hole-by-hole progression with color indicators (par, birdie, bogey) that provide
-    immediate visual feedback. Post-round statistics present per-hole performance charts, historical
-    averages, and cross-round comparisons.
+    On the hole screen, each input gets its own row with minus and plus buttons, and shot direction
+    is marked with arrow icons; at the bottom, the Save button sits between the arrows that move
+    between holes. The scorecard pins the par row at the top and the total column on the right, with colored
+    dots marking each shot type. Bottom navigation has three tabs, with a central hexagonal "Play"
+    button standing out over stats and friends. The green-and-white palette keeps the strong green
+    for actions only.
+  outcome: >-
+    Mobile app flow of more than a dozen screens published on Behance.

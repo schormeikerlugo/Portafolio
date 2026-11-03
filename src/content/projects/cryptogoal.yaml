@@ -6,14 +6,13 @@ category: design
 subcategory: crypto
 workflow: design
 stack:
-  - UI
-  - WEB
-  - CRYPTO
-  - SPORTS
+  - UI Design
+  - Web Design
+  - Mobile Design
+  - Illustration
 role:
   - UI Design
   - Landing Page
-  - Dashboard
 links:
   behance: https://www.behance.net/gallery/65270559/Web-Design-UI-CryptoGoalio
 cover: ./cryptogoal/cover.webp
@@ -22,54 +21,52 @@ gallery:
   - ./cryptogoal/02.webp
 es:
   title: CRYPTOGOAL.IO
-  tagline: CRYPTO SPORTS WEB
+  tagline: WEB DE METAS CON SMART CONTRACTS
   summary: >-
-    CryptoGoal.io es una plataforma que fusiona predicciones deportivas con criptomonedas,
-    permitiendo a los usuarios apostar tokens sobre resultados de partidos reales. El proyecto
-    abarcó la landing page y el dashboard principal, dirigidos a un público dual: fans deportivos
-    sin experiencia crypto y traders que buscan mercados alternativos. Su principal desafío radicaba
-    en traducir conceptos blockchain complejos a un lenguaje visual que resultara familiar para
-    cualquier aficionado al deporte.
+    CryptoGoal.io es un concepto de producto para cumplir metas personales: fijas un objetivo y una
+    fecha, depositas Ethereum en un smart contract y lo recuperas si lo logras. Diseñé la landing en
+    escritorio y móvil, el login y un panel de saldo con historial de transacciones.
   challenge:
     - >-
-      El 78% del público objetivo (fans deportivos) nunca había interactuado con una wallet crypto.
-      Los términos "gas fee", "slippage" y "smart contract" generaban abandono inmediato en las
-      pruebas de usuario.
+      La idea mezcla motivación personal con contratos inteligentes. La landing tenía que explicar
+      el mecanismo en pocos pasos y sin jerga técnica.
     - >-
-      Los conceptos blockchain debían simplificarse sin ocultar información financiera relevante.
-      Los reguladores exigen transparencia en cada operación.
+      Había que responder dudas obvias antes de que el usuario las hiciera: qué pasa si no cumplo,
+      quién verifica la meta y adónde va el dinero.
     - >-
-      No existía competencia directa en el mercado, por lo que los UX patterns debían definirse
-      desde cero sin referencias de comportamiento de usuario previas.
+      Las mismas secciones debían funcionar en una página larga de escritorio y en una secuencia de
+      pantallas móviles.
   approach: >-
-    La interfaz prioriza la narrativa deportiva sobre la terminología crypto: los usuarios ven
-    partidos, equipos y cuotas, mientras la capa blockchain opera de forma transparente en segundo
-    plano. Las cards de predicción ofrecen feedback visual inmediato con animaciones de resultado
-    que replican la emoción de un gol. El dashboard presenta estadísticas en tiempo real y gráficos
-    de rendimiento del portfolio de apuestas, además de un onboarding gamificado que enseña los
-    conceptos crypto mediante retos progresivos.
+    El hero resume el funcionamiento en tres pasos numerados (meta y fecha, depósito, cumplir y
+    recuperar). Debajo, la página se organiza como preguntas frecuentes en bloques alternos de texto
+    e ilustración isométrica: qué es CryptoGoal, cómo sabe si cumpliste y qué pasa si fallas. La
+    paleta violeta con el diamante de Ethereum en cian y monedas doradas une todas las piezas. En
+    móvil, cada pregunta pasa a ser una pantalla propia. El panel muestra el saldo por moneda, una
+    curva de evolución y una tabla con el estado de cada transacción.
+  outcome: >-
+    Landing para escritorio y móvil, login y panel de transacciones publicados en Behance.
 en:
   title: CRYPTOGOAL.IO
-  tagline: CRYPTO SPORTS WEB
+  tagline: SMART CONTRACT GOALS WEB
   summary: >-
-    CryptoGoal.io is a platform that merges sports predictions with cryptocurrency, allowing users
-    to wager tokens on real match outcomes. The project covered the landing page and main dashboard,
-    targeting a dual audience: sports fans with no crypto experience and traders seeking alternative
-    markets. Its main challenge was translating complex blockchain concepts into a visual language
-    that felt familiar to any sports enthusiast.
+    CryptoGoal.io is a product concept for personal goals: you set a goal and a deadline, deposit
+    Ethereum into a smart contract, and get it back if you succeed. I designed the landing page for
+    desktop and mobile, the login, and a balance panel with transaction history.
   challenge:
     - >-
-      78% of the target audience (sports fans) had never interacted with a crypto wallet. Terms like
-      "gas fee," "slippage," and "smart contract" caused immediate abandonment in user tests.
+      The idea mixes personal motivation with smart contracts. The landing page had to explain the
+      mechanism in a few steps, without technical jargon.
     - >-
-      Blockchain concepts had to be simplified without hiding relevant financial information.
-      Regulators require transparency in every transaction.
+      It had to answer the obvious questions upfront: what happens if I miss my goal, who verifies
+      it, and where the money goes.
     - >-
-      No direct competition existed in the market, so UX patterns had to be defined from scratch
-      with no prior user behavior references.
+      The same sections had to work as one long desktop page and as a sequence of mobile screens.
   approach: >-
-    The interface prioritizes the sports narrative over crypto terminology: users see matches,
-    teams, and odds while the blockchain layer operates transparently in the background. Prediction
-    cards deliver immediate visual feedback with result animations that replicate the thrill of a
-    goal. The dashboard presents real-time statistics and betting portfolio performance charts,
-    along with a gamified onboarding that teaches crypto concepts through progressive challenges.
+    The hero sums up the mechanism in three numbered steps (goal and deadline, deposit, succeed and
+    reclaim). Below it, the page reads like an FAQ, alternating text with isometric illustrations:
+    what CryptoGoal is, how it knows you hit your goal, and what happens if you miss it. A purple
+    palette with a cyan Ethereum diamond and gold coins ties every piece together. On mobile, each
+    question becomes its own screen. The panel shows balance per coin, a trend curve, and a table
+    with each transaction's status.
+  outcome: >-
+    Desktop and mobile landing page, login, and transactions panel published on Behance.

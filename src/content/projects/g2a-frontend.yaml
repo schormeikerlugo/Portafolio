@@ -1,6 +1,6 @@
 legacyId: 33
 year: 2025
-status: archived
+status: live
 type: personal
 category: development
 subcategory: web
@@ -8,13 +8,14 @@ workflow: development
 stack:
   - HTML
   - CSS
-  - FRONTEND
-  - E-COMMERCE
+  - JavaScript
+  - Adobe XD
 role:
-  - Frontend Dev
-  - CSS Architecture
-  - Responsive
+  - UI Design
+  - Frontend Development
+  - Responsive Design
 links:
+  live: https://schormeikerlugo.github.io/My-first-page/
   repo: https://github.com/schormeikerlugo/My-first-page
 cover: ./g2a-frontend/cover.webp
 gallery:
@@ -24,53 +25,52 @@ gallery:
   - ./g2a-frontend/04.webp
 es:
   title: G2A REDESIGN
-  tagline: GAMING STORE FRONTEND
+  tagline: MI PRIMERA MAQUETACIÓN WEB
   summary: >-
-    G2A Redesign es una reimplementación frontend del sitio web de G2A, el marketplace de keys de
-    videojuegos más grande del mundo. El proyecto nació como ejercicio de aprendizaje progresivo y
-    evolucionó sección por sección, incorporando técnicas nuevas de HTML y CSS en cada iteración. Su
-    valor reside en la fidelidad pixel-perfect respecto al mockup diseñado previamente en Adobe XD,
-    demostrando la capacidad de trasladar un diseño visual a código funcional.
+    Rediseño no oficial de la tienda de videojuegos G2A y mi primer proyecto de maquetación. Primero
+    diseñé la interfaz en Adobe XD y luego la llevé a código con HTML, CSS y JavaScript, sin
+    frameworks, aprendiendo cada técnica a medida que la necesitaba.
   challenge:
     - >-
-      El proyecto requería dominar HTML semántico y CSS moderno desde cero, sin frameworks ni
-      librerías externas que abstrajeran la complejidad del layout.
+      Era mi primer contacto con la maquetación: tenía que pasar de un diseño estático en Adobe XD a
+      una página real usando solo HTML y CSS escritos a mano.
     - >-
-      Cada nueva sección debía incorporar técnicas que no se habían practicado antes: flexbox, grid,
-      media queries, animaciones CSS y transiciones al hover.
+      La interfaz tiene mucha información a la vez: barra lateral, novedades, juegos populares,
+      promociones y ranking. Había que ordenarla sin que se sintiera saturada.
     - >-
-      La implementación debía ser pixel-perfect respecto al mockup de Adobe XD, con tolerancia
-      máxima de 2px de desviación en cada componente medido.
+      El diseño de escritorio, con barra lateral fija, tenía que adaptarse a pantallas pequeñas sin
+      perder la navegación.
   approach: >-
-    La implementación avanzó sección por sección: header con navegación responsive y menú
-    hamburguesa, hero section con carousel de imágenes promocionales, grilla de productos con hover
-    effects que revelan precio y descuento, y footer con enlaces organizados por categoría. Todo el
-    CSS se escribió sin preprocesadores ni frameworks, utilizando custom properties para mantener
-    consistencia cromática. Las media queries cubren tres breakpoints principales, garantizando
-    funcionalidad desde 320px hasta pantallas de escritorio.
+    Construí la página sección por sección siguiendo el diseño de Adobe XD: barra lateral con perfil
+    y menú, cabecera con buscador, carrusel de novedades, tabla de juegos populares, carrusel de
+    promociones y un ranking con desplazamiento automático. Los layouts usan Flexbox y Grid, y las
+    media queries ajustan la página en varios puntos de corte. En pantallas pequeñas la barra
+    lateral se convierte en un menú hamburguesa con overlay. Cada interacción vive en su propio
+    archivo de JavaScript.
+  outcome: >-
+    Página publicada en GitHub Pages: el punto de partida de mi trabajo como desarrollador frontend.
 en:
   title: G2A REDESIGN
-  tagline: GAMING STORE FRONTEND
+  tagline: MY FIRST WEB BUILD
   summary: >-
-    G2A Redesign is a frontend reimplementation of the G2A website, the world's largest video game
-    key marketplace. The project started as a progressive learning exercise and evolved section by
-    section, incorporating new HTML and CSS techniques in each iteration. Its value lies in the
-    pixel-perfect fidelity to the mockup previously designed in Adobe XD, demonstrating the ability
-    to translate a visual design into functional code.
+    An unofficial redesign of the G2A game store and my first front-end build. I designed the
+    interface in Adobe XD first, then turned it into code with plain HTML, CSS and JavaScript,
+    learning each technique as I needed it.
   challenge:
     - >-
-      The project required mastering semantic HTML and modern CSS from scratch, without frameworks
-      or external libraries to abstract away layout complexity.
+      It was my first time building a layout: I had to go from a static Adobe XD design to a real
+      page using only hand-written HTML and CSS.
     - >-
-      Each new section had to incorporate techniques that had not been practiced before: flexbox,
-      grid, media queries, CSS animations, and hover transitions.
+      The interface packs a lot in at once: sidebar, new releases, popular games, promotions and
+      rankings. It had to be organized without feeling crowded.
     - >-
-      The implementation had to be pixel-perfect against the Adobe XD mockup, with a maximum
-      tolerance of 2px deviation in each measured component.
+      The desktop layout, with a fixed sidebar, had to adapt to small screens without losing
+      navigation.
   approach: >-
-    The implementation progressed section by section: header with responsive navigation and
-    hamburger menu, hero section with a promotional image carousel, product grid with hover effects
-    that reveal price and discount, and footer with links organized by category. All CSS was written
-    without preprocessors or frameworks, using custom properties to maintain color consistency.
-    Media queries cover three main breakpoints, ensuring functionality from 320px to desktop
-    screens.
+    I built the page section by section following the Adobe XD design: a sidebar with profile and
+    menu, a header with search, a new-releases carousel, a popular-games table, a promotions
+    carousel and an auto-scrolling ranking. Layouts use Flexbox and Grid, and media queries adjust
+    the page across several breakpoints. On small screens the sidebar turns into a hamburger menu
+    with an overlay. Each interaction lives in its own JavaScript file.
+  outcome: >-
+    Page published on GitHub Pages: the starting point of my work as a front-end developer.

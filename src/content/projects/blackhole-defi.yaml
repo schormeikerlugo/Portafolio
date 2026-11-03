@@ -6,14 +6,13 @@ category: design
 subcategory: crypto
 workflow: design
 stack:
-  - UI
-  - CRYPTO
-  - DEFI
-  - DARK UI
+  - UI Design
+  - Web Design
+  - DeFi
+  - Illustration
 role:
   - UI Design
-  - Visual Identity
-  - Motion Concepts
+  - Art Direction
 links:
   behance: https://www.behance.net/gallery/129771565/BlackHole-Defi
 cover: ./blackhole-defi/cover.webp
@@ -21,53 +20,52 @@ gallery:
   - ./blackhole-defi/01.webp
 es:
   title: BLACKHOLE DEFI
-  tagline: CRYPTO EXCHANGE UI
+  tagline: UI DE YIELD FARMING DEFI
   summary: >-
-    BlackHole DeFi es un exchange descentralizado con mecánicas de liquidez innovadoras que busca
-    diferenciarse en un mercado saturado de forks de Uniswap. La plataforma necesitaba una identidad
-    visual propia que tradujera su concepto cósmico — la idea de que la liquidez "absorbe" activos
-    hacia pools de alto rendimiento — en cada elemento de la interfaz. El proyecto abarcó desde el
-    branding hasta el diseño completo de la UI del DEX, orientado a traders DeFi con experiencia
-    intermedia a avanzada.
+    Concepto de interfaz para BlackHole, una plataforma DeFi de farming en BNB Chain. Diseñé la
+    página principal con métricas del token, el listado de farms y la herramienta Zap para
+    convertir tokens en LP, todo bajo una temática espacial de agujeros negros y planetas.
   challenge:
     - >-
-      El concepto de "agujero negro" no se traducía en la interfaz existente. Los swap forms y pool
-      views eran idénticos a Uniswap v2 sin ninguna adaptación visual.
+      Las interfaces DeFi suelen copiar la misma plantilla de tarjetas y formularios. Quería que
+      BlackHole tuviera identidad propia sin cambiar los patrones que los usuarios ya conocen.
     - >-
-      Los competidores (Uniswap, PancakeSwap, SushiSwap) concentraban el 94% del volumen DEX.
-      BlackHole no tenía recordación de marca entre usuarios encuestados.
+      El fondo ilustrado es muy cargado. Las cifras de TVL, market cap y APR tenían que seguir
+      siendo legibles encima.
     - >-
-      Sin diferenciación de marca. Los 3 evaluadores de UX confundieron la plataforma con un fork
-      genérico en pruebas de reconocimiento a ciegas.
+      El Zap convierte un token en un par de liquidez en un solo paso. El formulario debía dejar
+      claro qué se entrega y qué se recibe.
   approach: >-
-    La interfaz dark premium emplea efectos de gravedad visual donde los elementos "orbitan"
-    alrededor del punto focal de cada pantalla, reforzando la metáfora del agujero negro. La paleta
-    combina tonos profundos de azul y púrpura con acentos cyan que guían la mirada hacia las
-    acciones principales. Las animaciones de partículas simulan la absorción gravitacional durante
-    las transacciones, y cada confirmación de swap muestra un efecto de colapso visual que refuerza
-    la identidad de marca en cada interacción.
+    El agujero negro funciona como logo, como fondo del hero y como recurso visual en las
+    transiciones entre secciones, con planetas y meteoritos ilustrados a los lados. Los datos viven
+    en paneles translúcidos con texto blanco y acentos cian, para separarlos del fondo violeta. Las
+    tarjetas de farm mantienen el orden habitual en DeFi (par, APR, ganado, en stake y acción), así
+    que la novedad está en la piel y no en el flujo. El Zap usa un formulario vertical de origen a
+    destino con el botón MAX y el saldo junto al campo.
+  outcome: >-
+    Concepto de landing, listado de farms y pantalla Zap publicado en Behance.
 en:
   title: BLACKHOLE DEFI
-  tagline: CRYPTO EXCHANGE UI
+  tagline: DEFI YIELD FARMING UI
   summary: >-
-    BlackHole DeFi is a decentralized exchange with innovative liquidity mechanics that seeks to
-    stand out in a market saturated with Uniswap forks. The platform needed its own visual identity
-    that translated its cosmic concept — the idea that liquidity "absorbs" assets into high-yield
-    pools — into every interface element. The project spanned from branding to the complete DEX UI
-    design, targeting DeFi traders with intermediate to advanced experience.
+    An interface concept for BlackHole, a DeFi farming platform on BNB Chain. I designed the home
+    page with token metrics, the farms list, and the Zap tool that converts tokens into LP pairs,
+    all wrapped in a space theme of black holes and planets.
   challenge:
     - >-
-      The "black hole" concept was not reflected in the existing interface. The swap forms and pool
-      views were identical to Uniswap v2 with no visual adaptation.
+      DeFi interfaces tend to reuse the same card-and-form template. I wanted BlackHole to have its
+      own identity without changing the patterns users already know.
     - >-
-      Competitors (Uniswap, PancakeSwap, SushiSwap) concentrated 94% of DEX volume. BlackHole had
-      zero brand recall among surveyed users.
+      The illustrated background is busy. TVL, market cap, and APR figures had to stay readable on
+      top of it.
     - >-
-      No brand differentiation. All 3 UX evaluators confused the platform with a generic fork in
-      blind recognition tests.
+      Zap turns a single token into a liquidity pair in one step. The form had to make clear what
+      goes in and what comes out.
   approach: >-
-    The premium dark interface employs visual gravity effects where elements "orbit" around the
-    focal point of each screen, reinforcing the black hole metaphor. The palette combines deep blue
-    and purple tones with cyan accents that guide the eye toward primary actions. Particle
-    animations simulate gravitational absorption during transactions, and each swap confirmation
-    displays a visual collapse effect that reinforces the brand identity in every interaction.
+    The black hole works as the logo, the hero background, and a visual device between sections,
+    framed by illustrated planets and meteors. Data sits on translucent panels with white text and
+    cyan accents to separate it from the purple background. Farm cards keep the familiar DeFi order
+    (pair, APR, earned, staked, action), so the novelty lives in the skin rather than the flow. Zap
+    uses a vertical source-to-destination form with a MAX button and balance next to the input.
+  outcome: >-
+    Concept covering the landing page, farms list, and Zap screen, published on Behance.

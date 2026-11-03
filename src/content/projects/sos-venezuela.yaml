@@ -1,0 +1,78 @@
+year: 2026
+status: unpublished
+type: personal
+category: development
+subcategory: web
+workflow: development
+stack:
+  - Astro
+  - React
+  - TypeScript
+  - MapLibre GL
+  - Supabase
+  - PostGIS
+  - Dexie
+  - PWA
+role:
+  - UX Design
+  - Frontend Development
+  - Backend Development
+links: {}
+cover: ./sos-venezuela/cover.webp
+gallery:
+  - ./sos-venezuela/01.webp
+  - ./sos-venezuela/02.webp
+  - ./sos-venezuela/03.webp
+  - ./sos-venezuela/04.webp
+es:
+  title: SOS VENEZUELA
+  tagline: MAPA DE EMERGENCIA SÍSMICA
+  summary: >-
+    SOS Venezuela es una iniciativa ciudadana sin fines de lucro: un mapa unificado para localizar
+    personas desaparecidas, encontradas u hospitalizadas, edificios afectados y sismos tras un
+    terremoto. Diseñé y construí la PWA y su backend pensando en zonas con mala conexión. No está
+    publicada en un dominio propio; las capturas son del build local, sin datos reales cargados.
+  challenge:
+    - >-
+      En una zona de desastre la señal falla: buscar personas, ver el mapa y enviar reportes tenía
+      que funcionar sin conexión y sincronizarse solo al volver la red.
+    - >-
+      Los datos de personas son sensibles. Había que permitir búsquedas y confirmaciones sin exponer
+      cédulas, teléfonos ni ubicaciones exactas.
+    - >-
+      Los reportes ciudadanos de edificios podían ser erróneos o malintencionados, así que necesitaban
+      moderación antes de publicarse.
+  approach: >-
+    Usé Astro con islas de React para mantener ligera la carga inicial, y MapLibre GL sobre
+    OpenStreetMap para el mapa de personas, hospitales, refugios, edificios y sismos de USGS. El
+    backend corre en Supabase con Postgres y PostGIS: el rol anónimo solo lee vistas públicas, las
+    cédulas se buscan por hash HMAC y las ubicaciones se muestran difuminadas a nivel de barrio. En el
+    cliente, Dexie guarda un espejo local en IndexedDB, una outbox con identificadores únicos evita
+    duplicados al sincronizar y el Service Worker cachea la app y los tiles del mapa. También expuse
+    una API pública de solo lectura para que otras plataformas reutilicen los datos.
+en:
+  title: SOS VENEZUELA
+  tagline: EARTHQUAKE EMERGENCY MAP
+  summary: >-
+    SOS Venezuela is a non-profit citizen initiative: a unified map to locate missing, found or
+    hospitalized people, damaged buildings and seismic events after an earthquake. I designed and
+    built the PWA and its backend for areas with poor connectivity. It isn't published on its own
+    domain; the screenshots come from a local build with no real data loaded.
+  challenge:
+    - >-
+      In a disaster zone the signal drops: searching for people, browsing the map and sending reports
+      had to work offline and sync automatically once the network came back.
+    - >-
+      Personal data is sensitive. Searches and confirmations had to work without exposing ID
+      numbers, phone numbers or exact locations.
+    - >-
+      Citizen reports about buildings could be wrong or malicious, so they needed moderation before
+      going public.
+  approach: >-
+    I used Astro with React islands to keep the initial load light, and MapLibre GL on top of
+    OpenStreetMap to show people, hospitals, shelters, buildings and USGS earthquakes. The backend
+    runs on Supabase with Postgres and PostGIS: the anonymous role can only read public views, ID
+    numbers are matched by HMAC hash and locations are blurred to neighborhood level. On the client,
+    Dexie keeps a local IndexedDB mirror, an outbox with unique client IDs prevents duplicates on
+    sync, and the Service Worker caches the app shell and map tiles. I also exposed a read-only public
+    API so other platforms can reuse the data.

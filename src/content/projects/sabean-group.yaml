@@ -1,0 +1,78 @@
+year: 2026
+status: live
+type: client
+category: development
+subcategory: web
+workflow: development
+stack:
+  - Astro
+  - Tailwind CSS
+  - TypeScript
+  - Vite
+role:
+  - UI Design
+  - Frontend Development
+  - Art Direction
+  - SEO
+links:
+  live: https://sabean-media.vercel.app
+  repo: https://github.com/schormeikerlugo/Sabean-Media
+cover: ./sabean-group/cover.webp
+gallery:
+  - ./sabean-group/01.webp
+  - ./sabean-group/02.webp
+  - ./sabean-group/03.webp
+  - ./sabean-group/04.webp
+  - ./sabean-group/05.webp
+es:
+  title: THE SABEAN GROUP
+  tagline: SITIO DE CONSULTORA DE MEDIOS
+  summary: >-
+    Sitio web de The Sabean Group, una consultora de estrategia de contenido, marca, podcast y
+    plataformas digitales con trayectoria en radio y medios. Diseñé y desarrollé una página de una
+    sola vista en negro profundo y dorado a partir de su one sheet, sus logotipos y su material de
+    vídeo.
+  challenge:
+    - >-
+      Convertir un one sheet en PDF en un sitio completo que contara servicios, equipo e historial
+      sin perder el tono sobrio de la marca.
+    - >-
+      Usar todo el material entregado (vídeos, fotos de archivo, retratos y logotipos de marcas)
+      sin que la página se sintiera saturada.
+    - >-
+      Llevar un logotipo dorado tradicional a una interfaz contemporánea que no se viera anticuada.
+  approach: >-
+    Construí el sitio con Astro 5 y Tailwind CSS 4, con los contenidos separados en archivos de
+    datos TypeScript: seis servicios, diecinueve marcas, dieciséis momentos de archivo y cuatro
+    perfiles de equipo. El hero usa vídeo de fondo con el logotipo en rombo al centro, y un segundo
+    vídeo funciona como interludio con una cita. La paleta se limita a negro y una escala de dorados,
+    con Fraunces para titulares, Inter para texto y JetBrains Mono para etiquetas. Un script ligero
+    gestiona revelados con IntersectionObserver, contadores animados, hover magnético y parallax,
+    todo respetando prefers-reduced-motion.
+  outcome: >-
+    Sitio publicado en Vercel con 9 secciones, sitemap generado y formulario de contacto por correo.
+en:
+  title: THE SABEAN GROUP
+  tagline: MEDIA CONSULTANCY WEBSITE
+  summary: >-
+    Website for The Sabean Group, a consultancy focused on content, brand, podcast and digital
+    platform strategy, with a background in radio and media. I designed and built a single-page site
+    in deep black and gold from their one sheet, logos and video footage.
+  challenge:
+    - >-
+      Turning a PDF one sheet into a full site that covers services, team and track record while
+      keeping the brand's restrained tone.
+    - >-
+      Using all the supplied material (videos, archive photos, headshots and brand logos) without
+      the page feeling crowded.
+    - >-
+      Bringing a traditional gold logo into a contemporary interface that didn't look dated.
+  approach: >-
+    I built the site with Astro 5 and Tailwind CSS 4, keeping content in TypeScript data files: six
+    services, nineteen brands, sixteen archive moments and four team profiles. The hero runs a
+    background video with the diamond logo at its centre, and a second video works as a quote
+    interlude. The palette sticks to black and a gold scale, with Fraunces for headlines, Inter for
+    body copy and JetBrains Mono for labels. A small script handles IntersectionObserver reveals,
+    count-up stats, magnetic hover and parallax, all respecting prefers-reduced-motion.
+  outcome: >-
+    Site live on Vercel with 9 sections, a generated sitemap and an email-based contact form.

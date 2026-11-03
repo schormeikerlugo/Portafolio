@@ -6,14 +6,12 @@ category: design
 subcategory: web
 workflow: design
 stack:
-  - UI
-  - STREAMING
-  - WEB
-  - VIDEO
+  - Web Design
+  - UI Design
+  - Typography
 role:
-  - Streaming UI
-  - Content Discovery
-  - Video Player
+  - Web Design
+  - UI Design
 links:
   dribbble: https://dribbble.com/shots/5162722-Ui-web-design-Streaming
 cover: ./streaming-ui/cover.webp
@@ -21,51 +19,45 @@ gallery:
   - ./streaming-ui/01.webp
 es:
   title: STREAMING UI
-  tagline: ENTERTAINMENT WEB
+  tagline: LANDING DE STREAMING EN VIVO
   summary: >-
-    Streaming UI es un concepto de plataforma de video bajo demanda que prioriza el descubrimiento
-    de contenido sobre la simple exhibición del catálogo. La interfaz está pensada para reducir la
-    parálisis de decisión que afecta a los usuarios cuando enfrentan miles de opciones sin curación
-    efectiva. Su diseño se diferencia por tratar cada título como una experiencia visual previa al
-    clic, no como una miniatura más en una grilla infinita.
+    Concepto de landing page para una plataforma de streaming en vivo enfocada en conciertos y
+    eventos. Diseñé el hero como shot para Dribbble, centrado en transmitir la energía de un evento
+    en directo.
   challenge:
     - >-
-      Las plataformas de streaming muestran catálogos con más de 15,000 títulos sin curación
-      efectiva; el usuario promedio abandona tras 7 minutos de búsqueda.
+      Comunicar "en vivo" desde el primer vistazo, sin depender de que el visitante lea el texto.
     - >-
-      Los usuarios dedican más tiempo a buscar qué ver que a ver contenido — la paradoja de decisión
-      reduce el engagement y aumenta las cancelaciones de suscripción.
+      Equilibrar un titular grande con un vídeo destacado sin que ambos compitan por la atención.
     - >-
-      El algoritmo de recomendación genera sugerencias precisas, pero la interfaz no potencia
-      visualmente esas recomendaciones frente al ruido del catálogo.
+      Mantener la interfaz sobria para que la imagen del evento sea la protagonista.
   approach: >-
-    El diseño emplea un hero rotativo con trailers autoplay del contenido destacado, generando
-    interés inmediato sin requerir clics exploratorios. Los carruseles temáticos muestran previews
-    expandidos al hover con sinopsis, duración y puntuación. El sistema de listas personalizadas
-    permite al usuario organizar contenido por estado de visualización y preferencia. El player
-    integrado ofrece controles mínimos y un modo teatro que elimina toda distracción periférica.
+    Construí el fondo con una versión desenfocada de la propia escena del concierto en violetas y
+    azules, lo que unifica la pantalla con el vídeo. El titular va en mayúsculas con mucho
+    espaciado entre letras, alineado a la izquierda, seguido de un párrafo corto y un botón de
+    demo. A la derecha, el reproductor muestra un frame del público con botón de play y una
+    etiqueta azul "Live now" que sobresale del marco. El header reduce la navegación a Features,
+    Pricing y About.
+  outcome: >-
+    Shot publicado en Dribbble con el hero de la landing.
 en:
   title: STREAMING UI
-  tagline: ENTERTAINMENT WEB
+  tagline: LIVE STREAMING LANDING PAGE
   summary: >-
-    Streaming UI is a video-on-demand platform concept that prioritizes content discovery over
-    simple catalog display. The interface is designed to reduce the decision paralysis that affects
-    users when they face thousands of options without effective curation. Its design differentiates
-    itself by treating each title as a visual experience before the click, not just another
-    thumbnail in an infinite grid.
+    A landing page concept for a live streaming platform focused on concerts and events. I designed
+    the hero as a Dribbble shot, aiming to convey the energy of a live event.
   challenge:
     - >-
-      Streaming platforms display catalogs with over 15,000 titles without effective curation; the
-      average user abandons after 7 minutes of browsing.
+      Communicating "live" at first glance, without relying on visitors reading the copy.
     - >-
-      Users spend more time searching for what to watch than actually watching content — the
-      decision paradox reduces engagement and increases subscription cancellations.
+      Balancing a large headline with a featured video so they don't compete for attention.
     - >-
-      The recommendation algorithm generates accurate suggestions, but the interface does not
-      visually amplify those recommendations over the catalog noise.
+      Keeping the interface restrained so the event footage stays front and center.
   approach: >-
-    The design features a rotating hero with autoplay trailers of featured content, generating
-    immediate interest without requiring exploratory clicks. Thematic carousels show expanded
-    previews on hover with synopsis, duration, and rating. The personalized list system lets users
-    organize content by viewing status and preference. The integrated player offers minimal controls
-    and a theater mode that eliminates all peripheral distractions.
+    I built the background from a blurred version of the concert scene itself in purples and blues,
+    tying the screen to the video. The headline is set in widely tracked uppercase, left-aligned,
+    followed by a short paragraph and a demo button. On the right, the player shows a crowd frame
+    with a play button and a blue "Live now" tag breaking out of the frame. The header trims
+    navigation to Features, Pricing and About.
+  outcome: >-
+    Shot published on Dribbble showing the landing page hero.

@@ -1,5 +1,5 @@
 legacyId: 1
-featured: 5
+featured: 6
 year: 2021
 status: concept
 type: professional
@@ -7,16 +7,15 @@ category: design
 subcategory: crypto
 workflow: design
 stack:
-  - UI
-  - UX
-  - DEFI
-  - BLOCKCHAIN
-  - FIGMA
+  - Figma
+  - UI Design
+  - Responsive Design
+  - DeFi
+  - Design System
 role:
   - UI Design
-  - UX Research
+  - UX Design
   - Design System
-  - Prototyping
 links:
   behance: https://www.behance.net/gallery/128462107/TakoDefi-New-UI
 cover: ./takodefi/cover.webp
@@ -29,52 +28,58 @@ gallery:
   - ./takodefi/06.webp
 es:
   title: TAKODEFI
-  tagline: DEFI PLATFORM UI
+  tagline: UI DE STAKING Y FARMING DEFI
   summary: >-
-    TakoDefi es una plataforma DeFi especializada en staking y yield farming sobre redes EVM,
-    dirigida a inversores que buscan rendimientos pasivos en entornos blockchain. Su propuesta se
-    centra en ofrecer una experiencia visual premium que traduce la complejidad del ecosistema DeFi
-    en flujos claros y accesibles. El rediseño completo de su interfaz tenía como objetivo
-    transmitir confianza institucional sin sacrificar la transparencia de datos on-chain que los
-    usuarios avanzados exigen.
+    TakoDefi es una plataforma de yield farming sobre BSC y Polygon. Entre agosto de 2020 y abril de
+    2021 diseñé su nueva interfaz: inicio, pools de staking, farms de liquidez, vaults con
+    autocompound y Bermudas, un modo de farming competitivo por tiempo limitado. Cada sección tiene
+    versión de escritorio y móvil, en tema claro y oscuro.
   challenge:
     - >-
-      La jerarquía visual era inexistente — funciones críticas (claim, stake) compartían peso con
-      elementos decorativos. Tasa de error en transacciones por clics incorrectos: 18%.
+      Cada tarjeta de pool o farm concentra muchos datos (APR, APY, ganancias, cantidad en stake,
+      TVL) y varias acciones (approve, harvest, compound, stake). Había que ordenarlos para que se
+      leyeran rápido.
     - >-
-      Tasa de abandono en el onboarding: 62%. El flujo de conexión de wallet requería 5 pasos
-      manuales y carecía de feedback visual en cada estado.
+      La plataforma tenía cinco productos con mecánicas distintas. Debían sentirse parte del mismo
+      sistema y, a la vez, distinguirse a simple vista.
     - >-
-      Zero design system. Las 12 pantallas principales usaban 4 paletas de color distintas, 3
-      familias tipográficas y ningún componente reutilizable documentado.
+      Todo el producto debía funcionar en móvil y en dos temas de color sin duplicar el trabajo de
+      diseño pantalla por pantalla.
   approach: >-
-    El nuevo sistema visual unifica toda la plataforma bajo una paleta oscura premium con gradientes
-    sutiles y 48 componentes reutilizables documentados en Figma. El flujo de staking se redujo de 7
-    a 3 pasos, con indicadores de progreso y confirmaciones visuales en cada etapa. Los dashboards
-    ahora muestran APY, TVL y composición del portfolio en tiempo real mediante gráficos
-    interactivos que responden al hover, lo que redujo las consultas de soporte un 40%.
+    Diseñé una tarjeta base que repite siempre el mismo orden: token y par arriba, ganancias en el
+    centro y la acción principal en un botón de alto contraste, con métricas secundarias y detalles
+    plegables debajo. Cada sección recibe una cabecera ilustrada y un color propio (naranja en Pools,
+    azul en Vaults, magenta en Bermudas) sobre la misma retícula. La mascota del pulpo y los iconos
+    de luna y sol aportan una identidad amable a un producto técnico. El menú lateral de escritorio
+    pasa a menú hamburguesa en móvil, y las tarjetas en rejilla se apilan en una sola columna.
+  outcome: >-
+    Interfaz de cinco secciones (Home, Pools, Farms, Vaults y Bermudas) en escritorio y móvil, con
+    temas claro y oscuro, publicada en Behance.
 en:
   title: TAKODEFI
-  tagline: DEFI PLATFORM UI
+  tagline: DEFI STAKING & FARMING UI
   summary: >-
-    TakoDefi is a DeFi platform specializing in staking and yield farming on EVM networks, targeting
-    investors who seek passive returns in blockchain environments. Its value proposition centers on
-    delivering a premium visual experience that translates the complexity of the DeFi ecosystem into
-    clear and accessible flows. The complete interface redesign aimed to convey institutional trust
-    without sacrificing the on-chain data transparency that advanced users demand.
+    TakoDefi is a yield farming platform on BSC and Polygon. From August 2020 to April 2021 I
+    designed its new interface: home, staking pools, liquidity farms, auto-compounding vaults, and
+    Bermudas, a time-limited competitive farming mode. Every section has desktop and mobile versions
+    in both light and dark themes.
   challenge:
     - >-
-      Visual hierarchy was nonexistent — critical functions (claim, stake) shared weight with
-      decorative elements. Transaction error rate from misclicks: 18%.
+      Each pool or farm card packs a lot of data (APR, APY, earnings, staked amount, TVL) and several
+      actions (approve, harvest, compound, stake). It all had to be scannable at a glance.
     - >-
-      Onboarding abandonment rate: 62%. The wallet connection flow required 5 manual steps and
-      lacked visual feedback at each state.
+      The platform had five products with different mechanics. They needed to feel like one system
+      while still being easy to tell apart.
     - >-
-      Zero design system. The 12 main screens used 4 different color palettes, 3 typeface families,
-      and zero documented reusable components.
+      The whole product had to work on mobile and in two color themes without redesigning every
+      screen from scratch.
   approach: >-
-    The new visual system unifies the entire platform under a premium dark palette with subtle
-    gradients and 48 reusable components documented in Figma. The staking flow was reduced from 7 to
-    3 steps, with progress indicators and visual confirmations at each stage. Dashboards now display
-    APY, TVL, and portfolio composition in real time through interactive hover-responsive charts,
-    which reduced support inquiries by 40%.
+    I built a base card that always follows the same order: token or pair at the top, earnings in
+    the middle, and the primary action as a high-contrast button, with secondary metrics and
+    collapsible details below. Each section gets an illustrated header and its own color (orange for
+    Pools, blue for Vaults, magenta for Bermudas) on a shared grid. The octopus mascot and the moon
+    and sun icons give a friendly identity to a technical product. The desktop sidebar becomes a
+    hamburger menu on mobile, and card grids collapse into a single column.
+  outcome: >-
+    A five-section interface (Home, Pools, Farms, Vaults, and Bermudas) for desktop and mobile, in
+    light and dark themes, published on Behance.

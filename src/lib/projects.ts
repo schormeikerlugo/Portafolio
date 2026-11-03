@@ -32,7 +32,7 @@ const labels = {
     live: { es: 'En línea', en: 'Live' },
     unpublished: { es: 'No publicado', en: 'Unpublished' },
     concept: { es: 'Concepto', en: 'Concept' },
-    archived: { es: 'Archivado', en: 'Archived' },
+    released: { es: 'Código publicado', en: 'Source available' },
     wip: { es: 'En desarrollo', en: 'In progress' },
   },
   type: {
