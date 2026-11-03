@@ -344,7 +344,7 @@ export default {
     home: {
       title: 'UI/UX Designer & Frontend Developer',
       description:
-        'Schormeiker Lugo — UI/UX Designer and Frontend Developer with 7+ years of experience and 37 projects across 6 countries. Design Systems, React, Astro, Tailwind CSS, and applied AI. Available for remote collaboration.',
+        'Schormeiker Lugo — UI/UX Designer and Frontend Developer with 7+ years of experience and 45+ projects across 6 countries. Design Systems, React, Astro, Tailwind CSS, and applied AI. Available for remote collaboration.',
     },
     about: {
       title: 'About Me — Experience & Career',
@@ -410,9 +410,9 @@ export default {
           'Usage documentation and contribution guidelines',
         ],
         metrics: [
-          { value: '60%', label: 'Faster development cycles' },
-          { value: '90%', label: 'Visual consistency across products' },
-          { value: '40%', label: 'Reduction in design-dev handoff friction' },
+          { value: 'Tokens', label: 'Figma → CSS / JSON' },
+          { value: '1', label: 'Single source of truth' },
+          { value: 'Docs', label: 'Documented components' },
         ],
         tools: ['Figma', 'React', 'Tailwind CSS', 'Storybook', 'TypeScript'],
       },
@@ -432,9 +432,9 @@ export default {
           'Accessibility compliance (WCAG 2.1 AA)',
         ],
         metrics: [
-          { value: '99', label: 'Lighthouse performance score' },
-          { value: '1:1', label: 'Design-to-code fidelity' },
-          { value: '<100ms', label: 'Interaction response time' },
+          { value: 'AA', label: 'WCAG target' },
+          { value: '90+', label: 'Lighthouse target' },
+          { value: 'Islands', label: 'JS only where needed' },
         ],
         tools: ['React', 'Astro', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'GSAP'],
       },
@@ -454,9 +454,9 @@ export default {
           'Strategic roadmap with prioritized recommendations',
         ],
         metrics: [
-          { value: '30%', label: 'Reduction in user drop-off' },
-          { value: '2x', label: 'Faster feature validation' },
-          { value: '50%', label: 'Fewer post-launch revisions' },
+          { value: 'Flows', label: 'Before screens' },
+          { value: 'Proto', label: 'Early validation' },
+          { value: 'Roadmap', label: 'Prioritized' },
         ],
         tools: ['Figma', 'FigJam', 'Notion', 'Analytics', 'User Testing'],
       },
@@ -476,9 +476,9 @@ export default {
           'AI-powered feature prototypes and proof of concepts',
         ],
         metrics: [
-          { value: '3x', label: 'Productivity in content generation' },
-          { value: '70%', label: 'Reduction in repetitive tasks' },
-          { value: '100%', label: 'Data privacy with local models' },
+          { value: 'Local', label: 'Models on your hardware' },
+          { value: '$0', label: 'Cost per token (local)' },
+          { value: 'Prompts', label: 'Documented and versioned' },
         ],
         tools: ['OpenAI API', 'Ollama', 'LangChain', 'Python', 'Local LLMs'],
       },

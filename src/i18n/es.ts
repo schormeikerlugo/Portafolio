@@ -254,7 +254,7 @@ export default {
     home: {
       title: 'Diseñador UI/UX & Desarrollador Frontend',
       description:
-        'Schormeiker Lugo — Diseñador UI/UX y Desarrollador Frontend con +7 años de experiencia y 37 proyectos completados en 6 países. Design Systems, React, Astro, Tailwind CSS e inteligencia artificial aplicada. Disponible para colaboración remota.',
+        'Schormeiker Lugo — Diseñador UI/UX y Desarrollador Frontend con +7 años de experiencia y más de 45 proyectos en 6 países. Design Systems, React, Astro, Tailwind CSS e inteligencia artificial aplicada. Disponible para colaboración remota.',
     },
     about: {
       title: 'Sobre Mí — Experiencia y Trayectoria',
