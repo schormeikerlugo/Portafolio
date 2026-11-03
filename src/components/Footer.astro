@@ -45,7 +45,7 @@ const toggleLang = lang === 'es' ? 'en' : 'es';
       <!-- Status & Nav -->
       <div class="md:col-span-6 lg:col-span-4 flex flex-col md:items-end justify-between h-full space-y-12 md:space-y-0">
         <div class="flex flex-col md:items-end gap-3">
-          <span class="mono text-[10px] text-text-dim tracking-[0.3em] uppercase font-bold">{t(lang, 'footer.statusLabel')}</span>
+          <span class="mono text-[11px] text-text-dim tracking-[0.2em] uppercase font-bold">{t(lang, 'footer.statusLabel')}</span>
           <div class="flex items-center gap-3 px-4 py-2 border border-cyan/20 bg-cyan/5">
             <div class="w-2 h-2 bg-cyan shadow-[0_0_10px_rgba(0,229,255,0.8)]"></div>
             <span class="font-sans text-xs sm:text-sm font-semibold text-cyan uppercase tracking-wider">
@@ -67,7 +67,7 @@ const toggleLang = lang === 'es' ? 'en' : 'es';
           <a
             href={alternateUrl}
             data-lang-switch={toggleLang}
-            class="mono text-[10px] text-text-dim hover:text-cyan transition-colors tracking-[0.2em] uppercase mt-2"
+            class="mono text-[11px] text-text-dim hover:text-cyan transition-colors tracking-[0.2em] uppercase mt-2"
           >
             {toggleLabel}
           </a>

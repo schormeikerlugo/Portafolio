@@ -107,91 +107,85 @@ const { title, description, lang = 'es', jsonLd, keywords, ogImage, ogType, arti
       </svg>
 
       <!-- Label -->
-      <span class="mono text-[7px] text-cyan/50 group-hover:text-cyan tracking-[0.2em] uppercase transition-colors leading-none">
+      <span class="mono text-[11px] text-cyan/80 group-hover:text-cyan tracking-[0.2em] uppercase transition-colors leading-none">
         {t(lang, 'scrollTop.label')}
       </span>
     </button>
 
     <script>
       import { initAnimations } from '../lib/animations';
-      document.addEventListener('astro:page-load', () => {
+      import { onPageLoad, prefersReducedMotion } from '../lib/lifecycle';
+
+      onPageLoad((signal) => {
         initAnimations();
 
         // Scroll-to-top button
         const btn = document.getElementById('scroll-top');
         const footer = document.querySelector('footer');
-        if (!btn) return;
-
-        let footerVisible = false;
-        if (footer) {
-          const obs = new IntersectionObserver(
-            ([entry]) => { footerVisible = entry.isIntersecting; updateBtn(); },
-            { threshold: 0.05 }
-          );
-          obs.observe(footer);
-        }
-
-        function updateBtn() {
-          const show = window.scrollY > 400 && !footerVisible;
-          if (show) {
-            btn!.classList.remove('scroll-top-hidden');
-            btn!.classList.add('scroll-top-visible');
-          } else {
-            btn!.classList.remove('scroll-top-visible');
-            btn!.classList.add('scroll-top-hidden');
+        if (btn) {
+          let footerVisible = false;
+          const updateBtn = () => {
+            const show = window.scrollY > 400 && !footerVisible;
+            btn.classList.toggle('scroll-top-visible', show);
+            btn.classList.toggle('scroll-top-hidden', !show);
+          };
+          if (footer) {
+            const obs = new IntersectionObserver(([entry]) => { footerVisible = entry.isIntersecting; updateBtn(); }, { threshold: 0.05 });
+            obs.observe(footer);
+            signal.addEventListener('abort', () => obs.disconnect());
           }
+          window.addEventListener('scroll', updateBtn, { passive: true, signal });
+          btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: prefersReducedMotion() ? 'auto' : 'smooth' }), { signal });
         }
-
-        window.addEventListener('scroll', updateBtn, { passive: true });
-        btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
         // Code copy buttons
-        document.querySelectorAll('.code-copy-btn').forEach((btn) => {
-          btn.addEventListener('click', async () => {
-            const code = (btn as HTMLElement).dataset.code || '';
+        document.querySelectorAll<HTMLElement>('.code-copy-btn').forEach((b) => {
+          b.addEventListener('click', async () => {
             try {
-              await navigator.clipboard.writeText(code);
-              btn.textContent = 'COPIED ✓';
-              btn.classList.add('copied');
-              setTimeout(() => {
-                btn.textContent = 'COPY';
-                btn.classList.remove('copied');
-              }, 2000);
+              await navigator.clipboard.writeText(b.dataset.code || '');
+              b.textContent = 'COPIED ✓';
+              b.classList.add('copied');
+              setTimeout(() => { b.textContent = 'COPY'; b.classList.remove('copied'); }, 2000);
             } catch {
-              btn.textContent = 'ERROR';
-              setTimeout(() => { btn.textContent = 'COPY'; }, 1500);
+              b.textContent = 'ERROR';
+              setTimeout(() => { b.textContent = 'COPY'; }, 1500);
             }
-          });
+          }, { signal });
         });
 
-        // Terminal diagnostic typing
-        document.querySelectorAll('.terminal-text').forEach((el) => {
-          const pre = el as HTMLElement;
+        // Terminal typing — once per page per session; instant on reduced motion or click
+        document.querySelectorAll<HTMLElement>('.terminal-text').forEach((pre) => {
           const fullText = pre.dataset.terminalText || '';
           const cursor = pre.parentElement?.querySelector('.terminal-cursor');
+          const key = `typed:${location.pathname}`;
+          const finish = () => { pre.textContent = fullText; cursor?.classList.add('done'); };
           if (!fullText) { pre.textContent = ''; return; }
+          if (prefersReducedMotion() || sessionStorage.getItem(key)) { finish(); return; }
 
           pre.textContent = '';
-
+          let i = 0;
+          let skipped = false;
+          pre.closest('.terminal-diag')?.addEventListener('click', () => { skipped = true; finish(); }, { once: true, signal });
           const observer = new IntersectionObserver(([entry]) => {
-            if (entry.isIntersecting) {
-              observer.disconnect();
-              let i = 0;
-              const speed = Math.max(2, Math.min(8, 800 / fullText.length));
-              const type = () => {
-                if (i < fullText.length) {
-                  const chunk = Math.min(3, fullText.length - i);
-                  pre.textContent += fullText.substring(i, i + chunk);
-                  i += chunk;
-                  setTimeout(type, speed);
-                } else {
-                  cursor?.classList.add('done');
-                }
-              };
-              type();
-            }
+            if (!entry.isIntersecting) return;
+            observer.disconnect();
+            sessionStorage.setItem(key, '1');
+            const speed = Math.max(2, Math.min(8, 800 / fullText.length));
+            const type = () => {
+              if (skipped || signal.aborted) return;
+              if (i < fullText.length) {
+                const chunk = Math.min(3, fullText.length - i);
+                pre.textContent += fullText.substring(i, i + chunk);
+                i += chunk;
+                setTimeout(type, speed);
+              } else {
+                cursor?.classList.add('done');
+              }
+            };
+            type();
           }, { threshold: 0.2 });
           observer.observe(pre);
+          signal.addEventListener('abort', () => observer.disconnect());
         });
       });
     </script>

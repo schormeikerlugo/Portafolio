@@ -12,6 +12,7 @@ export default function MatrixRain({ opacity = 0.35 }: MatrixRainProps) {
     const canvas = canvasRef.current;
     const container = containerRef.current;
     if (!canvas) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
@@ -122,7 +123,7 @@ export default function MatrixRain({ opacity = 0.35 }: MatrixRainProps) {
 
     const tick = () => {
       frameCount++;
-      if (isInView && frameCount % skipFrames === 0) draw();
+      if (isInView && !document.hidden && frameCount % skipFrames === 0) draw();
       animId = requestAnimationFrame(tick);
     };
     animId = requestAnimationFrame(tick);

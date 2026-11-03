@@ -32,6 +32,10 @@ const Tag = tag as any;
       const duration = parseFloat(el.getAttribute('data-cipher-duration') || '1.5');
       const display = el.querySelector('.cipher-display') as HTMLElement;
       if (!display) return;
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        display.textContent = text;
+        return;
+      }
 
       const observer = new IntersectionObserver(
         ([entry]) => {

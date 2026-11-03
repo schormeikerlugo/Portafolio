@@ -23,7 +23,7 @@ const lang: Lang = 'en';
   <section class="pt-28 pb-24 px-6">
     <div class="max-w-[1400px] mx-auto">
       <div class="mb-16 section-header" data-animate>
-        <span class="mono text-[10px] text-cyan/60 tracking-[0.3em] uppercase">{t(lang, 'about.tag')}</span>
+        <span class="mono text-[11px] text-cyan/60 tracking-[0.2em] uppercase">{t(lang, 'about.tag')}</span>
         <h1 class="text-4xl sm:text-5xl lg:text-6xl font-sans font-black text-text-primary mt-4">{t(lang, 'about.title')}</h1>
       </div>
 
@@ -37,14 +37,14 @@ const lang: Lang = 'en';
         ].map((stat) => (
           <div class="stat-card group border border-border/30 bg-surface/20 p-6 hover:border-cyan/40 transition-all duration-300 cursor-default" data-animate-stagger data-count-value={stat.value} data-count-suffix={stat.suffix}>
             <div class="flex items-center gap-2 mb-3">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-cyan/50 group-hover:text-cyan transition-colors"><path d={stat.icon}/></svg>
-              <span class="mono text-[9px] text-text-dim uppercase tracking-widest group-hover:text-text-secondary transition-colors">{stat.label}</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-cyan/80 group-hover:text-cyan transition-colors"><path d={stat.icon}/></svg>
+              <span class="mono text-[11px] text-text-dim uppercase tracking-widest group-hover:text-text-secondary transition-colors">{stat.label}</span>
             </div>
             <div class="flex items-baseline gap-1">
               <span class="stat-number mono text-2xl md:text-3xl text-cyan font-bold" data-target={stat.value}>0</span>
               <span class="mono text-sm text-cyan/60 font-bold">{stat.suffix}</span>
             </div>
-            <span class="mono text-[9px] text-text-dim mt-1 block uppercase tracking-wider">{stat.unit}</span>
+            <span class="mono text-[11px] text-text-dim mt-1 block uppercase tracking-wider">{stat.unit}</span>
           </div>
         ))}
       </div>
@@ -86,7 +86,7 @@ const lang: Lang = 'en';
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6" data-animate-group>
           {t(lang, 'about.phases').map((phase) => (
             <div class="border border-border/30 bg-surface/20 p-8 hover:border-cyan/20 transition-colors" data-animate-stagger>
-              <span class="mono text-[10px] text-cyan/60 tracking-widest">{phase.id} //</span>
+              <span class="mono text-[11px] text-cyan/60 tracking-widest">{phase.id} //</span>
               <h3 class="text-xl font-sans font-bold text-text-primary mt-2 uppercase">{phase.title}</h3>
               <p class="text-text-secondary font-sans text-sm mt-4 leading-relaxed">{phase.description}</p>
             </div>
@@ -128,9 +128,9 @@ const lang: Lang = 'en';
             <div class="flex-1">
               <h3 class="font-sans text-sm sm:text-base text-text-primary font-semibold group-hover:text-cyan transition-colors">{cert.title}</h3>
               <div class="flex items-center gap-3 mt-2">
-                <span class="mono text-[9px] text-cyan/60 uppercase tracking-wider">{cert.provider}</span>
-                <span class="text-text-dim mono text-[8px]">//</span>
-                <span class="mono text-[9px] text-text-dim uppercase tracking-wider">{cert.date}</span>
+                <span class="mono text-[11px] text-cyan/60 uppercase tracking-wider">{cert.provider}</span>
+                <span class="text-text-dim mono text-[11px]">//</span>
+                <span class="mono text-[11px] text-text-dim uppercase tracking-wider">{cert.date}</span>
               </div>
             </div>
             {cert.link && (
@@ -150,7 +150,7 @@ const lang: Lang = 'en';
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4" data-animate-group>
         {telemetry.map((item) => (
           <div class="border border-border/30 bg-surface/20 p-6" data-animate-stagger>
-            <span class="mono text-[9px] text-text-dim uppercase tracking-widest">{item.label}</span>
+            <span class="mono text-[11px] text-text-dim uppercase tracking-widest">{item.label}</span>
             <p class="mono text-xs text-cyan mt-2 font-bold">{item.value}</p>
           </div>
         ))}

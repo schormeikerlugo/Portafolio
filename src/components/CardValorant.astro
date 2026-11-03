@@ -25,9 +25,9 @@ const { slug, title, tagline, cover, stack, category, subcategory, summary, year
     <!-- 1. Meta & Title -->
     <div class="w-full md:w-[35%] flex flex-col gap-3 shrink-0">
       <div class="flex items-center gap-3 opacity-60">
-        <span class="mono text-[10px] text-cyan uppercase tracking-[0.2em] font-bold">{year}</span>
-        <span class="text-text-dim mono text-[10px]">//</span>
-        <span class="mono text-[9px] text-text-secondary uppercase tracking-[0.2em]">{tagline}</span>
+        <span class="mono text-[11px] text-cyan uppercase tracking-[0.2em] font-bold">{year}</span>
+        <span class="text-text-dim mono text-[11px]">//</span>
+        <span class="mono text-[11px] text-text-secondary uppercase tracking-[0.2em]">{tagline}</span>
       </div>
 
       <h3 class="font-sans text-2xl sm:text-3xl font-bold text-text-primary tracking-tight uppercase flex items-center gap-3 group-hover:text-cyan transition-colors">
@@ -37,7 +37,7 @@ const { slug, title, tagline, cover, stack, category, subcategory, summary, year
         </svg>
       </h3>
 
-      <span class="mono text-[9px] text-text-dim tracking-widest uppercase mt-1">
+      <span class="mono text-[11px] text-text-dim tracking-widest uppercase mt-1">
         [{label('subcategory', subcategory, lang)}] · {label('status', status, lang)}
       </span>
     </div>
@@ -48,12 +48,12 @@ const { slug, title, tagline, cover, stack, category, subcategory, summary, year
 
       <div class="flex flex-wrap gap-2 pt-2">
         {stack.slice(0, 4).map((tag) => (
-          <span class="mono text-[9px] text-text-dim border border-border/50 px-2 py-1 bg-void/50 rounded-sm uppercase tracking-wider group-hover:border-cyan/30 group-hover:text-cyan transition-colors">
+          <span class="mono text-[11px] text-text-dim border border-border/50 px-2 py-1 bg-void/50 rounded-sm uppercase tracking-wider group-hover:border-cyan/30 group-hover:text-cyan transition-colors">
             {tag}
           </span>
         ))}
         {stack.length > 4 && (
-          <span class="mono text-[9px] text-text-dim px-1 py-1 uppercase tracking-wider">+{stack.length - 4}</span>
+          <span class="mono text-[11px] text-text-dim px-1 py-1 uppercase tracking-wider">+{stack.length - 4}</span>
         )}
       </div>
     </div>
