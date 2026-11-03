@@ -56,10 +56,10 @@ const categories = [
 <section class="py-24 lg:py-32 px-6 border-t border-border overflow-hidden">
   <div class="max-w-[1400px] mx-auto">
     <div class="mb-16 section-header" data-animate>
-      <span class="mono text-xs text-cyan tracking-[0.18em] uppercase">
+      <span class="mono text-[10px] text-cyan/60 tracking-[0.3em] uppercase">
         {lang === 'en' ? '0X06 // TECHNOLOGY_MAP' : '0X06 // MAPA_TECNOLÓGICO'}
       </span>
-      <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-text-primary mt-4">
+      <h2 class="text-4xl sm:text-5xl lg:text-6xl font-sans font-black text-text-primary mt-4">
         {lang === 'en' ? 'Technology Stack.' : 'Stack Tecnológico.'}
       </h2>
       <p class="text-text-secondary font-sans text-lg max-w-2xl mt-6 leading-relaxed">
@@ -78,7 +78,7 @@ const categories = [
               <div class="w-2 h-2 rounded-full animate-pulse" style={`background: ${cat.color}`}></div>
               <span class="mono text-xs tracking-widest uppercase font-bold" style={`color: ${cat.color}`}>{cat.label}</span>
             </div>
-            <span class="mono text-xs text-text-dim">{cat.tools.length} {lang === 'en' ? 'TOOLS' : 'HERRAMIENTAS'}</span>
+            <span class="mono text-[9px] text-text-dim">{cat.tools.length} {lang === 'en' ? 'TOOLS' : 'HERRAMIENTAS'}</span>
           </div>
 
           <!-- Tools -->
@@ -87,7 +87,7 @@ const categories = [
               <div class="tech-tool-item">
                 <div class="flex items-center justify-between mb-2">
                   <span class="font-sans text-sm text-text-primary font-medium">{tool.name}</span>
-                  <span class="mono text-xs font-bold" style={`color: ${cat.color}`}>{tool.level}%</span>
+                  <span class="mono text-[10px] font-bold" style={`color: ${cat.color}`}>{tool.level}%</span>
                 </div>
                 <div class="h-1.5 bg-white/5 rounded-full overflow-hidden relative">
                   <div

@@ -69,41 +69,41 @@ const topLanguages = Object.entries(languages)
     <!-- Live indicator -->
     <div class="flex items-center gap-2">
       <div class="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse"></div>
-      <span class="mono text-xs text-text-dim uppercase tracking-widest">GitHub</span>
+      <span class="mono text-[9px] text-text-dim uppercase tracking-widest">GitHub</span>
     </div>
 
     <!-- Last commit -->
     <div class="flex items-center gap-2">
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-cyan/90"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-      <span class="mono text-xs text-text-dim uppercase tracking-wider">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-cyan/50"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <span class="mono text-[9px] text-text-dim uppercase tracking-wider">
         {lang === 'en' ? 'LAST COMMIT' : 'ÚLTIMO COMMIT'}:
       </span>
-      <span class="mono text-xs text-cyan font-bold">{lastPush}</span>
+      <span class="mono text-[9px] text-cyan font-bold">{lastPush}</span>
     </div>
 
     <!-- Top repo -->
     <div class="flex items-center gap-2">
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-cyan/90"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-      <span class="mono text-xs text-text-dim uppercase tracking-wider">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-cyan/50"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      <span class="mono text-[9px] text-text-dim uppercase tracking-wider">
         {lang === 'en' ? 'ACTIVE' : 'ACTIVO'}:
       </span>
-      <a href={`https://github.com/schormeikerlugo/${topRepo}`} target="_blank" rel="noopener" class="mono text-xs text-cyan font-bold hover:text-white transition-colors">
+      <a href={`https://github.com/schormeikerlugo/${topRepo}`} target="_blank" rel="noopener" class="mono text-[9px] text-cyan font-bold hover:text-white transition-colors">
         {topRepo.toUpperCase()}
       </a>
     </div>
 
     <!-- Repo count -->
     <div class="flex items-center gap-2">
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-cyan/90"><path d="M2 16V4a2 2 0 0 1 2-2h6l2 2h6a2 2 0 0 1 2 2v4"/><path d="M6 12l4 4 4-4"/></svg>
-      <span class="mono text-xs text-cyan font-bold">{totalRepos}</span>
-      <span class="mono text-xs text-text-dim uppercase tracking-wider">REPOS</span>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-cyan/50"><path d="M2 16V4a2 2 0 0 1 2-2h6l2 2h6a2 2 0 0 1 2 2v4"/><path d="M6 12l4 4 4-4"/></svg>
+      <span class="mono text-[9px] text-cyan font-bold">{totalRepos}</span>
+      <span class="mono text-[9px] text-text-dim uppercase tracking-wider">REPOS</span>
     </div>
 
     <!-- Languages -->
     <div class="flex items-center gap-3 hidden sm:flex">
       {topLanguages.map(l => (
-        <span class="mono text-xs text-text-dim">
-          <span class="text-text-secondary">{l.name}</span> <span class="text-cyan">{l.pct}%</span>
+        <span class="mono text-[9px] text-text-dim">
+          <span class="text-text-secondary">{l.name}</span> <span class="text-cyan/60">{l.pct}%</span>
         </span>
       ))}
     </div>

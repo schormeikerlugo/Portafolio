@@ -19,19 +19,19 @@ import MatrixRain from '../components/react/MatrixRain';
 
     <div class="relative z-10 text-center max-w-2xl">
       <!-- Error badge -->
-      <div class="error-badge mono text-xs text-red-400 tracking-[0.25em] uppercase mb-8">
+      <div class="error-badge mono text-[10px] text-red-400 tracking-[0.5em] uppercase mb-8">
         <span class="error-blink">●</span> CRITICAL_SYSTEM_FAILURE <span class="error-blink">●</span>
       </div>
 
       <!-- 404 number with aggressive glitch -->
       <div class="error-number-wrap mb-6">
-        <h1 class="error-404 text-[clamp(5rem,25vw,14rem)] font-bold leading-none tracking-tighter select-none" data-text="404">
+        <h1 class="error-404 text-[clamp(5rem,25vw,14rem)] font-sans font-black leading-none tracking-tighter select-none" data-text="404">
           4<span class="text-cyan error-zero">0</span>4
         </h1>
       </div>
 
       <!-- Typewriter error label -->
-      <div class="mono text-sm sm:text-base text-red-400/85 tracking-[0.18em] uppercase mb-8 h-6">
+      <div class="mono text-sm sm:text-base text-red-400/60 tracking-[0.3em] uppercase mb-8 h-6">
         <span id="error-typewriter"></span><span class="error-cursor">_</span>
       </div>
 
@@ -44,10 +44,10 @@ import MatrixRain from '../components/react/MatrixRain';
             <div class="w-2 h-2 rounded-full bg-yellow-500/40"></div>
             <div class="w-2 h-2 rounded-full bg-white/10"></div>
           </div>
-          <span class="mono text-xs text-red-400/40 tracking-widest">SYSTEM_DIAGNOSTIC.SH</span>
+          <span class="mono text-[9px] text-red-400/40 tracking-widest">SYSTEM_DIAGNOSTIC.SH</span>
         </div>
 
-        <div id="terminal-output" class="mono text-xs sm:text-xs leading-relaxed space-y-1 min-h-[120px]">
+        <div id="terminal-output" class="mono text-[11px] sm:text-xs leading-relaxed space-y-1 min-h-[120px]">
           <!-- Lines will be typed in by JS -->
         </div>
 
@@ -57,16 +57,16 @@ import MatrixRain from '../components/react/MatrixRain';
 
       <!-- Action buttons -->
       <div class="flex flex-wrap justify-center gap-4 error-buttons">
-        <a href="/" class="px-8 py-3 bg-cyan text-void mono text-xs tracking-[0.14em] font-bold uppercase btn-primary">
+        <a href="/" class="px-8 py-3 bg-cyan text-void mono text-[11px] tracking-[0.2em] font-bold uppercase btn-primary">
           [ VOLVER AL INICIO ]
         </a>
-        <a href="/work" class="px-8 py-3 border border-border text-text-primary mono text-xs tracking-[0.14em] uppercase btn-secondary">
+        <a href="/work" class="px-8 py-3 border border-border text-text-primary mono text-[11px] tracking-[0.2em] uppercase btn-secondary">
           [ VER PROYECTOS ]
         </a>
       </div>
 
       <!-- Footer error code -->
-      <div class="mt-12 mono text-xs text-white/10 tracking-[0.18em] uppercase">
+      <div class="mt-12 mono text-[9px] text-white/10 tracking-[0.3em] uppercase">
         DUMP_REF: 0xDEAD_C0DE // STACK_TRACE: NULL // PID: 404
       </div>
     </div>
@@ -244,7 +244,7 @@ import MatrixRain from '../components/react/MatrixRain';
     lines.forEach((line) => {
       setTimeout(() => {
         const el = document.createElement('div');
-        el.className = `mono text-xs sm:text-xs ${line.color}`;
+        el.className = `mono text-[11px] sm:text-xs ${line.color}`;
         el.style.animation = 'terminal-appear 0.2s ease both';
 
         // Type each line character by character (fast)

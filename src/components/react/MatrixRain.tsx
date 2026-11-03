@@ -12,7 +12,6 @@ export default function MatrixRain({ opacity = 0.35 }: MatrixRainProps) {
     const canvas = canvasRef.current;
     const container = containerRef.current;
     if (!canvas) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
@@ -52,13 +51,13 @@ export default function MatrixRain({ opacity = 0.35 }: MatrixRainProps) {
     );
 
     const draw = () => {
-      ctx.clearRect(0, 0, width, height);
+      ctx.fillStyle = 'rgba(0, 0, 0, 1)';
+      ctx.fillRect(0, 0, width, height);
 
       layers.forEach((layer, layerIdx) => {
         ctx.font = `${layer.fontSize}px monospace`;
         const layerDrops = drops[layerIdx];
         const layerChars = activeChars[layerIdx];
-        const tint = layerIdx % 2 === 0 ? '0, 229, 255' : '255, 43, 214';
         const colSpacing = isMobile ? layer.fontSize * 3 : layer.fontSize * 2.5;
 
         for (let i = 0; i < layerDrops.length; i++) {
@@ -81,8 +80,8 @@ export default function MatrixRain({ opacity = 0.35 }: MatrixRainProps) {
 
             ctx.fillStyle =
               j === 0
-                ? `rgba(236, 249, 255, ${layer.opacity + 0.3})`
-                : `rgba(${tint}, ${charOpacity})`;
+                ? `rgba(255, 255, 255, ${layer.opacity + 0.3})`
+                : `rgba(204, 204, 204, ${charOpacity})`;
 
             const char =
               j === 0
@@ -156,7 +155,7 @@ export default function MatrixRain({ opacity = 0.35 }: MatrixRainProps) {
         className="absolute inset-0 z-10"
         style={{
           background:
-            'linear-gradient(to bottom, rgba(7,6,13,0) 0%, rgba(7,6,13,1) 100%)',
+            'linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%)',
         }}
       />
     </div>

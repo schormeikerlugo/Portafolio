@@ -63,9 +63,9 @@ const facts = [
     ]),
   ]}
 >
-  <section class="pt-28 pb-24 px-6" data-category={project.category}>
+  <section class="pt-28 pb-24 px-6">
     <div class="max-w-[1200px] mx-auto">
-      <a href={`${base}/work`} class="inline-flex items-center gap-2 mono text-xs text-text-dim hover:text-cyan transition-colors uppercase tracking-widest mb-12" data-animate>
+      <a href={`${base}/work`} class="inline-flex items-center gap-2 mono text-[10px] text-text-dim hover:text-cyan transition-colors uppercase tracking-widest mb-12" data-animate>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
         {t(lang, 'portfolio.backButton')}
       </a>
@@ -73,17 +73,16 @@ const facts = [
       <!-- Header -->
       <header class="mb-12" data-animate>
         <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mb-4">
-          <span class="mono text-xs accent-text uppercase tracking-[0.14em] font-bold">{project.year}</span>
-          <span class="text-text-dim mono text-xs">//</span>
-          <span class="mono text-xs text-text-secondary uppercase tracking-[0.14em]">{label('subcategory', project.subcategory, lang)}</span>
-          <span class="text-text-dim mono text-xs">//</span>
-          <span class="mono text-xs text-text-secondary uppercase tracking-[0.14em]">{label('type', project.type, lang)}</span>
-          <span class="project-status mono text-[11px] uppercase tracking-[0.14em] px-2 py-0.5 border" data-status={project.status}>{label('status', project.status, lang)}</span>
+          <span class="mono text-[10px] text-cyan uppercase tracking-[0.2em] font-bold">{project.year}</span>
+          <span class="text-text-dim mono text-[10px]">//</span>
+          <span class="mono text-[9px] text-text-secondary uppercase tracking-[0.2em]">{label('subcategory', project.subcategory, lang)}</span>
+          <span class="text-text-dim mono text-[10px]">//</span>
+          <span class="mono text-[9px] text-text-secondary uppercase tracking-[0.2em]">{label('type', project.type, lang)}</span>
+          <span class="project-status mono text-[9px] uppercase tracking-[0.2em] px-2 py-0.5 border" data-status={project.status}>{label('status', project.status, lang)}</span>
         </div>
 
-        <h1 class="text-4xl sm:text-5xl lg:text-7xl text-text-primary tracking-tight uppercase">{project.title}</h1>
-        <div class="h-[3px] w-24 mt-6" style="background: linear-gradient(90deg, var(--accent), var(--color-yellow))" aria-hidden="true"></div>
-        <p class="mono text-sm text-text-secondary uppercase tracking-[0.14em] mt-5">{project.tagline}</p>
+        <h1 class="text-4xl sm:text-5xl lg:text-7xl font-sans font-black text-text-primary tracking-tight uppercase">{project.title}</h1>
+        <p class="mono text-xs sm:text-sm text-text-secondary uppercase tracking-[0.2em] mt-4">{project.tagline}</p>
 
         {links.length > 0 && (
           <div class="flex flex-wrap gap-4 mt-8">
@@ -93,7 +92,7 @@ const facts = [
                 target="_blank"
                 rel="noopener"
                 class:list={[
-                  'inline-flex items-center gap-2 px-6 py-3 mono text-xs tracking-[0.14em] uppercase',
+                  'inline-flex items-center gap-2 px-6 py-3 mono text-[11px] tracking-[0.2em] uppercase',
                   l.primary ? 'bg-cyan text-void font-bold btn-primary' : 'border border-border text-text-primary btn-secondary',
                 ]}
               >
@@ -105,7 +104,7 @@ const facts = [
       </header>
 
       <!-- Cover -->
-      <div class="chamfer relative aspect-video w-full overflow-hidden border border-border mb-16" style="box-shadow: 0 0 60px rgba(var(--accent-rgb), 0.12)" data-animate>
+      <div class="relative aspect-video w-full overflow-hidden border border-border/30 mb-16" data-animate>
         <Image
           src={project.cover}
           alt={project.title}
@@ -120,7 +119,7 @@ const facts = [
       <!-- Overview + facts -->
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-16">
         <div class="lg:col-span-2" data-animate>
-          <span class="mono text-xs accent-text tracking-widest uppercase">{t(lang, 'portfolio.overviewLabel')}</span>
+          <span class="mono text-[10px] text-cyan/60 tracking-widest uppercase">{t(lang, 'portfolio.overviewLabel')}</span>
           <p class="text-text-secondary font-sans text-lg leading-relaxed mt-4">{project.summary}</p>
         </div>
 
@@ -128,26 +127,26 @@ const facts = [
           <dl class="grid grid-cols-2 gap-x-6 gap-y-5">
             {facts.map((f) => (
               <div>
-                <dt class="mono text-xs text-text-dim tracking-widest uppercase">{f.label}</dt>
+                <dt class="mono text-[10px] text-text-dim tracking-widest uppercase">{f.label}</dt>
                 <dd class="text-text-primary font-sans mt-1">{f.value}</dd>
               </div>
             ))}
           </dl>
           {project.role.length > 0 && (
             <div>
-              <span class="mono text-xs text-text-dim tracking-widest uppercase">{t(lang, 'portfolio.roleLabel')}</span>
+              <span class="mono text-[10px] text-text-dim tracking-widest uppercase">{t(lang, 'portfolio.roleLabel')}</span>
               <div class="flex flex-wrap gap-2 mt-2">
                 {project.role.map((r) => (
-                  <span class="mono text-[11px] px-3 py-1.5 border uppercase tracking-wider accent-text" style="border-color: rgba(var(--accent-rgb), 0.35); background: rgba(var(--accent-rgb), 0.07)">{r}</span>
+                  <span class="mono text-[9px] px-3 py-1.5 border border-cyan/20 text-cyan bg-cyan/5 uppercase tracking-wider">{r}</span>
                 ))}
               </div>
             </div>
           )}
           <div>
-            <span class="mono text-xs text-text-dim tracking-widest uppercase">{t(lang, 'portfolio.stackLabel')}</span>
+            <span class="mono text-[10px] text-text-dim tracking-widest uppercase">{t(lang, 'portfolio.stackLabel')}</span>
             <div class="flex flex-wrap gap-2 mt-2">
               {project.stack.map((s) => (
-                <span class="mono text-[11px] text-text-secondary border border-border px-3 py-1 uppercase tracking-wider">{s}</span>
+                <span class="mono text-[9px] text-text-dim border border-border/50 px-3 py-1 uppercase tracking-wider">{s}</span>
               ))}
             </div>
           </div>
@@ -155,30 +154,30 @@ const facts = [
       </div>
 
       <!-- Challenge (terminal) -->
-      <div class="chamfer mb-16 terminal-diag border border-border bg-panel/80 overflow-hidden" data-animate>
+      <div class="mb-16 terminal-diag border border-border/30 bg-surface/20 overflow-hidden" data-animate>
         <div class="px-6 py-3 border-b border-border/20 flex items-center gap-3">
           <div class="flex gap-1.5" aria-hidden="true">
             <div class="w-2 h-2 rounded-full bg-red-500/60 animate-pulse"></div>
             <div class="w-2 h-2 rounded-full bg-yellow-500/40"></div>
             <div class="w-2 h-2 rounded-full bg-white/10"></div>
           </div>
-          <span class="mono text-xs text-red-400/85 tracking-widest uppercase">{t(lang, 'portfolio.challengeLabel')}</span>
+          <span class="mono text-[9px] text-red-400/50 tracking-widest uppercase">{t(lang, 'portfolio.challengeLabel')}</span>
         </div>
         <div class="p-6 sm:p-8">
-          <pre class="terminal-text mono text-sm text-text-secondary whitespace-pre-wrap leading-relaxed overflow-x-auto" data-terminal-text={terminal}>{terminal}</pre>
+          <pre class="terminal-text mono text-xs sm:text-sm text-text-secondary whitespace-pre-wrap leading-relaxed overflow-x-auto" data-terminal-text={terminal}>{terminal}</pre>
           <span class="terminal-cursor mono text-red-400" aria-hidden="true">_</span>
         </div>
       </div>
 
       <!-- Approach -->
       <div class="mb-16" data-animate>
-        <span class="mono text-xs accent-text tracking-widest uppercase">{t(lang, 'portfolio.approachLabel')}</span>
+        <span class="mono text-[10px] text-cyan/60 tracking-widest uppercase">{t(lang, 'portfolio.approachLabel')}</span>
         <p class="text-text-secondary font-sans text-lg leading-relaxed mt-4">{project.approach}</p>
       </div>
 
       {project.outcome && (
         <div class="mb-16" data-animate>
-          <span class="mono text-xs accent-text tracking-widest uppercase">{t(lang, 'portfolio.outcomeLabel')}</span>
+          <span class="mono text-[10px] text-cyan/60 tracking-widest uppercase">{t(lang, 'portfolio.outcomeLabel')}</span>
           <p class="text-text-secondary font-sans text-lg leading-relaxed mt-4">{project.outcome}</p>
         </div>
       )}
@@ -187,10 +186,10 @@ const facts = [
 
       {project.gallery.length > 0 && (
         <div class="mb-16" data-animate>
-          <span class="mono text-xs accent-text tracking-widest uppercase mb-6 block">{t(lang, 'portfolio.galleryLabel')}</span>
+          <span class="mono text-[10px] text-cyan/60 tracking-widest uppercase mb-6 block">{t(lang, 'portfolio.galleryLabel')}</span>
           <div class="grid grid-cols-1 gap-4">
             {project.gallery.map((img, i) => (
-              <a href={img.src} target="_blank" rel="noopener" class="relative block overflow-hidden border border-border hover:border-(--accent) transition-colors">
+              <a href={img.src} target="_blank" rel="noopener" class="relative block overflow-hidden border border-border/30">
                 <Image
                   src={img}
                   alt={`${project.title} — ${isEn ? 'screen' : 'pantalla'} ${i + 1}`}
@@ -207,16 +206,16 @@ const facts = [
 
       {related.length > 0 && (
         <div class="mb-16" data-animate>
-          <span class="mono text-xs accent-text tracking-widest uppercase mb-6 block">{t(lang, 'portfolio.related')}</span>
+          <span class="mono text-[10px] text-cyan/60 tracking-widest uppercase mb-6 block">{t(lang, 'portfolio.related')}</span>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             {related.map((r) => (
-              <a href={projectUrl(r.slug, lang)} class="featured-card group border border-border block" data-category={r.category}>
+              <a href={projectUrl(r.slug, lang)} class="group border border-border/50 bg-surface/20 block">
                 <div class="aspect-video overflow-hidden">
                   <Image src={r.cover} alt={r.title} widths={[400, 640]} sizes="(min-width: 768px) 33vw, 100vw" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" />
                 </div>
                 <div class="p-4">
-                  <span class="mono text-xs text-cyan uppercase tracking-widest">{label('subcategory', r.subcategory, lang)} · {r.year}</span>
-                  <h3 class="text-lg font-bold text-text-primary mt-1 uppercase"><span class="glitch-hover">{r.title}</span></h3>
+                  <span class="mono text-[9px] text-cyan uppercase tracking-widest">{label('subcategory', r.subcategory, lang)} · {r.year}</span>
+                  <h3 class="text-lg font-sans font-bold text-text-primary mt-1 uppercase group-hover:text-cyan transition-colors">{r.title}</h3>
                 </div>
               </a>
             ))}
@@ -229,18 +228,18 @@ const facts = [
           <a href={projectUrl(prev.slug, lang)} class="group flex items-center gap-3 text-text-dim hover:text-cyan transition-colors">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
             <div>
-              <span class="mono text-xs uppercase tracking-widest block">{t(lang, 'portfolio.prev')}</span>
+              <span class="mono text-[9px] uppercase tracking-widest block">{t(lang, 'portfolio.prev')}</span>
               <span class="font-sans text-sm font-bold uppercase group-hover:text-cyan transition-colors">{prev.title}</span>
             </div>
           </a>
         ) : <div />}
 
-        <a href={`${base}/work`} class="mono text-xs text-text-dim hover:text-cyan transition-colors uppercase tracking-widest">{t(lang, 'portfolio.all')}</a>
+        <a href={`${base}/work`} class="mono text-[10px] text-text-dim hover:text-cyan transition-colors uppercase tracking-widest">{t(lang, 'portfolio.all')}</a>
 
         {next ? (
           <a href={projectUrl(next.slug, lang)} class="group flex items-center gap-3 text-text-dim hover:text-cyan transition-colors text-right">
             <div>
-              <span class="mono text-xs uppercase tracking-widest block">{t(lang, 'portfolio.next')}</span>
+              <span class="mono text-[9px] uppercase tracking-widest block">{t(lang, 'portfolio.next')}</span>
               <span class="font-sans text-sm font-bold uppercase group-hover:text-cyan transition-colors">{next.title}</span>
             </div>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>

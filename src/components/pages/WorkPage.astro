@@ -41,8 +41,8 @@ for (const cat of categories) {
   <section class="pt-28 pb-24 px-6 min-h-screen">
     <div class="max-w-[1400px] mx-auto">
       <div class="mb-12 section-header" data-animate>
-        <span class="mono text-xs text-cyan tracking-[0.18em] uppercase">{t(lang, 'work.tag')}</span>
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-text-primary mt-4">{t(lang, 'work.title')}</h1>
+        <span class="mono text-[10px] text-cyan/60 tracking-[0.3em] uppercase">{t(lang, 'work.tag')}</span>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-sans font-black text-text-primary mt-4">{t(lang, 'work.title')}</h1>
         <p class="text-text-secondary font-sans text-lg max-w-2xl mt-6 leading-relaxed">
           {t(lang, 'work.description').replace('{count}', count)}
         </p>
@@ -51,11 +51,11 @@ for (const cat of categories) {
       <GitHubActivity lang={lang} />
 
       <div class="mb-4 flex flex-wrap gap-3" data-animate role="toolbar" aria-label={isEn ? 'Filter by category' : 'Filtrar por categoría'}>
-        <button class="filter-btn active mono text-xs uppercase tracking-widest px-4 py-2 border border-cyan/30 text-cyan bg-cyan/10 transition-all" data-filter="all" aria-pressed="true">
+        <button class="filter-btn active mono text-[10px] uppercase tracking-widest px-4 py-2 border border-cyan/30 text-cyan bg-cyan/10 transition-all" data-filter="all" aria-pressed="true">
           {t(lang, 'work.filterAll')} ({projects.length})
         </button>
         {categories.map((cat) => (
-          <button class="filter-btn mono text-xs uppercase tracking-widest px-4 py-2 border border-border/50 text-text-dim hover:border-cyan/30 hover:text-cyan transition-all" data-filter={cat} aria-pressed="false">
+          <button class="filter-btn mono text-[10px] uppercase tracking-widest px-4 py-2 border border-border/50 text-text-dim hover:border-cyan/30 hover:text-cyan transition-all" data-filter={cat} aria-pressed="false">
             {label('category', cat, lang)} ({projects.filter((p) => p.category === cat).length})
           </button>
         ))}
@@ -128,7 +128,7 @@ for (const cat of categories) {
         return;
       }
       subFilters!.innerHTML = subs
-        .map((s) => `<button class="sub-filter-btn mono text-[11px] uppercase tracking-widest px-3 py-1.5 border border-border/30 text-text-dim hover:border-cyan/20 hover:text-cyan transition-all" data-subfilter="${s.key}" aria-pressed="false">${s.label}</button>`)
+        .map((s) => `<button class="sub-filter-btn mono text-[9px] uppercase tracking-widest px-3 py-1.5 border border-border/30 text-text-dim hover:border-cyan/20 hover:text-cyan/60 transition-all" data-subfilter="${s.key}" aria-pressed="false">${s.label}</button>`)
         .join('');
       subFilters!.classList.remove('hidden');
       subFilters!.querySelectorAll<HTMLElement>('.sub-filter-btn').forEach((btn) => {
